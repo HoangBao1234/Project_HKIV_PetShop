@@ -81,13 +81,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="Customer/index.jsp">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="blog.jsp">Blog <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="Customer/blog.jsp">Blog <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="single.jsp">Single <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="Customer/single.jsp">Single <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
@@ -108,7 +108,7 @@
                         </div>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="Contact_us.jsp">Contact <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="Customer/Contact_us.jsp">Contact <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
@@ -123,7 +123,7 @@
                 <div class="fh5co_suceefh5co_height_position_absolute_font">
                     <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;Dec 31,2017
                     </a></div>
-                    <div class=""><a href="single.jsp" class="fh5co_good_font"> After all is said and done, more is said than done </a></div>
+                    <div class=""><a href="Customer/single.jsp" class="fh5co_good_font"> After all is said and done, more is said than done </a></div>
                 </div>
             </div>
         </div>
@@ -135,7 +135,7 @@
                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
                             <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct
                                 28,2017 </a></div>
-                            <div class=""><a href="single.jsp" class="fh5co_good_font_2"> After all is said and done, <br>more is said than done </a></div>
+                            <div class=""><a href="Customer/single.jsp" class="fh5co_good_font_2"> After all is said and done, <br>more is said than done </a></div>
                         </div>
                     </div>
                 </div>
@@ -144,7 +144,7 @@
                         <div class="fh5co_suceefh5co_height_position_absolute"></div>
                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
                             <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct 28,2017 </a></div>
-                            <div class=""><a href="single.jsp" class="fh5co_good_font_2"> After all is said and done... </a></div>
+                            <div class=""><a href="Customer/single.jsp" class="fh5co_good_font_2"> After all is said and done... </a></div>
                         </div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
                             <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct
                                 28,2017 </a></div>
-                            <div class=""><a href="single.jsp" class="fh5co_good_font_2"> After all is said and done, more is said than done </a></div>
+                            <div class=""><a href="Customer/single.jsp" class="fh5co_good_font_2"> After all is said and done, more is said than done </a></div>
                         </div>
                     </div>
                 </div>
@@ -164,7 +164,7 @@
                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
                             <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct
                                 28,2017 </a></div>
-                            <div class=""><a href="single.jsp" class="fh5co_good_font_2"> After all is said and done, more is said... </a></div>
+                            <div class=""><a href="Customer/single.jsp" class="fh5co_good_font_2"> After all is said and done, more is said... </a></div>
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@
                                                            class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.jsp" class="text-white"> Here's a new way to take better photos for instagram </a>
+                        <a href="Customer/single.jsp" class="text-white"> Here's a new way to take better photos for instagram </a>
                         <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
                     </div>
                 </div>
@@ -194,7 +194,7 @@
                     <div class="fh5co_latest_trading_img"><img src="images/abigail-keenan-65477.jpg" alt="" class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.jsp" class="text-white"> Here's a new way to take better photos for instagram </a>
+                        <a href="Customer/single.jsp" class="text-white"> Here's a new way to take better photos for instagram </a>
                         <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
                     </div>
                 </div>
@@ -204,7 +204,7 @@
                     <div class="fh5co_latest_trading_img"><img src="images/ryan-moreno-98837.jpg" alt="" class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.jsp" class="text-white"> Here's a new way to take better photos for instagram </a>
+                        <a href="Customer/single.jsp" class="text-white"> Here's a new way to take better photos for instagram </a>
                         <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
                     </div>
                 </div>
@@ -214,7 +214,7 @@
                     <div class="fh5co_latest_trading_img"><img src="images/science-578x362.jpg" alt="" class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.jsp" class="text-white"> Here's a new way to take better photos for instagram </a>
+                        <a href="Customer/single.jsp" class="text-white"> Here's a new way to take better photos for instagram </a>
                         <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
                     </div>
                 </div>
@@ -224,7 +224,7 @@
                     <div class="fh5co_latest_trading_img"><img src="images/nick-karvounis-78711.jpg" alt="" class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.jsp" class="text-white"> Here's a new way to take better photos for instagram </a>
+                        <a href="Customer/single.jsp" class="text-white"> Here's a new way to take better photos for instagram </a>
                         <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
                     </div>
                 </div>
@@ -242,7 +242,7 @@
                 <div class="fh5co_hover_news_img">
                     <div class="fh5co_news_img"><img src="images/39-324x235.jpg" alt=""/></div>
                     <div>
-                        <a href="single.jsp" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
+                        <a href="Customer/single.jsp" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
                         <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
                     </div>
                 </div>
@@ -251,7 +251,7 @@
                 <div class="fh5co_hover_news_img">
                     <div class="fh5co_news_img"><img src="images/joe-gardner-75333.jpg" alt=""/></div>
                     <div>
-                        <a href="single.jsp" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
+                        <a href="Customer/single.jsp" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
                         <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
                     </div>
                 </div>
@@ -260,7 +260,7 @@
                 <div class="fh5co_hover_news_img">
                     <div class="fh5co_news_img"><img src="images/ryan-moreno-98837.jpg" alt=""/></div>
                     <div>
-                        <a href="single.jsp" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
+                        <a href="Customer/single.jsp" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
                         <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
                     </div>
                 </div>
@@ -269,7 +269,7 @@
                 <div class="fh5co_hover_news_img">
                     <div class="fh5co_news_img"><img src="images/seth-doyle-133175.jpg" alt=""/></div>
                     <div>
-                        <a href="single.jsp" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
+                        <a href="Customer/single.jsp" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
                         <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
                     </div>
                 </div>
@@ -405,7 +405,7 @@
                         </div>
                     </div>
                     <div class="col-md-7 animate-box">
-                        <a href="single.jsp" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
+                        <a href="Customer/single.jsp" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
                             nostrud quis xercitation ullamco. </a> <a href="single.jsp" class="fh5co_mini_time py-3"> Thomson Smith -
                         April 18,2016 </a>
                         <div class="fh5co_consectetur"> Amet consectetur adipisicing elit, sed do eiusmod tempor incididunt
@@ -421,7 +421,7 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <a href="single.jsp" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
+                        <a href="Customer/single.jsp" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
                         nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
                         April 18,2016 </a>
                         <div class="fh5co_consectetur"> Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -446,7 +446,7 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <a href="single.jsp" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
+                        <a href="Customer/single.jsp" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
                         nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
                         April 18,2016 </a>
                         <div class="fh5co_consectetur"> Quis nostrud xercitation ullamco laboris nisi aliquip ex ea commodo
@@ -462,7 +462,7 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <a href="single.jsp" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
+                        <a href="Customer/single.jsp" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
                         nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
                         April 18,2016 </a>
                         <div class="fh5co_consectetur"> Amet consectetur adipisicing elit, sed do eiusmod tempor incididunt
@@ -620,10 +620,10 @@
         <div class="row  ">
             <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2018, All rights reserved. Design by <a href="https://freehtml5.co" title="Free HTML5 Bootstrap templates">FreeHTML5.co</a>. </div>
             <div class="col-12 col-md-6 spdp_right py-4">
-                <a href="#" class="footer_last_part_menu">Home</a>
-                <a href="Contact_us.jsp" class="footer_last_part_menu">About</a>
-                <a href="Contact_us.jsp" class="footer_last_part_menu">Contact</a>
-                <a href="blog.jsp" class="footer_last_part_menu">Latest News</a></div>
+                <a href="Customer/index.jsp" class="footer_last_part_menu">Home</a>
+                <a href="Customer/Contact_us.jsp" class="footer_last_part_menu">About</a>
+                <a href="Customer/Contact_us.jsp" class="footer_last_part_menu">Contact</a>
+                <a href="Customer/blog.jsp" class="footer_last_part_menu">Latest News</a></div>
         </div>
     </div>
 </div>
@@ -645,6 +645,5 @@
 <script src="js/jquery.waypoints.min.js"></script>
 <!-- Main -->
 <script src="js/main.js"></script>
-<h1>Duy Đỗ</h1>
 </body>
 </html>
