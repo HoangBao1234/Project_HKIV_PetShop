@@ -81,13 +81,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../Customer/index.jsp">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../index.jsp">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="../Customer/blog.jsp">Blog <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="blog.jsp">Blog <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="../Customer/single.jsp">Single <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="single.jsp">Single <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
@@ -354,10 +354,10 @@
         <div class="row  ">
             <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2018, All rights reserved. Design by <a href="https://freehtml5.co" title="Free HTML5 Bootstrap templates">FreeHTML5.co</a>. </div>
             <div class="col-12 col-md-6 spdp_right py-4">
-                <a href="../Customer/index.jsp" class="footer_last_part_menu">Home</a>
-                <a href="../Customer/Contact_us.jsp" class="footer_last_part_menu">About</a>
-                <a href="../Customer/Contact_us.jsp" class="footer_last_part_menu">Contact</a>
-                <a href="../Customer/blog.jsp" class="footer_last_part_menu">Latest News</a></div>
+                <a href="../index.jsp" class="footer_last_part_menu">Home</a>
+                <a href="Contact_us.jsp" class="footer_last_part_menu">About</a>
+                <a href="Contact_us.jsp" class="footer_last_part_menu">Contact</a>
+                <a href="blog.jsp" class="footer_last_part_menu">Latest News</a></div>
         </div>
     </div>
 </div>
