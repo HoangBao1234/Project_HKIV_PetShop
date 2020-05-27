@@ -39,8 +39,9 @@ public class Pethotel implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "PHId", nullable = false)
-    private Integer pHId;
+    @Size(min = 1, max = 10)
+    @Column(name = "PHId", nullable = false, length = 10)
+    private String pHId;
     @Size(max = 20)
     @Column(name = "phoneCus", length = 20)
     private String phoneCus;
@@ -62,15 +63,15 @@ public class Pethotel implements Serializable {
     public Pethotel() {
     }
 
-    public Pethotel(Integer pHId) {
+    public Pethotel(String pHId) {
         this.pHId = pHId;
     }
 
-    public Integer getPHId() {
+    public String getPHId() {
         return pHId;
     }
 
-    public void setPHId(Integer pHId) {
+    public void setPHId(String pHId) {
         this.pHId = pHId;
     }
 

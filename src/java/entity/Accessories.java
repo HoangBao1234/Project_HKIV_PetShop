@@ -39,8 +39,9 @@ public class Accessories implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ESId", nullable = false)
-    private Integer eSId;
+    @Size(min = 1, max = 10)
+    @Column(name = "ESId", nullable = false, length = 10)
+    private String eSId;
     @Size(max = 50)
     @Column(name = "name", length = 50)
     private String name;
@@ -62,15 +63,15 @@ public class Accessories implements Serializable {
     public Accessories() {
     }
 
-    public Accessories(Integer eSId) {
+    public Accessories(String eSId) {
         this.eSId = eSId;
     }
 
-    public Integer getESId() {
+    public String getESId() {
         return eSId;
     }
 
-    public void setESId(Integer eSId) {
+    public void setESId(String eSId) {
         this.eSId = eSId;
     }
 

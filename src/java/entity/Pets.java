@@ -7,7 +7,6 @@
 package entity;
 
 import java.io.Serializable;
-import java.sql.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,8 +43,8 @@ public class Pets implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 1)
-    @Column(name = "PId", nullable = false, length = 1)
+    @Size(min = 1, max = 10)
+    @Column(name = "PId", nullable = false, length = 10)
     private String pId;
     @Size(max = 50)
     @Column(name = "pName", length = 50)
@@ -54,7 +53,7 @@ public class Pets implements Serializable {
     @Column(name = "color", length = 20)
     private String color;
     @Column(name = "age")
-    private Date age;
+    private Integer age;
     @Column(name = "gender")
     private Boolean gender;
     @Size(max = 20)
@@ -106,11 +105,11 @@ public class Pets implements Serializable {
         this.color = color;
     }
 
-    public Date getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void Date(Date age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
