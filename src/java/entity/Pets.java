@@ -7,6 +7,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -53,7 +54,7 @@ public class Pets implements Serializable {
     @Column(name = "color", length = 20)
     private String color;
     @Column(name = "age")
-    private Integer age;
+    private Date age;
     @Column(name = "gender")
     private Boolean gender;
     @Size(max = 20)
@@ -105,11 +106,11 @@ public class Pets implements Serializable {
         this.color = color;
     }
 
-    public Integer getAge() {
+    public Date getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void Date(Date age) {
         this.age = age;
     }
 
