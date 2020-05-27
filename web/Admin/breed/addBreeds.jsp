@@ -69,12 +69,12 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Pet Components:</h6>
-                            <a class="collapse-item" href="addPet.jsp">Add Pet</a>
+                            <a class="collapse-item" href="../pet/addPet.jsp">Add Pet</a>
                             <a class="collapse-item" href="cards.html">Pet manement</a>
                         </div>
                     </div>
                 </li>
-
+                
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#foods" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
@@ -83,12 +83,12 @@
                     <div id="foods" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Foods Components:</h6>
-                            <a class="collapse-item" href="addFood.jsp">Add Food</a>
+                            <a class="collapse-item" href="../food/addFood.jsp">Add Food</a>
                             <a class="collapse-item" href="cards.html">Food manement</a>
                         </div>
                     </div>
                 </li>
-
+                
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#animals" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
@@ -97,12 +97,12 @@
                     <div id="animals" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Animals Components:</h6>
-                            <a class="collapse-item" href="addAnimals.jsp">Add Animals</a>
+                            <a class="collapse-item" href="../animals/addAnimals.jsp">Add Animals</a>
                             <a class="collapse-item" href="cards.html">Animals manement</a>
                         </div>
                     </div>
                 </li>
-
+                
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#accessories" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
@@ -111,12 +111,12 @@
                     <div id="accessories" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Accessories Components:</h6>
-                            <a class="collapse-item" href="addAccessories.jsp">Add Accessories</a>
+                            <a class="collapse-item" href="../accessories/addAccessories.jsp">Add Accessories</a>
                             <a class="collapse-item" href="cards.html">Accessories manement</a>
                         </div>
                     </div>
                 </li>
-
+                
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#breed" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
@@ -125,7 +125,7 @@
                     <div id="breed" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">breed Components:</h6>
-                            <a class="collapse-item" href="addBreeds.jsp">Add Breed</a>
+                            <a class="collapse-item" href="../breed/addBreeds.jsp">Add Breed</a>
                             <a class="collapse-item" href="cards.html">Breed manement</a>
                         </div>
                     </div>
@@ -386,7 +386,7 @@
                     </nav>
                     <div>
                         <center>
-                            <h1>Add Accessories</h1>
+                            <h1>Add Breeds</h1>
                             <form class="form-horizontal">
 
 
@@ -396,73 +396,27 @@
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        Accessories Id
+                                        Breeds Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="accessories_id" name="accessories_id" placeholder="Accessories ID" class="form-control input-md" required="" type="text">
+                                        <input id="breeds_id" name="breeds_id" placeholder="Breeds Id" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        Accessories Name
+                                        Breeds Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="accessories_name" name="accessories_name" placeholder="Accessories Name" class="form-control input-md" required="" type="text">
+                                        <input id="breeds_name" name="breeds_name" placeholder="Breeds Name" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Price
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="number">
-                                    </div>
-                                </div>   
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Description
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input id="description" name="description" placeholder="Description" class="form-control input-md" required="" type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Image
-                                    </div>
-                                    <div class="col-sm-4" style="text-align: left">
-                                        <input id="image" name="image" placeholder="Image" required="" type="file">
-                                    </div>
-                                </div>                              
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Animals
-                                    </div>
-                                    <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px">
-                                            <option>Duy</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        CateES
-                                    </div>
-                                    <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px">
-                                            <option>Bảo gà con</option>
-                                        </select>
-                                    </div>
-                                </div>
-
+                               
+                                
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <button id="btnAccessories" name="btnAccessories" class="btn btn-primary">Button</button>
+                                        <button id="btnBreeds" name="btnBreeds" class="btn btn-primary">Button</button>
                                     </div>
                                 </div>
 

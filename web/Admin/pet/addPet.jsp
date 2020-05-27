@@ -83,7 +83,7 @@
                     <div id="foods" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Foods Components:</h6>
-                            <a class="collapse-item" href="addFood.jsp">Add Food</a>
+                            <a class="collapse-item" href="../food/addFood.jsp">Add Food</a>
                             <a class="collapse-item" href="cards.html">Food manement</a>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                     <div id="animals" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Animals Components:</h6>
-                            <a class="collapse-item" href="addAnimals.jsp">Add Animals</a>
+                            <a class="collapse-item" href="../animals/addAnimals.jsp">Add Animals</a>
                             <a class="collapse-item" href="cards.html">Animals manement</a>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                     <div id="accessories" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Accessories Components:</h6>
-                            <a class="collapse-item" href="addAccessories.jsp">Add Accessories</a>
+                            <a class="collapse-item" href="../accessories/addAccessories.jsp">Add Accessories</a>
                             <a class="collapse-item" href="cards.html">Accessories manement</a>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                     <div id="breed" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">breed Components:</h6>
-                            <a class="collapse-item" href="addBreeds.jsp">Add Breed</a>
+                            <a class="collapse-item" href="../breed/addBreeds.jsp">Add Breed</a>
                             <a class="collapse-item" href="cards.html">Breed manement</a>
                         </div>
                     </div>
