@@ -15,7 +15,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SB Admin 2 - Dashboard</title>
+        <title>Add Food</title>
 
         <!-- Custom fonts for this template-->
         <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#foods" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
@@ -88,7 +88,7 @@
                         </div>
                     </div>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#animals" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#accessories" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#breed" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
@@ -386,7 +386,7 @@
                     </nav>
                     <div>
                         <center>
-                            <h1>Add Pet</h1>
+                            <h1>Add Accessories</h1>
                             <form class="form-horizontal">
 
 
@@ -396,83 +396,31 @@
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        Pet Id
+                                        Accessories Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="pet_id" name="pet_id" placeholder="Pet ID" class="form-control input-md" required="" type="text">
+                                        <input id="accessories_id" name="accessories_id" placeholder="Accessories ID" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        Pet Name
+                                        Accessories Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="pet_name" name="pet_name" placeholder="Pet Name" class="form-control input-md" required="" type="text">
+                                        <input id="accessories_name" name="accessories_name" placeholder="Accessories Name" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Color
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input id="color" name="color" placeholder="Color" class="form-control input-md" required="" type="text">
-                                    </div>
-                                </div>
-
-                                <!-- Select Basic -->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Age
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input id="age" name="age" placeholder="Age" class="form-control input-md" required="" type="date">
-                                    </div>
-                                </div>
-
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Gender
-                                    </div>
-                                    <div class="col-sm-4" style="text-align: left">
-                                        <input type="radio" name="gender" value="true"/> Male &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="gender" value="false"/> Female
-                                    </div>
-                                </div>
-
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Origin
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input id="origin" name="origin" placeholder="Origin" class="form-control input-md" required="" type="text">
-                                    </div>
-                                </div>
-
-                                <!-- Textarea -->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
                                         Price
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="text">
+                                        <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="number">
                                     </div>
-                                </div>
-
-                                <!-- Textarea -->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Image
-                                    </div>
-                                    <div class="col-sm-4" style="text-align: left">
-                                        <input id="image" name="image" placeholder="Image" required="" type="file">
-                                    </div>
-                                </div>
-
+                                </div>   
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
@@ -482,7 +430,14 @@
                                         <input id="description" name="description" placeholder="Description" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
-
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        Image
+                                    </div>
+                                    <div class="col-sm-4" style="text-align: left">
+                                        <input id="image" name="image" placeholder="Image" required="" type="file">
+                                    </div>
+                                </div>                              
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
@@ -494,26 +449,20 @@
                                         </select>
                                     </div>
                                 </div>
-
-                                <!-- Search input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        Breeds
+                                        CateES
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px">
-                                            <option>Duy</option>
+                                            <option>Bảo gà con</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                <!-- Search input-->
-
-
-                                <!-- Button -->
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <button id="btnPet" name="btnPet" class="btn btn-primary">Button</button>
+                                        <button id="btnAccessories" name="btnAccessories" class="btn btn-primary">Button</button>
                                     </div>
                                 </div>
 

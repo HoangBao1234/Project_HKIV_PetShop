@@ -83,7 +83,7 @@
                     <div id="foods" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Foods Components:</h6>
-                            <a class="collapse-item" href="buttons.html">Add Food</a>
+                            <a class="collapse-item" href="addFood.jsp">Add Food</a>
                             <a class="collapse-item" href="cards.html">Food manement</a>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                     <div id="animals" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Animals Components:</h6>
-                            <a class="collapse-item" href="buttons.html">Add Animals</a>
+                            <a class="collapse-item" href="addAnimals.jsp">Add Animals</a>
                             <a class="collapse-item" href="cards.html">Animals manement</a>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                     <div id="accessories" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Accessories Components:</h6>
-                            <a class="collapse-item" href="buttons.html">Add Accessories</a>
+                            <a class="collapse-item" href="addAccessories.jsp">Add Accessories</a>
                             <a class="collapse-item" href="cards.html">Accessories manement</a>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                     <div id="breed" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">breed Components:</h6>
-                            <a class="collapse-item" href="buttons.html">Add Breed</a>
+                            <a class="collapse-item" href="addBreeds.jsp">Add Breed</a>
                             <a class="collapse-item" href="cards.html">Breed manement</a>
                         </div>
                     </div>
@@ -399,7 +399,7 @@
                                         Pet Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="pet_id" name="pet_id" placeholder="PET ID" class="form-control input-md" required="" type="text">
+                                        <input id="pet_id" name="pet_id" placeholder="Pet ID" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
@@ -409,7 +409,7 @@
                                         Pet Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="pet_name" name="pet_name" placeholder="PET NAME" class="form-control input-md" required="" type="text">
+                                        <input id="pet_name" name="pet_name" placeholder="Pet Name" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <!-- Text input-->
@@ -418,7 +418,7 @@
                                         Color
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="color" name="color" placeholder="COLOR" class="form-control input-md" required="" type="text">
+                                        <input id="color" name="color" placeholder="Color" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
@@ -428,7 +428,7 @@
                                         Age
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="age" name="age" placeholder="AGE" class="form-control input-md" required="" type="date">
+                                        <input id="age" name="age" placeholder="Age" class="form-control input-md" required="" type="date">
                                     </div>
                                 </div>
 
@@ -513,7 +513,7 @@
                                 <!-- Button -->
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
+                                        <button id="btnPet" name="btnPet" class="btn btn-primary">Button</button>
                                     </div>
                                 </div>
 
