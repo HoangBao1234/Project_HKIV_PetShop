@@ -36,7 +36,7 @@ $yellow:#f5bc04;
 }
 
 a, a:hover {
-	color: $yellow;
+	color: plum;
 }
 .fh5co_header_bg {
 	background: #222;
@@ -46,14 +46,14 @@ a, a:hover {
 	color: #fff!important;
 }
 .treding_btn {
-	background: $yellow;
+	background-color: plum;
 	color: #fff;
 	margin: 0 10px;
 	display: inline-block;
 	padding: 15px 40px;
 }
 .treding_btn:hover, .treding_btn:focus {
-	background: $yellow;
+	background-color:plum;
 	color: #fff;
 	margin: 0 10px;
 	display: inline-block;
@@ -66,7 +66,7 @@ a, a:hover {
 	@include clip-path(polygon(0 1%, 100% 0, 0 100%, 0% 100%));
 	height: 20px;
 	width: 20px;
-	background: $yellow;
+	background: plum;
 	position: absolute;
 	left: 9px;
 }
@@ -92,7 +92,7 @@ a, a:hover {
 .fh5co_display_table:hover, .fh5co_display_table:focus {
 	display: table;
 	color: #777;
-	border: 1px solid $yellow!important;
+	border: 1px solid plum!important;
 	cursor: pointer;
 	@include border-radius(50%);
 }
@@ -119,7 +119,7 @@ a, a:hover {
 	padding-right: 20px!important;
 	margin: 0 20px!important;
 	@include transition(0.5s);
-	background: $yellow!important;
+	background: plum!important;
 	@include clip-path(polygon(100% 0, 100% 85%, 14% 85%, 0 100%, 0% 60%, 0 0));
 }
 .navbar-light .navbar-nav .nav-link {
@@ -134,7 +134,7 @@ a, a:hover {
 	@include clip-path(polygon(100% 0, 100% 85%, 14% 85%, 0 100%, 0% 60%, 0 0));
 
 	&:focus, &:hover {
-		background: $yellow!important;
+		background-color:plum!important;
 		color: #fff!important;
 		padding-top: 12px!important;
 		padding-bottom: 15px!important;
@@ -234,6 +234,7 @@ a, a:hover {
 }
 .fh5co_heading_border_bottom {
 	border-bottom: 1px solid #777;
+        color: yellow;
 }
 .fh5co_latest_trading_img {
 	height: 326px;
