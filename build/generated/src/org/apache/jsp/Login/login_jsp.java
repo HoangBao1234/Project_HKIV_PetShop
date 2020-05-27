@@ -162,7 +162,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                  </div>\r\n");
       out.write("                  <div class=\"text-center\">\r\n");
       out.write("                    <a class=\"small\" href=\"?locale=en\">\r\n");
-      out.write("                        English\r\n");
+      out.write("                        English |\r\n");
       out.write("                    </a>\r\n");
       out.write("                    <a class=\"small\" href=\"?locale=vi\">\r\n");
       out.write("                        Vietnamese\r\n");
