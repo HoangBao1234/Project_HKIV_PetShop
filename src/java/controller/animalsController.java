@@ -6,6 +6,7 @@
 
 package controller;
 
+import entity.Animals;
 import entity.AnimalsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,7 +39,15 @@ public class animalsController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+            String action = request.getParameter("acttion");
+            if(action.equals("Insert")){
+                int id = Integer.parseInt("id");
+                String name = request.getParameter("name");
+                Animals animals = new Animals();
+                animals.setCFId(id);
+                animals.setName(name);
+                animalsFacade.create(animals);
+            }
         }
     }
 
