@@ -6,6 +6,7 @@
 
 package controller;
 
+import entity.Breeds;
 import entity.BreedsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,7 +39,44 @@ public class breedController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+            String action = request.getParameter("acttion");
+            if (action.equals("Insert")) {
+                int id = Integer.parseInt("id");
+                String name = request.getParameter("name");
+                Breeds br = new Breeds();
+                br.setCPId(id);
+                br.setName(name);
+                breedsFacade.create(br);
+                request.setAttribute("list", breedsFacade.findAll());
+                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
+
+            }
+            if (action.equals("Show")) {
+                request.setAttribute("list", breedsFacade.findAll());
+                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
+            }
+            if (action.equals("Delete")) {
+                int id = Integer.parseInt("id");
+                Breeds br = breedsFacade.find(id);
+                breedsFacade.remove(br);
+                request.setAttribute("list", breedsFacade.findAll());
+                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
+            }
+            if (action.equals("findId")) {
+                int id = Integer.parseInt("id");
+
+                Breeds br = breedsFacade.find(id);
+                request.setAttribute("br", br);
+                request.getRequestDispatcher("updateBreeds.jsp").forward(request, response);
+            }
+            if (action.equals("update")) {
+                int id = Integer.parseInt("id");
+                String name = request.getParameter("name");
+                Breeds br = new Breeds(id, name);
+                breedsFacade.edit(br);
+                request.setAttribute("list", breedsFacade.findAll());
+                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
+            }
         }
     }
 

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
 import entity.Animals;
@@ -23,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "animalsController", urlPatterns = {"/animalsController"})
 public class animalsController extends HttpServlet {
+
     @EJB
     private AnimalsFacadeLocal animalsFacade;
 
@@ -40,14 +40,44 @@ public class animalsController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String action = request.getParameter("acttion");
-            if(action.equals("Insert")){
+            if (action.equals("Insert")) {
                 int id = Integer.parseInt("id");
                 String name = request.getParameter("name");
                 Animals animals = new Animals();
                 animals.setCFId(id);
                 animals.setName(name);
                 animalsFacade.create(animals);
+                request.setAttribute("list", animalsFacade.findAll());
+                request.getRequestDispatcher("showAnimals.jsp").forward(request, response);
+
             }
+            if (action.equals("Show")) {
+                request.setAttribute("list", animalsFacade.findAll());
+                request.getRequestDispatcher("showAnimals.jsp").forward(request, response);
+            }
+            if (action.equals("Delete")) {
+                int id = Integer.parseInt("id");
+                Animals an = animalsFacade.find(id);
+                animalsFacade.remove(an);
+                request.setAttribute("list", animalsFacade.findAll());
+                request.getRequestDispatcher("showAnimals.jsp").forward(request, response);
+            }
+            if (action.equals("findId")) {
+                int id = Integer.parseInt("id");
+
+                Animals an = animalsFacade.find(id);
+                request.setAttribute("an", an);
+                request.getRequestDispatcher("updateAnimals.jsp").forward(request, response);
+            }
+            if (action.equals("update")) {
+                int id = Integer.parseInt("id");
+                String name = request.getParameter("name");
+                Animals an = new Animals(id, name);
+                animalsFacade.edit(an);
+                request.setAttribute("list", animalsFacade.findAll());
+                request.getRequestDispatcher("showAnimals.jsp").forward(request, response);
+            }
+            
         }
     }
 

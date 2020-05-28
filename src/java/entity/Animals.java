@@ -72,6 +72,11 @@ public class Animals implements Serializable {
         this.name = name;
     }
 
+    public Animals(Integer cFId, String name) {
+        this.cFId = cFId;
+        this.name = name;
+    }
+
     @XmlTransient
     public Collection<Pets> getPetsCollection() {
         return petsCollection;

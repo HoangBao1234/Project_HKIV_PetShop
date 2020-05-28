@@ -68,6 +68,11 @@ public class Breeds implements Serializable {
         this.name = name;
     }
 
+    public Breeds(Integer cPId, String name) {
+        this.cPId = cPId;
+        this.name = name;
+    }
+
     @XmlTransient
     public Collection<Pets> getPetsCollection() {
         return petsCollection;
