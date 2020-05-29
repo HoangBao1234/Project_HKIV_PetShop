@@ -387,21 +387,7 @@
                     <div>
                         <center>
                             <h1>Add Animals</h1>
-                            <form class="form-horizontal">
-
-
-                                <!-- Form Name -->
-
-
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Animals Id
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input id="animals_id" name="animals_id" placeholder="Animals Id" class="form-control input-md" required="" type="text">
-                                    </div>
-                                </div>
+                            <form class="form-horizontal" action="../../animalsController" method="post">
 
                                 <!-- Text input-->
                                 <div class="form-group row">
@@ -416,7 +402,7 @@
                                 
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <button id="btnAnimals" name="btnAnimals" class="btn btn-primary">Button</button>
+                                        <input name="action" value="Insert" type="submit" class="btn btn-primary"/>
                                     </div>
                                 </div>
 

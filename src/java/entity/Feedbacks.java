@@ -45,6 +45,14 @@ public class Feedbacks implements Serializable {
     @ManyToOne
     private Members mId;
 
+    public Members getmId() {
+        return mId;
+    }
+
+    public void setmId(Members mId) {
+        this.mId = mId;
+    }
+
     public Feedbacks() {
     }
 

@@ -61,6 +61,18 @@ public class Members implements Serializable {
     private String address;
     @OneToMany(mappedBy = "mId")
     private Collection<Feedbacks> feedbacksCollection;
+    @OneToMany(mappedBy = "mId")
+    private Collection<Orders> ordersCollection;
+
+    @XmlTransient
+    public Collection<Orders> getOrdersCollection() {
+        return ordersCollection;
+    }
+
+    public void setOrdersCollection(Collection<Orders> ordersCollection) {
+        this.ordersCollection = ordersCollection;
+    }
+    
 
     public Members() {
     }

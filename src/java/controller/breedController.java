@@ -39,17 +39,13 @@ public class breedController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("acttion");
+            String action = request.getParameter("action");
             if (action.equals("Insert")) {
-                int id = Integer.parseInt("id");
-                String name = request.getParameter("name");
-                Breeds br = new Breeds();
-                br.setCPId(id);
-                br.setName(name);
+                String name = request.getParameter("breeds_name");
+                Breeds br = new Breeds(name);
                 breedsFacade.create(br);
-                request.setAttribute("list", breedsFacade.findAll());
-                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
-
+//                request.setAttribute("list", breedsFacade.findAll());
+//                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
             }
             if (action.equals("Show")) {
                 request.setAttribute("list", breedsFacade.findAll());

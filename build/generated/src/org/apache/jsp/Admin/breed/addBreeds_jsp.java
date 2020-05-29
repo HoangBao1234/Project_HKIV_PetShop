@@ -108,7 +108,7 @@ public final class addBreeds_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div id=\"collapseTwo\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionSidebar\">\r\n");
       out.write("                        <div class=\"bg-white py-2 collapse-inner rounded\">\r\n");
       out.write("                            <h6 class=\"collapse-header\">Pet Components:</h6>\r\n");
-      out.write("                            <a class=\"collapse-item\" href=\"addPet.jsp\">Add Pet</a>\r\n");
+      out.write("                            <a class=\"collapse-item\" href=\"../pet/addPet.jsp\">Add Pet</a>\r\n");
       out.write("                            <a class=\"collapse-item\" href=\"cards.html\">Pet manement</a>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -122,7 +122,7 @@ public final class addBreeds_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div id=\"foods\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionSidebar\">\r\n");
       out.write("                        <div class=\"bg-white py-2 collapse-inner rounded\">\r\n");
       out.write("                            <h6 class=\"collapse-header\">Foods Components:</h6>\r\n");
-      out.write("                            <a class=\"collapse-item\" href=\"addFood.jsp\">Add Food</a>\r\n");
+      out.write("                            <a class=\"collapse-item\" href=\"../food/addFood.jsp\">Add Food</a>\r\n");
       out.write("                            <a class=\"collapse-item\" href=\"cards.html\">Food manement</a>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -136,7 +136,7 @@ public final class addBreeds_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div id=\"animals\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionSidebar\">\r\n");
       out.write("                        <div class=\"bg-white py-2 collapse-inner rounded\">\r\n");
       out.write("                            <h6 class=\"collapse-header\">Animals Components:</h6>\r\n");
-      out.write("                            <a class=\"collapse-item\" href=\"addAnimals.jsp\">Add Animals</a>\r\n");
+      out.write("                            <a class=\"collapse-item\" href=\"../animals/addAnimals.jsp\">Add Animals</a>\r\n");
       out.write("                            <a class=\"collapse-item\" href=\"cards.html\">Animals manement</a>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -150,7 +150,7 @@ public final class addBreeds_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div id=\"accessories\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionSidebar\">\r\n");
       out.write("                        <div class=\"bg-white py-2 collapse-inner rounded\">\r\n");
       out.write("                            <h6 class=\"collapse-header\">Accessories Components:</h6>\r\n");
-      out.write("                            <a class=\"collapse-item\" href=\"addAccessories.jsp\">Add Accessories</a>\r\n");
+      out.write("                            <a class=\"collapse-item\" href=\"../accessories/addAccessories.jsp\">Add Accessories</a>\r\n");
       out.write("                            <a class=\"collapse-item\" href=\"cards.html\">Accessories manement</a>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -164,7 +164,7 @@ public final class addBreeds_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div id=\"breed\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionSidebar\">\r\n");
       out.write("                        <div class=\"bg-white py-2 collapse-inner rounded\">\r\n");
       out.write("                            <h6 class=\"collapse-header\">breed Components:</h6>\r\n");
-      out.write("                            <a class=\"collapse-item\" href=\"addBreeds.jsp\">Add Breed</a>\r\n");
+      out.write("                            <a class=\"collapse-item\" href=\"../breed/addBreeds.jsp\">Add Breed</a>\r\n");
       out.write("                            <a class=\"collapse-item\" href=\"cards.html\">Breed manement</a>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -426,22 +426,7 @@ public final class addBreeds_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div>\r\n");
       out.write("                        <center>\r\n");
       out.write("                            <h1>Add Breeds</h1>\r\n");
-      out.write("                            <form class=\"form-horizontal\">\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("                                <!-- Form Name -->\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("                                <!-- Text input-->\r\n");
-      out.write("                                <div class=\"form-group row\">\r\n");
-      out.write("                                    <div class=\"col-sm-4\">\r\n");
-      out.write("                                        Breeds Id\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"col-sm-4\">\r\n");
-      out.write("                                        <input id=\"breeds_id\" name=\"breeds_id\" placeholder=\"Breeds Id\" class=\"form-control input-md\" required=\"\" type=\"text\">\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("\r\n");
+      out.write("                            <form class=\"form-horizontal\" action=\"../../breedController\" method=\"post\">\r\n");
       out.write("                                <!-- Text input-->\r\n");
       out.write("                                <div class=\"form-group row\">\r\n");
       out.write("                                    <div class=\"col-sm-4\">\r\n");
@@ -455,7 +440,7 @@ public final class addBreeds_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                \r\n");
       out.write("                                <div class=\"form-group\">\r\n");
       out.write("                                    <div class=\"col-md-4\" style=\"text-align: left\">\r\n");
-      out.write("                                        <button id=\"btnBreeds\" name=\"btnBreeds\" class=\"btn btn-primary\">Button</button>\r\n");
+      out.write("                                        <input name=\"action\" type=\"submit\" value=\"Insert\" class=\"btn btn-primary\"/>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("\r\n");

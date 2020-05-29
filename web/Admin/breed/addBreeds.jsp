@@ -387,22 +387,7 @@
                     <div>
                         <center>
                             <h1>Add Breeds</h1>
-                            <form class="form-horizontal">
-
-
-                                <!-- Form Name -->
-
-
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Breeds Id
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input id="breeds_id" name="breeds_id" placeholder="Breeds Id" class="form-control input-md" required="" type="text">
-                                    </div>
-                                </div>
-
+                            <form class="form-horizontal" action="../../breedController" method="post">
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
@@ -416,7 +401,7 @@
                                 
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <button id="btnBreeds" name="btnBreeds" class="btn btn-primary">Button</button>
+                                        <input name="action" type="submit" value="Insert" class="btn btn-primary"/>
                                     </div>
                                 </div>
 

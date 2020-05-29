@@ -21,6 +21,11 @@
     <link href="css/style_1.css" rel="stylesheet" type="text/css"/>
     <!-- Modernizr JS -->
     <script src="js/modernizr-3.5.0.min.js"></script>
+    <style>
+        *{
+            font-family: fantasy;
+        }
+    </style>
 </head>
 <body>
 <div class="container-fluid fh5co_header_bg">
@@ -176,8 +181,8 @@
 <div class="container-fluid pt-3">
     <div class="container animate-box" data-animate-effect="fadeIn">
         <div>
-            <div class="fh5co_heading py-2 mb-4"><span style="color: plum; font-style: italic">Phụ Kiện Thú Cưng</span></div>
-            <hr style="color: yellow; background-color: plum"/>
+            <div class="fh5co_heading py-2 mb-4"><span style="color: orange; font-style: italic">Pet accessories</span></div>
+            <hr style="background-color: orange"/>
         </div>
         <div class="owl-carousel owl-theme js" id="slider1">
             <div class="item px-2">
@@ -186,8 +191,8 @@
                                                            class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="Customer/single.jsp" class="text-white"> <span style="color: plum">Thuốc Nhuộm Lông Mèo</span></a>
-                        <div class="fh5co_latest_trading_date_and_name_color"> <span style="color: plum">130.000Đ</span></div>
+                        <a href="Customer/single.jsp" class="text-white"> <span style="color: orange">Cat fur dye</span></a>
+                        <div class="fh5co_latest_trading_date_and_name_color"> <span style="color: orange">5 $</span></div>
                     </div>
                 </div>
             </div>
@@ -196,8 +201,8 @@
                     <div class="fh5co_latest_trading_img"><img src="images/ao_cho.jpg" alt="" class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="Customer/single.jsp" class="text-white"><span style="color: plum">Áo Cho Chó </span></a>
-                        <div class="fh5co_latest_trading_date_and_name_color"><span style="color: plum">25.000Đ </span></div>
+                        <a href="Customer/single.jsp" class="text-white"><span style="color: orange">Shirt for dog </span></a>
+                        <div class="fh5co_latest_trading_date_and_name_color"><span style="color: orange">2 $ </span></div>
                     </div>
                 </div>
             </div>
@@ -206,8 +211,8 @@
                     <div class="fh5co_latest_trading_img"><img src="images/long.png" alt="" class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="Customer/single.jsp" class="text-white"> <span style="color: plum">Lồng Cho Mèo</span> </a>
-                        <div class="fh5co_latest_trading_date_and_name_color"><span style="color: plum">87.000 Đ</span></div>
+                        <a href="Customer/single.jsp" class="text-white"> <span style="color: orange">Lồng Cho Mèo</span> </a>
+                        <div class="fh5co_latest_trading_date_and_name_color"><span style="color: orange">87.000 Đ</span></div>
                     </div>
                 </div>
             </div>
@@ -216,8 +221,8 @@
                     <div class="fh5co_latest_trading_img"><img src="images/dochoi.jpg" alt="" class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="Customer/single.jsp" class="text-white"> <span style="color: plum">Đồ Chơi Nhựa Gỗ </span></a>
-                        <div class="fh5co_latest_trading_date_and_name_color"> <span style="color: plum">95.000Đ</span></div>
+                        <a href="Customer/single.jsp" class="text-white"> <span style="color: orange">Đồ Chơi Nhựa Gỗ </span></a>
+                        <div class="fh5co_latest_trading_date_and_name_color"> <span style="color: orange">95.000Đ</span></div>
                     </div>
                 </div>
             </div>
@@ -233,7 +238,7 @@
             </div>
             
         </div>
-        <button style="position: absolute; right:2%; margin-top: 1%; border: none; background-color: plum; border-radius: 5px;
+        <button style="position: absolute; right:2%; margin-top: 1%; border: none; background-color: orange; border-radius: 5px;
                 padding: 5px 20px 5px 20px; color: whitesmoke;">
             <span style="size: 25px">Xem Thêm</span>
         </button>

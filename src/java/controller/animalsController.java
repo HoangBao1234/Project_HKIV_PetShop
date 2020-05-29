@@ -39,14 +39,12 @@ public class animalsController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("acttion");
+            String action = request.getParameter("action");
             if (action.equals("Insert")) {
-                int id = Integer.parseInt("id");
-                String name = request.getParameter("name");
-                Animals animals = new Animals();
-                animals.setCFId(id);
-                animals.setName(name);
+                String name = request.getParameter("animals_name");
+                Animals animals = new Animals(name);
                 animalsFacade.create(animals);
+                out.print("Ok");
                 request.setAttribute("list", animalsFacade.findAll());
                 request.getRequestDispatcher("showAnimals.jsp").forward(request, response);
 

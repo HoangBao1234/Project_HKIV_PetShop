@@ -11,6 +11,8 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -36,7 +38,7 @@ public class Breeds implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CPId", nullable = false)
     private Integer cPId;
     @Size(max = 20)
@@ -46,6 +48,16 @@ public class Breeds implements Serializable {
     private Collection<Pets> petsCollection;
 
     public Breeds() {
+    }
+
+    public Breeds(Integer cPId, String name, Collection<Pets> petsCollection) {
+        this.cPId = cPId;
+        this.name = name;
+        this.petsCollection = petsCollection;
+    }
+
+    public Breeds(String name) {
+        this.name = name;
     }
 
     public Breeds(Integer cPId) {
