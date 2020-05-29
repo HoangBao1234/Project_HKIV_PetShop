@@ -6,6 +6,7 @@
 
 package controller;
 
+import entity.Members;
 import entity.MembersFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,6 +39,49 @@ public class memberController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String action = request.getParameter("action");
+            if (action.equals("Insert")) {
+                String name = request.getParameter("members_name");
+                String mail = request.getParameter("mail");
+                String password = request.getParameter("password");
+                String phone = request.getParameter("phone");
+                String address = request.getParameter("address");
+                Members members = new Members(name, mail, password, phone, address);
+                membersFacade.create(members);
+                out.print("Ok");
+                request.setAttribute("list", membersFacade.findAll());
+                request.getRequestDispatcher("showMembers.jsp").forward(request, response);
+
+            }
+            if (action.equals("Show")) {
+                request.setAttribute("list", membersFacade.findAll());
+                request.getRequestDispatcher("showMembers.jsp").forward(request, response);
+            }
+            if (action.equals("Delete")) {
+                int id = Integer.parseInt("id");
+                Members members = membersFacade.find(id);
+                membersFacade.remove(members);
+                request.setAttribute("list", membersFacade.findAll());
+                request.getRequestDispatcher("showMembers.jsp").forward(request, response);
+            }
+            if (action.equals("findId")) {
+                int id = Integer.parseInt("id");
+
+                Members members = membersFacade.find(id);
+                request.setAttribute("members", members);
+                request.getRequestDispatcher("updateMembers.jsp").forward(request, response);
+            }
+            if (action.equals("update")) {
+                String name = request.getParameter("members_name");
+                String mail = request.getParameter("mail");
+                String password = request.getParameter("password");
+                String phone = request.getParameter("phone");
+                String address = request.getParameter("address");
+                Members members = new Members(name, mail, password, phone, address);
+                membersFacade.edit(members);
+                request.setAttribute("list", membersFacade.findAll());
+                request.getRequestDispatcher("showMembers.jsp").forward(request, response);
+            }
             
         }
     }
