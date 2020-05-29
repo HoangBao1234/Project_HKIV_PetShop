@@ -106,7 +106,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div id=\"collapseTwo\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionSidebar\">\r\n");
       out.write("                        <div class=\"bg-white py-2 collapse-inner rounded\">\r\n");
       out.write("                            <h6 class=\"collapse-header\">Pet Components:</h6>\r\n");
-      out.write("                            <a class=\"collapse-item\" href=\"addPet.jsp\">Add Pet</a>\r\n");
+      out.write("                            <a class=\"collapse-item\" href=\"pet/addPet.jsp\">Add Pet</a>\r\n");
       out.write("                            <a class=\"collapse-item\" href=\"cards.html\">Pet manement</a>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");

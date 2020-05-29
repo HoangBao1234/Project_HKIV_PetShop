@@ -6,6 +6,8 @@
 
 package controller;
 
+import entity.Admins;
+import entity.CateES;
 import entity.CateESFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,7 +40,42 @@ public class cateController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+             String action = request.getParameter("action");
+            if (action.equals("Insert")) {
+                int id= Integer.parseInt(request.getParameter("admins_id"));
+                String username = request.getParameter("admins_name");             
+                CateES cate = new CateES(id, username);
+                cateESFacade.create(cate);
+//                request.setAttribute("list", breedsFacade.findAll());
+//                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
+            }
+             if (action.equals("Show")) {
+                request.setAttribute("list", cateESFacade.findAll());
+                request.getRequestDispatcher("showCateES.jsp").forward(request, response);
+            }
+            if (action.equals("Delete")) {
+                int id = Integer.parseInt("id");
+                CateES cate = cateESFacade.find(id);
+                cateESFacade.remove(cate);
+                request.setAttribute("list",cateESFacade.findAll());
+                request.getRequestDispatcher("showCateES.jsp").forward(request, response);
+            }
+            if (action.equals("findId")) {
+                int id = Integer.parseInt("id");
+
+                CateES cate = cateESFacade.find(id);
+                request.setAttribute("cate", cate);
+                request.getRequestDispatcher("updateAdmins.jsp").forward(request, response);
+            }
+            if (action.equals("update")) {      
+                int id= Integer.parseInt(request.getParameter("admins_id"));
+                String username = request.getParameter("admins_name");
+             
+                CateES cate = new CateES( id,username);
+                cateESFacade.edit(cate);
+                request.setAttribute("list", cateESFacade.findAll());
+                request.getRequestDispatcher("showCateES.jsp").forward(request, response);
+            }
         }
     }
 

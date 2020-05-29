@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
+import entity.Admins;
 import entity.AdminsFacadeLocal;
+import entity.Breeds;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "adminController", urlPatterns = {"/adminController"})
 public class adminController extends HttpServlet {
+
     @EJB
     private AdminsFacadeLocal adminsFacade;
 
@@ -38,7 +40,43 @@ public class adminController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+            String action = request.getParameter("action");
+            if (action.equals("Insert")) {
+                int id = Integer.parseInt(request.getParameter("admins_id"));
+                String username = request.getParameter("admins_name");
+                String password = request.getParameter("admins_pass");
+                Admins ad = new Admins(id, username, password);
+                adminsFacade.create(ad);
+//                request.setAttribute("list", breedsFacade.findAll());
+//                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
+            }
+            if (action.equals("Show")) {
+                request.setAttribute("list", adminsFacade.findAll());
+                request.getRequestDispatcher("showAdmins.jsp").forward(request, response);
+            }
+            if (action.equals("Delete")) {
+                int id = Integer.parseInt("id");
+                Admins ad = adminsFacade.find(id);
+                adminsFacade.remove(ad);
+                request.setAttribute("list", adminsFacade.findAll());
+                request.getRequestDispatcher("showAdmins.jsp").forward(request, response);
+            }
+            if (action.equals("findId")) {
+                int id = Integer.parseInt("id");
+
+                Admins ad = adminsFacade.find(id);
+                request.setAttribute("ad", ad);
+                request.getRequestDispatcher("updateAdmins.jsp").forward(request, response);
+            }
+            if (action.equals("update")) {
+                int id = Integer.parseInt(request.getParameter("admins_id"));
+                String username = request.getParameter("admins_name");
+                String password = request.getParameter("admins_pass");
+                Admins ad = new Admins(id, username, password);
+                adminsFacade.edit(ad);
+                request.setAttribute("list", adminsFacade.findAll());
+                request.getRequestDispatcher("showAdmins.jsp").forward(request, response);
+            }
         }
     }
 
