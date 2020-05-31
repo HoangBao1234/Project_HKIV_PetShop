@@ -48,6 +48,11 @@ public class CateES implements Serializable {
     public CateES() {
     }
 
+    public CateES(Integer cEId, String name) {
+        this.cEId = cEId;
+        this.name = name;
+    }
+
     public CateES(Integer cEId) {
         this.cEId = cEId;
     }
