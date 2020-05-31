@@ -54,11 +54,21 @@ public class Orders implements Serializable {
     @Column(name = "oderDate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date oderDate;
+    @Column(name = "paymentBy", length = 50)
+    private String paymentBy;
     @OneToMany(mappedBy = "oderId")
     private Collection<OdersDetails> odersDetailsCollection;
     @JoinColumn(name = "MId", referencedColumnName = "MId")
     @ManyToOne
     private Members mId;
+
+    public String getPaymentBy() {
+        return paymentBy;
+    }
+
+    public void setPaymentBy(String paymentBy) {
+        this.paymentBy = paymentBy;
+    }
 
     public Members getmId() {
         return mId;
