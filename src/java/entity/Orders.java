@@ -56,6 +56,8 @@ public class Orders implements Serializable {
     private Date oderDate;
     @Column(name = "paymentBy", length = 50)
     private String paymentBy;
+    @Column(name = "transport", length = 50)
+    private String transport;
     @OneToMany(mappedBy = "oderId")
     private Collection<OdersDetails> odersDetailsCollection;
     @JoinColumn(name = "MId", referencedColumnName = "MId")
@@ -76,6 +78,14 @@ public class Orders implements Serializable {
 
     public void setmId(Members mId) {
         this.mId = mId;
+    }
+
+    public String getTransport() {
+        return transport;
+    }
+
+    public void setTransport(String transport) {
+        this.transport = transport;
     }
 
     public Orders() {
