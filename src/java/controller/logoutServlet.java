@@ -5,74 +5,53 @@
  */
 package controller;
 
-import entity.Members;
 import entity.MembersFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Nhan
  */
-@WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
-public class loginServlet extends HttpServlet {
-
+@WebServlet(name = "logoutServlet", urlPatterns = {"/logoutServlet"})
+public class logoutServlet extends HttpServlet {
     @EJB
     private MembersFacadeLocal membersFacade;
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String mail = request.getParameter("txtMail");
-            String password = request.getParameter("txtPassword");
-            boolean check = false;
-            // tao Session
-            HttpSession session = request.getSession();
-          
-            for (Members member : membersFacade.findAll()) {
-                if (mail.equals(member.getMail()) && password.equals(member.getPassword())) {
-                    // luu vao session
-                    session.setAttribute("username", mail);
+            if (request.getParameter("logout") != null) {
+                if (request.getParameter("logout").equals("ok")) {
+                    request.removeAttribute("user");
+                    request.removeAttribute("pass");
 
-                    // tao Cookie lay thong tin cua nguoi dung de nho lai
-                    Cookie user = new Cookie("user", mail);
-                    Cookie pass = new Cookie("pass", password);
-                    if (request.getParameter("chkRemember") != null) {
-                        user.setMaxAge(60 * 60 * 24);
-                        pass.setMaxAge(60 * 60 * 24);
-                    } else {
-                        user.setMaxAge(0);
-                        pass.setMaxAge(0);
-                    }
-                    response.addCookie(user);
-                    response.addCookie(pass);
-                    RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
-                    dis.forward(request, response);
-                    check = true;
+                    response.sendRedirect("Login/login.jsp");
                 }
             }
-            if (check == false) {
-                request.setAttribute("error", "Username or Password invalid !");
-                request.getRequestDispatcher("Login/login.jsp").forward(request, response);
-            }
-
         } finally {
             out.close();
+            
         }
-
-    }
-
+    
+}
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 /**

@@ -45,6 +45,11 @@ public class Feedbacks implements Serializable {
     @ManyToOne
     private Members mId;
 
+    public Feedbacks(Integer fBId, String content) {
+        this.fBId = fBId;
+        this.content = content;
+    }
+
     public Members getmId() {
         return mId;
     }

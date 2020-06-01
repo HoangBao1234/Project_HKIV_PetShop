@@ -81,6 +81,20 @@ public class Pets implements Serializable {
     public Pets() {
     }
 
+    public Pets(String pId, String pName, String color, Date age, Boolean gender, String origin, Integer price, String image, String description, Animals cFId, Breeds cPId) {
+        this.pId = pId;
+        this.pName = pName;
+        this.color = color;
+        this.age = age;
+        this.gender = gender;
+        this.origin = origin;
+        this.price = price;
+        this.image = image;
+        this.description = description;
+        this.cFId = cFId;
+        this.cPId = cPId;
+    }
+    
     public Pets(String pId) {
         this.pId = pId;
     }
