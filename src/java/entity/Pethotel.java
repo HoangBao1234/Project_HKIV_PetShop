@@ -7,13 +7,18 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -28,8 +33,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Pethotel.findAll", query = "SELECT p FROM Pethotel p"),
     @NamedQuery(name = "Pethotel.findByPHId", query = "SELECT p FROM Pethotel p WHERE p.pHId = :pHId"),
-    @NamedQuery(name = "Pethotel.findByPhoneCus", query = "SELECT p FROM Pethotel p WHERE p.phoneCus = :phoneCus"),
-    @NamedQuery(name = "Pethotel.findByNameCus", query = "SELECT p FROM Pethotel p WHERE p.nameCus = :nameCus"),
     @NamedQuery(name = "Pethotel.findByNamePet", query = "SELECT p FROM Pethotel p WHERE p.namePet = :namePet"),
     @NamedQuery(name = "Pethotel.findByDateStart", query = "SELECT p FROM Pethotel p WHERE p.dateStart = :dateStart"),
     @NamedQuery(name = "Pethotel.findByDateEnd", query = "SELECT p FROM Pethotel p WHERE p.dateEnd = :dateEnd"),
@@ -42,27 +45,33 @@ public class Pethotel implements Serializable {
     @Size(min = 1, max = 10)
     @Column(name = "PHId", nullable = false, length = 10)
     private String pHId;
-    @Size(max = 20)
-    @Column(name = "phoneCus", length = 20)
-    private String phoneCus;
-    @Size(max = 50)
-    @Column(name = "nameCus", length = 50)
-    private String nameCus;
     @Size(max = 50)
     @Column(name = "namePet", length = 50)
     private String namePet;
-    @Size(max = 10)
-    @Column(name = "dateStart", length = 10)
-    private String dateStart;
-    @Size(max = 10)
-    @Column(name = "dateEnd", length = 10)
-    private String dateEnd;
+    @Column(name = "dateStart")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateStart;
+    @Column(name = "dateEnd")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateEnd;
     @Column(name = "price")
     private Integer price;
-
+    @JoinColumn(name = "MId", referencedColumnName = "MId")
+    @ManyToOne
+    private Members mId;
+    
     public Pethotel() {
     }
 
+    public Members getmId() {
+        return mId;
+    }
+
+    public void setmId(Members mId) {
+        this.mId = mId;
+    }
+
+    
     public Pethotel(String pHId) {
         this.pHId = pHId;
     }
@@ -75,22 +84,6 @@ public class Pethotel implements Serializable {
         this.pHId = pHId;
     }
 
-    public String getPhoneCus() {
-        return phoneCus;
-    }
-
-    public void setPhoneCus(String phoneCus) {
-        this.phoneCus = phoneCus;
-    }
-
-    public String getNameCus() {
-        return nameCus;
-    }
-
-    public void setNameCus(String nameCus) {
-        this.nameCus = nameCus;
-    }
-
     public String getNamePet() {
         return namePet;
     }
@@ -99,19 +92,19 @@ public class Pethotel implements Serializable {
         this.namePet = namePet;
     }
 
-    public String getDateStart() {
+    public Date getDateStart() {
         return dateStart;
     }
 
-    public void setDateStart(String dateStart) {
+    public void setDateStart(Date dateStart) {
         this.dateStart = dateStart;
     }
 
-    public String getDateEnd() {
+    public Date getDateEnd() {
         return dateEnd;
     }
 
-    public void setDateEnd(String dateEnd) {
+    public void setDateEnd(Date dateEnd) {
         this.dateEnd = dateEnd;
     }
 

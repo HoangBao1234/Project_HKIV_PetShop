@@ -11,12 +11,13 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -40,7 +41,7 @@ public class Members implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MId", nullable = false)
     private Integer mId;
     @Size(max = 50)
@@ -63,7 +64,18 @@ public class Members implements Serializable {
     private Collection<Feedbacks> feedbacksCollection;
     @OneToMany(mappedBy = "mId")
     private Collection<Orders> ordersCollection;
+    @OneToMany(mappedBy = "mId")
+    private Collection<Pethotel> pethotelCollection;
 
+    @XmlTransient
+    public Collection<Pethotel> getPethotelCollection() {
+        return pethotelCollection;
+    }
+
+    public void setPethotelCollection(Collection<Pethotel> pethotelCollection) {
+        this.pethotelCollection = pethotelCollection;
+    }
+     
     @XmlTransient
     public Collection<Orders> getOrdersCollection() {
         return ordersCollection;
@@ -126,6 +138,14 @@ public class Members implements Serializable {
     }
 
     public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Members(String name, String mail, String password, String phone, String address) {
+        this.name = name;
+        this.mail = mail;
+        this.password = password;
+        this.phone = phone;
         this.address = address;
     }
 
