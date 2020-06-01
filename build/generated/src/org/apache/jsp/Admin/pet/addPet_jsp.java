@@ -122,7 +122,7 @@ public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div id=\"foods\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionSidebar\">\r\n");
       out.write("                        <div class=\"bg-white py-2 collapse-inner rounded\">\r\n");
       out.write("                            <h6 class=\"collapse-header\">Foods Components:</h6>\r\n");
-      out.write("                            <a class=\"collapse-item\" href=\"addFood.jsp\">Add Food</a>\r\n");
+      out.write("                            <a class=\"collapse-item\" href=\"../food/addFood.jsp\">Add Food</a>\r\n");
       out.write("                            <a class=\"collapse-item\" href=\"cards.html\">Food manement</a>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -136,7 +136,7 @@ public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div id=\"animals\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionSidebar\">\r\n");
       out.write("                        <div class=\"bg-white py-2 collapse-inner rounded\">\r\n");
       out.write("                            <h6 class=\"collapse-header\">Animals Components:</h6>\r\n");
-      out.write("                            <a class=\"collapse-item\" href=\"addAnimals.jsp\">Add Animals</a>\r\n");
+      out.write("                            <a class=\"collapse-item\" href=\"../animals/addAnimals.jsp\">Add Animals</a>\r\n");
       out.write("                            <a class=\"collapse-item\" href=\"cards.html\">Animals manement</a>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -150,7 +150,7 @@ public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div id=\"accessories\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionSidebar\">\r\n");
       out.write("                        <div class=\"bg-white py-2 collapse-inner rounded\">\r\n");
       out.write("                            <h6 class=\"collapse-header\">Accessories Components:</h6>\r\n");
-      out.write("                            <a class=\"collapse-item\" href=\"addAccessories.jsp\">Add Accessories</a>\r\n");
+      out.write("                            <a class=\"collapse-item\" href=\"../accessories/addAccessories.jsp\">Add Accessories</a>\r\n");
       out.write("                            <a class=\"collapse-item\" href=\"cards.html\">Accessories manement</a>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -164,7 +164,7 @@ public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div id=\"breed\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionSidebar\">\r\n");
       out.write("                        <div class=\"bg-white py-2 collapse-inner rounded\">\r\n");
       out.write("                            <h6 class=\"collapse-header\">breed Components:</h6>\r\n");
-      out.write("                            <a class=\"collapse-item\" href=\"addBreeds.jsp\">Add Breed</a>\r\n");
+      out.write("                            <a class=\"collapse-item\" href=\"../breed/addBreeds.jsp\">Add Breed</a>\r\n");
       out.write("                            <a class=\"collapse-item\" href=\"cards.html\">Breed manement</a>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
