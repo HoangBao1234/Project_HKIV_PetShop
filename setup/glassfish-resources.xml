@@ -6,7 +6,11 @@
         <property name="portNumber" value="1433"/>
         <property name="databaseName" value="Project_HK4_PetShop"/>
         <property name="User" value="sa"/>
+<<<<<<< HEAD
         <property name="Password" value="bao@091000"/>
+=======
+        <property name="Password" value="123456789"/>
+>>>>>>> 9b0c1a9eadf52dfdfcf3eb38c6e45392ae38d012
         <property name="URL" value="jdbc:sqlserver://localhost:1433;databaseName=Project_HK4_PetShop"/>
         <property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
     </jdbc-connection-pool>
