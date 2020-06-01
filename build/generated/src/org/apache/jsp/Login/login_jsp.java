@@ -111,15 +111,15 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write("</h1>\r\n");
       out.write("                  </div>\r\n");
-      out.write("                  <form class=\"user\">\r\n");
+      out.write("                  <form class=\"user\" action=\"../loginServlet\" method=\"post\">\r\n");
       out.write("                    <div class=\"form-group\">\r\n");
-      out.write("                      <input type=\"email\" class=\"form-control form-control-user\" id=\"exampleInputEmail\" aria-describedby=\"emailHelp\" placeholder=\"");
+      out.write("                        <input type=\"email\" class=\"form-control form-control-user\" id=\"exampleInputEmail\" aria-describedby=\"emailHelp\" name=\"txtMail\" placeholder=\"");
       if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
       out.write("\">\r\n");
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"form-group\">\r\n");
-      out.write("                      <input type=\"password\" class=\"form-control form-control-user\" id=\"exampleInputPassword\" placeholder=\"");
+      out.write("                        <input type=\"password\" class=\"form-control form-control-user\" id=\"exampleInputPassword\" name=\"txtPassword\" placeholder=\"");
       if (_jspx_meth_fmt_message_2(_jspx_page_context))
         return;
       out.write("\">\r\n");
@@ -133,12 +133,11 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</label>\r\n");
       out.write("                      </div>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                      <a href=\"../Admin/index.html\" class=\"btn btn-primary btn-user btn-block\">\r\n");
-      out.write("                     ");
+      out.write("                      <input type=\"submit\" class=\"btn btn-primary btn-user btn-block\" value=\"");
       if (_jspx_meth_fmt_message_4(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("                    </a>\r\n");
+      out.write("\"/>\r\n");
+      out.write("                    \r\n");
       out.write("                    <hr>\r\n");
       out.write("                    <a href=\"../Admin/index.html\" class=\"btn btn-google btn-user btn-block\">\r\n");
       out.write("                      <i class=\"fab fa-google fa-fw\"></i>  ");

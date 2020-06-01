@@ -89,6 +89,15 @@ public class Members implements Serializable {
     public Members() {
     }
 
+    public Members(Integer mId, String name, String mail, String password, String phone, String address) {
+        this.mId = mId;
+        this.name = name;
+        this.mail = mail;
+        this.password = password;
+        this.phone = phone;
+        this.address = address;
+    }
+
     public Members(Integer mId) {
         this.mId = mId;
     }
