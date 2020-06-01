@@ -426,12 +426,7 @@ public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div>\r\n");
       out.write("                        <center>\r\n");
       out.write("                            <h1>Add Pet</h1>\r\n");
-      out.write("                            <form class=\"form-horizontal\">\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("                                <!-- Form Name -->\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("                            <form class=\"form-horizontal\" action=\"../../petController\" method=\"post\" enctype=\"multipart/form-data\">\r\n");
       out.write("                                <!-- Text input-->\r\n");
       out.write("                                <div class=\"form-group row\">\r\n");
       out.write("                                    <div class=\"col-sm-4\">\r\n");
@@ -528,7 +523,7 @@ public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        Animals\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"col-sm-4\" style=\"text-align: left\">\r\n");
-      out.write("                                        <select style=\"width: 150px\">\r\n");
+      out.write("                                        <select style=\"width: 150px\" name=\"animals\">\r\n");
       out.write("                                            <option>Duy</option>\r\n");
       out.write("                                        </select>\r\n");
       out.write("                                    </div>\r\n");
@@ -540,7 +535,7 @@ public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        Breeds\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"col-sm-4\" style=\"text-align: left\">\r\n");
-      out.write("                                        <select style=\"width: 150px\">\r\n");
+      out.write("                                        <select style=\"width: 150px\" name=\"breeds\">\r\n");
       out.write("                                            <option>Duy</option>\r\n");
       out.write("                                        </select>\r\n");
       out.write("                                    </div>\r\n");
@@ -552,7 +547,7 @@ public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <!-- Button -->\r\n");
       out.write("                                <div class=\"form-group\">\r\n");
       out.write("                                    <div class=\"col-md-4\" style=\"text-align: left\">\r\n");
-      out.write("                                        <button id=\"btnPet\" name=\"btnPet\" class=\"btn btn-primary\">Button</button>\r\n");
+      out.write("                                        <button id=\"btnPet\" type=\"submit\" value=\"Insert\" name=\"action\" class=\"btn btn-primary\">Button</button>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("\r\n");
