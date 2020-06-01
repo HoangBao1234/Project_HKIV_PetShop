@@ -389,6 +389,15 @@
                             <h1>Update Animals</h1>
                             <form class="form-horizontal" action="../../animalsController" method="post">
 
+                                 <!-- Text input-->
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        Animals Id
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input name="animals_Id" placeholder="Animals Id" class="form-control input-md" required="" type="text">
+                                    </div>
+                                </div>
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
@@ -402,7 +411,7 @@
                                 
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <input name="action" value="Insert" type="submit" class="btn btn-primary"/>
+                                        <input name="action" value="Update" type="submit" class="btn btn-primary"/>
                                     </div>
                                 </div>
 

@@ -54,12 +54,26 @@ public class Pethotel implements Serializable {
     private String dateEnd;
     @Column(name = "price")
     private Integer price;
+    @Column(name = "status", length = 10)
+    private String status;
     @JoinColumn(name = "MId", referencedColumnName = "MId")
     @ManyToOne
     private Members mId;
     
     public Pethotel() {
     }
+
+    public Pethotel(String pHId, String namePet, String dateStart, String dateEnd, Integer price, String status, Members mId) {
+        this.pHId = pHId;
+        this.namePet = namePet;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.price = price;
+        this.status = status;
+        this.mId = mId;
+    }
+
+    
 
     public Members getmId() {
         return mId;

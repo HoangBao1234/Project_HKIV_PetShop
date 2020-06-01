@@ -15,7 +15,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Add Food</title>
+        <title>Update Accessories</title>
 
         <!-- Custom fonts for this template-->
         <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -462,7 +462,7 @@
 
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <button id="btnAccessories" name="btnAccessories" class="btn btn-primary">Button</button>
+                                        <input type="submit"  name="action" value="Update" class="btn btn-primary" />
                                     </div>
                                 </div>
 

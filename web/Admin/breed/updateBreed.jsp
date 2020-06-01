@@ -15,7 +15,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Add Food</title>
+        <title>Update Breed</title>
 
         <!-- Custom fonts for this template-->
         <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -388,7 +388,14 @@
                         <center>
                             <h1>Update Breeds</h1>
                             <form class="form-horizontal" action="../../breedController" method="post">
-                                <!-- Text input-->
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        Breeds Id
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input name="breeds_id" placeholder="Breeds Id" class="form-control input-md" required="" type="text">
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <div class="col-sm-4">
                                         Breeds Name
@@ -401,7 +408,7 @@
                                 
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <input name="action" type="submit" value="Insert" class="btn btn-primary"/>
+                                        <input name="action" type="submit" value="Update" class="btn btn-primary"/>
                                     </div>
                                 </div>
 

@@ -15,7 +15,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SB Admin 2 - Dashboard</title>
+        <title>Update Pet</title>
 
         <!-- Custom fonts for this template-->
         <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -501,14 +501,9 @@
                                         </select>
                                     </div>
                                 </div>
-
-                                <!-- Search input-->
-
-
-                                <!-- Button -->
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <button id="btnPet" type="submit" value="Insert" name="action" class="btn btn-primary">Button</button>
+                                        <input type="submit" value="Update" name="action" class="btn btn-primary"/>
                                     </div>
                                 </div>
 

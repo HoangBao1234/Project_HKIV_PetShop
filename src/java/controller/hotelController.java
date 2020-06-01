@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
+import entity.Members;
+import entity.MembersFacadeLocal;
+import entity.Pethotel;
 import entity.PethotelFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,6 +24,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "hotelController", urlPatterns = {"/hotelController"})
 public class hotelController extends HttpServlet {
+
+    @EJB
+    private MembersFacadeLocal membersFacade;
     @EJB
     private PethotelFacadeLocal pethotelFacade;
 
@@ -38,7 +43,43 @@ public class hotelController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           
+            String action = request.getParameter("action");
+            if (action.equals("Insert")) {
+                String id = request.getParameter("id");
+                String namePet = request.getParameter("namePet");
+                String dateStart = request.getParameter("dateStart");
+                String dateEnd = request.getParameter("dateEnd");
+                int price = Integer.parseInt(request.getParameter("price"));
+                String mId = request.getParameter("MId");
+                Members member = membersFacade.find(mId);
+                Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
+                pethotelFacade.create(hotel);
+                out.print("Ok");
+            }
+            if (action.equals("Delete")) {
+                String id = request.getParameter("id");
+                Pethotel hoPethotel = pethotelFacade.find(id);
+                pethotelFacade.remove(hoPethotel);
+                out.print("Ok");
+            }
+            if (action.equals("FindById")) {
+                String id = request.getParameter("id");
+                Pethotel hoPethotel = pethotelFacade.find(id);
+                request.setAttribute("hotel", hoPethotel);
+                out.print("Ok");
+            }
+            if (action.equals("Update")) {
+                String id = request.getParameter("id");
+                String namePet = request.getParameter("namePet");
+                String dateStart = request.getParameter("dateStart");
+                String dateEnd = request.getParameter("dateEnd");
+                int price = Integer.parseInt(request.getParameter("price"));
+                String mId = request.getParameter("MId");
+                Members member = membersFacade.find(mId);
+                Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
+                pethotelFacade.edit(hotel);
+                out.print("Ok");
+            }
         }
     }
 
