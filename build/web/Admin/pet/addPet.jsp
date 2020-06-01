@@ -387,12 +387,7 @@
                     <div>
                         <center>
                             <h1>Add Pet</h1>
-                            <form class="form-horizontal">
-
-
-                                <!-- Form Name -->
-
-
+                            <form class="form-horizontal" action="../../petController" method="post" enctype="multipart/form-data">
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
@@ -438,7 +433,7 @@
                                         Gender
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
-                                        <input type="radio" name="gender" value="true"/> Male &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="gender" value="true" checked="checked"/> Male &nbsp;&nbsp;&nbsp;&nbsp;
                                         <input type="radio" name="gender" value="false"/> Female
                                     </div>
                                 </div>
@@ -489,7 +484,7 @@
                                         Animals
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px">
+                                        <select style="width: 150px" name="animals">
                                             <option>Duy</option>
                                         </select>
                                     </div>
@@ -501,7 +496,7 @@
                                         Breeds
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px">
+                                        <select style="width: 150px" name="breeds">
                                             <option>Duy</option>
                                         </select>
                                     </div>
@@ -513,7 +508,7 @@
                                 <!-- Button -->
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <button id="btnPet" name="btnPet" class="btn btn-primary">Button</button>
+                                        <button id="btnPet" type="submit" value="Insert" name="action" class="btn btn-primary">Button</button>
                                     </div>
                                 </div>
 
