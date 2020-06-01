@@ -51,9 +51,8 @@ public class Orders implements Serializable {
     @Size(max = 50)
     @Column(name = "shipAddress", length = 50)
     private String shipAddress;
-    @Column(name = "oderDate")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date oderDate;
+    @Column(name = "oderDate", length = 50)
+    private String oderDate;
     @Column(name = "paymentBy", length = 50)
     private String paymentBy;
     @Column(name = "transport", length = 50)
@@ -119,11 +118,11 @@ public class Orders implements Serializable {
         this.shipAddress = shipAddress;
     }
 
-    public Date getOderDate() {
+    public String getOderDate() {
         return oderDate;
     }
 
-    public void setOderDate(Date oderDate) {
+    public void setOderDate(String oderDate) {
         this.oderDate = oderDate;
     }
 

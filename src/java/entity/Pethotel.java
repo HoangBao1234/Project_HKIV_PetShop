@@ -48,12 +48,10 @@ public class Pethotel implements Serializable {
     @Size(max = 50)
     @Column(name = "namePet", length = 50)
     private String namePet;
-    @Column(name = "dateStart")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateStart;
-    @Column(name = "dateEnd")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateEnd;
+    @Column(name = "dateStart", length = 50)
+    private String dateStart;
+    @Column(name = "dateEnd", length = 50)
+    private String dateEnd;
     @Column(name = "price")
     private Integer price;
     @JoinColumn(name = "MId", referencedColumnName = "MId")
@@ -92,19 +90,19 @@ public class Pethotel implements Serializable {
         this.namePet = namePet;
     }
 
-    public Date getDateStart() {
+    public String getDateStart() {
         return dateStart;
     }
 
-    public void setDateStart(Date dateStart) {
+    public void setDateStart(String dateStart) {
         this.dateStart = dateStart;
     }
 
-    public Date getDateEnd() {
+    public String getDateEnd() {
         return dateEnd;
     }
 
-    public void setDateEnd(Date dateEnd) {
+    public void setDateEnd(String dateEnd) {
         this.dateEnd = dateEnd;
     }
 

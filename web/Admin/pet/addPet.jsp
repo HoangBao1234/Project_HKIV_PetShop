@@ -4,6 +4,7 @@
     Author     : DUY
 --%>
 
+<%@page import="java.sql.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -423,7 +424,10 @@
                                         Age
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="age" name="age" placeholder="Age" class="form-control input-md" required="" type="date">
+                                        <%
+                                            Date date = new Date(System.currentTimeMillis());
+                                         %>
+                                        <input id="age" name="age" placeholder="Age" value="<%=date%>" class="form-control input-md" required="" type="date">
                                     </div>
                                 </div>
 

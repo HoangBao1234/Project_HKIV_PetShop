@@ -47,6 +47,7 @@ public class petController extends HttpServlet {
     private PetsFacadeLocal petsFacade;
     Part part;
     public static final String SAVE_DIRECTORY = "ImageItems";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -61,36 +62,80 @@ public class petController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String action = request.getParameter("action");
-            String id = request.getParameter("pet_id");
-            String name = request.getParameter("pet_name");
-            String color = request.getParameter("color");
-            String age = request.getParameter("age");
-            boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
-            String origin = request.getParameter("origin");
-            int price = Integer.parseInt(request.getParameter("price"));
-            part = request.getPart("image");
-            String filename = extracFile(part);
             String appPath = request.getServletContext().getRealPath("");
             appPath = appPath.replace('\\', '/');
             appPath = appPath.replace("build/", "");
             String fullSavePath = null;
-            if(appPath.endsWith("/")){
+            if (appPath.endsWith("/")) {
                 fullSavePath = appPath + SAVE_DIRECTORY;
-            }else{
+            } else {
                 fullSavePath = appPath + "/" + SAVE_DIRECTORY;
             }
-            String savePath = fullSavePath + File.separator + filename;
-            saveToFolder(savePath);
-            out.print("Thành Công");
-//            int AId = Integer.parseInt(request.getParameter("animals"));
-//            int BId = Integer.parseInt(request.getParameter("breeds"));
-//            Animals animals = animalsFacade.find(AId);
-//            Breeds breeds = breedsFacade.find(BId);
-//            String description = request.getParameter("description");
-//            if (action.equals("Insert")) {
-//                Pets pet = new Pets(id, name, color, date, gender, origin, price, filename, description, animals, breeds);
-//            }
+            if (action.equals("Insert")) {
+                String id = request.getParameter("pet_id");
+                String name = request.getParameter("pet_name");
+                String color = request.getParameter("color");
+                String age = request.getParameter("age");
+                boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
+                String origin = request.getParameter("origin");
+                int price = Integer.parseInt(request.getParameter("price"));
+                int AId = Integer.parseInt(request.getParameter("animals"));
+                int BId = Integer.parseInt(request.getParameter("breeds"));
+                part = request.getPart("image");
+                String filename = extracFile(part);
+                String savePath = fullSavePath + File.separator + filename;
+                saveToFolder(savePath);
+                Animals animals = animalsFacade.find(AId);
+                Breeds breeds = breedsFacade.find(BId);
+                String description = request.getParameter("description");
+                Pets pet = new Pets(id, name, color, age, gender, origin, price, filename, description, animals, breeds);
+                out.print("Thành Công");
+            }
+            if (action.equals("Delete")) {
+                String pId = request.getParameter("PId");
+                Pets pet = petsFacade.find(pId);
+                String dePath = fullSavePath + File.separator + pet.getImage();
+                File file = new File(dePath);
+                file.delete();
+                petsFacade.remove(pet);
+                out.print("Thành Công");
+            }
+            if(action.equals("FindById")){
+                String pId = request.getParameter("pId");
+                Pets pet = petsFacade.find(pId);
+                request.setAttribute("pet", pet);
+                request.getRequestDispatcher("update.jsp").forward(request, response);
+            }
+            if (action.equals("Update")) {
+                String pId = request.getParameter("PId");
+                String nameUp = request.getParameter("pet_name");
+                String colorUp = request.getParameter("color");
+                String ageUp = request.getParameter("age");
+                boolean genderUp = Boolean.parseBoolean(request.getParameter("gender"));
+                String originUp = request.getParameter("origin");
+                int priceUp = Integer.parseInt(request.getParameter("price"));
+                int AId = Integer.parseInt(request.getParameter("animals"));
+                int BId = Integer.parseInt(request.getParameter("breeds"));
+                Animals animals = animalsFacade.find(AId);
+                Breeds breeds = breedsFacade.find(BId);
+                part = null;
+                part = request.getPart("imageUp");
+                //find hinh cu
+                Pets pet = petsFacade.find(pId);
+                //xoa hinh cu
+                String dePath = fullSavePath + File.separator + pet.getImage();
+                File file = new File(dePath);
+                file.delete();
+                //update hinh moi
+                String fileName = extracFile(part);
+                String savePath = fullSavePath + File.separator + fileName;
+                saveToFolder(savePath);
+                Pets petUp = new Pets(pId, fileName, colorUp, ageUp, genderUp, originUp, priceUp, ageUp, action, animals, breeds);
+                petsFacade.edit(petUp);
+                out.print("Thành Công");
+            }
         }
+
     }
 
     private String extracFile(Part part) {

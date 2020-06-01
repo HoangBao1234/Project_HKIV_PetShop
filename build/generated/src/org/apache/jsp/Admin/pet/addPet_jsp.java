@@ -3,6 +3,7 @@ package org.apache.jsp.Admin.pet;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.Date;
 
 public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,6 +42,7 @@ public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -462,7 +464,14 @@ public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        Age\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"col-sm-4\">\r\n");
-      out.write("                                        <input id=\"age\" name=\"age\" placeholder=\"Age\" class=\"form-control input-md\" required=\"\" type=\"date\">\r\n");
+      out.write("                                        ");
+
+                                            Date date = new Date(System.currentTimeMillis());
+                                            
+      out.write("\r\n");
+      out.write("                                        <input id=\"age\" name=\"age\" placeholder=\"Age\" value=\"");
+      out.print(date);
+      out.write("\" class=\"form-control input-md\" required=\"\" type=\"date\">\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("\r\n");
@@ -472,7 +481,7 @@ public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        Gender\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"col-sm-4\" style=\"text-align: left\">\r\n");
-      out.write("                                        <input type=\"radio\" name=\"gender\" value=\"true\"/> Male &nbsp;&nbsp;&nbsp;&nbsp;\r\n");
+      out.write("                                        <input type=\"radio\" name=\"gender\" value=\"true\" checked=\"checked\"/> Male &nbsp;&nbsp;&nbsp;&nbsp;\r\n");
       out.write("                                        <input type=\"radio\" name=\"gender\" value=\"false\"/> Female\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");

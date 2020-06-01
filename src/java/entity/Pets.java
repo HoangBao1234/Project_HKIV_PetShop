@@ -55,9 +55,8 @@ public class Pets implements Serializable {
     @Size(max = 20)
     @Column(name = "color", length = 20)
     private String color;
-    @Column(name = "age")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date age;
+    @Column(name = "age", length = 50)
+    private String age;
     @Column(name = "gender")
     private Boolean gender;
     @Size(max = 20)
@@ -81,7 +80,7 @@ public class Pets implements Serializable {
     public Pets() {
     }
 
-    public Pets(String pId, String pName, String color, Date age, Boolean gender, String origin, Integer price, String image, String description, Animals cFId, Breeds cPId) {
+    public Pets(String pId, String pName, String color, String age, Boolean gender, String origin, Integer price, String image, String description, Animals cFId, Breeds cPId) {
         this.pId = pId;
         this.pName = pName;
         this.color = color;
@@ -123,11 +122,11 @@ public class Pets implements Serializable {
         this.color = color;
     }
 
-    public Date getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(Date age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
