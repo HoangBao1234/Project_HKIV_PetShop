@@ -472,7 +472,7 @@ public final class addPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        Gender\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"col-sm-4\" style=\"text-align: left\">\r\n");
-      out.write("                                        <input type=\"radio\" name=\"gender\" value=\"true\"/> Male &nbsp;&nbsp;&nbsp;&nbsp;\r\n");
+      out.write("                                        <input type=\"radio\" name=\"gender\" value=\"true\" checked=\"checked\"/> Male &nbsp;&nbsp;&nbsp;&nbsp;\r\n");
       out.write("                                        <input type=\"radio\" name=\"gender\" value=\"false\"/> Female\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
