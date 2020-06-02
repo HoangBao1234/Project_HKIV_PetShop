@@ -405,16 +405,16 @@
                     </nav>
                     <div style="padding: 50px">
                         <center>
-                            <h2>Pet Hotel Services</h2>
+                            <h2 style="color: #006dcc">Pet Hotel Services</h2>
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Name Pet</th>
-                                        <th scope="col">Date End</th>
-                                        <th scope="col">Phone Customer</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col" style="color: #006dcc">Id</th>
+                                        <th scope="col" style="color: #006dcc">Name Pet</th>
+                                        <th scope="col" style="color: #006dcc">Date End</th>
+                                        <th scope="col" style="color: #006dcc">Phone Customer</th>
+                                        <th scope="col" style="color: #006dcc">Price</th>
+                                        <th scope="col" style="color: #006dcc">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

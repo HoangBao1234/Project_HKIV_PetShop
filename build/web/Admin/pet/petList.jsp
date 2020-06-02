@@ -58,80 +58,54 @@
 
                 <!-- Heading -->
                 <div class="sidebar-heading">
-                    Interface
+                    Maneger
                 </div>
-
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Pet Components</span>
-                    </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Pet Components:</h6>
-                            <a class="collapse-item" href="addPet.jsp">Add Pet</a>
-                            <a class="collapse-item" href="cards.html">Pet manement</a>
-                        </div>
-                    </div>
-                </li>
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#foods" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
-                        <span>Foods Components</span>
+                        <span>Product component</span>
                     </a>
                     <div id="foods" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Foods Components:</h6>
-                            <a class="collapse-item" href="../food/addFood.jsp">Add Food</a>
-                            <a class="collapse-item" href="cards.html">Food manement</a>
+                            <h6 class="collapse-header">Products</h6>
+                            <a class="collapse-item" href="../food/addFood.jsp">Pets Manager</a>
+                            <a class="collapse-item" href="cards.html">Foods Manager</a>
+                            <a class="collapse-item" href="cards.html">Accessories Manager</a>
                         </div>
                     </div>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#animals" aria-expanded="true" aria-controls="collapseTwo">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#cate" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
-                        <span>Animals Components</span>
+                        <span style="font-size: 12px">Categories Components</span>
                     </a>
-                    <div id="animals" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Animals Components:</h6>
-                            <a class="collapse-item" href="../animals/addAnimals.jsp">Add Animals</a>
-                            <a class="collapse-item" href="cards.html">Animals manement</a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#accessories" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span style="font-size: 12px">Accessories Components</span>
-                    </a>
-                    <div id="accessories" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Accessories Components:</h6>
-                            <a class="collapse-item" href="../accessories/addAccessories.jsp">Add Accessories</a>
-                            <a class="collapse-item" href="cards.html">Accessories manement</a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#breed" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span style="font-size: 12px">Breed Components</span>
-                    </a>
-                    <div id="breed" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div id="cate" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">breed Components:</h6>
-                            <a class="collapse-item" href="../breed/addBreeds.jsp">Add Breed</a>
-                            <a class="collapse-item" href="cards.html">Breed manement</a>
+                            <a class="collapse-item" href="../breed/addBreeds.jsp">Animals Manager</a>
+                            <a class="collapse-item" href="cards.html">Breeds Manager</a>
                         </div>
                     </div>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="#" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span style="font-size: 12px">Member Manager</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span style="font-size: 12px">Pet Hotel Manager</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span style="font-size: 12px">Order Manager</span>
+                    </a>
+                </li>
                 <!-- Nav Item - Utilities Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -386,18 +360,19 @@
 
                     </nav>
                     <div style="padding: 50px">
+                        <h4 style="color: #006dcc">+ Create new Pet</h4>
                         <center>
-                            <h2>Pet List</h2>
+                            <h2 style="color: #006dcc">Pet List</h2>
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Color</th>
-                                        <th scope="col">Date of birth</th>
-                                        <th scope="col">Gender</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col" style="color: #006dcc">Id</th>
+                                        <th scope="col" style="color: #006dcc">Name</th>
+                                        <th scope="col" style="color: #006dcc">Color</th>
+                                        <th scope="col" style="color: #006dcc">Date of birth</th>
+                                        <th scope="col" style="color: #006dcc">Gender</th>
+                                        <th scope="col" style="color: #006dcc">Price</th>
+                                        <th scope="col" style="color: #006dcc">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

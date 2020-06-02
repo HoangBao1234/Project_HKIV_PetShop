@@ -15,13 +15,13 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>List Breed</title>
-
+        <title>Pet List</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
         <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
         <!-- Custom styles for this template-->
         <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -61,77 +61,45 @@
                     Interface
                 </div>
 
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Pet Components</span>
-                    </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Pet Components:</h6>
-                            <a class="collapse-item" href="../pet/addPet.jsp">Add Pet</a>
-                            <a class="collapse-item" href="cards.html">Pet manement</a>
-                        </div>
-                    </div>
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#foods" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
-                        <span>Foods Components</span>
+                        <span>Product component</span>
                     </a>
                     <div id="foods" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Foods Components:</h6>
-                            <a class="collapse-item" href="../food/addFood.jsp">Add Food</a>
-                            <a class="collapse-item" href="cards.html">Food manement</a>
+                            <h6 class="collapse-header">Products</h6>
+                            <a class="collapse-item" href="../food/addFood.jsp">Pets Manager</a>
+                            <a class="collapse-item" href="cards.html">Foods Manager</a>
+                            <a class="collapse-item" href="cards.html">Accessories Manager</a>
                         </div>
                     </div>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#animals" aria-expanded="true" aria-controls="collapseTwo">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#cate" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
-                        <span>Animals Components</span>
+                        <span style="font-size: 12px">Categories Components</span>
                     </a>
-                    <div id="animals" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Animals Components:</h6>
-                            <a class="collapse-item" href="../animals/addAnimals.jsp">Add Animals</a>
-                            <a class="collapse-item" href="cards.html">Animals manement</a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#accessories" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span style="font-size: 12px">Accessories Components</span>
-                    </a>
-                    <div id="accessories" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Accessories Components:</h6>
-                            <a class="collapse-item" href="../accessories/addAccessories.jsp">Add Accessories</a>
-                            <a class="collapse-item" href="cards.html">Accessories manement</a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#breed" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span style="font-size: 12px">Breed Components</span>
-                    </a>
-                    <div id="breed" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div id="cate" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">breed Components:</h6>
-                            <a class="collapse-item" href="../breed/addBreeds.jsp">Add Breed</a>
-                            <a class="collapse-item" href="cards.html">Breed manement</a>
+                            <a class="collapse-item" href="../breed/addBreeds.jsp">Animals Manager</a>
+                            <a class="collapse-item" href="cards.html">Breeds Manager</a>
                         </div>
                     </div>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="#" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span style="font-size: 12px">Member Manager</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span style="font-size: 12px">Order Manager</span>
+                    </a>
+                </li>
                 <!-- Nav Item - Utilities Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -386,10 +354,10 @@
 
                     </nav>
                     <div style="padding: 50px">
-                        <h4 style="color: #006dcc">+ Create new breed</h4>
+                        <h4 style="color: #006dcc">+ Create new animlas</h4>
                         <center>
-                            <h2 style="color: #006dcc">Breed List</h2>
-                            <table class="table table-hover">
+                            <h2 style="color: #006dcc">Animlas List</h2>
+                            <table class="table table-hover" style="text-align: center">
                                 <thead>
                                     <tr>
                                         <th scope="col" style="color: #006dcc">Id</th>

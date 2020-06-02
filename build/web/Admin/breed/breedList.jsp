@@ -385,16 +385,16 @@
                         </ul>
 
                     </nav>
-                    <center>
-                    <div style="width: 700px">
+                    <div style="padding: 50px">
+                        <h4 style="color: #006dcc">+ Create new breed</h4>
                         <center>
-                            <h2>Breed List</h2>
+                            <h2 style="color: #006dcc">Breed List</h2>
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col" style="color: #006dcc">Id</th>
+                                        <th scope="col" style="color: #006dcc">Name</th>
+                                        <th scope="col" style="color: #006dcc">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -417,7 +417,6 @@
                             </table>
                         </center>
                     </div>
-                    </center>
                 </div>
                 <script src="../vendor/jquery/jquery.min.js"></script>
                 <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -377,41 +377,42 @@
                         </ul>
 
                     </nav>
-                    <div style="padding: 50px">
-                        <center>
-                            <h2>Pet List</h2>
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>500 $</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>500 $</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>500 $</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </center>
-                    </div>
+                        <div style="padding: 50px">
+                            <h4 style="color: #006dcc">+ Create new food</h4>
+                            <center>
+                                <h2 style="color: #006dcc">Foods List</h2>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" style="color: #006dcc">Id</th>
+                                            <th scope="col" style="color: #006dcc">Name</th>
+                                            <th scope="col" style="color: #006dcc">Price</th>
+                                            <th scope="col" style="color: #006dcc">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>500 $</td>
+                                            <td>Edit || Delete || Details</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>500 $</td>
+                                            <td>Edit || Delete || Details</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Jacob</td>
+                                            <td>500 $</td>
+                                            <td>Edit || Delete || Details</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </center>
+                        </div>
                 </div>
                 <script src="../vendor/jquery/jquery.min.js"></script>
                 <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
