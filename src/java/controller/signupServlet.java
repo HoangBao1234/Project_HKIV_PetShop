@@ -38,7 +38,7 @@ public class signupServlet extends HttpServlet {
                 String address = request.getParameter("regis_address");
                 Members mem = new Members(name, mail, password, phone, address);
                 membersFacade.create(mem);               
-               request.getRequestDispatcher("Login/login.jsp").forward(request, response);
+                request.getRequestDispatcher("Login/login.jsp").forward(request, response);
         }
     }
 

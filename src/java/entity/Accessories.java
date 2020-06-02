@@ -67,6 +67,16 @@ public class Accessories implements Serializable {
         this.eSId = eSId;
     }
 
+    public Accessories(String eSId, String name, Integer price, String description, String image, Animals cFId, CateES cEId) {
+        this.eSId = eSId;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.image = image;
+        this.cFId = cFId;
+        this.cEId = cEId;
+    }
+
     public String getESId() {
         return eSId;
     }

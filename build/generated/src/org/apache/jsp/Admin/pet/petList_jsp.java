@@ -97,7 +97,7 @@ public final class petList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                <!-- Heading -->\n");
       out.write("                <div class=\"sidebar-heading\">\n");
-      out.write("                    Interface\n");
+      out.write("                    Maneger\n");
       out.write("                </div>\n");
       out.write("\n");
       out.write("                <li class=\"nav-item\">\n");
@@ -131,6 +131,12 @@ public final class petList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <a class=\"nav-link\" href=\"#\" aria-expanded=\"true\" aria-controls=\"collapseTwo\">\n");
       out.write("                        <i class=\"fas fa-fw fa-cog\"></i>\n");
       out.write("                        <span style=\"font-size: 12px\">Member Manager</span>\n");
+      out.write("                    </a>\n");
+      out.write("                </li>\n");
+      out.write("                <li class=\"nav-item\">\n");
+      out.write("                    <a class=\"nav-link\" href=\"#\" aria-expanded=\"true\" aria-controls=\"collapseTwo\">\n");
+      out.write("                        <i class=\"fas fa-fw fa-cog\"></i>\n");
+      out.write("                        <span style=\"font-size: 12px\">Pet Hotel Manager</span>\n");
       out.write("                    </a>\n");
       out.write("                </li>\n");
       out.write("                <li class=\"nav-item\">\n");
