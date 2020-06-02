@@ -39,25 +39,20 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4"><fmt:message key="login.form.titleRe"/></h1>
                                 </div>
-                                <form class="user" action="../signupServlet" method="post">
+                                <form class="user" action="../adminServlet" method="post">
                                     <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="text" class="form-control form-control-user" id="exampleFirstName" name="regis_id" placeholder="id">
+                                        </div>
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input type="text" class="form-control form-control-user" id="exampleFirstName" name="regis_name" placeholder="name">
                                         </div>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control form-control-user" id="exampleLastName" name="regis_phone" placeholder="phone">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="regis_mail" placeholder="mail" >
-                                    </div>
+                                      
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="regis_pass" placeholder="password" >
                                         </div>
-                                        <div class="col-sm-6">
-                                            <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" name="regis_address" placeholder="address">
-                                        </div>
+                                        
                                     </div>
                                     <input type="submit" class="btn btn-primary btn-user btn-block" value="<fmt:message key="login.textfield.Register"/>"/>
 
