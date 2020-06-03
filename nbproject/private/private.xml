@@ -3,22 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/memberController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/hotelController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/accessoriesController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/cateController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/OdersDetails.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Orders.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/member/memberDetail.jsp</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/signupServlet.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/petController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/foodController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/member/memberList.jsp</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Members.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/adminController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/animalsController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/breedController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/pet/updatePet.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/pet/petList.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/setup/glassfish-resources.xml</file>
         </group>
     </open-files>
 </project-private>
