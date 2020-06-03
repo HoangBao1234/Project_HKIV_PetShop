@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
 import entity.Breeds;
@@ -23,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "breedController", urlPatterns = {"/breedController"})
 public class breedController extends HttpServlet {
+
     @EJB
     private BreedsFacadeLocal breedsFacade;
 
@@ -39,41 +39,31 @@ public class breedController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("action");
-            if (action.equals("Insert")) {
-                String name = request.getParameter("breeds_name");
-                Breeds br = new Breeds(name);
-                breedsFacade.create(br);
-//                request.setAttribute("list", breedsFacade.findAll());
-//                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
-            }
-            if (action.equals("Show")) {
-                request.setAttribute("list", breedsFacade.findAll());
-                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
-            }
-            if (action.equals("Delete")) {
-                int id = Integer.parseInt("id");
-                Breeds br = breedsFacade.find(id);
-                breedsFacade.remove(br);
-                request.setAttribute("list", breedsFacade.findAll());
-                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
-            }
-            if (action.equals("findId")) {
-                int id = Integer.parseInt("id");
-
-                Breeds br = breedsFacade.find(id);
-                request.setAttribute("br", br);
-                request.getRequestDispatcher("updateBreeds.jsp").forward(request, response);
-            }
-            if (action.equals("update")) {
-                int id = Integer.parseInt("id");
-                String name = request.getParameter("name");
-                Breeds br = new Breeds(id, name);
-                breedsFacade.edit(br);
-                request.setAttribute("list", breedsFacade.findAll());
-                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
-            }
+           
         }
+    }
+
+    private void show(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("list", breedsFacade.findAll());
+    }
+
+    private void insert(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("breeds_name");
+        Breeds br = new Breeds(name);
+        breedsFacade.create(br);
+    }
+
+    private void delete() {
+        int id = Integer.parseInt("id");
+        Breeds br = breedsFacade.find(id);
+        breedsFacade.remove(br);
+    }
+
+    private void update(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        Breeds br = new Breeds(id, name);
+        breedsFacade.edit(br);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

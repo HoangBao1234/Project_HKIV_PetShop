@@ -42,49 +42,44 @@ public class hotelController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+       try (PrintWriter out = response.getWriter()) {
             String action = request.getParameter("action");
-            if (action.equals("Insert")) {
-                String id = request.getParameter("id");
-                String namePet = request.getParameter("namePet");
-                String dateStart = request.getParameter("dateStart");
-                String dateEnd = request.getParameter("dateEnd");
-                int price = Integer.parseInt(request.getParameter("price"));
-                String mId = request.getParameter("MId");
-                Members member = membersFacade.find(mId);
-                Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
-                pethotelFacade.create(hotel);
-                out.print("Ok");
-            }
-            if (action.equals("Delete")) {
-                String id = request.getParameter("id");
-                Pethotel hoPethotel = pethotelFacade.find(id);
-                pethotelFacade.remove(hoPethotel);
-                out.print("Ok");
-            }
-            if (action.equals("FindById")) {
-                String id = request.getParameter("id");
-                Pethotel hoPethotel = pethotelFacade.find(id);
-                request.setAttribute("hotel", hoPethotel);
-                out.print("Ok");
-            }
-            if (action.equals("Update")) {
-                String id = request.getParameter("id");
-                String namePet = request.getParameter("namePet");
-                String dateStart = request.getParameter("dateStart");
-                String dateEnd = request.getParameter("dateEnd");
-                int price = Integer.parseInt(request.getParameter("price"));
-                String mId = request.getParameter("MId");
-                Members member = membersFacade.find(mId);
-                Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
-                pethotelFacade.edit(hotel);
-                out.print("Ok");
-            }
+
         }
     }
-    
-    private void show(HttpServletRequest request, HttpServletResponse response){
-        
+
+    private void show(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("list", pethotelFacade.findAll());
+    }
+
+    private void insert(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        String namePet = request.getParameter("namePet");
+        String dateStart = request.getParameter("dateStart");
+        String dateEnd = request.getParameter("dateEnd");
+        int price = Integer.parseInt(request.getParameter("price"));
+        String mId = request.getParameter("MId");
+        Members member = membersFacade.find(mId);
+        Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
+        pethotelFacade.create(hotel);
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        Pethotel hoPethotel = pethotelFacade.find(id);
+        pethotelFacade.remove(hoPethotel);
+    }
+
+    private void update(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        String namePet = request.getParameter("namePet");
+        String dateStart = request.getParameter("dateStart");
+        String dateEnd = request.getParameter("dateEnd");
+        int price = Integer.parseInt(request.getParameter("price"));
+        String mId = request.getParameter("MId");
+        Members member = membersFacade.find(mId);
+        Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
+        pethotelFacade.edit(hotel);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
