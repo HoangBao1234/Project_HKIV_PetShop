@@ -10,6 +10,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -35,7 +37,7 @@ public class Feedbacks implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "FBId", nullable = false)
     private Integer fBId;
     @Size(max = 250)
@@ -48,6 +50,11 @@ public class Feedbacks implements Serializable {
     public Feedbacks(Integer fBId, String content) {
         this.fBId = fBId;
         this.content = content;
+    }
+
+    public Feedbacks(String content, Members mId) {
+        this.content = content;
+        this.mId = mId;
     }
 
     public Members getmId() {

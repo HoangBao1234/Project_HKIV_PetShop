@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
 import entity.Animals;
@@ -27,8 +26,9 @@ import javax.servlet.http.Part;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "foodController", urlPatterns = {"/foodController"})
+@WebServlet(name = "foodController", urlPatterns = {"/Foods/*"})
 public class foodController extends HttpServlet {
+
     @EJB
     private AnimalsFacadeLocal animalsFacade;
     @EJB
@@ -45,72 +45,38 @@ public class foodController extends HttpServlet {
      */
     Part part;
     public static final String SAVE_DIRECTORY = "ImageItems";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("action");
-            String path = request.getServletContext().getRealPath("");
-            path = path.replace("\\", "/");
-            path = path.replace("build/", "");
-            String fullPath = null;
-            if(path.endsWith("/")){
-                fullPath = path + SAVE_DIRECTORY;
-            }else{
-                fullPath = path + File.separator + SAVE_DIRECTORY;
-            }
-            if(action.equals("Insert")){
-                String id = request.getParameter("id");
-                String name = request.getParameter("name");
-                int price = Integer.parseInt(request.getParameter("price"));
-                part = request.getPart("image");
-                String fileName = extracFile(part);
-                String description = request.getParameter("description");
-                int cFId = Integer.parseInt(request.getParameter("cFId"));
-                Animals animals = animalsFacade.find(cFId);
-                Foods food = new Foods(id, name, price, fileName, description, animals);
-                String savePath = fullPath + File.separator + fileName;
-                saveToFolder(savePath);
-                out.print("Thành Công");
-            }
-            if(action.equals("Delete")){
-                String id = request.getParameter("id");
-                Foods food = foodsFacade.find(id);
-                String fileName = food.getImage();
-                String pathDe = fullPath + File.separator + fileName;
-                File file = new File(pathDe);
-                file.delete();
-                foodsFacade.remove(food);
-                out.print("Thành Công");
-            }
-            if(action.equals("FindById")){
-                String id = request.getParameter("id");
-                Foods food = foodsFacade.find(id);
-                request.setAttribute("food", food);
-                out.print("Thành Công");
-            }
-            if(action.equals("Update")){
-                String id = request.getParameter("id");
-                String name = request.getParameter("name");
-                int price = Integer.parseInt(request.getParameter("price"));
-                part = request.getPart("image");
-                String fileName = extracFile(part);
-                String description = request.getParameter("description");
-                int cFId = Integer.parseInt(request.getParameter("cFId"));
-                Animals animals = animalsFacade.find(cFId);
-                Foods food = foodsFacade.find(id);
-                String fileNameDe = food.getImage();
-                String pathDe = fullPath + File.separator + fileNameDe;
-                File fileDe = new File(pathDe);
-                fileDe.delete();
-                String savePath = fullPath + File.separator + fileName;
-                saveToFolder(savePath);
-                Foods foods = new Foods(id, name, price, fileName, description, animals);
-                foodsFacade.edit(foods);
-                out.print("Thành Công");
-            }
+           String path = request.getPathInfo();
+           switch(path){
+               case "/List":
+                   show(request, response);
+                   break;
+               case "/Delete":
+                   delete(request, response);
+                   break;
+               case "/Create":
+                   getViewCreate(request, response);
+                   break;
+               case "/Store":
+                   insert(request, response);
+                   break;
+               case "/Edit":
+                   getViewEdit(request, response);
+                   break;
+               case "/Update":
+                   update(request, response);
+                   break;
+               default:
+                   out.print("Ko có");
+                   break;
+           }
         }
     }
+
     private String extracFile(Part part) {
         String i = part.getHeader("content-disposition");//form-data; name="file"; filename="Avatar.jpg"
         String[] items = i.split(";");//cat chuoi thanh mang sau mỗi dấu ;
@@ -125,6 +91,7 @@ public class foodController extends HttpServlet {
         return null;
 
     }
+
     private void saveToFolder(String savePath) {
         try {
             InputStream is = part.getInputStream();
@@ -137,6 +104,89 @@ public class foodController extends HttpServlet {
         } catch (Exception e) {
 
         }
+    }
+
+    private String getFullPath(HttpServletRequest request, HttpServletResponse response) {
+        String path = request.getServletContext().getRealPath("");
+        path = path.replace("\\", "/");
+        path = path.replace("build/", "");
+        String fullPath = null;
+        if (path.endsWith("/")) {
+            fullPath = path + SAVE_DIRECTORY;
+        } else {
+            fullPath = path + File.separator + SAVE_DIRECTORY;
+        }
+        return fullPath;
+    }
+
+    private void show(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("list", foodsFacade.findAll());
+        request.getRequestDispatcher("/Admin/food/foodList.jsp").forward(request, response);
+    }
+
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        int price = Integer.parseInt(request.getParameter("price"));
+        part = request.getPart("image");
+        String fileName = extracFile(part);
+        String description = request.getParameter("description");
+        int cFId = Integer.parseInt(request.getParameter("cFId"));
+        Animals animals = animalsFacade.find(cFId);
+        Foods food = new Foods(id, name, price, fileName, description, animals);
+        String savePath = getFullPath(request, response) + File.separator + fileName;
+        saveToFolder(savePath);
+        request.getRequestDispatcher("/Admin/food/foodList.jsp").forward(request, response);
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String id = request.getParameter("id");
+        Foods food = foodsFacade.find(id);
+        String fileName = food.getImage();
+        String pathDe = getFullPath(request, response) + File.separator + fileName;
+        File file = new File(pathDe);
+        file.delete();
+        foodsFacade.remove(food);
+        response.sendRedirect("List");
+    }
+
+    private void update(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        int price = Integer.parseInt(request.getParameter("price"));
+        part = request.getPart("image");
+        String fileName = extracFile(part);
+        String description = request.getParameter("description");
+        int cFId = Integer.parseInt(request.getParameter("cFId"));
+        Animals animals = animalsFacade.find(cFId);
+        Foods food = foodsFacade.find(id);
+        String fileNameDe = food.getImage();
+        String pathDe = getFullPath(request, response) + File.separator + fileNameDe;
+        File fileDe = new File(pathDe);
+        fileDe.delete();
+        String savePath = getFullPath(request, response) + File.separator + fileName;
+        saveToFolder(savePath);
+        Foods foods = new Foods(id, name, price, fileName, description, animals);
+        foodsFacade.edit(foods);
+    }
+    
+    private void getViewList(HttpServletRequest request, HttpServletResponse response){
+        request.getRequestDispatcher("/Admin/food/foodList.jsp");
+    }
+    
+    private void getViewCreate(HttpServletRequest request, HttpServletResponse response){
+        request.getRequestDispatcher("/Admin/food/addFood.jsp");
+    }
+    
+    private void getViewEdit(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        if(request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()){
+            response.sendRedirect("List");
+        }else{
+            String id = request.getParameter("id");
+            request.setAttribute("food", foodsFacade.find(id));
+            request.getRequestDispatcher("/Admin/food/updateFood.jsp");
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

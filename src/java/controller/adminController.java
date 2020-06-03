@@ -40,44 +40,34 @@ public class adminController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("action");
-            if (action.equals("Insert")) {
-                int id = Integer.parseInt(request.getParameter("admins_id"));
-                String username = request.getParameter("admins_name");
-                String password = request.getParameter("admins_pass");
-                Admins ad = new Admins(id, username, password);
-                adminsFacade.create(ad);
-//                request.setAttribute("list", breedsFacade.findAll());
-//                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
-            }
-            if (action.equals("Show")) {
-                request.setAttribute("list", adminsFacade.findAll());
-                request.getRequestDispatcher("showAdmins.jsp").forward(request, response);
-            }
-            if (action.equals("Delete")) {
-                int id = Integer.parseInt("id");
-                Admins ad = adminsFacade.find(id);
-                adminsFacade.remove(ad);
-                request.setAttribute("list", adminsFacade.findAll());
-                request.getRequestDispatcher("showAdmins.jsp").forward(request, response);
-            }
-            if (action.equals("findId")) {
-                int id = Integer.parseInt("id");
-
-                Admins ad = adminsFacade.find(id);
-                request.setAttribute("ad", ad);
-                request.getRequestDispatcher("updateAdmins.jsp").forward(request, response);
-            }
-            if (action.equals("update")) {
-                int id = Integer.parseInt(request.getParameter("admins_id"));
-                String username = request.getParameter("admins_name");
-                String password = request.getParameter("admins_pass");
-                Admins ad = new Admins(id, username, password);
-                adminsFacade.edit(ad);
-                request.setAttribute("list", adminsFacade.findAll());
-                request.getRequestDispatcher("showAdmins.jsp").forward(request, response);
-            }
+            
         }
+    }
+
+    private void show(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("list", adminsFacade.findAll());
+    }
+
+    private void insert(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("admins_id"));
+        String username = request.getParameter("admins_name");
+        String password = request.getParameter("admins_pass");
+        Admins ad = new Admins(id, username, password);
+        adminsFacade.create(ad);
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt("id");
+        Admins ad = adminsFacade.find(id);
+        adminsFacade.remove(ad);
+    }
+
+    private void update(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("admins_id"));
+        String username = request.getParameter("admins_name");
+        String password = request.getParameter("admins_pass");
+        Admins ad = new Admins(id, username, password);
+        adminsFacade.edit(ad);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
