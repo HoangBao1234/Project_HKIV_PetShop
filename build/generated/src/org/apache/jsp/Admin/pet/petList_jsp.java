@@ -145,6 +145,12 @@ public final class petList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <span style=\"font-size: 12px\">Order Manager</span>\n");
       out.write("                    </a>\n");
       out.write("                </li>\n");
+      out.write("                <li class=\"nav-item\">\n");
+      out.write("                    <a class=\"nav-link\" href=\"#\" aria-expanded=\"true\" aria-controls=\"collapseTwo\">\n");
+      out.write("                        <i class=\"fas fa-fw fa-cog\"></i>\n");
+      out.write("                        <span style=\"font-size: 12px\">Feedback Manager</span>\n");
+      out.write("                    </a>\n");
+      out.write("                </li>\n");
       out.write("                <!-- Nav Item - Utilities Collapse Menu -->\n");
       out.write("                <li class=\"nav-item\">\n");
       out.write("                    <a class=\"nav-link collapsed\" href=\"#\" data-toggle=\"collapse\" data-target=\"#collapseUtilities\" aria-expanded=\"true\" aria-controls=\"collapseUtilities\">\n");

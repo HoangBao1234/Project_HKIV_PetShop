@@ -60,6 +60,15 @@ public class Foods implements Serializable {
     public Foods() {
     }
 
+    public Foods(String fId, String name, Integer price, String image, String description, Animals cFId) {
+        this.fId = fId;
+        this.name = name;
+        this.price = price;
+        this.image = image;
+        this.description = description;
+        this.cFId = cFId;
+    }
+
     public Foods(String fId) {
         this.fId = fId;
     }
