@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/pet/petList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/accessories/accessoriesList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/setup/glassfish-resources.xml</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/accessoriesController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/adminController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/animalsController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/breedController.java</file>
         </group>
     </open-files>
 </project-private>
