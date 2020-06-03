@@ -2,12 +2,11 @@ package entity;
 
 import entity.Animals;
 import entity.Breeds;
-import java.util.Date;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.0.v20130507-rNA", date="2020-06-01T12:02:53")
+@Generated(value="EclipseLink-2.5.0.v20130507-rNA", date="2020-06-03T13:21:24")
 @StaticMetamodel(Pets.class)
 public class Pets_ { 
 
@@ -21,6 +20,6 @@ public class Pets_ {
     public static volatile SingularAttribute<Pets, String> origin;
     public static volatile SingularAttribute<Pets, String> description;
     public static volatile SingularAttribute<Pets, String> pId;
-    public static volatile SingularAttribute<Pets, Date> age;
+    public static volatile SingularAttribute<Pets, String> age;
 
 }

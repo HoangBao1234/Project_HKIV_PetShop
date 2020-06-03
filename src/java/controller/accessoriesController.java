@@ -57,67 +57,7 @@ public class accessoriesController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String action = request.getParameter("action");
-            String path = request.getServletContext().getRealPath("");
-            path = path.replace("\\", "/");
-            path = path.replace("build/", "");
-            String fullPath = null;
-            if (path.endsWith("/")) {
-                fullPath = path + SAVE_DIRECTORY;
-            } else {
-                fullPath = path + File.separator + SAVE_DIRECTORY;
-            }
-            if (action.equals("Insert")) {
-                String id = request.getParameter("id");
-                String name = request.getParameter("name");
-                int price = Integer.parseInt(request.getParameter("price"));
-                String description = request.getParameter("description");
-                String fileName = extracFile(part);
-                String cFId = request.getParameter("cFId");
-                String cEId = request.getParameter("cEId");
-                Animals animals = animalsFacade.find(cFId);
-                CateES cateEs = cateESFacade.find(cEId);
-                Accessories accessories = new Accessories(id, name, price, description, fileName, animals, cateEs);
-                accessoriesFacade.create(accessories);
-                String savePath = fullPath + File.separator + fileName;
-                saveToFolder(savePath);
-                out.print("Thành Công");
-            }
-            if(action.equals("Delete")){
-                String id = request.getParameter("id");
-                Accessories accessories = accessoriesFacade.find(id);
-                String dePath = fullPath + File.separator + accessories.getImage();
-                File fileDe  = new File(dePath);
-                fileDe.delete();
-                accessoriesFacade.remove(accessories);
-                out.print("Thành Công");
-            }
-            if(action.equals("FindById")){
-                String id = request.getParameter("id");
-                Accessories accessories = accessoriesFacade.find(id);
-                request.setAttribute("accessories", accessories);
-                out.print("Thành Công");
-            }
-            if(action.equals("Update")){
-                String id = request.getParameter("id");
-                String name = request.getParameter("name");
-                int price = Integer.parseInt(request.getParameter("price"));
-                String description = request.getParameter("description");
-                String fileName = extracFile(part);
-                String cFId = request.getParameter("cFId");
-                String cEId = request.getParameter("cEId");
-                Animals animals = animalsFacade.find(cFId);
-                CateES cateEs = cateESFacade.find(cEId);
-                Accessories accessoriesDE = accessoriesFacade.find(id);
-                String fileDe = accessoriesDE.getImage();
-                String dePath = fullPath + File.separator + fileDe;
-                File file = new File(dePath);
-                file.delete();
-                Accessories accessories = new Accessories(id, name, price, description, fileName, animals, cateEs);
-                accessoriesFacade.edit(accessories);
-                String savePath = fullPath + File.separator + fileName;
-                saveToFolder(savePath);
-                out.print("Thành Công");
-            }
+
         }
     }
 
@@ -148,6 +88,70 @@ public class accessoriesController extends HttpServlet {
         } catch (Exception e) {
 
         }
+    }
+
+    private String getFullPath(HttpServletRequest request, HttpServletResponse response) {
+        String path = request.getServletContext().getRealPath("");
+        path = path.replace("\\", "/");
+        path = path.replace("build/", "");
+        String fullPath = null;
+        if (path.endsWith("/")) {
+            fullPath = path + SAVE_DIRECTORY;
+        } else {
+            fullPath = path + File.separator + SAVE_DIRECTORY;
+        }
+        return fullPath;
+    }
+
+    private void insert(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        int price = Integer.parseInt(request.getParameter("price"));
+        String description = request.getParameter("description");
+        String fileName = extracFile(part);
+        String cFId = request.getParameter("cFId");
+        String cEId = request.getParameter("cEId");
+        Animals animals = animalsFacade.find(cFId);
+        CateES cateEs = cateESFacade.find(cEId);
+        Accessories accessories = new Accessories(id, name, price, description, fileName, animals, cateEs);
+        accessoriesFacade.create(accessories);
+        String savePath = getFullPath(request, response) + File.separator + fileName;
+        saveToFolder(savePath);
+    }
+    
+    private void show(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.setAttribute("list", accessoriesFacade.findAll());
+        request.getRequestDispatcher("/Admin/accessories/accessoriesList.jsp").forward(request, response);
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        Accessories accessories = accessoriesFacade.find(id);
+        String dePath = getFullPath(request, response) + File.separator + accessories.getImage();
+        File fileDe = new File(dePath);
+        fileDe.delete();
+        accessoriesFacade.remove(accessories);
+    }
+
+    private void update(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        int price = Integer.parseInt(request.getParameter("price"));
+        String description = request.getParameter("description");
+        String fileName = extracFile(part);
+        String cFId = request.getParameter("cFId");
+        String cEId = request.getParameter("cEId");
+        Animals animals = animalsFacade.find(cFId);
+        CateES cateEs = cateESFacade.find(cEId);
+        Accessories accessoriesDE = accessoriesFacade.find(id);
+        String fileDe = accessoriesDE.getImage();
+        String dePath = getFullPath(request, response) + File.separator + fileDe;
+        File file = new File(dePath);
+        file.delete();
+        Accessories accessories = new Accessories(id, name, price, description, fileName, animals, cateEs);
+        accessoriesFacade.edit(accessories);
+        String savePath = getFullPath(request, response) + File.separator + fileName;
+        saveToFolder(savePath);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

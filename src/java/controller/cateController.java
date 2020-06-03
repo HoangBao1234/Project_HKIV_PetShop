@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
 import entity.Admins;
@@ -24,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "cateController", urlPatterns = {"/cateController"})
 public class cateController extends HttpServlet {
+
     @EJB
     private CateESFacadeLocal cateESFacade;
 
@@ -40,43 +40,33 @@ public class cateController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-             String action = request.getParameter("action");
-            if (action.equals("Insert")) {
-                int id= Integer.parseInt(request.getParameter("admins_id"));
-                String username = request.getParameter("admins_name");             
-                CateES cate = new CateES(id, username);
-                cateESFacade.create(cate);
-//                request.setAttribute("list", breedsFacade.findAll());
-//                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
-            }
-             if (action.equals("Show")) {
-                request.setAttribute("list", cateESFacade.findAll());
-                request.getRequestDispatcher("showCateES.jsp").forward(request, response);
-            }
-            if (action.equals("Delete")) {
-                int id = Integer.parseInt("id");
-                CateES cate = cateESFacade.find(id);
-                cateESFacade.remove(cate);
-                request.setAttribute("list",cateESFacade.findAll());
-                request.getRequestDispatcher("showCateES.jsp").forward(request, response);
-            }
-            if (action.equals("findId")) {
-                int id = Integer.parseInt("id");
-
-                CateES cate = cateESFacade.find(id);
-                request.setAttribute("cate", cate);
-                request.getRequestDispatcher("updateAdmins.jsp").forward(request, response);
-            }
-            if (action.equals("update")) {      
-                int id= Integer.parseInt(request.getParameter("admins_id"));
-                String username = request.getParameter("admins_name");
-             
-                CateES cate = new CateES( id,username);
-                cateESFacade.edit(cate);
-                request.setAttribute("list", cateESFacade.findAll());
-                request.getRequestDispatcher("showCateES.jsp").forward(request, response);
-            }
+            
         }
+    }
+
+    private void show(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("list", cateESFacade.findAll());
+    }
+
+    private void insert(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("admins_id"));
+        String username = request.getParameter("admins_name");
+        CateES cate = new CateES(id, username);
+        cateESFacade.create(cate);
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt("id");
+        CateES cate = cateESFacade.find(id);
+        cateESFacade.remove(cate);
+    }
+
+    private void update(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("admins_id"));
+        String username = request.getParameter("admins_name");
+
+        CateES cate = new CateES(id, username);
+        cateESFacade.edit(cate);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

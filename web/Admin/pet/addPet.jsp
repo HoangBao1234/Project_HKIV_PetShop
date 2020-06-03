@@ -6,6 +6,8 @@
 
 <%@page import="java.sql.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,11 +21,11 @@
         <title>SB Admin 2 - Dashboard</title>
 
         <!-- Custom fonts for this template-->
-        <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="${context}/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template-->
-        <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
 
 
 
@@ -388,7 +390,7 @@
                     <div>
                         <center>
                             <h1>Add Pet</h1>
-                            <form class="form-horizontal" action="../../petController" method="post" enctype="multipart/form-data">
+                            <form class="form-horizontal" action="${context}/Pet/Store" method="post" enctype="multipart/form-data">
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
@@ -489,7 +491,7 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px" name="animals">
-                                            <option>Duy</option>
+                                            <option value="1">Duy</option>
                                         </select>
                                     </div>
                                 </div>
@@ -501,7 +503,7 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px" name="breeds">
-                                            <option>Duy</option>
+                                            <option value="1">Duy</option>
                                         </select>
                                     </div>
                                 </div>
@@ -512,7 +514,7 @@
                                 <!-- Button -->
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <button id="btnPet" type="submit" value="Insert" name="action" class="btn btn-primary">Button</button>
+                                        <input type="submit" value="Insert" name="action" class="btn btn-primary"/>
                                     </div>
                                 </div>
 
@@ -523,20 +525,20 @@
                 </center>
             </div>
         </div>
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
+        <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
-        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
         <!-- Custom scripts for all pages-->
-        <script src="../js/sb-admin-2.min.js"></script>
+        <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
 
         <!-- Page level plugins -->
-        <script src="../vendor/chart.js/Chart.min.js"></script>
+        <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
 
         <!-- Page level custom scripts -->
-        <script src="../js/demo/chart-area-demo.js"></script>
-        <script src="../js/demo/chart-pie-demo.js"></script>
+        <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
+        <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
     </body>
 </html>
