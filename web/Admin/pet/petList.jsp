@@ -106,6 +106,12 @@
                         <span style="font-size: 12px">Order Manager</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span style="font-size: 12px">Feedback Manager</span>
+                    </a>
+                </li>
                 <!-- Nav Item - Utilities Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
