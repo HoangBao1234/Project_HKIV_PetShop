@@ -71,9 +71,9 @@
                     <div id="foods" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Products</h6>
-                            <a class="collapse-item" href="../food/addFood.jsp">Pets Manager</a>
-                            <a class="collapse-item" href="cards.html">Foods Manager</a>
-                            <a class="collapse-item" href="cards.html">Accessories Manager</a>
+                            <a class="collapse-item" href="${context}/Pet/List">Pets Manager</a>
+                            <a class="collapse-item" href="${context}/Foods/List">Foods Manager</a>
+                            <a class="collapse-item" href="${context}/Foods/List">Accessories Manager</a>
                         </div>
                     </div>
                 </li>

@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "adminController", urlPatterns = {"/adminController"})
+@WebServlet(name = "adminController", urlPatterns = {"/Admin/*"})
 public class adminController extends HttpServlet {
 
     @EJB
@@ -40,12 +40,37 @@ public class adminController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String path = request.getPathInfo();
             
+            switch(path){
+                case "/List":
+                    getListView(request, response);
+                    break;
+                case "/Create":
+                    getCreateView(request, response);
+                    break;
+                case "/Store":
+                    insert(request, response);
+                    break;
+                case "/Edit":
+                    getEditView(request, response);
+                    break;
+                case "/Update":
+                    update(request, response);
+                    break;
+                case "/Delete":    
+                    delete(request, response);
+                    break;
+                default:
+                    out.print("Sai");
+                    break;
+            }
         }
     }
 
-    private void show(HttpServletRequest request, HttpServletResponse response) {
+    private void getListView(HttpServletRequest request, HttpServletResponse response) {
         request.setAttribute("list", adminsFacade.findAll());
+        request.getRequestDispatcher("/Admin/admin/adminList.jsp");
     }
 
     private void insert(HttpServletRequest request, HttpServletResponse response) {
@@ -56,10 +81,11 @@ public class adminController extends HttpServlet {
         adminsFacade.create(ad);
     }
 
-    private void delete(HttpServletRequest request, HttpServletResponse response) {
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt("id");
         Admins ad = adminsFacade.find(id);
         adminsFacade.remove(ad);
+        response.sendRedirect("List");
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) {
@@ -68,6 +94,14 @@ public class adminController extends HttpServlet {
         String password = request.getParameter("admins_pass");
         Admins ad = new Admins(id, username, password);
         adminsFacade.edit(ad);
+    }
+    
+    private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/admin/addAdmin.jsp").forward(request, response);
+    }
+    
+    private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/admin/updateAdmin.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

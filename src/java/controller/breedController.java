@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "breedController", urlPatterns = {"/breedController"})
+@WebServlet(name = "breedController", urlPatterns = {"/Breeds/*"})
 public class breedController extends HttpServlet {
 
     @EJB
@@ -39,12 +39,19 @@ public class breedController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+           String path = request.getPathInfo();
            
+           switch(path){
+               case "/List":
+                   getListView(request, response);
+                   break;
+           }
         }
     }
 
-    private void show(HttpServletRequest request, HttpServletResponse response) {
+    private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", breedsFacade.findAll());
+        request.getRequestDispatcher("/Customer/Foods/index.jsp").forward(request, response);
     }
 
     private void insert(HttpServletRequest request, HttpServletResponse response) {

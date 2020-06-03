@@ -17,7 +17,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Pet List</title>
+        <title>Foods Manager</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
@@ -71,8 +71,8 @@
                     <div id="foods" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Products</h6>
-                            <a class="collapse-item" href="../food/addFood.jsp">Pets Manager</a>
-                            <a class="collapse-item" href="cards.html">Foods Manager</a>
+                            <a class="collapse-item" href="${context}/Pet/List">Pets Manager</a>
+                            <a class="collapse-item" href="${context}/Foods/List">Foods Manager</a>
                             <a class="collapse-item" href="cards.html">Accessories Manager</a>
                         </div>
                     </div>
@@ -361,20 +361,20 @@
                             </center>
                         </div>
                 </div>
-                <script src="../vendor/jquery/jquery.min.js"></script>
-                <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
+                <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
                 <!-- Core plugin JavaScript-->
-                <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+                <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
                 <!-- Custom scripts for all pages-->
-                <script src="../js/sb-admin-2.min.js"></script>
+                <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
 
                 <!-- Page level plugins -->
-                <script src="../vendor/chart.js/Chart.min.js"></script>
+                <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
 
                 <!-- Page level custom scripts -->
-                <script src="../js/demo/chart-area-demo.js"></script>
-                <script src="../js/demo/chart-pie-demo.js"></script>
+                <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
+                <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
                 </body>
                 </html>
