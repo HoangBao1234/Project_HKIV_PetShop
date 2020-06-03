@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "hotelController", urlPatterns = {"/hotelController"})
+@WebServlet(name = "hotelController", urlPatterns = {"/Hotels/*"})
 public class hotelController extends HttpServlet {
 
     @EJB
@@ -42,14 +42,32 @@ public class hotelController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       try (PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("action");
+        try (PrintWriter out = response.getWriter()) {
+            String path = request.getPathInfo();
+            switch (path) {
+                case "/List":
+                    getListView(request, response);
+                    break;
+                case "/Delete":
+                    delete(request, response);
+                    break;
+                case "/Edit":
+                    getEditView(request, response);
+                    break;
+                case "/Update":
+                    update(request, response);
+                    break;
+                default:
+                    out.print("Ko có");
+                    break;
+            }
 
         }
     }
 
-    private void show(HttpServletRequest request, HttpServletResponse response) {
+    private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", pethotelFacade.findAll());
+        request.getRequestDispatcher("/Admin/hotel/hotelList.jsp").forward(request, response);
     }
 
     private void insert(HttpServletRequest request, HttpServletResponse response) {
@@ -64,10 +82,11 @@ public class hotelController extends HttpServlet {
         pethotelFacade.create(hotel);
     }
 
-    private void delete(HttpServletRequest request, HttpServletResponse response) {
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String id = request.getParameter("id");
         Pethotel hoPethotel = pethotelFacade.find(id);
         pethotelFacade.remove(hoPethotel);
+        response.sendRedirect("List");
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) {
@@ -80,6 +99,18 @@ public class hotelController extends HttpServlet {
         Members member = membersFacade.find(mId);
         Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
         pethotelFacade.edit(hotel);
+    }
+
+    private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+            response.sendRedirect("List");
+        } else {
+            String id = request.getParameter("id");
+            request.setAttribute("hotel", pethotelFacade.find(id));
+            request.getRequestDispatcher("/Admin/hotel/updateHotel.jsp").forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

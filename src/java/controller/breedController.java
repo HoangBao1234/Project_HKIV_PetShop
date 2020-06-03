@@ -45,13 +45,31 @@ public class breedController extends HttpServlet {
                case "/List":
                    getListView(request, response);
                    break;
+               case "/Create":
+                   getCreateView(request, response);
+                   break;
+               case "/Store":
+                   insert(request, response);
+                   break;
+               case "/Edit":
+                   getEditView(request, response);
+                   break;
+               case "/Update":
+                   update(request, response);
+                   break;
+               case "/Delete":
+                   delete(request, response);
+                   break;
+               default:
+                   out.print("Sai");
+                   break;
            }
         }
     }
 
     private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", breedsFacade.findAll());
-        request.getRequestDispatcher("/Customer/Foods/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/Admin/breed/breedList.jsp").forward(request, response);
     }
 
     private void insert(HttpServletRequest request, HttpServletResponse response) {
@@ -60,10 +78,11 @@ public class breedController extends HttpServlet {
         breedsFacade.create(br);
     }
 
-    private void delete() {
-        int id = Integer.parseInt("id");
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
         Breeds br = breedsFacade.find(id);
         breedsFacade.remove(br);
+        response.sendRedirect("List");
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) {
@@ -71,6 +90,14 @@ public class breedController extends HttpServlet {
         String name = request.getParameter("name");
         Breeds br = new Breeds(id, name);
         breedsFacade.edit(br);
+    }
+    
+    private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/breed/addBreed.jsp").forward(request, response);
+    }
+    
+    private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/breed/updateBreed.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "adminController", urlPatterns = {"/Admin/*"})
+@WebServlet(name = "adminController", urlPatterns = {"/Admins/*"})
 public class adminController extends HttpServlet {
 
     @EJB
@@ -62,15 +62,15 @@ public class adminController extends HttpServlet {
                     delete(request, response);
                     break;
                 default:
-                    out.print("Sai");
+                    out.print("huhu");
                     break;
             }
         }
     }
 
-    private void getListView(HttpServletRequest request, HttpServletResponse response) {
+    private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", adminsFacade.findAll());
-        request.getRequestDispatcher("/Admin/admin/adminList.jsp");
+        request.getRequestDispatcher("/Admin/admin/adminList.jsp").forward(request, response);
     }
 
     private void insert(HttpServletRequest request, HttpServletResponse response) {
@@ -97,7 +97,7 @@ public class adminController extends HttpServlet {
     }
     
     private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        request.getRequestDispatcher("/Admin/admin/addAdmin.jsp").forward(request, response);
+        request.getRequestDispatcher("/Login/register_admin.jsp").forward(request, response);
     }
     
     private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

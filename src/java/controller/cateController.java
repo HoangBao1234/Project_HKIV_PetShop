@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "cateController", urlPatterns = {"/cateController"})
+@WebServlet(name = "cateController", urlPatterns = {"/Cate/*"})
 public class cateController extends HttpServlet {
 
     @EJB
@@ -40,12 +40,37 @@ public class cateController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String path = request.getPathInfo();
             
+            switch(path){
+               case "/List":
+                   getListView(request, response);
+                   break;
+               case "/Create":
+                   getCreateView(request, response);
+                   break;
+               case "/Store":
+                   insert(request, response);
+                   break;
+               case "/Edit":
+                   getEditView(request, response);
+                   break;
+               case "/Update":
+                   update(request, response);
+                   break;
+               case "/Delete":
+                   delete(request, response);
+                   break;
+               default:
+                   out.print("Sai");
+                   break;
+           }
         }
     }
 
-    private void show(HttpServletRequest request, HttpServletResponse response) {
+    private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", cateESFacade.findAll());
+        request.getRequestDispatcher("/Admin/cate/cateList.jsp").forward(request, response);
     }
 
     private void insert(HttpServletRequest request, HttpServletResponse response) {
@@ -55,20 +80,30 @@ public class cateController extends HttpServlet {
         cateESFacade.create(cate);
     }
 
-    private void delete(HttpServletRequest request, HttpServletResponse response) {
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt("id");
         CateES cate = cateESFacade.find(id);
         cateESFacade.remove(cate);
+        response.sendRedirect("List");
     }
 
-    private void update(HttpServletRequest request, HttpServletResponse response) {
+    private void update(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("admins_id"));
         String username = request.getParameter("admins_name");
 
         CateES cate = new CateES(id, username);
         cateESFacade.edit(cate);
+        response.sendRedirect("List");
     }
 
+    private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/cate/cateList.jsp").forward(request, response);
+    }
+    
+    private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/cate/updateCate.jsp").forward(request, response);
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

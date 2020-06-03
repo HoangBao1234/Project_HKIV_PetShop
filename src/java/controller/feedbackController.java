@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "feedbackController", urlPatterns = {"/feedbackController"})
+@WebServlet(name = "feedbackController", urlPatterns = {"/FeedBack/*"})
 public class feedbackController extends HttpServlet {
 
     @EJB
@@ -39,12 +39,25 @@ public class feedbackController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String path = request.getPathInfo();
             
+            switch(path){
+               case "/List":
+                   getListView(request, response);
+                   break;
+               case "/Delete":
+                   delete(request, response);
+                   break;
+               default:
+                   out.print("Sai");
+                   break;
+           }
         }
     }
 
-    private void show(HttpServletRequest request, HttpServletResponse response) {
+    private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", feedbacksFacade.findAll());
+        request.getRequestDispatcher("/Admin/feedback/fbList.jsp").forward(request, response);
     }
 
     private void insert(HttpServletRequest request, HttpServletResponse response) {
@@ -66,6 +79,10 @@ public class feedbackController extends HttpServlet {
         String content = request.getParameter("admins_content");
         Feedbacks fb = new Feedbacks(id, content);
         feedbacksFacade.edit(fb);
+    }
+    
+    private void getCreteView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/feedback/fbList.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -201,6 +201,7 @@ public class petController extends HttpServlet {
 
     private void getViews(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
+        request.setAttribute("list", petsFacade.findAll());
         request.getRequestDispatcher("/Admin/pet/petList.jsp").forward(request, response);
     }
 

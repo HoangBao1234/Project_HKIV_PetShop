@@ -168,6 +168,7 @@ public class foodController extends HttpServlet {
         saveToFolder(savePath);
         Foods foods = new Foods(id, name, price, fileName, description, animals);
         foodsFacade.edit(foods);
+        response.sendRedirect("List");
     }
     
     private void getViewList(HttpServletRequest request, HttpServletResponse response){
