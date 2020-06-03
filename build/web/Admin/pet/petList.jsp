@@ -85,6 +85,7 @@
                             <h6 class="collapse-header">breed Components:</h6>
                             <a class="collapse-item" href="../breed/addBreeds.jsp">Animals Manager</a>
                             <a class="collapse-item" href="cards.html">Breeds Manager</a>
+                            <a class="collapse-item" href="cards.html">CateES Manager</a>
                         </div>
                     </div>
                 </li>
