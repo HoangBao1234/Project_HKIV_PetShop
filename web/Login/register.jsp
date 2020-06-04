@@ -42,21 +42,21 @@
                                 <form class="user" action="../signupServlet" method="post">
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" id="exampleFirstName" name="regis_name" placeholder="name">
+                                            <input type="text" class="form-control form-control-user" id="exampleFirstName" name="regis_name" placeholder="<fmt:message key="login.textfield.name"/>">
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control form-control-user" id="exampleLastName" name="regis_phone" placeholder="phone">
+                                            <input type="text" class="form-control form-control-user" id="exampleLastName" name="regis_phone" placeholder="<fmt:message key="login.textfield.phone"/>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="regis_mail" placeholder="mail" >
+                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="regis_mail" placeholder="<fmt:message key="login.textfield.mail"/>" >
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="regis_pass" placeholder="password" >
+                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="regis_pass" placeholder="<fmt:message key="login.textfield.password"/>" >
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" name="regis_address" placeholder="address">
+                                            <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" name="regis_address" placeholder="<fmt:message key="login.textfield.address"/>">
                                         </div>
                                     </div>
                                     <input type="submit" class="btn btn-primary btn-user btn-block" value="<fmt:message key="login.textfield.Register"/>"/>
@@ -72,10 +72,10 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.html"> <fmt:message key="login.button.fogot"/></a>
+                                    <a class="small" href="forgot-password.jsp"> <fmt:message key="login.button.fogot"/></a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="login.html"> <fmt:message key="login.button.alhaveaccount"/> </a>
+                                    <a class="small" href="login.jsp"> <fmt:message key="login.button.alhaveaccount"/> </a>
                                 </div>
                                 <div class="text-center">
                                     <a class="small" href="?locale=en">

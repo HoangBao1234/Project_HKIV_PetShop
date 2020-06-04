@@ -64,10 +64,10 @@
                                         ${error}
                                         <form class="user" action="../loginServlet" method="post">
                                             <div class="form-group">
-                                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" name="txtMail" value="<%out.print(user);%>" placeholder="<fmt:message key="login.textfield.name"/>">
+                                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" name="txtMail" value="<%out.print(user);%>" placeholder="<fmt:message key="login.textfield.mail"/>">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="txtPassword" value="<%out.print(pass);%>"  placeholder="<fmt:message key="login.textfield.name"/>">
+                                                <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="txtPassword" value="<%out.print(pass);%>"  placeholder="<fmt:message key="login.textfield.password"/>">
                                             </div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small">
@@ -87,10 +87,10 @@
                                         </form>
                                         <hr>
                                         <div class="text-center">
-                                            <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                            <a class="small" href="forgot-password.jsp">Forgot Password?</a>
                                         </div>
                                         <div class="text-center">
-                                            <a class="small" href="register.html">Create an Account!</a>
+                                            <a class="small" href="register.jsp">Create an Account!</a>
                                         </div>
                                         <div class="text-center">
                                             <a class="small" href="?locale=en">
