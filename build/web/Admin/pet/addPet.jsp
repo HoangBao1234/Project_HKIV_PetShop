@@ -1,9 +1,3 @@
-<%-- 
-    Document   : header
-    Created on : May 26, 2020, 4:37:48 PM
-    Author     : DUY
---%>
-
 <%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -23,6 +17,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
         <link href="${context}/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template-->
@@ -72,9 +67,9 @@
                     <div id="foods" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Products</h6>
-                            <a class="collapse-item" href="../food/addFood.jsp">Pets Manager</a>
-                            <a class="collapse-item" href="cards.html">Foods Manager</a>
-                            <a class="collapse-item" href="cards.html">Accessories Manager</a>
+                            <a class="collapse-item" href="${context}/Pet/List">Pets Manager</a>
+                            <a class="collapse-item" href="${context}/Foods/List">Foods Manager</a>
+                            <a class="collapse-item" href="${context}/Accessories/List">Accessories Manager</a>
                         </div>
                     </div>
                 </li>
@@ -86,34 +81,34 @@
                     <div id="cate" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">breed Components:</h6>
-                            <a class="collapse-item" href="../breed/addBreeds.jsp">Animals Manager</a>
-                            <a class="collapse-item" href="cards.html">Breeds Manager</a>
-                            <a class="collapse-item" href="cards.html">CateES Manager</a>
+                            <a class="collapse-item" href="${context}/Animals/List">Animals Manager</a>
+                            <a class="collapse-item" href="${context}/Breeds/List">Breeds Manager</a>
+                            <a class="collapse-item" href="${context}/Cate/List">CateES Manager</a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" aria-expanded="true" aria-controls="collapseTwo">
+                    <a class="nav-link" href="${context}/Member/List" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
                         <span style="font-size: 12px">Member Manager</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" aria-expanded="true" aria-controls="collapseTwo">
+                    <a class="nav-link" href="${context}/Hotel/List" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
                         <span style="font-size: 12px">Pet Hotel Manager</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" aria-expanded="true" aria-controls="collapseTwo">
+                    <a class="nav-link" href="${context}/Oder/List" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
                         <span style="font-size: 12px">Order Manager</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" aria-expanded="true" aria-controls="collapseTwo">
+                    <a class="nav-link" href="${context}/FeedBack/List" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
-                        <span style="font-size: 12px">Feedback Manager</span>
+                        <span style="font-size: 12px">FeedBack Manager</span>
                     </a>
                 </li>
                 <!-- Nav Item - Utilities Collapse Menu -->
@@ -125,7 +120,7 @@
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Account</h6>
-                            <a class="collapse-item" href="utilities-color.html">Register</a>
+                            <a class="collapse-item" href="${context}/Admins/Create">Register</a>
                             <a class="collapse-item" href="utilities-border.html">Logout</a>
                         </div>
                     </div>

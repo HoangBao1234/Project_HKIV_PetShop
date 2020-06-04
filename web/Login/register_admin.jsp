@@ -1,6 +1,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,11 +17,11 @@
         <fmt:setBundle basename="app"/>
 
         <!-- Custom fonts for this template-->
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="${context}/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template-->
-        <link href="../Admin/css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
 
     </head>
 
@@ -42,17 +42,11 @@
                                 <form class="user" action="../adminServlet" method="post">
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" id="exampleFirstName" name="regis_id" placeholder="id">
+                                            <input type="text" class="form-control form-control-user" id="exampleFirstName" name="regis_name" placeholder="Emal">
                                         </div>
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" id="exampleFirstName" name="regis_name" placeholder="name">
+                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="regis_pass" placeholder="Password" >
                                         </div>
-                                      
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="regis_pass" placeholder="password" >
-                                        </div>
-                                        
                                     </div>
                                     <input type="submit" class="btn btn-primary btn-user btn-block" value="<fmt:message key="login.textfield.Register"/>"/>
 
@@ -90,14 +84,14 @@
         </div>
 
         <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
+        <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
         <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+        <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
 
     </body>
 

@@ -125,7 +125,7 @@
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Account</h6>
-                            <a class="collapse-item" href="${context}/Admin/Create">Register</a>
+                            <a class="collapse-item" href="${context}/Admins/Create">Register</a>
                             <a class="collapse-item" href="utilities-border.html">Logout</a>
                         </div>
                     </div>
@@ -328,7 +328,7 @@
                     <div style="padding: 50px">
                         <h4 style="color: #006dcc">+ Create new Pet</h4>
                         <center>
-                            <h2 style="color: #006dcc">Pet List</h2>
+                            <h2 style="color: #006dcc">Pet Manager</h2>
                             <table id="example" class="display" style="width:100%">
                                 <thead>
                                     <tr>
