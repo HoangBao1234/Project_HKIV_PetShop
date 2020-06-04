@@ -26,6 +26,7 @@
 
         <!-- Custom styles for this template-->
         <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
 
 
@@ -327,7 +328,7 @@
                     <div style="padding: 50px">
                         <center>
                             <h2>Member List</h2>
-                            <table class="table table-hover">
+                            <table id="example" class="display" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th scope="col">Id</th>
@@ -379,5 +380,16 @@
                 <!-- Page level custom scripts -->
                 <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
                 <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
+                
+                <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+                <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+
+                <script>
+                    $(document).ready(function() {
+                        $('#example').DataTable();
+                    });
+                </script>
                 </body>
                 </html>
