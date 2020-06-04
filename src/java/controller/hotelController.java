@@ -22,13 +22,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "hotelController", urlPatterns = {"/Hotels/*"})
+@WebServlet(name = "hotelController", urlPatterns = {"/Hotel/*"})
 public class hotelController extends HttpServlet {
+    @EJB
+    private PethotelFacadeLocal pethotelFacade;
 
     @EJB
     private MembersFacadeLocal membersFacade;
-    @EJB
-    private PethotelFacadeLocal pethotelFacade;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,7 +43,9 @@ public class hotelController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
             String path = request.getPathInfo();
+            
             switch (path) {
                 case "/List":
                     getListView(request, response);
@@ -66,7 +68,7 @@ public class hotelController extends HttpServlet {
     }
 
     private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("list", pethotelFacade.findAll());
+        request.setAttribute("hotelList", pethotelFacade.findAll());
         request.getRequestDispatcher("/Admin/hotel/hotelList.jsp").forward(request, response);
     }
 
