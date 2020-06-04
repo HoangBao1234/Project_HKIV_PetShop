@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
 import entity.Feedbacks;
@@ -21,8 +20,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "feedbackController", urlPatterns = {"/feedbackController"})
+@WebServlet(name = "feedbackController", urlPatterns = {"/FeedBack/*"})
 public class feedbackController extends HttpServlet {
+
     @EJB
     private FeedbacksFacadeLocal feedbacksFacade;
 
@@ -39,43 +39,50 @@ public class feedbackController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("action");
-            if (action.equals("Insert")) {
-                int id = Integer.parseInt(request.getParameter("admins_fbId"));
-               
-                String content = request.getParameter("admins_content");
-                Feedbacks fb = new Feedbacks(id, content);
-                feedbacksFacade.create(fb);
-//                request.setAttribute("list", breedsFacade.findAll());
-//                request.getRequestDispatcher("showBreeds.jsp").forward(request, response);
-            }
-            if (action.equals("Show")) {
-                request.setAttribute("list", feedbacksFacade.findAll());
-                request.getRequestDispatcher("showAdmins.jsp").forward(request, response);
-            }
-            if (action.equals("Delete")) {
-                int id = Integer.parseInt("id");
-                Feedbacks fb = feedbacksFacade.find(id);
-                feedbacksFacade.remove(fb);
-                request.setAttribute("list", feedbacksFacade.findAll());
-                request.getRequestDispatcher("showAdmins.jsp").forward(request, response);
-            }
-            if (action.equals("findId")) {
-                int id = Integer.parseInt("id");
-
-                Feedbacks fb = feedbacksFacade.find(id);
-                request.setAttribute("fb", fb);
-                request.getRequestDispatcher("updateAdmins.jsp").forward(request, response);
-            }
-            if (action.equals("update")) {
-                int id = Integer.parseInt(request.getParameter("admins_fbId"));             
-                String content = request.getParameter("admins_content");
-                Feedbacks fb = new Feedbacks(id, content);
-                feedbacksFacade.edit(fb);
-                request.setAttribute("list",feedbacksFacade.findAll());
-                request.getRequestDispatcher("showAdmins.jsp").forward(request, response);
-            }
+            String path = request.getPathInfo();
+            
+            switch(path){
+               case "/List":
+                   getListView(request, response);
+                   break;
+               case "/Delete":
+                   delete(request, response);
+                   break;
+               default:
+                   out.print("Sai");
+                   break;
+           }
         }
+    }
+
+    private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("list", feedbacksFacade.findAll());
+        request.getRequestDispatcher("/Admin/feedback/fbList.jsp").forward(request, response);
+    }
+
+    private void insert(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("admins_fbId"));
+
+        String content = request.getParameter("admins_content");
+        Feedbacks fb = new Feedbacks(content, null);
+        feedbacksFacade.create(fb);
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt("id");
+        Feedbacks fb = feedbacksFacade.find(id);
+        feedbacksFacade.remove(fb);
+    }
+
+    private void update(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("admins_fbId"));
+        String content = request.getParameter("admins_content");
+        Feedbacks fb = new Feedbacks(id, content);
+        feedbacksFacade.edit(fb);
+    }
+    
+    private void getCreteView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/feedback/fbList.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -7,7 +7,6 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,8 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -54,7 +51,7 @@ public class Pethotel implements Serializable {
     private String dateEnd;
     @Column(name = "price")
     private Integer price;
-    @Column(name = "status", length = 10)
+    @Column(name = "status", length = 50)
     private String status;
     @JoinColumn(name = "MId", referencedColumnName = "MId")
     @ManyToOne
@@ -71,6 +68,14 @@ public class Pethotel implements Serializable {
         this.price = price;
         this.status = status;
         this.mId = mId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     

@@ -22,13 +22,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "hotelController", urlPatterns = {"/hotelController"})
+@WebServlet(name = "hotelController", urlPatterns = {"/Hotel/*"})
 public class hotelController extends HttpServlet {
+    @EJB
+    private PethotelFacadeLocal pethotelFacade;
 
     @EJB
     private MembersFacadeLocal membersFacade;
-    @EJB
-    private PethotelFacadeLocal pethotelFacade;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,44 +43,76 @@ public class hotelController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("action");
-            if (action.equals("Insert")) {
-                String id = request.getParameter("id");
-                String namePet = request.getParameter("namePet");
-                String dateStart = request.getParameter("dateStart");
-                String dateEnd = request.getParameter("dateEnd");
-                int price = Integer.parseInt(request.getParameter("price"));
-                String mId = request.getParameter("MId");
-                Members member = membersFacade.find(mId);
-                Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
-                pethotelFacade.create(hotel);
-                out.print("Ok");
+            
+            String path = request.getPathInfo();
+            
+            switch (path) {
+                case "/List":
+                    getListView(request, response);
+                    break;
+                case "/Delete":
+                    delete(request, response);
+                    break;
+                case "/Edit":
+                    getEditView(request, response);
+                    break;
+                case "/Update":
+                    update(request, response);
+                    break;
+                default:
+                    out.print("Ko có");
+                    break;
             }
-            if (action.equals("Delete")) {
-                String id = request.getParameter("id");
-                Pethotel hoPethotel = pethotelFacade.find(id);
-                pethotelFacade.remove(hoPethotel);
-                out.print("Ok");
-            }
-            if (action.equals("FindById")) {
-                String id = request.getParameter("id");
-                Pethotel hoPethotel = pethotelFacade.find(id);
-                request.setAttribute("hotel", hoPethotel);
-                out.print("Ok");
-            }
-            if (action.equals("Update")) {
-                String id = request.getParameter("id");
-                String namePet = request.getParameter("namePet");
-                String dateStart = request.getParameter("dateStart");
-                String dateEnd = request.getParameter("dateEnd");
-                int price = Integer.parseInt(request.getParameter("price"));
-                String mId = request.getParameter("MId");
-                Members member = membersFacade.find(mId);
-                Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
-                pethotelFacade.edit(hotel);
-                out.print("Ok");
-            }
+
         }
+    }
+
+    private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("hotelList", pethotelFacade.findAll());
+        request.getRequestDispatcher("/Admin/hotel/hotelList.jsp").forward(request, response);
+    }
+
+    private void insert(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        String namePet = request.getParameter("namePet");
+        String dateStart = request.getParameter("dateStart");
+        String dateEnd = request.getParameter("dateEnd");
+        int price = Integer.parseInt(request.getParameter("price"));
+        String mId = request.getParameter("MId");
+        Members member = membersFacade.find(mId);
+        Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
+        pethotelFacade.create(hotel);
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String id = request.getParameter("id");
+        Pethotel hoPethotel = pethotelFacade.find(id);
+        pethotelFacade.remove(hoPethotel);
+        response.sendRedirect("List");
+    }
+
+    private void update(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        String namePet = request.getParameter("namePet");
+        String dateStart = request.getParameter("dateStart");
+        String dateEnd = request.getParameter("dateEnd");
+        int price = Integer.parseInt(request.getParameter("price"));
+        String mId = request.getParameter("MId");
+        Members member = membersFacade.find(mId);
+        Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
+        pethotelFacade.edit(hotel);
+    }
+
+    private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+            response.sendRedirect("List");
+        } else {
+            String id = request.getParameter("id");
+            request.setAttribute("hotel", pethotelFacade.find(id));
+            request.getRequestDispatcher("/Admin/hotel/updateHotel.jsp").forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "animalsController", urlPatterns = {"/animalsController"})
+@WebServlet(name = "animalsController", urlPatterns = {"/Animals/*"})
 public class animalsController extends HttpServlet {
 
     @EJB
@@ -39,44 +39,67 @@ public class animalsController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("action");
-            if (action.equals("Insert")) {
-                String name = request.getParameter("animals_name");
-                Animals animals = new Animals(name);
-                animalsFacade.create(animals);
-                out.print("Ok");
-                request.setAttribute("list", animalsFacade.findAll());
-                request.getRequestDispatcher("showAnimals.jsp").forward(request, response);
-
-            }
-            if (action.equals("Show")) {
-                request.setAttribute("list", animalsFacade.findAll());
-                request.getRequestDispatcher("showAnimals.jsp").forward(request, response);
-            }
-            if (action.equals("Delete")) {
-                int id = Integer.parseInt("id");
-                Animals an = animalsFacade.find(id);
-                animalsFacade.remove(an);
-                request.setAttribute("list", animalsFacade.findAll());
-                request.getRequestDispatcher("showAnimals.jsp").forward(request, response);
-            }
-            if (action.equals("findId")) {
-                int id = Integer.parseInt("id");
-
-                Animals an = animalsFacade.find(id);
-                request.setAttribute("an", an);
-                request.getRequestDispatcher("updateAnimals.jsp").forward(request, response);
-            }
-            if (action.equals("update")) {
-                int id = Integer.parseInt("id");
-                String name = request.getParameter("name");
-                Animals an = new Animals(id, name);
-                animalsFacade.edit(an);
-                request.setAttribute("list", animalsFacade.findAll());
-                request.getRequestDispatcher("showAnimals.jsp").forward(request, response);
-            }
+            String path = request.getPathInfo();
             
+            switch(path){
+                case "/List":
+                    getListView(request, response);
+                    break;
+                case "/Create":
+                    getCreateView(request, response);
+                    break;
+                case "/Store":
+                    insert(request, response);
+                    break;
+                case "/Edit":
+                    getEditView(request, response);
+                    break;
+                case "/Update":
+                    update(request, response);
+                    break;
+                case "/Delete":
+                    delete(request, response);
+                    break;
+                default:
+                    out.print("OK");
+                    break;
+                   
+            }
         }
+    }
+
+    private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("list", animalsFacade.findAll());
+        request.getRequestDispatcher("/Admin/animals/animalsList.jsp").forward(request, response);
+    }
+
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String name = request.getParameter("animals_name");
+        Animals animals = new Animals(name);
+        animalsFacade.create(animals);
+        response.sendRedirect("List");
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt("id");
+        Animals an = animalsFacade.find(id);
+        animalsFacade.remove(an);
+    }
+
+    private void update(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int id = Integer.parseInt("id");
+        String name = request.getParameter("name");
+        Animals an = new Animals(id, name);
+        animalsFacade.edit(an);
+        response.sendRedirect("List");
+    }
+    
+    private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/animals/addAnimals.jsp").forward(request, response);
+    }
+    
+    private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/animals/updateAnimals.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
