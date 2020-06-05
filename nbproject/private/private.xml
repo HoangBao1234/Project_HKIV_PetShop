@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/member/memberList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/animals/animalsList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/food/foodList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/cateController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/cate/cateList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/pet/petList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/cate/addCate.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/breed/breedList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/feedback/fbList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/hotel/hotelList.jsp</file>
+        </group>
     </open-files>
 </project-private>
