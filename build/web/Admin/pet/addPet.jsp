@@ -424,7 +424,9 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px" name="animals">
-                                            <option value="1">Duy</option>
+                                            <c:forEach var="aList" items="${animals}">
+                                                <option value="${aList.CFId}">${aList.name}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
@@ -436,7 +438,9 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px" name="breeds">
-                                            <option value="1">Duy</option>
+                                            <c:forEach var="bList" items="${breeds}">
+                                                <option value="${bList.CPId}">${bList.name}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>

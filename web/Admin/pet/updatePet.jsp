@@ -333,7 +333,7 @@
                                         Pet Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="pet_id" name="pet_id" placeholder="Pet ID" class="form-control input-md" required="" type="text">
+                                        <input id="pet_id" name="pet_id" value="${pet.PId}" readonly="true" placeholder="Pet ID" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
@@ -343,7 +343,7 @@
                                         Pet Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="pet_name" name="pet_name" placeholder="Pet Name" class="form-control input-md" required="" type="text">
+                                        <input id="pet_name" name="pet_name" value="${pet.PName}" placeholder="Pet Name" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <!-- Text input-->
@@ -352,7 +352,7 @@
                                         Color
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="color" name="color" placeholder="Color" class="form-control input-md" required="" type="text">
+                                        <input id="color" name="color" value="${pet.color}" placeholder="Color" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
@@ -362,7 +362,7 @@
                                         Age
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="age" name="age" placeholder="Age" class="form-control input-md" required="" type="date">
+                                        <input id="age" name="age" placeholder="Age" value="${pet.age}" class="form-control input-md" required="" type="date">
                                     </div>
                                 </div>
 
@@ -372,8 +372,15 @@
                                         Gender
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
-                                        <input type="radio" name="gender" value="true" checked="checked"/> Male &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="gender" value="false"/> Female
+                                        <c:if test="${pet.gender == true}">
+                                            <input type="radio" name="gender" value="true" checked="checked"/> Male &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="gender" value="false"/> Female
+                                        </c:if>
+                                        <c:if test="${pet.gender != true}">
+                                            <input type="radio" name="gender" value="true"/> Male &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="gender" value="false" checked="checked"/> Female
+                                        </c:if>
+
                                     </div>
                                 </div>
 
@@ -383,7 +390,7 @@
                                         Origin
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="origin" name="origin" placeholder="Origin" class="form-control input-md" required="" type="text">
+                                        <input id="origin" name="origin" value="${pet.origin}" placeholder="Origin" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
@@ -393,7 +400,7 @@
                                         Price
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="text">
+                                        <input id="price" name="price" value="${pet.price}" placeholder="Price" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
@@ -413,7 +420,7 @@
                                         Description
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="description" name="description" placeholder="Description" class="form-control input-md" required="" type="text">
+                                        <input id="description" value="${pet.description}" name="description" placeholder="Description" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
@@ -424,7 +431,14 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px" name="animals">
-                                            <option>Duy</option>
+                                            <c:forEach var="aList" items="${animals}">
+                                                <c:if test="${pet.CFId.CFId == aList.CFId}">
+                                                    <option value="${aList.CFId}" selected="selected">${aList.name}</option>
+                                                </c:if>
+                                                <c:if test="${pet.CFId.CFId != aList.CFId}">
+                                                    <option value="${aList.CFId}">${aList.name}</option>
+                                                </c:if>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
@@ -436,7 +450,14 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px" name="breeds">
-                                            <option>Duy</option>
+                                            <c:forEach var="bList" items="${breeds}">
+                                                <c:if test="${pet.CPId.CPId == bList.CPId}">
+                                                    <option value="${bList.CPId}" selected="selected">${bList.name}</option>
+                                                </c:if>
+                                                <c:if test="${pet.CPId.CPId != bList.CPId}">
+                                                    <option value="${bList.CPId}">${bList.name}</option>
+                                                </c:if>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>

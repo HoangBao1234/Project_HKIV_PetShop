@@ -17,7 +17,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Update Animlas</title>
+        <title>Update Cate</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
@@ -326,25 +326,25 @@
                     </nav>
                     <div>
                         <center>
-                            <h1>Update Animals</h1>
+                            <h1>Update Cate</h1>
                             <form class="form-horizontal" action="${context}/Cate/Update" method="post">
 
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        Animals Id
+                                        Category Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input name="animals_Id" placeholder="Animals Id" class="form-control input-md" required="" type="text">
+                                        <input name="cate_id" value="${cate.CEId}" readonly="true" placeholder="Category Id" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        Animals Name
+                                        Category Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="animals_name" name="animals_name" placeholder="Animals Name" class="form-control input-md" required="" type="text">
+                                        <input id="cate_name" value="${cate.name}" name="cate_name" placeholder="Animals Name" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
