@@ -326,7 +326,7 @@
                     <div>
                         <center>
                             <h1>Update Pet</h1>
-                            <form class="form-horizontal" action="../../petController" method="post" enctype="multipart/form-data">
+                            <form class="form-horizontal" action="${context}/Pet/Update" method="post" enctype="multipart/form-data">
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">

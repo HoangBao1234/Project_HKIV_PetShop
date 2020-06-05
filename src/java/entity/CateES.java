@@ -11,6 +11,8 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -36,7 +38,7 @@ public class CateES implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CEId", nullable = false)
     private Integer cEId;
     @Size(max = 50)
@@ -46,6 +48,10 @@ public class CateES implements Serializable {
     private Collection<Accessories> accessoriesCollection;
 
     public CateES() {
+    }
+
+    public CateES(String name) {
+        this.name = name;
     }
 
     public CateES(Integer cEId, String name) {

@@ -1,9 +1,4 @@
-<%-- 
-    Document   : header
-    Created on : May 26, 2020, 4:37:48 PM
-    Author     : DUY
---%>
-
+<%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="context" value="${pageContext.request.contextPath}" />
@@ -17,16 +12,16 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Pet List</title>
+        <title>Add Accesssories</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
         <link href="${context}/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template-->
         <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
-        <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
 
 
@@ -325,67 +320,111 @@
                         </ul>
 
                     </nav>
-                    <div style="padding: 50px">
-                        <h4 style="color: #006dcc"><a href="${context}/Animals/Create">+ Create new</a></h4>
+                    <div>
                         <center>
-                            <h2 style="color: #006dcc">Animlas List</h2>
-                            <table id="example" class="display" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" style="color: #006dcc">Id</th>
-                                        <th scope="col" style="color: #006dcc">Name</th>
-                                        <th scope="col" style="color: #006dcc">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </center>
+                            <h1>Add Accessories</h1>
+                            <form class="form-horizontal" action="${context}/Accessories/Store" method="post" enctype="multipart/form-data">
+                                <!-- Text input-->
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        Accessories Id
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input id="accessoreis_id" name="accessoreis_id" placeholder="Pet ID" class="form-control input-md" required="" type="text">
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        Accessoreis Name
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input id="accessoreis_name" name="accessoreis_name" placeholder="Pet Name" class="form-control input-md" required="" type="text">
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        Price
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input id="price" name="price" placeholder="Color" class="form-control input-md" required="" type="text">
+                                    </div>
+                                </div>
+
+                                <!-- Select Basic -->
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        Desciption
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input id="description" name="description" placeholder="Description" class="form-control input-md" required="" type="date">
+                                    </div>
+                                </div>
+                                <!-- Textarea -->
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        Image
+                                    </div>
+                                    <div class="col-sm-4" style="text-align: left">
+                                        <input id="image" name="image" placeholder="Image" required="" type="file">
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        Animals
+                                    </div>
+                                    <div class="col-sm-4" style="text-align: left">
+                                        <select style="width: 150px" name="animals">
+                                            <option value="1">Duy</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Search input-->
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        Category
+                                    </div>
+                                    <div class="col-sm-4" style="text-align: left">
+                                        <select style="width: 150px" name="category">
+                                            <option value="1">Duy</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Search input-->
+
+
+                                <!-- Button -->
+                                <div class="form-group">
+                                    <div class="col-md-4" style="text-align: left">
+                                        <input type="submit" value="Insert" name="action" class="btn btn-primary"/>
+                                    </div>
+                                </div>
+
+
+                            </form>
                     </div>
                 </div>
-                <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
-                <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                </center>
+            </div>
+        </div>
+        <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
+        <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                <!-- Core plugin JavaScript-->
-                <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                <!-- Custom scripts for all pages-->
-                <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
 
-                <!-- Page level plugins -->
-                <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
 
-                <!-- Page level custom scripts -->
-                <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
-                <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
-
-
-                <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-                <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-
-
-                <script>
-                    $(document).ready(function() {
-                        $('#example').DataTable();
-                    });
-                </script>
-
-
-                </body>
-                </html>
+        <!-- Page level custom scripts -->
+        <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
+        <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
+    </body>
+</html>

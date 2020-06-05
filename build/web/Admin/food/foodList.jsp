@@ -326,7 +326,7 @@
 
                     </nav>
                         <div style="padding: 50px">
-                            <h4 style="color: #006dcc">+ Create new food</h4>
+                            <h4 style="color: #006dcc"><a href="${context}/Foods/Create">+ Create new</a></h4>
                             <center>
                                 <h2 style="color: #006dcc">Foods List</h2>
                                 <table id="example" class="display" style="width:100%">

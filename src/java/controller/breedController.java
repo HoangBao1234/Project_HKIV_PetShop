@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "breedController", urlPatterns = {"/Breeds/*"})
+@WebServlet(name = "breedController", urlPatterns = {"/Breed/*"})
 public class breedController extends HttpServlet {
 
     @EJB

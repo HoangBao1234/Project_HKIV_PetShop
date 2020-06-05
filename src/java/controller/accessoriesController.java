@@ -125,7 +125,7 @@ public class accessoriesController extends HttpServlet {
         return fullPath;
     }
 
-    private void insert(HttpServletRequest request, HttpServletResponse response) {
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String id = request.getParameter("id");
         String name = request.getParameter("name");
         int price = Integer.parseInt(request.getParameter("price"));
@@ -139,6 +139,7 @@ public class accessoriesController extends HttpServlet {
         accessoriesFacade.create(accessories);
         String savePath = getFullPath(request, response) + File.separator + fileName;
         saveToFolder(savePath);
+        response.sendRedirect("list");
     }
     
     private void show(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

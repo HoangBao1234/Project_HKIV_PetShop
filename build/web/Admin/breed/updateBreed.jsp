@@ -327,7 +327,7 @@
                     <div>
                         <center>
                             <h1>Update Breeds</h1>
-                            <form class="form-horizontal" action="../../breedController" method="post">
+                            <form class="form-horizontal" action="${context}/Breed/Update" method="post">
                                 <div class="form-group row">
                                     <div class="col-sm-4">
                                         Breeds Id

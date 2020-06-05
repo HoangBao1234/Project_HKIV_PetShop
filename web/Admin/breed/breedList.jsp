@@ -326,7 +326,7 @@
 
                     </nav>
                     <div style="padding: 50px">
-                        <h4 style="color: #006dcc">+ Create new breed</h4>
+                        <h4 style="color: #006dcc"><a href="${context}/Breed/Create">+ Create new</a></h4>
                         <center>
                             <h2 style="color: #006dcc">Breed List</h2>
                             <table id="example" class="display" style="width:100%">

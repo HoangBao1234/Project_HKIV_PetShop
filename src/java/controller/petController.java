@@ -59,9 +59,9 @@ public class petController extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             String path = request.getPathInfo();
-            
+
             switch (path) {
                 case "/List":
                     getViews(request, response);
@@ -212,8 +212,13 @@ public class petController extends HttpServlet {
 
     private void getViewEdit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
-        request.getRequestDispatcher("/Admin/pet/updatePet.jsp").forward(request, response);
-    }
+
+        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+            response.sendRedirect("List");
+        } else {
+            request.getRequestDispatcher("/Admin/pet/updatePet.jsp").forward(request, response);
+        }
+    } 
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

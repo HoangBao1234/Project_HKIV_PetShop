@@ -74,14 +74,13 @@ public class cateController extends HttpServlet {
     }
 
     private void insert(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("admins_id"));
-        String username = request.getParameter("admins_name");
-        CateES cate = new CateES(id, username);
+        String name = request.getParameter("category_name");
+        CateES cate = new CateES(name);
         cateESFacade.create(cate);
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt("id");
+        int id = Integer.parseInt(request.getParameter("id"));
         CateES cate = cateESFacade.find(id);
         cateESFacade.remove(cate);
         response.sendRedirect("List");
@@ -97,7 +96,7 @@ public class cateController extends HttpServlet {
     }
 
     private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        request.getRequestDispatcher("/Admin/cate/cateList.jsp").forward(request, response);
+        request.getRequestDispatcher("/Admin/cate/addCate.jsp").forward(request, response);
     }
     
     private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

@@ -26,7 +26,6 @@
 
         <!-- Custom styles for this template-->
         <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
-        <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
 
 
@@ -325,67 +324,50 @@
                         </ul>
 
                     </nav>
-                    <div style="padding: 50px">
-                        <h4 style="color: #006dcc"><a href="${context}/Animals/Create">+ Create new</a></h4>
+                    <div>
                         <center>
-                            <h2 style="color: #006dcc">Animlas List</h2>
-                            <table id="example" class="display" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" style="color: #006dcc">Id</th>
-                                        <th scope="col" style="color: #006dcc">Name</th>
-                                        <th scope="col" style="color: #006dcc">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </center>
+                            <h1>Add Category</h1>
+                            <form class="form-horizontal" action="${context}/Cate/Store" method="post">
+
+                                <!-- Text input-->
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        Category Name
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input id="category_name" name="category_name" placeholder="Category Name" class="form-control input-md" required="" type="text">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-4" style="text-align: left">
+                                        <input name="action" value="Insert" type="submit" class="btn btn-primary"/>
+                                    </div>
+                                </div>
+
+
+                            </form>
                     </div>
                 </div>
-                <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
-                <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                </center>
+            </div>
+        </div>
+        <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
+        <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                <!-- Core plugin JavaScript-->
-                <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                <!-- Custom scripts for all pages-->
-                <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
 
-                <!-- Page level plugins -->
-                <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
 
-                <!-- Page level custom scripts -->
-                <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
-                <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
+        <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
 
-
-                <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-                <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-
-
-                <script>
-                    $(document).ready(function() {
-                        $('#example').DataTable();
-                    });
-                </script>
-
-
-                </body>
-                </html>
+    </body>
+</html>

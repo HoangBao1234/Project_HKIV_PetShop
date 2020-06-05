@@ -14,8 +14,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +31,7 @@ import javax.servlet.http.Part;
  * @author NGUYEN HOANG BAO
  */
 @WebServlet(name = "foodController", urlPatterns = {"/Foods/*"})
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, maxFileSize = 1024 * 1024 * 10, maxRequestSize = 1024 * 1024 * 50)
 public class foodController extends HttpServlet {
 
     @EJB
@@ -47,33 +52,34 @@ public class foodController extends HttpServlet {
     public static final String SAVE_DIRECTORY = "ImageItems";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           String path = request.getPathInfo();
-           switch(path){
-               case "/List":
-                   show(request, response);
-                   break;
-               case "/Delete":
-                   delete(request, response);
-                   break;
-               case "/Create":
-                   getViewCreate(request, response);
-                   break;
-               case "/Store":
-                   insert(request, response);
-                   break;
-               case "/Edit":
-                   getViewEdit(request, response);
-                   break;
-               case "/Update":
-                   update(request, response);
-                   break;
-               default:
-                   out.print("Ko có");
-                   break;
-           }
+            String path = request.getPathInfo();
+
+            switch (path) {
+                case "/List":
+                    show(request, response);
+                    break;
+                case "/Delete":
+                    delete(request, response);
+                    break;
+                case "/Create":
+                    getViewCreate(request, response);
+                    break;
+                case "/Store":
+                    insert(request, response);
+                    break;
+                case "/Edit":
+                    getViewEdit(request, response);
+                    break;
+                case "/Update":
+                    update(request, response);
+                    break;
+                default:
+                    out.print("Ko có");
+                    break;
+            }
         }
     }
 
@@ -170,24 +176,23 @@ public class foodController extends HttpServlet {
         foodsFacade.edit(foods);
         response.sendRedirect("List");
     }
-    
-    private void getViewList(HttpServletRequest request, HttpServletResponse response){
+
+    private void getViewList(HttpServletRequest request, HttpServletResponse response) {
         request.getRequestDispatcher("/Admin/food/foodList.jsp");
     }
-    
-    private void getViewCreate(HttpServletRequest request, HttpServletResponse response){
-        request.getRequestDispatcher("/Admin/food/addFood.jsp");
+
+    private void getViewCreate(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ParseException {
+        request.getRequestDispatcher("/Admin/food/addFood.jsp").forward(request, response);
     }
-    
-    private void getViewEdit(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        if(request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()){
+
+    private void getViewEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
+        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
             response.sendRedirect("List");
-        }else{
-            String id = request.getParameter("id");
-            request.setAttribute("food", foodsFacade.find(id));
-            request.getRequestDispatcher("/Admin/food/updateFood.jsp");
+        } else {
+            request.getRequestDispatcher("/Admin/food/updateFood.jsp").forward(request, response);
         }
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -202,7 +207,11 @@ public class foodController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(foodController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -216,7 +225,11 @@ public class foodController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(foodController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
