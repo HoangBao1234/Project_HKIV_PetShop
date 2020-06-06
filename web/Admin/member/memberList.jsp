@@ -335,32 +335,25 @@
                                         <th scope="col">Id</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Mail</th>
-                                        <th scope="col">Fail</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Address</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>123456778</td>
-                                        <td>500 $</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>123456778</td>
-                                        <td>500 $</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>123456778</td>
-                                        <td>500 $</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
+                                    <c:forEach var="i" items="${list}">
+                                        <tr>
+                                            <td>${i.MId}</td>
+                                            <td>${i.name}</td>
+                                            <td>${i.mail}</td>
+                                            <td>${i.phone}</td>
+                                            <td>${i.address}</td>
+                                            <td>
+                                                <a href="${context}/Member/Delete?id=${i.MId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Member/Edit?id=${i.MId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </center>

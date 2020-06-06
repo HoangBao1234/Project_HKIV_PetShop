@@ -74,7 +74,8 @@ public class memberController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Members members = membersFacade.find(id);
         membersFacade.remove(members);
-        response.sendRedirect("/List");
+        request.setAttribute("list", membersFacade.findAll());
+        request.getRequestDispatcher("/Admin/member/memberList.jsp").forward(request, response);
     }
     
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException{

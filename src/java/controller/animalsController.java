@@ -80,10 +80,12 @@ public class animalsController extends HttpServlet {
         response.sendRedirect("List");
     }
 
-    private void delete(HttpServletRequest request, HttpServletResponse response) {
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt("id");
         Animals an = animalsFacade.find(id);
         animalsFacade.remove(an);
+        request.setAttribute("list", animalsFacade.findAll());
+        request.getRequestDispatcher("/Admin/animals/animalsList.jsp").forward(request, response);
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException {

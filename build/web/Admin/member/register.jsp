@@ -326,17 +326,9 @@
                     </nav>
                     <div>
                         <center>
-                            <h1>Detail Members</h1>
+                            <h1>Add Members</h1>
                             <form class="form-horizontal" action="${context}/Member/Store" method="post">
 
-                                 <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Member ID
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input id="members_id" name="members_id" placeholder="Members ID" class="form-control input-md" required="" type="text">
-                                    </div>
-                                </div>
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
