@@ -47,8 +47,7 @@ public class Admins implements Serializable {
     public Admins() {
     }
 
-    public Admins(Integer aId, String username, String password) {
-        this.aId = aId;
+    public Admins( String username, String password) {
         this.username = username;
         this.password = password;
     }

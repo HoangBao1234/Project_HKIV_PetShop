@@ -93,7 +93,7 @@ public final class register_005fadmin_jsp extends org.apache.jasper.runtime.Http
       out.write("        <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\">\r\n");
       out.write("\r\n");
       out.write("        <!-- Custom styles for this template-->\r\n");
-      out.write("        <link href=\".");
+      out.write("        <link href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/Admin/css/sb-admin-2.min.css\" rel=\"stylesheet\">\r\n");
       out.write("\r\n");
@@ -116,22 +116,18 @@ public final class register_005fadmin_jsp extends org.apache.jasper.runtime.Http
         return;
       out.write("</h1>\r\n");
       out.write("                                </div>\r\n");
-      out.write("                                <form class=\"user\" action=\"../adminServlet\" method=\"post\">\r\n");
+      out.write("                                <form class=\"user\" action=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("../Admins/Store\" method=\"post\">\r\n");
       out.write("                                    <div class=\"form-group row\">\r\n");
       out.write("                                        <div class=\"col-sm-6 mb-3 mb-sm-0\">\r\n");
-      out.write("                                            <input type=\"text\" class=\"form-control form-control-user\" id=\"exampleFirstName\" name=\"regis_id\" placeholder=\"id\">\r\n");
+      out.write("                                            <input type=\"text\" class=\"form-control form-control-user\" id=\"exampleFirstName\" name=\"admins_name\" placeholder=\"Emal\">\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        <div class=\"col-sm-6 mb-3 mb-sm-0\">\r\n");
-      out.write("                                            <input type=\"text\" class=\"form-control form-control-user\" id=\"exampleFirstName\" name=\"regis_name\" placeholder=\"name\">\r\n");
+      out.write("                                            <input type=\"password\" class=\"form-control form-control-user\" id=\"exampleInputPassword\" name=\"admins_pass\" placeholder=\"Password\" >\r\n");
       out.write("                                        </div>\r\n");
-      out.write("                                      \r\n");
-      out.write("                                    <div class=\"form-group row\">\r\n");
-      out.write("                                        <div class=\"col-sm-6 mb-3 mb-sm-0\">\r\n");
-      out.write("                                            <input type=\"password\" class=\"form-control form-control-user\" id=\"exampleInputPassword\" name=\"regis_pass\" placeholder=\"password\" >\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                        \r\n");
       out.write("                                    </div>\r\n");
-      out.write("                                    <input type=\"submit\" class=\"btn btn-primary btn-user btn-block\" value=\"");
+      out.write("                                    <input type=\"submit\" name=\"action\" class=\"btn btn-primary btn-user btn-block\" value=\"");
       if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
       out.write("\"/>\r\n");
