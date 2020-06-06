@@ -59,9 +59,9 @@ public class petController extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             String path = request.getPathInfo();
-            
+
             switch (path) {
                 case "/List":
                     getViews(request, response);
@@ -139,6 +139,7 @@ public class petController extends HttpServlet {
         boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
         String origin = request.getParameter("origin");
         int price = Integer.parseInt(request.getParameter("price"));
+        String description = request.getParameter("description");
         int AId = Integer.parseInt(request.getParameter("animals"));
         int BId = Integer.parseInt(request.getParameter("breeds"));
         part = request.getPart("image");
@@ -146,41 +147,42 @@ public class petController extends HttpServlet {
         String savePath = getFullPath(request) + File.separator + filename;
         saveToFolder(savePath);
         Animals animals = animalsFacade.find(AId);
-        Breeds breeds = breedsFacade.find(BId);
-        String description = request.getParameter("description");
+        Breeds breeds = breedsFacade.find(BId);  
         Pets pet = new Pets(id, name, color, age, gender, origin, price, filename, description, animals, breeds);
         petsFacade.create(pet);
-        PrintWriter out = response.getWriter();
-        out.print("Ok");
+        response.sendRedirect("List");
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String pId = request.getParameter("PId");
-        String nameUp = request.getParameter("pet_name");
-        String colorUp = request.getParameter("color");
-        String ageUp = request.getParameter("age");
-        boolean genderUp = Boolean.parseBoolean(request.getParameter("gender"));
-        String originUp = request.getParameter("origin");
-        int priceUp = Integer.parseInt(request.getParameter("price"));
+        String pId = request.getParameter("pet_id");
+        String name = request.getParameter("pet_name");
+        String color = request.getParameter("color");
+        String age = request.getParameter("age");
+        boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
+        String origin = request.getParameter("origin");
+        int price = Integer.parseInt(request.getParameter("price"));
         int AId = Integer.parseInt(request.getParameter("animals"));
         int BId = Integer.parseInt(request.getParameter("breeds"));
+        String description = request.getParameter("description");
         Animals animals = animalsFacade.find(AId);
         Breeds breeds = breedsFacade.find(BId);
         part = null;
-        part = request.getPart("imageUp");
+        part = request.getPart("image");
+        
         //find hinh cu
         Pets pet = petsFacade.find(pId);
         //xoa hinh cu
         String dePath = getFullPath(request) + File.separator + pet.getImage();
         File file = new File(dePath);
         file.delete();
+        
         //update hinh moi
         String fileName = extracFile(part);
         String savePath = getFullPath(request) + File.separator + fileName;
         saveToFolder(savePath);
-        Pets petUp = new Pets(pId, fileName, colorUp, ageUp, genderUp, originUp, priceUp, ageUp, fileName, animals, breeds);
+        Pets petUp = new Pets(pId, name, color, age, gender, origin, price, fileName, description, animals, breeds);
         petsFacade.edit(petUp);
-        response.sendRedirect("/List");
+        response.sendRedirect("List");
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -207,12 +209,23 @@ public class petController extends HttpServlet {
 
     private void getViewCreate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
+        request.setAttribute("animals", animalsFacade.findAll());
+        request.setAttribute("breeds", breedsFacade.findAll());
         request.getRequestDispatcher("/Admin/pet/addPet.jsp").forward(request, response);
     }
 
     private void getViewEdit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
-        request.getRequestDispatcher("/Admin/pet/updatePet.jsp").forward(request, response);
+
+        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+            response.sendRedirect("List");
+        } else {
+            String id = request.getParameter("id");
+            request.setAttribute("animals", animalsFacade.findAll());
+            request.setAttribute("breeds", breedsFacade.findAll());
+            request.setAttribute("pet", petsFacade.find(id));
+            request.getRequestDispatcher("/Admin/pet/updatePet.jsp").forward(request, response);
+        }
     }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -327,12 +327,7 @@
                     <div>
                         <center>
                             <h1>Update Accessories</h1>
-                            <form class="form-horizontal">
-
-
-                                <!-- Form Name -->
-
-
+                            <form class="form-horizontal" action="${context}/Accessories/Update" method="post" enctype="multipart/form-data">
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">

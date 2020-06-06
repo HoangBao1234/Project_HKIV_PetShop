@@ -72,10 +72,11 @@ public class breedController extends HttpServlet {
         request.getRequestDispatcher("/Admin/breed/breedList.jsp").forward(request, response);
     }
 
-    private void insert(HttpServletRequest request, HttpServletResponse response) {
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String name = request.getParameter("breeds_name");
         Breeds br = new Breeds(name);
         breedsFacade.create(br);
+        response.sendRedirect("List");
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {

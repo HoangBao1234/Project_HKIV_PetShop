@@ -73,35 +73,42 @@ public class cateController extends HttpServlet {
         request.getRequestDispatcher("/Admin/cate/cateList.jsp").forward(request, response);
     }
 
-    private void insert(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("admins_id"));
-        String username = request.getParameter("admins_name");
-        CateES cate = new CateES(id, username);
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String name = request.getParameter("category_name");
+        CateES cate = new CateES(name);
         cateESFacade.create(cate);
+        response.sendRedirect("List");
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt("id");
+        int id = Integer.parseInt(request.getParameter("id"));
         CateES cate = cateESFacade.find(id);
         cateESFacade.remove(cate);
         response.sendRedirect("List");
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt(request.getParameter("admins_id"));
-        String username = request.getParameter("admins_name");
-
-        CateES cate = new CateES(id, username);
+        int id = Integer.parseInt(request.getParameter("cate_id"));
+        String name = request.getParameter("cate_name");
+        CateES cate = new CateES(id, name);
         cateESFacade.edit(cate);
         response.sendRedirect("List");
     }
 
     private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        request.getRequestDispatcher("/Admin/cate/cateList.jsp").forward(request, response);
+        request.getRequestDispatcher("/Admin/cate/addCate.jsp").forward(request, response);
     }
     
     private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        request.getRequestDispatcher("/Admin/cate/updateCate.jsp").forward(request, response);
+        if(request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()){
+            request.getRequestDispatcher("/Admin/cate/cateList.jsp").forward(request, response);
+        }else{
+            int id = Integer.parseInt(request.getParameter("id"));
+            CateES cateES = cateESFacade.find(id);
+            request.setAttribute("cate", cateES);
+            request.getRequestDispatcher("/Admin/cate/updateCate.jsp").forward(request, response);
+        }
+        
     }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

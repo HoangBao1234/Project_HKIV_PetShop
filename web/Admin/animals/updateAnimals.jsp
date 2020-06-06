@@ -327,7 +327,7 @@
                     <div>
                         <center>
                             <h1>Update Animals</h1>
-                            <form class="form-horizontal" action="../../animalsController" method="post">
+                            <form class="form-horizontal" action="${context}/Animals/Update" method="post">
 
                                 <!-- Text input-->
                                 <div class="form-group row">

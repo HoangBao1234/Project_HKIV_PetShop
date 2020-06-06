@@ -1,17 +1,16 @@
-package org.apache.jsp.Admin.pet;
+package org.apache.jsp.Admin.food;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class petList_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class foodList_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
 
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_nobody;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -21,12 +20,10 @@ public final class petList_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
-    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_set_var_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
-    _jspx_tagPool_c_forEach_var_items.release();
     _jspx_tagPool_c_set_var_value_nobody.release();
   }
 
@@ -71,7 +68,7 @@ public final class petList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <meta name=\"description\" content=\"\">\r\n");
       out.write("        <meta name=\"author\" content=\"\">\r\n");
       out.write("\r\n");
-      out.write("        <title>Pet List</title>\r\n");
+      out.write("        <title>Foods Manager</title>\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">\r\n");
       out.write("        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>\r\n");
       out.write("        <!-- Custom fonts for this template-->\r\n");
@@ -405,33 +402,44 @@ public final class petList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </ul>\r\n");
       out.write("\r\n");
       out.write("                    </nav>\r\n");
-      out.write("                    <div style=\"padding: 50px\">\r\n");
-      out.write("                        <h4 style=\"color: #006dcc\"><a href=\"");
+      out.write("                        <div style=\"padding: 50px\">\r\n");
+      out.write("                            <h4 style=\"color: #006dcc\"><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Pet/Create\">+ Create new</a></h4>\r\n");
-      out.write("                        <center>\r\n");
-      out.write("                            <h2 style=\"color: #006dcc\">Pet Manager</h2>\r\n");
-      out.write("                            <table id=\"example\" class=\"display\" style=\"width:100%\">\r\n");
-      out.write("                                <thead>\r\n");
-      out.write("                                    <tr>\r\n");
-      out.write("                                        <th scope=\"col\" style=\"color: #006dcc\">Id</th>\r\n");
-      out.write("                                        <th scope=\"col\" style=\"color: #006dcc\">Name</th>\r\n");
-      out.write("                                        <th scope=\"col\" style=\"color: #006dcc\">Color</th>\r\n");
-      out.write("                                        <th scope=\"col\" style=\"color: #006dcc\">Date of birth</th>\r\n");
-      out.write("                                        <th scope=\"col\" style=\"color: #006dcc\">Gender</th>\r\n");
-      out.write("                                        <th scope=\"col\" style=\"color: #006dcc\">Price</th>\r\n");
-      out.write("                                        <th scope=\"col\" style=\"color: #006dcc\">Action</th>\r\n");
-      out.write("                                    </tr>\r\n");
-      out.write("                                </thead>\r\n");
-      out.write("                                <tbody>\r\n");
-      out.write("                                    ");
-      if (_jspx_meth_c_forEach_0(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("                                </tbody>\r\n");
-      out.write("                            </table>\r\n");
-      out.write("                        </center>\r\n");
-      out.write("                    </div>\r\n");
+      out.write("/Foods/Create\">+ Create new</a></h4>\r\n");
+      out.write("                            <center>\r\n");
+      out.write("                                <h2 style=\"color: #006dcc\">Foods List</h2>\r\n");
+      out.write("                                <table id=\"example\" class=\"display\" style=\"width:100%\">\r\n");
+      out.write("                                    <thead>\r\n");
+      out.write("                                        <tr>\r\n");
+      out.write("                                            <th scope=\"col\" style=\"color: #006dcc\">Id</th>\r\n");
+      out.write("                                            <th scope=\"col\" style=\"color: #006dcc\">Name</th>\r\n");
+      out.write("                                            <th scope=\"col\" style=\"color: #006dcc\">Price</th>\r\n");
+      out.write("                                            <th scope=\"col\" style=\"color: #006dcc\">Action</th>\r\n");
+      out.write("                                        </tr>\r\n");
+      out.write("                                    </thead>\r\n");
+      out.write("                                    <tbody>\r\n");
+      out.write("                                        <tr>\r\n");
+      out.write("                                            <th scope=\"row\">1</th>\r\n");
+      out.write("                                            <td>Mark</td>\r\n");
+      out.write("                                            <td>500 $</td>\r\n");
+      out.write("                                            <td>Edit || Delete || Details</td>\r\n");
+      out.write("                                        </tr>\r\n");
+      out.write("                                        <tr>\r\n");
+      out.write("                                            <th scope=\"row\">2</th>\r\n");
+      out.write("                                            <td>Jacob</td>\r\n");
+      out.write("                                            <td>500 $</td>\r\n");
+      out.write("                                            <td>Edit || Delete || Details</td>\r\n");
+      out.write("                                        </tr>\r\n");
+      out.write("                                        <tr>\r\n");
+      out.write("                                            <th scope=\"row\">3</th>\r\n");
+      out.write("                                            <td>Jacob</td>\r\n");
+      out.write("                                            <td>500 $</td>\r\n");
+      out.write("                                            <td>Edit || Delete || Details</td>\r\n");
+      out.write("                                        </tr>\r\n");
+      out.write("                                    </tbody>\r\n");
+      out.write("                                </table>\r\n");
+      out.write("                            </center>\r\n");
+      out.write("                        </div>\r\n");
       out.write("                </div>\r\n");
       out.write("                <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -462,6 +470,7 @@ public final class petList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/Admin/js/demo/chart-pie-demo.js\"></script>\r\n");
+      out.write("                \r\n");
       out.write("                <script src=\"https://code.jquery.com/jquery-3.5.1.js\"></script>\r\n");
       out.write("\r\n");
       out.write("                <script src=\"https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js\"></script>\r\n");
@@ -503,63 +512,6 @@ public final class petList_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_0.setParent(null);
-    _jspx_th_c_forEach_0.setVar("i");
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${list}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
-      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\r\n");
-          out.write("                                        <tr>\r\n");
-          out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.PId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\r\n");
-          out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.pName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\r\n");
-          out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.color}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\r\n");
-          out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.gender}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\r\n");
-          out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.age}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\r\n");
-          out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\r\n");
-          out.write("                                            <td>hihi</td>\r\n");
-          out.write("                                        </tr>\r\n");
-          out.write("                                    ");
-          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_forEach_0.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
-    }
     return false;
   }
 }

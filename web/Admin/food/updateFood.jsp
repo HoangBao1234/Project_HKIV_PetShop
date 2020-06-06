@@ -327,7 +327,7 @@
                     <div>
                         <center>
                             <h1>Update Food</h1>
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="${context}/Foods/Update"  method="post" enctype="multipart/form-data">
 
 
                                 <!-- Form Name -->

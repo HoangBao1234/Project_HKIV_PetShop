@@ -326,16 +326,16 @@
                     </nav>
                     <div>
                         <center>
-                            <h1>Add Animals</h1>
-                            <form class="form-horizontal" action="${context}/Animals/Store" method="post">
+                            <h1>Add Category</h1>
+                            <form class="form-horizontal" action="${context}/Cate/Store" method="post">
 
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        Animals Name
+                                        Category Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="animals_name" name="animals_name" placeholder="Animals Name" class="form-control input-md" required="" type="text">
+                                        <input id="category_name" name="category_name" placeholder="Category Name" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
