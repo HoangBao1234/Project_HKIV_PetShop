@@ -29,5 +29,9 @@ public interface PetsFacadeLocal {
     List<Pets> findRange(int[] range);
 
     int count();
+
+    void deleteByAnimals(Animals animals);
+    
+    void deleteBYBreed(Breeds breeds);
     
 }

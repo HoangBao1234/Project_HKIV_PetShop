@@ -9,6 +9,7 @@ package entity;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,5 +28,23 @@ public class PetsFacade extends AbstractFacade<Pets> implements PetsFacadeLocal 
     public PetsFacade() {
         super(Pets.class);
     }
+
+    @Override
+    public void deleteByAnimals(Animals animals) {
+        String query = "DELETE FROM Pets p WHERE p.cFId = :animals";
+        Query q = em.createQuery(query);
+        q.setParameter("animals", animals);
+        q.executeUpdate();
+    }
+
+    @Override
+    public void deleteBYBreed(Breeds breeds) {
+        String query = "DELETE FROM Pets p WHERE p.cPId = :breeds";
+        Query q = em.createQuery(query);
+        q.setParameter("breeds", breeds);
+        q.executeUpdate();
+    }
+    
+    
     
 }

@@ -7,6 +7,7 @@ package controller;
 
 import entity.Breeds;
 import entity.BreedsFacadeLocal;
+import entity.PetsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -22,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "breedController", urlPatterns = {"/Breeds/*"})
 public class breedController extends HttpServlet {
+    @EJB
+    private PetsFacadeLocal petsFacade;
 
     @EJB
     private BreedsFacadeLocal breedsFacade;
@@ -82,15 +85,17 @@ public class breedController extends HttpServlet {
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Breeds br = breedsFacade.find(id);
+        petsFacade.deleteBYBreed(br);
         breedsFacade.remove(br);
         response.sendRedirect("List");
     }
 
-    private void update(HttpServletRequest request, HttpServletResponse response) {
+    private void update(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         Breeds br = new Breeds(id, name);
         breedsFacade.edit(br);
+        response.sendRedirect("List");
     }
     
     private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

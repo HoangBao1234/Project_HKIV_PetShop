@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "oderController", urlPatterns = {"/oderController"})
+@WebServlet(name = "oderController", urlPatterns = {"/Oder/*"})
 public class oderController extends HttpServlet {
     @EJB
     private OrdersFacadeLocal ordersFacade;
@@ -38,10 +38,28 @@ public class oderController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String path = request.getPathInfo();
             
+            switch(path){
+                case "/List":
+                    getListView(request, response);
+                    break;
+                
+                default:
+                    out.print("ko có");
+                    break;
+            }
         }
     }
-
+    
+    private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.setAttribute("list", ordersFacade.findAll());
+        request.getRequestDispatcher("/Admin/order/orderList.jsp").forward(request, response);
+    }
+    
+    private void getDetailView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/order/detail.jsp").forward(request, response);
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

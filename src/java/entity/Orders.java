@@ -11,6 +11,8 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -40,7 +42,7 @@ public class Orders implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "oderId", nullable = false)
     private Integer oderId;
     @Column(name = "total")
@@ -54,6 +56,8 @@ public class Orders implements Serializable {
     private String paymentBy;
     @Column(name = "transport", length = 50)
     private String transport;
+    @Column(name = "status", length = 20)
+    private String status;
     @OneToMany(mappedBy = "oderId")
     private Collection<OdersDetails> odersDetailsCollection;
     @JoinColumn(name = "MId", referencedColumnName = "MId")
@@ -62,6 +66,26 @@ public class Orders implements Serializable {
 
     public String getPaymentBy() {
         return paymentBy;
+    }
+
+    public Orders(Integer oderId, Integer total, String shipAddress, String oderDate, String paymentBy, String transport, String status, Collection<OdersDetails> odersDetailsCollection, Members mId) {
+        this.oderId = oderId;
+        this.total = total;
+        this.shipAddress = shipAddress;
+        this.oderDate = oderDate;
+        this.paymentBy = paymentBy;
+        this.transport = transport;
+        this.status = status;
+        this.odersDetailsCollection = odersDetailsCollection;
+        this.mId = mId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public void setPaymentBy(String paymentBy) {

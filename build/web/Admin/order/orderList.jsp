@@ -17,8 +17,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Foods Manager</title>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <title>Order Manager</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -328,29 +327,35 @@
 
                     </nav>
                     <div style="padding: 50px">
-                        <h4 style="color: #006dcc"><a href="${context}/Foods/Create">+ Create new</a></h4>
+                        <h4 style="color: #006dcc"><a href="${context}/Pet/Create">+ Create new</a></h4>
                         <center>
-                            <h2 style="color: #006dcc">Foods List</h2>
+                            <h2 style="color: #006dcc">Order Manager</h2>
                             <table id="example" class="display" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th scope="col" style="color: #006dcc">Id</th>
-                                        <th scope="col" style="color: #006dcc">Name</th>
-                                        <th scope="col" style="color: #006dcc">Price</th>
-                                        <th scope="col" style="color: #006dcc">For</th>
+                                        <th scope="col" style="color: #006dcc">Address</th>
+                                        <th scope="col" style="color: #006dcc">Payment By</th>
+                                        <th scope="col" style="color: #006dcc">Transport</th>
+                                        <th scope="col" style="color: #006dcc">Buyer</th>
+                                        <th scope="col" style="color: #006dcc">Total</th>
+                                        <th scope="col" style="color: #006dcc">Status</th>
                                         <th scope="col" style="color: #006dcc">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <c:forEach var="i" items="${list}">
                                         <tr>
-                                            <td>${i.FId}</td>
-                                            <td>${i.name}</td>
-                                            <td>${i.price}</td>
-                                            <td>${i.CFId.name}</td>
+                                            <td>${i.oderId}</td>
+                                            <td>${i.shipAddress}</td>
+                                            <td>${i.paymentBy}</td>
+                                            <td>${i.transport}</td>
+                                            <td>${i.MId.name}</td>
+                                            <td>${i.total}</td>
+                                            <td>${i.status}</td>
                                             <td>
-                                                <a href="${context}/Foods/Delete?id=${i.FId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
-                                                <a href="${context}/Foods/Edit?id=${i.FId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                                <a href="${context}/Pet/Delete?id=${i.oderId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Pet/Edit?id=${i.oderId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -374,7 +379,6 @@
                 <!-- Page level custom scripts -->
                 <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
                 <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
-
                 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
                 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>

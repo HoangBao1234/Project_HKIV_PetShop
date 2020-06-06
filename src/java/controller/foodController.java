@@ -35,6 +35,9 @@ import javax.servlet.http.Part;
 public class foodController extends HttpServlet {
 
     @EJB
+    private AnimalsFacadeLocal animalsFacade1;
+
+    @EJB
     private AnimalsFacadeLocal animalsFacade;
     @EJB
     private FoodsFacadeLocal foodsFacade;
@@ -131,18 +134,19 @@ public class foodController extends HttpServlet {
     }
 
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String id = request.getParameter("id");
-        String name = request.getParameter("name");
+        String id = request.getParameter("food_id");
+        String name = request.getParameter("food_name");
         int price = Integer.parseInt(request.getParameter("price"));
         part = request.getPart("image");
         String fileName = extracFile(part);
         String description = request.getParameter("description");
-        int cFId = Integer.parseInt(request.getParameter("cFId"));
+        int cFId = Integer.parseInt(request.getParameter("animals"));
         Animals animals = animalsFacade.find(cFId);
-        Foods food = new Foods(id, name, price, fileName, description, animals);
         String savePath = getFullPath(request, response) + File.separator + fileName;
+        Foods food = new Foods(id, name, price, fileName, description, animals);
+        foodsFacade.create(food);
         saveToFolder(savePath);
-        request.getRequestDispatcher("/Admin/food/foodList.jsp").forward(request, response);
+        response.sendRedirect("List");
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -157,13 +161,13 @@ public class foodController extends HttpServlet {
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String id = request.getParameter("id");
-        String name = request.getParameter("name");
+        String id = request.getParameter("food_id");
+        String name = request.getParameter("food_name");
         int price = Integer.parseInt(request.getParameter("price"));
         part = request.getPart("image");
         String fileName = extracFile(part);
         String description = request.getParameter("description");
-        int cFId = Integer.parseInt(request.getParameter("cFId"));
+        int cFId = Integer.parseInt(request.getParameter("animals"));
         Animals animals = animalsFacade.find(cFId);
         Foods food = foodsFacade.find(id);
         String fileNameDe = food.getImage();
@@ -183,6 +187,7 @@ public class foodController extends HttpServlet {
 
     private void getViewCreate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
+        request.setAttribute("alist", animalsFacade.findAll());
         request.getRequestDispatcher("/Admin/food/addFood.jsp").forward(request, response);
     }
 

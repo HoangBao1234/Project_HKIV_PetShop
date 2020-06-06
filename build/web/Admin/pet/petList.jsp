@@ -348,7 +348,7 @@
                                             <td>${i.PId}</td>
                                             <td>${i.PName}</td>
                                             <td>${i.color}</td>
-                                            <td>${i.gender}</td>
+                                            <td>${ i.gender == true ? "Male" : "Female" }</td>
                                             <td>${i.age}</td>
                                             <td>${i.price}</td>
                                             <td>

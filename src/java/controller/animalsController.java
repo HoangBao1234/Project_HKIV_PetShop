@@ -7,6 +7,7 @@ package controller;
 
 import entity.Animals;
 import entity.AnimalsFacadeLocal;
+import entity.PetsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -22,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "animalsController", urlPatterns = {"/Animals/*"})
 public class animalsController extends HttpServlet {
+    @EJB
+    private PetsFacadeLocal petsFacade;
 
     @EJB
     private AnimalsFacadeLocal animalsFacade;
@@ -81,17 +84,18 @@ public class animalsController extends HttpServlet {
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt("id");
+        int id = Integer.parseInt(request.getParameter("id"));
         Animals an = animalsFacade.find(id);
+        petsFacade.deleteByAnimals(an);
         animalsFacade.remove(an);
-        request.setAttribute("list", animalsFacade.findAll());
-        request.getRequestDispatcher("/Admin/animals/animalsList.jsp").forward(request, response);
+        response.sendRedirect("List");
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt("id");
         String name = request.getParameter("name");
         Animals an = new Animals(id, name);
+        
         animalsFacade.edit(an);
         response.sendRedirect("List");
     }

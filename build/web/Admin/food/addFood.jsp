@@ -328,11 +328,6 @@
                         <center>
                             <h1>Add Food</h1>
                             <form class="form-horizontal" action="${context}/Foods/Store" enctype="multipart/form-data" method="post">
-
-
-                                <!-- Form Name -->
-
-
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
@@ -388,8 +383,10 @@
                                         Animals
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px">
-                                            <option>Duy</option>
+                                        <select style="width: 150px" name="animals">
+                                            <c:forEach var="i" items="${alist}">
+                                                <option value="${i.CFId}">${i.name}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
@@ -397,7 +394,7 @@
 
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <button id="btnFood" name="btnFood" class="btn btn-primary">Button</button>
+                                        <input name="action" type="submit" value="Insert" class="btn btn-primary" />
                                     </div>
                                 </div>
 

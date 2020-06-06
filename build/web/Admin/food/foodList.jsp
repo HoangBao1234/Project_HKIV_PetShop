@@ -19,6 +19,7 @@
 
         <title>Foods Manager</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
@@ -326,42 +327,37 @@
                         </ul>
 
                     </nav>
-                        <div style="padding: 50px">
-                            <h4 style="color: #006dcc"><a href="${context}/Foods/Create">+ Create new</a></h4>
-                            <center>
-                                <h2 style="color: #006dcc">Foods List</h2>
-                                <table id="example" class="display" style="width:100%">
-                                    <thead>
+                    <div style="padding: 50px">
+                        <h4 style="color: #006dcc"><a href="${context}/Foods/Create">+ Create new</a></h4>
+                        <center>
+                            <h2 style="color: #006dcc">Foods List</h2>
+                            <table id="example" class="display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="color: #006dcc">Id</th>
+                                        <th scope="col" style="color: #006dcc">Name</th>
+                                        <th scope="col" style="color: #006dcc">Price</th>
+                                        <th scope="col" style="color: #006dcc">For</th>
+                                        <th scope="col" style="color: #006dcc">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="i" items="${list}">
                                         <tr>
-                                            <th scope="col" style="color: #006dcc">Id</th>
-                                            <th scope="col" style="color: #006dcc">Name</th>
-                                            <th scope="col" style="color: #006dcc">Price</th>
-                                            <th scope="col" style="color: #006dcc">Action</th>
+                                            <td>${i.FId}</td>
+                                            <td>${i.name}</td>
+                                            <td>${i.price}</td>
+                                            <td>${i.CFId.name}</td>
+                                            <td>
+                                                <a href="${context}/Foods/Delete?id=${i.FId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Foods/Edit?id=${i.FId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                            </td>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>500 $</td>
-                                            <td>Edit || Delete || Details</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>500 $</td>
-                                            <td>Edit || Delete || Details</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Jacob</td>
-                                            <td>500 $</td>
-                                            <td>Edit || Delete || Details</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </center>
-                        </div>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </center>
+                    </div>
                 </div>
                 <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
                 <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -378,7 +374,7 @@
                 <!-- Page level custom scripts -->
                 <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
                 <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
-                
+
                 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
                 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
