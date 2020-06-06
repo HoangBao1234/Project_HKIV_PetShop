@@ -3,17 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/entity/Animals.java</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/member/register.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/pet/addPet.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/animals/addAnimals.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/member/memberList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/controller/animalsController.java</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/entity/Members.java</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/controller/memberController.java</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/animals/updateAnimals.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/animals/animalsList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/member/memberDetail.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/food/addFood.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/food/foodList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/pet/petList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Foods.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Animals.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/conf/persistence.xml</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/foodController.java</file>
         </group>
     </open-files>
 </project-private>
