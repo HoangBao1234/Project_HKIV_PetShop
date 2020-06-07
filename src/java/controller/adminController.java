@@ -73,13 +73,12 @@ public class adminController extends HttpServlet {
         request.getRequestDispatcher("/Admin/admin/adminList.jsp").forward(request, response);
     }
 
-    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException {
-       
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException { 
         String username = request.getParameter("admins_name");
         String password = request.getParameter("admins_pass");
-        Admins ad = new Admins( username, password);
+        Admins ad = new Admins(username, password);
         adminsFacade.create(ad);
-         response.sendRedirect("List");
+        response.sendRedirect("List");
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
