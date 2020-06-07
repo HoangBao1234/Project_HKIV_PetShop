@@ -73,25 +73,32 @@ public class adminController extends HttpServlet {
         request.getRequestDispatcher("/Admin/admin/adminList.jsp").forward(request, response);
     }
 
-    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException { 
-        String username = request.getParameter("admins_name");
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException { 
+        String mail = request.getParameter("admins_mail");
         String password = request.getParameter("admins_pass");
-        Admins ad = new Admins(username, password);
-        adminsFacade.create(ad);
-        response.sendRedirect("List");
+        String msg =null;
+        Admins ad = new Admins( mail, password);
+        
+            adminsFacade.create(ad);
+            
+     
+            response.sendRedirect("List");
+       
+       
+        
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt("id");
+        int id = Integer.parseInt(request.getParameter("id"));
         Admins ad = adminsFacade.find(id);
         adminsFacade.remove(ad);
         response.sendRedirect("List");
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) {
-        String username = request.getParameter("admins_name");
+        String mail = request.getParameter("admins_mail");
         String password = request.getParameter("admins_pass");
-        Admins ad = new Admins(username, password);
+        Admins ad = new Admins(mail, password);
         adminsFacade.edit(ad);
     }
     

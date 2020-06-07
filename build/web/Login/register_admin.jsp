@@ -42,11 +42,12 @@
                                 <form class="user" action="${context}/Admins/Store" method="post">
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" id="exampleFirstName" name="admins_name" placeholder="Emal">
+                                            <input type="text" class="form-control form-control-user" id="exampleFirstName" name="admins_mail" placeholder="Emal">
                                         </div>
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="admins_pass" placeholder="Password" >
                                         </div>
+                                        
                                     </div>
                                     <input type="submit" name="action" class="btn btn-primary btn-user btn-block" value="<fmt:message key="login.textfield.Register"/>"/>
 

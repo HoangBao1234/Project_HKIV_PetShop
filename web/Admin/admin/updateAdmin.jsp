@@ -335,7 +335,10 @@
                                         Animals Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input name="animals_Id" placeholder="Admin Id" class="form-control input-md" required="" type="text">
+                                        <input name="admins_email" placeholder="Admin email" class="form-control input-md" required="" type="text">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input name="admins_pass" placeholder="Admin pass" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <!-- Text input-->
@@ -344,7 +347,7 @@
                                         Animals Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="animals_name" name="animals_name" placeholder="Animals Name" class="form-control input-md" required="" type="text">
+                                        <input id="animals_name" name="admins_pass" placeholder="Admin pass" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
