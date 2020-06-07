@@ -339,7 +339,7 @@
                                         Food Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="food_id" name="food_id" placeholder="Food Id" class="form-control input-md" required="" type="text">
+                                        <input id="food_id" name="food_id" value="${food.FId}" placeholder="Food Id" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
@@ -349,7 +349,7 @@
                                         Food Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="food_name" name="food_name" placeholder="Food Name" class="form-control input-md" required="" type="text">
+                                        <input id="food_name" name="food_name" value="${food.name}" placeholder="Food Name" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <!-- Text input-->
@@ -358,7 +358,7 @@
                                         Price
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="number">
+                                        <input id="price" name="price" value="${food.price}" placeholder="Price" class="form-control input-md" required="" type="number">
                                     </div>
                                 </div>
 
@@ -378,7 +378,7 @@
                                         Description
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="description" name="description" placeholder="Description" class="form-control input-md" required="" type="text">
+                                        <input id="description" name="description" value="${food.description}" placeholder="Description" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
@@ -389,7 +389,14 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px">
-                                            <option>Duy</option>
+                                            <c:forEach var="aList" items="${animals}">
+                                                <c:if test="${food.CFId.CFId == aList.CFId}">
+                                                    <option value="${aList.CFId}" selected="selected">${aList.name}</option>
+                                                </c:if>
+                                                <c:if test="${food.CFId.CFId != aList.CFId}">
+                                                    <option value="${aList.CFId}">${aList.name}</option>
+                                                </c:if>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
@@ -397,7 +404,7 @@
 
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <input name="action" value="Update" class="btn btn-primary"/>
+                                        <input name="action" type="submit" value="Update" class="btn btn-primary"/>
                                     </div>
                                 </div>
 

@@ -195,6 +195,9 @@ public class foodController extends HttpServlet {
         if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
             response.sendRedirect("List");
         } else {
+            String id = request.getParameter("id");
+            request.setAttribute("animals", animalsFacade.findAll());
+            request.setAttribute("food", foodsFacade.find(id));
             request.getRequestDispatcher("/Admin/food/updateFood.jsp").forward(request, response);
         }
 

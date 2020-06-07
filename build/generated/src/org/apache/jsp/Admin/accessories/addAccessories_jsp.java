@@ -417,7 +417,7 @@ public final class addAccessories_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                        Accessories Id\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"col-sm-4\">\r\n");
-      out.write("                                        <input id=\"accessoreis_id\" name=\"accessoreis_id\" placeholder=\"Pet ID\" class=\"form-control input-md\" required=\"\" type=\"text\">\r\n");
+      out.write("                                        <input id=\"accessoreis_id\" name=\"accessoreis_id\" placeholder=\"ID\" class=\"form-control input-md\" required=\"\" type=\"text\">\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("\r\n");
@@ -427,7 +427,7 @@ public final class addAccessories_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                        Accessoreis Name\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"col-sm-4\">\r\n");
-      out.write("                                        <input id=\"accessoreis_name\" name=\"accessoreis_name\" placeholder=\"Pet Name\" class=\"form-control input-md\" required=\"\" type=\"text\">\r\n");
+      out.write("                                        <input id=\"accessoreis_name\" name=\"accessoreis_name\" placeholder=\"Name\" class=\"form-control input-md\" required=\"\" type=\"text\">\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                                <!-- Text input-->\r\n");
@@ -446,7 +446,7 @@ public final class addAccessories_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                        Desciption\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"col-sm-4\">\r\n");
-      out.write("                                        <input id=\"description\" name=\"description\" placeholder=\"Description\" class=\"form-control input-md\" required=\"\" type=\"date\">\r\n");
+      out.write("                                        <input id=\"description\" name=\"description\" placeholder=\"Description\" class=\"form-control input-md\" required=\"\" type=\"text\">\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                                <!-- Textarea -->\r\n");
