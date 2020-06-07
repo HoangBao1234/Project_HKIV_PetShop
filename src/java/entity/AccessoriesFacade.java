@@ -9,6 +9,7 @@ package entity;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -26,6 +27,14 @@ public class AccessoriesFacade extends AbstractFacade<Accessories> implements Ac
 
     public AccessoriesFacade() {
         super(Accessories.class);
+    }
+
+    @Override
+    public void deleteByCateEs(CateES cate) {
+        String query = "DELETE FROM Accessories a WHERE a.cEId = :cate";
+        Query q = em.createQuery(query);
+        q.setParameter("cate", cate);
+        q.executeUpdate();
     }
     
 }

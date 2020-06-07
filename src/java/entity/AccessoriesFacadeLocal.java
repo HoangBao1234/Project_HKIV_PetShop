@@ -30,4 +30,6 @@ public interface AccessoriesFacadeLocal {
 
     int count();
     
+    void deleteByCateEs(CateES cate);
+    
 }

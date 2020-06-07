@@ -39,11 +39,11 @@ public class memberController extends HttpServlet {
                 case "/Delete":
                     delete(request, response);
                     break;
-                case "/Details":
-                    getViewEdit(request, response);
+                case "/Update":
+                    update(request, response);
                     break;
                 case "/Edit":
-                    update(request, response);
+                    getViewEdit(request, response);
                     break;
                 case "/Create":
                     getViewCreate(request, response);
@@ -110,7 +110,7 @@ public class memberController extends HttpServlet {
         } else {
             int id = Integer.parseInt(request.getParameter("id"));
             request.setAttribute("member", membersFacade.find(id));
-            request.getRequestDispatcher("/Admin/member/memberDetail.jsp").forward(request, response);
+            request.getRequestDispatcher("/Admin/member/updateMem.jsp").forward(request, response);
         }
 
     }

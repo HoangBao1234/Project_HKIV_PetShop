@@ -350,7 +350,7 @@
                                             <td>${i.address}</td>
                                             <td>
                                                 <a href="${context}/Member/Delete?id=${i.MId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
-                                                <a href="${context}/Member/Details?id=${i.MId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                                <a href="${context}/Member/Edit?id=${i.MId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach>

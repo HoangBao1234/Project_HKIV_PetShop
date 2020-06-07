@@ -334,7 +334,7 @@
                                         Accessories Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="accessories_id" name="accessories_id" placeholder="Accessories ID" class="form-control input-md" required="" type="text">
+                                        <input id="accessories_id" value="${accessories.ESId}" name="accessories_id" placeholder="Accessories ID" class="form-control input-md" readonly="true" type="text">
                                     </div>
                                 </div>
 
@@ -344,7 +344,7 @@
                                         Accessories Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="accessories_name" name="accessories_name" placeholder="Accessories Name" class="form-control input-md" required="" type="text">
+                                        <input id="accessories_name" value="${accessories.name}" name="accessories_name" placeholder="Accessories Name" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <!-- Text input-->
@@ -353,7 +353,7 @@
                                         Price
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="number">
+                                        <input id="price" name="price" value="${accessories.price}" placeholder="Price" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>   
                                 <!-- Text input-->
@@ -362,7 +362,7 @@
                                         Description
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="description" name="description" placeholder="Description" class="form-control input-md" required="" type="text">
+                                        <input id="description" value="${accessories.description}" name="description" placeholder="Description" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -379,8 +379,15 @@
                                         Animals
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px">
-                                            <option>Duy</option>
+                                        <select style="width: 150px" name="animals">
+                                            <c:forEach var="aList" items="${animals}">
+                                                <c:if test="${accessories.CFId.CFId == aList.CFId}">
+                                                    <option value="${accessories.CFId.CFId}" selected="selected">${accessories.CFId.name}</option>
+                                                </c:if>
+                                                <c:if test="${accessories.CFId.CFId != aList.CFId}">
+                                                    <option value="${aList.CFId}">${aList.name}</option>
+                                                </c:if>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
@@ -389,8 +396,15 @@
                                         CateES
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px">
-                                            <option>Bảo gà con</option>
+                                        <select style="width: 150px" name="category">
+                                            <c:forEach var="cList" items="${cateES}">
+                                                <c:if test="${accessories.CEId.CEId == cList.CEId}">
+                                                    <option value="${accessories.CEId.CEId}" selected="selected">${accessories.CEId.name}</option>
+                                                </c:if>
+                                                <c:if test="${accessories.CEId.CEId != cList.CEId}">
+                                                    <option value="${cList.CEId}">${cList.name}</option>
+                                                </c:if>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>

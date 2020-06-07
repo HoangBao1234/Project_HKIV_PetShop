@@ -5,6 +5,7 @@
  */
 package controller;
 
+import entity.AccessoriesFacadeLocal;
 import entity.Admins;
 import entity.CateES;
 import entity.CateESFacadeLocal;
@@ -23,6 +24,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "cateController", urlPatterns = {"/Cate/*"})
 public class cateController extends HttpServlet {
+    @EJB
+    private AccessoriesFacadeLocal accessoriesFacade;
 
     @EJB
     private CateESFacadeLocal cateESFacade;
@@ -83,6 +86,7 @@ public class cateController extends HttpServlet {
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         CateES cate = cateESFacade.find(id);
+        accessoriesFacade.deleteByCateEs(cate);
         cateESFacade.remove(cate);
         response.sendRedirect("List");
     }

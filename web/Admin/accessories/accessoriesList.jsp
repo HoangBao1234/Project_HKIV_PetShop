@@ -337,9 +337,7 @@
                                         <th scope="col" style="color: #006dcc">Id</th>
                                         <th scope="col" style="color: #006dcc">Name</th>
                                         <th scope="col" style="color: #006dcc">Price</th>
-                                        <th scope="col" style="color: #006dcc">description</th>
-                                        <th scope="col" style="color: #006dcc">Animals</th>
-                                        <th scope="col" style="color: #006dcc">Category</th>
+                                        <th scope="col" style="color: #006dcc">Description</th>
                                         <th scope="col" style="color: #006dcc">Action</th>
                                     </tr>
                                 </thead>
@@ -351,8 +349,8 @@
                                             <td>${i.price}</td>
                                             <td>${i.description}</td>
                                             <td>
-                                                <a href="${context}/Pet/Delete?id=${i.ESId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
-                                                <a href="${context}/Pet/Edit?id=${i.ESId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                                <a href="${context}/Accessories/Delete?id=${i.ESId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Accessories/Edit?id=${i.ESId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach>

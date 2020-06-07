@@ -327,7 +327,7 @@
                     <div>
                         <center>
                             <h1>Detail Members</h1>
-                            <form class="form-horizontal" action="${context}/Member/Edit" method="post">
+                            <form class="form-horizontal" action="${context}/Member/Update" method="post">
 
                                  <div class="form-group row">
                                     <div class="col-sm-4">
@@ -375,7 +375,7 @@
 
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <input name="action" value="Detail" type="submit" class="btn btn-primary"/>
+                                        <input name="action" value="Update" type="submit" class="btn btn-primary"/>
                                     </div>
                                 </div>
 
