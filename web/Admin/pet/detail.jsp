@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,19 +17,22 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SB Admin 2 - Dashboard</title>
-
+        <title>Pet List</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
-        <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="${context}/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template-->
-        <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
+
+
 
     </head>
 
     <body id="page-top">
-                <div id="wrapper">
+        <div id="wrapper">
 
             <!-- Sidebar -->
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -55,85 +60,77 @@
 
                 <!-- Heading -->
                 <div class="sidebar-heading">
-                    Interface
+                    Maneger
                 </div>
 
-                <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#foods" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
-                        <span>Components</span>
+                        <span>Product component</span>
                     </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div id="foods" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Custom Components:</h6>
-                            <a class="collapse-item" href="buttons.html">Buttons</a>
-                            <a class="collapse-item" href="cards.html">Cards</a>
+                            <h6 class="collapse-header">Products</h6>
+                            <a class="collapse-item" href="${context}/Pet/List">Pets Manager</a>
+                            <a class="collapse-item" href="${context}/Foods/List">Foods Manager</a>
+                            <a class="collapse-item" href="${context}/Accessories/List">Accessories Manager</a>
                         </div>
                     </div>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#cate" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span style="font-size: 12px">Categories Components</span>
+                    </a>
+                    <div id="cate" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">breed Components:</h6>
+                            <a class="collapse-item" href="${context}/Animals/List">Animals Manager</a>
+                            <a class="collapse-item" href="${context}/Breeds/List">Breeds Manager</a>
+                            <a class="collapse-item" href="${context}/Cate/List">CateES Manager</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${context}/Member/List" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span style="font-size: 12px">Member Manager</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${context}/Hotel/List" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span style="font-size: 12px">Pet Hotel Manager</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${context}/Oder/List" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span style="font-size: 12px">Order Manager</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${context}/FeedBack/List" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span style="font-size: 12px">FeedBack Manager</span>
+                    </a>
+                </li>
                 <!-- Nav Item - Utilities Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                         <i class="fas fa-fw fa-wrench"></i>
-                        <span>Utilities</span>
+                        <span>Account</span>
                     </a>
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Custom Utilities:</h6>
-                            <a class="collapse-item" href="utilities-color.html">Colors</a>
-                            <a class="collapse-item" href="utilities-border.html">Borders</a>
-                            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                            <a class="collapse-item" href="utilities-other.html">Other</a>
+                            <h6 class="collapse-header">Account</h6>
+                            <a class="collapse-item" href="${context}/Admins/Create">Register</a>
+                            <a class="collapse-item" href="utilities-border.html">Logout</a>
                         </div>
                     </div>
                 </li>
-
                 <!-- Divider -->
                 <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Addons
-                </div>
-
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Pages</span>
-                    </a>
-                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Login Screens:</h6>
-                            <a class="collapse-item" href="login.html">Login</a>
-                            <a class="collapse-item" href="register.html">Register</a>
-                            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                            <div class="collapse-divider"></div>
-                            <h6 class="collapse-header">Other Pages:</h6>
-                            <a class="collapse-item" href="404.html">404 Page</a>
-                            <a class="collapse-item" href="blank.html">Blank Page</a>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Nav Item - Charts -->
-                <li class="nav-item">
-                    <a class="nav-link" href="charts.html">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></a>
-                </li>
-
-                <!-- Nav Item - Tables -->
-                <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Tables</span></a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider d-none d-md-block">
 
                 <!-- Sidebar Toggler (Sidebar) -->
                 <div class="text-center d-none d-md-inline">
@@ -141,9 +138,9 @@
                 </div>
 
             </ul>
-            
+
             <div id="content-wrapper" class="d-flex flex-column">
-            
+                <div id="content">
 
                     <!-- Topbar -->
                     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -326,23 +323,67 @@
                         </ul>
 
                     </nav>
-            
+                    <div class="row" style="padding: 50px">
+                        <div class="col-sm-5">
+                            <img src="${context}/ImageItems/${pet.image}" style="image-rendering: pixelated;object-fit: contain;" width="100%" height="500"/>
+                        </div>
+                        <div class="col-sm-7">
+                            <table style="width: 70%; height: 70%;">
+                                <tr>
+                                    <td>Id: </td>
+                                    <td>${pet.PId}</td>
+                                </tr>
+                                <tr>
+                                    <td>Name </td>
+                                    <td>${pet.PName}</td>
+                                </tr>
+                                <tr>
+                                    <td>Color: </td>
+                                    <td>${pet.color}</td>
+                                </tr>
+                                <tr>
+                                    <td>Age: </td>
+                                    <td>${pet.age}</td>
+                                </tr>
+                                <tr>
+                                    <td>Gender: </td>
+                                    <td>${pet.gender}</td>
+                                </tr>
+                                <tr>
+                                    <td>Breed: </td>
+                                    <td>${pet.CPId.name}</td>
+                                </tr>
+                                <tr>
+                                    <td>Animals: </td>
+                                    <td>${pet.CFId.name}</td>
+                                </tr>
+                                <tr>
+                                    <td>Description: </td>
+                                    <td>${pet.description}</td>
+                                </tr>
+                            </table>
+                                <button style="padding: 5px 15px 5px 15px; border: none; background-color: #0069d9;
+                                        border-radius: 10px; color: #cccccc">Edit</button>
+                        </div>
+                    </div>
                 </div>
-          </div>
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                </center>
+            </div>
+        </div>
+        <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
+        <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
-        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
         <!-- Custom scripts for all pages-->
-        <script src="../js/sb-admin-2.min.js"></script>
+        <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
 
         <!-- Page level plugins -->
-        <script src="../vendor/chart.js/Chart.min.js"></script>
+        <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
 
         <!-- Page level custom scripts -->
-        <script src="../js/demo/chart-area-demo.js"></script>
-        <script src="../js/demo/chart-pie-demo.js"></script>
+        <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
+        <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
     </body>
 </html>

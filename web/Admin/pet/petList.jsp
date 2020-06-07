@@ -127,6 +127,7 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Account</h6>
                             <a class="collapse-item" href="${context}/Admins/Create">Register</a>
+                            <a class="collapse-item" href="${context}/Admins/Create">Change Info</a>
                             <a class="collapse-item" href="utilities-border.html">Logout</a>
                         </div>
                     </div>
@@ -352,8 +353,9 @@
                                             <td>${i.age}</td>
                                             <td>${i.price}</td>
                                             <td>
-                                                <a href="${context}/Pet/Delete?id=${i.PId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
-                                                <a href="${context}/Pet/Edit?id=${i.PId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                                <a href="${context}/Pet/Delete?id=${i.PId}"><i class="fas fa-trash-alt" aria-hidden="true" title="Delete"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Pet/Edit?id=${i.PId}"><i class="fas fa-pencil-alt" aria-hidden="true" title="Edit"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Pet/Detail?id=${i.PId}"><i class="fas fa-bars" title="Detail"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach>

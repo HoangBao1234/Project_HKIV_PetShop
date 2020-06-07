@@ -332,26 +332,28 @@
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        Animals Id
+                                       Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input name="admins_email" placeholder="Admin email" class="form-control input-md" required="" type="text">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input name="admins_pass" placeholder="Admin pass" class="form-control input-md" required="" type="text">
+                                        <input name="admins_id" placeholder="Admin Id" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
-                                <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        Animals Name
+                                       Gmail
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="animals_name" name="admins_pass" placeholder="Admin pass" class="form-control input-md" required="" type="text">
+                                        <input name="admins_email" placeholder="Gmail" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
-
-
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                       Password
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input name="password" placeholder="Password" class="form-control input-md" required="" type="text">
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
                                         <input name="action" value="Update" type="submit" class="btn btn-primary"/>

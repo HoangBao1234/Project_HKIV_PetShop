@@ -81,6 +81,9 @@ public class petController extends HttpServlet {
                 case "/Update":
                     update(request, response);
                     break;
+                case "/Detail":
+                    getViewDetail(request, response);
+                    break;
                 default:
                     out.print("Khong co trang nay");
                     break;
@@ -237,6 +240,16 @@ public class petController extends HttpServlet {
             request.setAttribute("breeds", breedsFacade.findAll());
             request.setAttribute("pet", petsFacade.find(id));
             request.getRequestDispatcher("/Admin/pet/updatePet.jsp").forward(request, response);
+        }
+    }
+    
+    private void getViewDetail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+            response.sendRedirect("List");
+        } else {
+            String id = request.getParameter("id");
+            request.setAttribute("pet", petsFacade.find(id));
+            request.getRequestDispatcher("/Admin/pet/detail.jsp").forward(request, response);
         }
     }
 
