@@ -342,7 +342,7 @@
                                     <c:forEach var="i" items="${list}">
                                         <tr>
                                             <td>${i.AId}</td>
-                                            <td>${i.username}</td>
+                                            <td>${i.mail}</td>
                                             <td>
                                                 <a href="${context}/Admins/Delete?id=${i.AId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
                                                 <a href="${context}/Admins/Edit?id=${i.AId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>

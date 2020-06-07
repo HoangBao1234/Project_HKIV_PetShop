@@ -10,6 +10,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -28,18 +30,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Admins.findAll", query = "SELECT a FROM Admins a"),
     @NamedQuery(name = "Admins.findByAId", query = "SELECT a FROM Admins a WHERE a.aId = :aId"),
-    @NamedQuery(name = "Admins.findByUsername", query = "SELECT a FROM Admins a WHERE a.username = :username"),
+    @NamedQuery(name = "Admins.findByMail", query = "SELECT a FROM Admins a WHERE a.mail = :mail"),
     @NamedQuery(name = "Admins.findByPassword", query = "SELECT a FROM Admins a WHERE a.password = :password")})
 public class Admins implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "AId", nullable = false)
     private Integer aId;
     @Size(max = 20)
-    @Column(name = "username", length = 20)
-    private String username;
+    @Column(name = "mail", length = 50)
+    private String mail;
     @Size(max = 20)
     @Column(name = "password", length = 20)
     private String password;
@@ -47,8 +49,8 @@ public class Admins implements Serializable {
     public Admins() {
     }
 
-    public Admins( String username, String password) {
-        this.username = username;
+    public Admins(String mail, String password) {
+        this.mail = mail;
         this.password = password;
     }
 
@@ -64,12 +66,12 @@ public class Admins implements Serializable {
         this.aId = aId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getMail() {
+        return mail;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getPassword() {
