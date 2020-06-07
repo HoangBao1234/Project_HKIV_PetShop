@@ -42,6 +42,9 @@ public class memberController extends HttpServlet {
                 case "/Details":
                     getViewEdit(request, response);
                     break;
+                case "/Edit":
+                    update(request, response);
+                    break;
                 case "/Create":
                     getViewCreate(request, response);
                     break;
@@ -77,8 +80,8 @@ public class memberController extends HttpServlet {
         request.setAttribute("list", membersFacade.findAll());
         request.getRequestDispatcher("/Admin/member/memberList.jsp").forward(request, response);
     }
-    
-    private void update(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+    private void update(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("members_name");
         String mail = request.getParameter("mail");
@@ -94,13 +97,13 @@ public class memberController extends HttpServlet {
         request.setAttribute("list", membersFacade.findAll());
         request.getRequestDispatcher("/Admin/member/memberList.jsp").forward(request, response);
     }
-    
+
     private void getViewCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/Login/register.jsp").forward(request, response);
     }
-    
+
     private void getViewEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
         if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
 //            request.getRequestDispatcher("/Admin/member/memberList.jsp").forward(request, response);
             response.sendRedirect("List");

@@ -183,6 +183,8 @@ public class accessoriesController extends HttpServlet {
     }
 
     private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+         request.setAttribute("animals", animalsFacade.findAll());
+        request.setAttribute("category", cateESFacade.findAll());
         request.getRequestDispatcher("/Admin/accessories/addAccessories.jsp").forward(request, response);
     }
     

@@ -327,14 +327,14 @@
                     <div>
                         <center>
                             <h1>Detail Members</h1>
-                            <form class="form-horizontal" action="${context}/Member/Store" method="post">
+                            <form class="form-horizontal" action="${context}/Member/Edit" method="post">
 
                                  <div class="form-group row">
                                     <div class="col-sm-4">
                                         Member ID
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="members_id" name="members_id" placeholder="Members ID" class="form-control input-md" required="" type="text">
+                                        <input id="id" name="id" value="${member.MId}" placeholder="Members ID" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <!-- Text input-->
@@ -343,7 +343,7 @@
                                         Member Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="members_name" name="members_name" placeholder="Members Name" class="form-control input-md" required="" type="text">
+                                        <input id="members_name" name="members_name" value="${member.name}" placeholder="Members Name" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -351,23 +351,16 @@
                                         Email
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="mail" name="mail" placeholder="Mail" class="form-control input-md" required="" type="text">
+                                        <input id="mail" name="mail" value="${member.mail}" placeholder="Mail" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Password
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input id="password" name="password" placeholder="Password" class="form-control input-md" required="" type="password">
-                                    </div>
-                                </div>
+                                
                                 <div class="form-group row">
                                     <div class="col-sm-4">
                                         Phone
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="phone" name="phone" placeholder="Phone" class="form-control input-md" required="" type="number">
+                                        <input id="phone" name="phone" value="${member.phone}" placeholder="Phone" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -375,14 +368,14 @@
                                         Address
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="address" name="address" placeholder="Address" class="form-control input-md" required="" type="text">
+                                        <input id="address" name="address" value="${member.address}" placeholder="Address" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
 
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <input name="action" value="Insert" type="submit" class="btn btn-primary"/>
+                                        <input name="action" value="Detail" type="submit" class="btn btn-primary"/>
                                     </div>
                                 </div>
 

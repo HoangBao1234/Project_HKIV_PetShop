@@ -337,36 +337,25 @@
                                         <th scope="col" style="color: #006dcc">Id</th>
                                         <th scope="col" style="color: #006dcc">Name</th>
                                         <th scope="col" style="color: #006dcc">Price</th>
+                                        <th scope="col" style="color: #006dcc">description</th>
                                         <th scope="col" style="color: #006dcc">Animals</th>
                                         <th scope="col" style="color: #006dcc">Category</th>
                                         <th scope="col" style="color: #006dcc">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>500 $</td>
-                                        <td>Dog</td>
-                                        <td>Fur</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>500 $</td>
-                                        <td>Dog</td>
-                                        <td>Fur</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>500 $</td>
-                                        <td>Dog</td>
-                                        <td>Fur</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
+                                    <c:forEach var="i" items="${list}">
+                                        <tr>
+                                            <td>${i.ESId}</td>
+                                            <td>${i.name}</td>
+                                            <td>${i.price}</td>
+                                            <td>${i.description}</td>
+                                            <td>
+                                                <a href="${context}/Pet/Delete?id=${i.ESId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Pet/Edit?id=${i.ESId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </center>

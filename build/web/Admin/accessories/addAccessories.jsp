@@ -349,7 +349,7 @@
                                         Price
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="price" name="price" placeholder="Color" class="form-control input-md" required="" type="text">
+                                        <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
@@ -378,7 +378,9 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px" name="animals">
-                                            <option value="1">Duy</option>
+                                            <c:forEach var="aList" items="${animals}">
+                                                <option value="${aList.CFId}">${aList.name}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
@@ -389,7 +391,9 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px" name="category">
-                                            <option value="1">Duy</option>
+                                            <c:forEach var="cList" items="${category}">
+                                                <option value="${cList.CEId}">${cList.name}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
