@@ -10,7 +10,6 @@ import entity.AdminsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -25,6 +24,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "adminController", urlPatterns = {"/Admins/*"})
 public class adminController extends HttpServlet {
+
     @EJB
     private AdminsFacadeLocal adminsFacade;
 
@@ -65,6 +65,9 @@ public class adminController extends HttpServlet {
                 case "/Login":
                     getViewLogin(request, response);
                     break;
+                case "/Check":
+                    login(request, response);
+                    break;
                 default:
                     out.print("huhu");
                     break;
@@ -80,10 +83,9 @@ public class adminController extends HttpServlet {
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String mail = request.getParameter("admins_mail");
         String password = request.getParameter("admins_pass");
-        String msg = null;
         Admins ad = new Admins(mail, password);
         adminsFacade.create(ad);
-        response.sendRedirect("List");
+        response.sendRedirect("Login");
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -109,42 +111,41 @@ public class adminController extends HttpServlet {
     }
 
     private void getViewLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/Login/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/Login/admin_Login.jsp").forward(request, response);
     }
-    
-    private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        String mail = request.getParameter("txtMail");
-            String password = request.getParameter("txtPassword");
-            boolean check = false;
-            // tao Session
-            HttpSession session = request.getSession();
-          
-            for (Admins admin : adminsFacade.findAll()) {
-                if (mail.equals(admin.getMail()) && password.equals(admin.getPassword())) {
-                    // luu vao session
-                    session.setAttribute("username", admin);
 
-                    // tao Cookie lay thong tin cua nguoi dung de nho lai
-                    Cookie user = new Cookie("user", mail);
-                    Cookie pass = new Cookie("pass", password);
-                    if (request.getParameter("chkRemember") != null) {
-                        user.setMaxAge(60 * 60 * 24);
-                        pass.setMaxAge(60 * 60 * 24);
-                    } else {
-                        user.setMaxAge(0);
-                        pass.setMaxAge(0);
-                    }
-                    response.addCookie(user);
-                    response.addCookie(pass);
-                    RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
-                    dis.forward(request, response);
-                    check = true;
+    private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String mail = request.getParameter("txtMail");
+        String password = request.getParameter("txtPassword");
+        boolean check = false;
+        // tao Session
+        HttpSession session = request.getSession();
+
+        for (Admins admin : adminsFacade.findAll()) {
+            if (mail.equals(admin.getMail()) && password.equals(admin.getPassword())) {
+                // luu vao session
+                session.setAttribute("admin", admin);
+
+                // tao Cookie lay thong tin cua nguoi dung de nho lai
+                Cookie user = new Cookie("user", mail);
+                Cookie pass = new Cookie("pass", password);
+                if (request.getParameter("chkRemember") != null) {
+                    user.setMaxAge(60 * 60 * 24);
+                    pass.setMaxAge(60 * 60 * 24);
+                } else {
+                    user.setMaxAge(0);
+                    pass.setMaxAge(0);
                 }
+                response.addCookie(user);
+                response.addCookie(pass);
+                response.sendRedirect("List");
+                check = true;
             }
-            if (check == false) {
-                request.setAttribute("error", "Username or Password invalid !");
-                request.getRequestDispatcher("Login/login.jsp").forward(request, response);
-            }
+        }
+        if (check == false) {
+            request.setAttribute("error", "Username or Password invalid !");
+            response.sendRedirect("Login");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

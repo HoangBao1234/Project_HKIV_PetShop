@@ -6,7 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="context" value="${pageContext.request.contextPath}" />
+<c:set var="context" value="${pageContext.request.contextPath}"/>
+<c:if test="${sessionScope.username.mail == null}">
+    <c:redirect url="/Admins/Login"/>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -298,7 +301,12 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                                    <c:if test="${sessionScope.admin.mail != null}">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.admin.mail}</span>
+                                    </c:if>
+                                    <c:if test="${sessionScope.admin.mail == null}">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Login</span>
+                                    </c:if>                 
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->

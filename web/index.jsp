@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Pet Sitting - Free Bootstrap 4 Template by Colorlib</title>
+        <title>PetShop</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -58,16 +58,18 @@
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        
                         <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Pet</a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                <li><a href="#">HTML</a></li>
-                                <li><a href="#">CSS</a></li>
-                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">Pet</a></li>
+                                <li><a href="#">Food</a></li>
+                                <li><a href="#">Accessoreis</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="vet.html" class="nav-link">Veterinarian</a></li>
-                        <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="vet.html" class="nav-link">Foods</a></li>
+                        <li class="nav-item"><a href="services.html" class="nav-link">Accessoreis</a></li>
+                        <li class="nav-item"><a href="services.html" class="nav-link">PetHotel</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="blog.html" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                                 <c:if test="${sessionScope.username != null}">
                             <li class="nav-item dropdown" >
@@ -113,8 +115,8 @@
                                 <span class="flaticon-blind"></span>
                             </div>
                             <div class="media-body">
-                                <h3 class="heading">Dog Walking</h3>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right.</p>
+                                <h3 class="heading" style="margin-top: 20px">Pets</h3>
+                                <p>Carefully selected pets are fully vaccinated, have clear origins, and are reasonably priced in the market</p>
                                 <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
                             </div>
                         </div>      
@@ -125,8 +127,8 @@
                                 <span class="flaticon-dog-eating"></span>
                             </div>
                             <div class="media-body">
-                                <h3 class="heading">Pet Daycare</h3>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right.</p>
+                                <h3 class="heading" style="margin-top: 20px">Foods</h3>
+                                <p>PetShop is a leading partner providing pet dogs and domesticated cats for breeding farms, pet dog shops nationwide.</p>
                                 <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
                             </div>
                         </div>    
@@ -137,8 +139,8 @@
                                 <span class="flaticon-grooming"></span>
                             </div>
                             <div class="media-body">
-                                <h3 class="heading">Pet Grooming</h3>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right.</p>
+                                <h3 class="heading" style="margin-top: 20px">Accessories</h3>
+                                <p>Providing accessories to help take care of your pet better saves time</p>
                                 <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
                             </div>
                         </div>      
