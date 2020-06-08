@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
-<c:if test="${sessionScope.username.mail == null}">
+<c:if test="${sessionScope.admin.mail == null}">
     <c:redirect url="/Admins/Login"/>
 </c:if>
 <!DOCTYPE html>
@@ -47,7 +47,7 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                    <div class="sidebar-brand-text mx-3">PetShop <sup>Admin</sup></div>
                 </a>
 
                 <!-- Divider -->

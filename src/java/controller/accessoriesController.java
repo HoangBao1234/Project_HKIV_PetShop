@@ -79,7 +79,7 @@ public class accessoriesController extends HttpServlet {
                     delete(request, response);
                     break;
                 default:
-                    out.print("Sai");
+                    getViewError(request, response);
                     break;
             }
 
@@ -210,6 +210,10 @@ public class accessoriesController extends HttpServlet {
 
     }
 
+    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

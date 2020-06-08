@@ -5,8 +5,13 @@
  */
 package controller;
 
+import entity.AccessoriesFacadeLocal;
 import entity.Admins;
 import entity.AdminsFacadeLocal;
+import entity.FeedbacksFacadeLocal;
+import entity.FoodsFacadeLocal;
+import entity.PethotelFacadeLocal;
+import entity.PetsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -24,6 +29,16 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "adminController", urlPatterns = {"/Admins/*"})
 public class adminController extends HttpServlet {
+    @EJB
+    private FeedbacksFacadeLocal feedbacksFacade;
+    @EJB
+    private PethotelFacadeLocal pethotelFacade;
+    @EJB
+    private AccessoriesFacadeLocal accessoriesFacade;
+    @EJB
+    private FoodsFacadeLocal foodsFacade;
+    @EJB
+    private PetsFacadeLocal petsFacade;
 
     @EJB
     private AdminsFacadeLocal adminsFacade;
@@ -65,16 +80,23 @@ public class adminController extends HttpServlet {
                 case "/Login":
                     getViewLogin(request, response);
                     break;
+                case "/Index":
+                    getViewIndex(request, response);
+                    break;    
                 case "/Check":
                     login(request, response);
                     break;
                 default:
-                    out.print("huhu");
+                    getViewError(request, response);
                     break;
             }
         }
     }
 
+    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+    }
+    
     private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", adminsFacade.findAll());
         request.getRequestDispatcher("/Admin/admin/adminList.jsp").forward(request, response);
@@ -138,7 +160,7 @@ public class adminController extends HttpServlet {
                 }
                 response.addCookie(user);
                 response.addCookie(pass);
-                response.sendRedirect("List");
+                response.sendRedirect("Index");
                 check = true;
             }
         }
@@ -148,6 +170,14 @@ public class adminController extends HttpServlet {
         }
     }
 
+    private void getViewIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.setAttribute("totalPet", petsFacade.findAll().size());
+        request.setAttribute("fa", (foodsFacade.findAll().size() + accessoriesFacade.findAll().size()));
+        request.setAttribute("hotel", pethotelFacade.findAll().size());
+        request.setAttribute("feedback", feedbacksFacade.findAll().size());
+        request.getRequestDispatcher("/Admin/index.jsp").forward(request, response);
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
