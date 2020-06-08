@@ -62,13 +62,16 @@ public class cusController extends HttpServlet {
                     register(request, response);
                     break;
                 default:
-                    out.print("Sai");
+                    getViewError(request, response);
                     break;
             }
 
         }
     }
 
+    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+    }
     private void getViewLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/Login/login.jsp").forward(request, response);
     }

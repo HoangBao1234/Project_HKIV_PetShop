@@ -177,45 +177,53 @@ public class petController extends HttpServlet {
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String pId = request.getParameter("pet_id");
-        String name = request.getParameter("pet_name");
-        String color = request.getParameter("color");
-        String age = request.getParameter("age");
-        boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
-        String origin = request.getParameter("origin");
-        int price = Integer.parseInt(request.getParameter("price"));
-        int AId = Integer.parseInt(request.getParameter("animals"));
-        int BId = Integer.parseInt(request.getParameter("breeds"));
-        String description = request.getParameter("description");
-        Animals animals = animalsFacade.find(AId);
-        Breeds breeds = breedsFacade.find(BId);
-        part = null;
-        part = request.getPart("image");
+        try {
+            String pId = request.getParameter("pet_id");
+            String name = request.getParameter("pet_name");
+            String color = request.getParameter("color");
+            String age = request.getParameter("age");
+            boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
+            String origin = request.getParameter("origin");
+            int price = Integer.parseInt(request.getParameter("price"));
+            int AId = Integer.parseInt(request.getParameter("animals"));
+            int BId = Integer.parseInt(request.getParameter("breeds"));
+            String description = request.getParameter("description");
+            Animals animals = animalsFacade.find(AId);
+            Breeds breeds = breedsFacade.find(BId);
+            part = null;
+            part = request.getPart("image");
 
-        //find hinh cu
-        Pets pet = petsFacade.find(pId);
-        //xoa hinh cu
-        String dePath = getFullPath(request) + File.separator + pet.getImage();
-        File file = new File(dePath);
-        file.delete();
+            //find hinh cu
+            Pets pet = petsFacade.find(pId);
+            //xoa hinh cu
+            String dePath = getFullPath(request) + File.separator + pet.getImage();
+            File file = new File(dePath);
+            file.delete();
 
-        //update hinh moi
-        String fileName = extracFile(part);
-        String savePath = getFullPath(request) + File.separator + fileName;
-        saveToFolder(savePath);
-        Pets petUp = new Pets(pId, name, color, age, gender, origin, price, fileName, description, animals, breeds);
-        petsFacade.edit(petUp);
-        response.sendRedirect("List");
+            //update hinh moi
+            String fileName = extracFile(part);
+            String savePath = getFullPath(request) + File.separator + fileName;
+            saveToFolder(savePath);
+            Pets petUp = new Pets(pId, name, color, age, gender, origin, price, fileName, description, animals, breeds);
+            petsFacade.edit(petUp);
+            response.sendRedirect("List");
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
-    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String pId = request.getParameter("PId");
-        Pets pet = petsFacade.find(pId);
-        String dePath = getFullPath(request) + File.separator + pet.getImage();
-        File file = new File(dePath);
-        file.delete();
-        petsFacade.remove(pet);
-        response.sendRedirect("/List");
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            String pId = request.getParameter("PId");
+            Pets pet = petsFacade.find(pId);
+            String dePath = getFullPath(request) + File.separator + pet.getImage();
+            File file = new File(dePath);
+            file.delete();
+            petsFacade.remove(pet);
+            response.sendRedirect("/List");
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
     private Pets findById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -239,25 +247,33 @@ public class petController extends HttpServlet {
 
     private void getViewEdit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
+        try {
 
-        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
-            response.sendRedirect("List");
-        } else {
-            String id = request.getParameter("id");
-            request.setAttribute("animals", animalsFacade.findAll());
-            request.setAttribute("breeds", breedsFacade.findAll());
-            request.setAttribute("pet", petsFacade.find(id));
-            request.getRequestDispatcher("/Admin/pet/updatePet.jsp").forward(request, response);
+            if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+                response.sendRedirect("List");
+            } else {
+                String id = request.getParameter("id");
+                request.setAttribute("animals", animalsFacade.findAll());
+                request.setAttribute("breeds", breedsFacade.findAll());
+                request.setAttribute("pet", petsFacade.find(id));
+                request.getRequestDispatcher("/Admin/pet/updatePet.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
     }
 
     private void getViewDetail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
-            response.sendRedirect("List");
-        } else {
-            String id = request.getParameter("id");
-            request.setAttribute("pet", petsFacade.find(id));
-            request.getRequestDispatcher("/Admin/pet/detail.jsp").forward(request, response);
+        try {
+            if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+                response.sendRedirect("List");
+            } else {
+                String id = request.getParameter("id");
+                request.setAttribute("pet", petsFacade.find(id));
+                request.getRequestDispatcher("/Admin/pet/detail.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
     }
 
