@@ -7,15 +7,17 @@ package controller;
 
 import entity.Admins;
 import entity.AdminsFacadeLocal;
-import entity.Breeds;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -23,7 +25,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "adminController", urlPatterns = {"/Admins/*"})
 public class adminController extends HttpServlet {
-
     @EJB
     private AdminsFacadeLocal adminsFacade;
 
@@ -41,8 +42,8 @@ public class adminController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String path = request.getPathInfo();
-            
-            switch(path){
+
+            switch (path) {
                 case "/List":
                     getListView(request, response);
                     break;
@@ -58,8 +59,11 @@ public class adminController extends HttpServlet {
                 case "/Update":
                     update(request, response);
                     break;
-                case "/Delete":    
+                case "/Delete":
                     delete(request, response);
+                    break;
+                case "/Login":
+                    getViewLogin(request, response);
                     break;
                 default:
                     out.print("huhu");
@@ -73,19 +77,13 @@ public class adminController extends HttpServlet {
         request.getRequestDispatcher("/Admin/admin/adminList.jsp").forward(request, response);
     }
 
-    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException { 
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String mail = request.getParameter("admins_mail");
         String password = request.getParameter("admins_pass");
-        String msg =null;
-        Admins ad = new Admins( mail, password);
-        
-            adminsFacade.create(ad);
-            
-     
-            response.sendRedirect("List");
-       
-       
-        
+        String msg = null;
+        Admins ad = new Admins(mail, password);
+        adminsFacade.create(ad);
+        response.sendRedirect("List");
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -101,13 +99,52 @@ public class adminController extends HttpServlet {
         Admins ad = new Admins(mail, password);
         adminsFacade.edit(ad);
     }
-    
-    private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+    private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/Login/register_admin.jsp").forward(request, response);
     }
-    
-    private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+    private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/Admin/admin/updateAdmin.jsp").forward(request, response);
+    }
+
+    private void getViewLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/Login/login.jsp").forward(request, response);
+    }
+    
+    private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String mail = request.getParameter("txtMail");
+            String password = request.getParameter("txtPassword");
+            boolean check = false;
+            // tao Session
+            HttpSession session = request.getSession();
+          
+            for (Admins admin : adminsFacade.findAll()) {
+                if (mail.equals(admin.getMail()) && password.equals(admin.getPassword())) {
+                    // luu vao session
+                    session.setAttribute("username", admin);
+
+                    // tao Cookie lay thong tin cua nguoi dung de nho lai
+                    Cookie user = new Cookie("user", mail);
+                    Cookie pass = new Cookie("pass", password);
+                    if (request.getParameter("chkRemember") != null) {
+                        user.setMaxAge(60 * 60 * 24);
+                        pass.setMaxAge(60 * 60 * 24);
+                    } else {
+                        user.setMaxAge(0);
+                        pass.setMaxAge(0);
+                    }
+                    response.addCookie(user);
+                    response.addCookie(pass);
+                    RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
+                    dis.forward(request, response);
+                    check = true;
+                }
+            }
+            if (check == false) {
+                request.setAttribute("error", "Username or Password invalid !");
+                request.getRequestDispatcher("Login/login.jsp").forward(request, response);
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

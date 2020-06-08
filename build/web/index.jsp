@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="entity.Members"%>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,12 +9,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
-
+        <script src="https://kit.fontawesome.com/0644aaed0c.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- add icon link -->
-        <link rel = "icon" href =  
-              "https://png.pngtree.com/png-clipart/20190916/original/pngtree-pet-icon-png-image_4584897.jpg"
-              type = "image/x-icon">
+        <link rel = "icon" href ="https://png.pngtree.com/png-clipart/20190916/original/pngtree-pet-icon-png-image_4584897.jpg" type = "image/x-icon">
         <link rel="stylesheet" href="petsitting/css/animate.css">
 
         <link rel="stylesheet" href="petsitting/css/owl.carousel.min.css">
@@ -41,16 +42,7 @@
                     <div class="col-md-6 d-flex justify-content-md-end">
                         <div class="social-media">
                             <p class="mb-0 d-flex">
-                                <%
-                                    String username = null;
-                                    if (session.getAttribute("username") == null) {
-                                        username = "";
-                                    } else {
-                                        username = (String) session.getAttribute("username");
-                                    }
-                                %></a>
-                                <a class="d-flex align-items-center justify-content-center"><%=username%></a>
-                                <a class="d-flex align-items-center justify-content-center" href="logoutServlet?logout=ok">logout</a>
+
                             </p>
                         </div>
                     </div>
@@ -67,8 +59,8 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">a</a>
-                            <ul class="dropdown-menu">
+                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Pet</a>
+                            <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                 <li><a href="#">HTML</a></li>
                                 <li><a href="#">CSS</a></li>
                                 <li><a href="#">JavaScript</a></li>
@@ -76,10 +68,25 @@
                         </li>
                         <li class="nav-item"><a href="vet.html" class="nav-link">Veterinarian</a></li>
                         <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-                        <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
-                        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                                <c:if test="${sessionScope.username != null}">
+                            <li class="nav-item dropdown" >
+                                <a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">
+                                    <c:out value="${sessionScope.username.name}" />
+                                </a>
+                                <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">Logout</a></li>
+                                </ul>
+                            </li>
+                        </c:if>
+                        <c:if test="${sessionScope.username == null}">
+                            <li class="nav-item" >
+                                <a href="${context}/Customer/Login" class="nav-link">
+                                    Login
+                                </a>
+                            </li>
+                        </c:if>
                     </ul>
                 </div>
             </div>
