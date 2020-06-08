@@ -85,11 +85,15 @@ public class petController extends HttpServlet {
                     getViewDetail(request, response);
                     break;
                 default:
-                    out.print("Khong co trang nay");
+                    getViewError(request, response);
                     break;
             }
         }
 
+    }
+
+    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
     }
 
     private String extracFile(Part part) {
@@ -136,34 +140,38 @@ public class petController extends HttpServlet {
 
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        String id = request.getParameter("pet_id");
-        String msg = null;
+        try {
+            String id = request.getParameter("pet_id");
+            String msg = null;
 
-        if (petsFacade.find(id) == null) {
-            String name = request.getParameter("pet_name");
-            String color = request.getParameter("color");
-            String age = request.getParameter("age");
-            boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
-            String origin = request.getParameter("origin");
-            int price = Integer.parseInt(request.getParameter("price"));
-            String description = request.getParameter("description");
-            int AId = Integer.parseInt(request.getParameter("animals"));
-            int BId = Integer.parseInt(request.getParameter("breeds"));
-            part = request.getPart("image");
-            String filename = extracFile(part);
-            String savePath = getFullPath(request) + File.separator + filename;
-            saveToFolder(savePath);
-            Animals animals = animalsFacade.find(AId);
-            Breeds breeds = breedsFacade.find(BId);
-            Pets pet = new Pets(id, name, color, age, gender, origin, price, filename, description, animals, breeds);
-            petsFacade.create(pet);
-            response.sendRedirect("List");
-        } else {
-            msg = "Id already exists";
-            request.setAttribute("msg", msg);
-            request.setAttribute("animals", animalsFacade.findAll());
-            request.setAttribute("breeds", breedsFacade.findAll());
-            response.sendRedirect("Create");
+            if (petsFacade.find(id) == null) {
+                String name = request.getParameter("pet_name");
+                String color = request.getParameter("color");
+                String age = request.getParameter("age");
+                boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
+                String origin = request.getParameter("origin");
+                int price = Integer.parseInt(request.getParameter("price"));
+                String description = request.getParameter("description");
+                int AId = Integer.parseInt(request.getParameter("animals"));
+                int BId = Integer.parseInt(request.getParameter("breeds"));
+                part = request.getPart("image");
+                String filename = extracFile(part);
+                String savePath = getFullPath(request) + File.separator + filename;
+                saveToFolder(savePath);
+                Animals animals = animalsFacade.find(AId);
+                Breeds breeds = breedsFacade.find(BId);
+                Pets pet = new Pets(id, name, color, age, gender, origin, price, filename, description, animals, breeds);
+                petsFacade.create(pet);
+                response.sendRedirect("List");
+            } else {
+                msg = "Id already exists";
+                request.setAttribute("msg", msg);
+                request.setAttribute("animals", animalsFacade.findAll());
+                request.setAttribute("breeds", breedsFacade.findAll());
+                request.getRequestDispatcher("/Admin/pet/addPet.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
 
     }
@@ -242,8 +250,8 @@ public class petController extends HttpServlet {
             request.getRequestDispatcher("/Admin/pet/updatePet.jsp").forward(request, response);
         }
     }
-    
-    private void getViewDetail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+
+    private void getViewDetail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
             response.sendRedirect("List");
         } else {

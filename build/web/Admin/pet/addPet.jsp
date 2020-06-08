@@ -15,7 +15,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Pet List</title>
+        <title>Pet Manager</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
@@ -339,6 +339,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <input id="pet_id" name="pet_id" placeholder="Pet ID" class="form-control input-md" required="" type="text">
+                                        <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msg}</h6>
                                     </div>
                                 </div>
 
@@ -461,9 +462,7 @@
                                     <div class="col-md-4" style="text-align: left">
                                         <input type="submit" value="Insert" name="action" class="btn btn-primary"/>
                                     </div>
-                                </div>
-
-                                <h1>${msg}</h1>
+                                </div> 
                             </form>          
                     </div>
                 </div>

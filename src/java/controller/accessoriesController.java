@@ -129,21 +129,25 @@ public class accessoriesController extends HttpServlet {
     }
 
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String id = request.getParameter("accessoreis_id");
-        String name = request.getParameter("accessoreis_name");
-        int price = Integer.parseInt(request.getParameter("price"));
-        String description = request.getParameter("description");
-        part = request.getPart("image");
-        String fileName = extracFile(part);
-        int cFId = Integer.parseInt(request.getParameter("animals"));
-        int cEId = Integer.parseInt(request.getParameter("category"));
-        Animals animals = animalsFacade.find(cFId);
-        CateES cateEs = cateESFacade.find(cEId);
-        Accessories accessories = new Accessories(id, name, price, description, fileName, animals, cateEs);
-        accessoriesFacade.create(accessories);
-        String savePath = getFullPath(request, response) + File.separator + fileName;
-        saveToFolder(savePath);
-        response.sendRedirect("List");
+        try {
+            String id = request.getParameter("accessoreis_id");
+            String name = request.getParameter("accessoreis_name");
+            int price = Integer.parseInt(request.getParameter("price"));
+            String description = request.getParameter("description");
+            part = request.getPart("image");
+            String fileName = extracFile(part);
+            int cFId = Integer.parseInt(request.getParameter("animals"));
+            int cEId = Integer.parseInt(request.getParameter("category"));
+            Animals animals = animalsFacade.find(cFId);
+            CateES cateEs = cateESFacade.find(cEId);
+            Accessories accessories = new Accessories(id, name, price, description, fileName, animals, cateEs);
+            accessoriesFacade.create(accessories);
+            String savePath = getFullPath(request, response) + File.separator + fileName;
+            saveToFolder(savePath);
+            response.sendRedirect("List");
+        } catch (Exception ex) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
     private void show(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -151,38 +155,45 @@ public class accessoriesController extends HttpServlet {
         request.getRequestDispatcher("/Admin/accessories/accessoriesList.jsp").forward(request, response);
     }
 
-    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String id = request.getParameter("id");
-        Accessories accessories = accessoriesFacade.find(id);
-        String dePath = getFullPath(request, response) + File.separator + accessories.getImage();
-        File fileDe = new File(dePath);
-        fileDe.delete();
-        accessoriesFacade.remove(accessories);
-        response.sendRedirect("List");
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            String id = request.getParameter("id");
+            Accessories accessories = accessoriesFacade.find(id);
+            String dePath = getFullPath(request, response) + File.separator + accessories.getImage();
+            File fileDe = new File(dePath);
+            fileDe.delete();
+            accessoriesFacade.remove(accessories);
+            response.sendRedirect("List");
+        } catch (Exception ex) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        PrintWriter out = response.getWriter();
-        String id = request.getParameter("accessories_id");
-        String name = request.getParameter("accessories_name");
-        int price = Integer.parseInt(request.getParameter("price"));
-        String description = request.getParameter("description");
-        part = request.getPart("image");
-        String fileName = extracFile(part);
-        int cFId = Integer.parseInt(request.getParameter("animals"));
-        int cEId = Integer.parseInt(request.getParameter("category"));
-        Animals animals = animalsFacade.find(cFId);
-        CateES cateEs = cateESFacade.find(cEId);
-        Accessories accessoriesDE = accessoriesFacade.find(id);
-        String fileDe = accessoriesDE.getImage();
-        String dePath = getFullPath(request, response) + File.separator + fileDe;
-        File file = new File(dePath);
-        file.delete();
-        Accessories accessories = new Accessories(id, name, price, description, fileName, animals, cateEs);
-        accessoriesFacade.edit(accessories);
-        String savePath = getFullPath(request, response) + File.separator + fileName;
-        saveToFolder(savePath);
-        response.sendRedirect("List");
+        try {
+            String id = request.getParameter("accessories_id");
+            String name = request.getParameter("accessories_name");
+            int price = Integer.parseInt(request.getParameter("price"));
+            String description = request.getParameter("description");
+            part = request.getPart("image");
+            String fileName = extracFile(part);
+            int cFId = Integer.parseInt(request.getParameter("animals"));
+            int cEId = Integer.parseInt(request.getParameter("category"));
+            Animals animals = animalsFacade.find(cFId);
+            CateES cateEs = cateESFacade.find(cEId);
+            Accessories accessoriesDE = accessoriesFacade.find(id);
+            String fileDe = accessoriesDE.getImage();
+            String dePath = getFullPath(request, response) + File.separator + fileDe;
+            File file = new File(dePath);
+            file.delete();
+            Accessories accessories = new Accessories(id, name, price, description, fileName, animals, cateEs);
+            accessoriesFacade.edit(accessories);
+            String savePath = getFullPath(request, response) + File.separator + fileName;
+            saveToFolder(savePath);
+            response.sendRedirect("List");
+        } catch (Exception ex) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
     private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -197,23 +208,27 @@ public class accessoriesController extends HttpServlet {
     }
 
     private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
-            response.sendRedirect("List");
-        } else {
-            String id = request.getParameter("id");
-            Accessories accessories = accessoriesFacade.find(id);
-            request.setAttribute("animals", animalsFacade.findAll());
-            request.setAttribute("cateES", cateESFacade.findAll());
-            request.setAttribute("accessories", accessories);
-            request.getRequestDispatcher("/Admin/accessories/updateAccessories.jsp").forward(request, response);
+        try {
+            if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+                response.sendRedirect("List");
+            } else {
+                String id = request.getParameter("id");
+                Accessories accessories = accessoriesFacade.find(id);
+                request.setAttribute("animals", animalsFacade.findAll());
+                request.setAttribute("cateES", cateESFacade.findAll());
+                request.setAttribute("accessories", accessories);
+                request.getRequestDispatcher("/Admin/accessories/updateAccessories.jsp").forward(request, response);
+            }
+        } catch (Exception ex) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
 
     }
 
-    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
