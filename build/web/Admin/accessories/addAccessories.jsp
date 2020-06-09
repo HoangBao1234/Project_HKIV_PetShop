@@ -17,7 +17,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
         <link href="${context}/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-        
+
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template-->
@@ -336,6 +336,8 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <input id="accessoreis_id" name="accessoreis_id" placeholder="ID" class="form-control input-md" required="" type="text">
+                                        <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msg}</h6>
+
                                     </div>
                                 </div>
 

@@ -7,6 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="context" value="${pageContext.request.contextPath}" />
+<c:if test="${sessionScope.admin.mail == null}">
+    <c:redirect url="/Admins/Login"/>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,8 +20,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Accessoreis Manager</title>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <title>Accessories List</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
@@ -27,8 +29,6 @@
 
         <!-- Custom styles for this template-->
         <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
-
-        <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
 
 
@@ -132,7 +132,6 @@
                         </div>
                     </div>
                 </li>
-
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
@@ -332,66 +331,60 @@
                         </ul>
 
                     </nav>
-                    <div style="padding: 50px">
-                        <h4 style="color: #006dcc"><a href="${context}/Accessories/Create">+ Create new</a></h4>
-                        <center>
-                            <h2 style="color: #006dcc">Accessories List</h2>
-                            <table id="example" class="display" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" style="color: #006dcc">Id</th>
-                                        <th scope="col" style="color: #006dcc">Name</th>
-                                        <th scope="col" style="color: #006dcc">Price</th>
-                                        <th scope="col" style="color: #006dcc">Description</th>
-                                        <th scope="col" style="color: #006dcc">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach var="i" items="${list}">
-                                        <tr>
-                                            <td>${i.ESId}</td>
-                                            <td>${i.name}</td>
-                                            <td>${i.price}</td>
-                                            <td>${i.description}</td>
-                                            <td>
-                                                <a href="${context}/Accessories/Delete?id=${i.ESId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
-                                                <a href="${context}/Accessories/Edit?id=${i.ESId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
-                                                <a href="${context}/Accessories/Detail?id=${i.ESId}"><i class="fas fa-bars" title="Detail"></i></a>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
+                    <div class="row" style="padding: 50px">
+                        <div class="col-sm-5">
+                            <img src="${context}/ImageItems/${acc.image}" style="image-rendering: pixelated;object-fit: contain;" width="100%" height="500"/>
+                        </div>
+                        <div class="col-sm-7">
+                            <table style="width: 70%; height: 70%;">
+                                <tr>
+                                    <td>Id: </td>
+                                    <td>${acc.ESId}</td>
+                                </tr>
+                                <tr>
+                                    <td>Name </td>
+                                    <td>${acc.name}</td>
+                                </tr>
+                                <tr>
+                                    <td>Price: </td>
+                                    <td>${acc.price}</td>
+                                </tr>
+                                <tr>
+                                    <td>Description: </td>
+                                    <td>${acc.description}</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>Animals: </td>
+                                    <td>${acc.CFId.name}</td>
+                                </tr>
+                                <tr>
+                                    <td>CateES: </td>
+                                    <td>${acc.CEId.name}</td>
+                                </tr>
                             </table>
-                        </center>
+                                <button style="padding: 5px 15px 5px 15px; border: none; background-color: #0069d9;
+                                        border-radius: 10px; color: #cccccc">Edit</button>
+                        </div>
                     </div>
                 </div>
-                <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
-                <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                </center>
+            </div>
+        </div>
+        <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
+        <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                <!-- Core plugin JavaScript-->
-                <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                <!-- Custom scripts for all pages-->
-                <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
 
-                <!-- Page level plugins -->
-                <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
 
-                <!-- Page level custom scripts -->
-                <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
-                <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
-
-                <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-                <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-
-
-                <script>
-                    $(document).ready(function() {
-                        $('#example').DataTable();
-                    });
-                </script>
-
-
-                </body>
-                </html>
+        <!-- Page level custom scripts -->
+        <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
+        <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
+    </body>
+</html>

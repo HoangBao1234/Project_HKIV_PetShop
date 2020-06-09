@@ -343,6 +343,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <input id="food_id" name="food_id" placeholder="Food Id" class="form-control input-md" required="" type="text">
+                                        <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msg}</h6>
                                     </div>
                                 </div>
 
@@ -392,7 +393,7 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px" name="animals">
-                                            <c:forEach var="i" items="${alist}">
+                                            <c:forEach var="i" items="${animals}">
                                                 <option value="${i.CFId}">${i.name}</option>
                                             </c:forEach>
                                         </select>

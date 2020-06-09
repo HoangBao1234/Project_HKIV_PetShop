@@ -79,6 +79,9 @@ public class foodController extends HttpServlet {
                 case "/Update":
                     update(request, response);
                     break;
+                case "/Detail":
+                    getViewDetail(request, response);
+                    break;
                 default:
                     getViewError(request, response);
                     break;
@@ -140,18 +143,28 @@ public class foodController extends HttpServlet {
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
             String id = request.getParameter("food_id");
-            String name = request.getParameter("food_name");
-            int price = Integer.parseInt(request.getParameter("price"));
-            part = request.getPart("image");
-            String fileName = extracFile(part);
-            String description = request.getParameter("description");
-            int cFId = Integer.parseInt(request.getParameter("animals"));
-            Animals animals = animalsFacade.find(cFId);
-            String savePath = getFullPath(request, response) + File.separator + fileName;
-            Foods food = new Foods(id, name, price, fileName, description, animals);
-            foodsFacade.create(food);
-            saveToFolder(savePath);
-            response.sendRedirect("List");
+            String msg = null;
+            if (foodsFacade.find(id) == null) {
+                String name = request.getParameter("food_name");
+                int price = Integer.parseInt(request.getParameter("price"));
+                part = request.getPart("image");
+                String fileName = extracFile(part);
+                String description = request.getParameter("description");
+                int cFId = Integer.parseInt(request.getParameter("animals"));
+                Animals animals = animalsFacade.find(cFId);
+
+                Foods food = new Foods(id, name, price, fileName, description, animals);
+                foodsFacade.create(food);
+                String savePath = getFullPath(request, response) + File.separator + fileName;
+                saveToFolder(savePath);
+                response.sendRedirect("List");
+            }else {
+                msg = "Id already exists";
+                request.setAttribute("msg", msg);
+                request.setAttribute("animals", animalsFacade.findAll());
+                request.getRequestDispatcher("/Admin/food/addFood.jsp").forward(request, response);
+            }
+
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
@@ -221,6 +234,20 @@ public class foodController extends HttpServlet {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
 
+    }
+
+    private void getViewDetail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+                response.sendRedirect("List");
+            } else {
+                String id = request.getParameter("id");
+                request.setAttribute("food", foodsFacade.find(id));
+                request.getRequestDispatcher("/Admin/food/detail.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

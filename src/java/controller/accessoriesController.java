@@ -78,6 +78,9 @@ public class accessoriesController extends HttpServlet {
                 case "/Delete":
                     delete(request, response);
                     break;
+                case "/Detail":
+                    getViewDetail(request, response);
+                    break;
                 default:
                     getViewError(request, response);
                     break;
@@ -131,20 +134,29 @@ public class accessoriesController extends HttpServlet {
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
             String id = request.getParameter("accessoreis_id");
-            String name = request.getParameter("accessoreis_name");
-            int price = Integer.parseInt(request.getParameter("price"));
-            String description = request.getParameter("description");
-            part = request.getPart("image");
-            String fileName = extracFile(part);
-            int cFId = Integer.parseInt(request.getParameter("animals"));
-            int cEId = Integer.parseInt(request.getParameter("category"));
-            Animals animals = animalsFacade.find(cFId);
-            CateES cateEs = cateESFacade.find(cEId);
-            Accessories accessories = new Accessories(id, name, price, description, fileName, animals, cateEs);
-            accessoriesFacade.create(accessories);
-            String savePath = getFullPath(request, response) + File.separator + fileName;
-            saveToFolder(savePath);
-            response.sendRedirect("List");
+            String msg = null;
+            if (accessoriesFacade.find(id) == null) {
+                String name = request.getParameter("accessoreis_name");
+                int price = Integer.parseInt(request.getParameter("price"));
+                String description = request.getParameter("description");
+                part = request.getPart("image");
+                String fileName = extracFile(part);
+                int cFId = Integer.parseInt(request.getParameter("animals"));
+                int cEId = Integer.parseInt(request.getParameter("category"));
+                Animals animals = animalsFacade.find(cFId);
+                CateES cateEs = cateESFacade.find(cEId);
+                Accessories accessories = new Accessories(id, name, price, description, fileName, animals, cateEs);
+                accessoriesFacade.create(accessories);
+                String savePath = getFullPath(request, response) + File.separator + fileName;
+                saveToFolder(savePath);
+                response.sendRedirect("List");
+            }else {
+                msg = "Id already exists";
+                request.setAttribute("msg", msg);
+                request.setAttribute("animals", animalsFacade.findAll());
+                request.setAttribute("category", cateESFacade.findAll());
+                request.getRequestDispatcher("/Admin/accessories/addAccessories.jsp").forward(request, response);
+            }
         } catch (Exception ex) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
@@ -227,6 +239,20 @@ public class accessoriesController extends HttpServlet {
 
     private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+    }
+
+    private void getViewDetail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+                response.sendRedirect("List");
+            } else {
+                String id = request.getParameter("id");
+                request.setAttribute("acc", accessoriesFacade.find(id));
+                request.getRequestDispatcher("/Admin/accessories/detail.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
