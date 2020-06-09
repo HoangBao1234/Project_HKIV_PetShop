@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
 import entity.OrdersFacadeLocal;
@@ -22,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "oderController", urlPatterns = {"/Oder/*"})
 public class oderController extends HttpServlet {
+
     @EJB
     private OrdersFacadeLocal ordersFacade;
 
@@ -39,26 +39,34 @@ public class oderController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String path = request.getPathInfo();
-            
-            switch(path){
+
+            switch (path) {
                 case "/List":
                     getListView(request, response);
                     break;
-                
+
                 default:
-                    out.print("ko có");
+                    getViewError(request, response);
                     break;
             }
         }
     }
-    
-    private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+    }
+
+    private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", ordersFacade.findAll());
         request.getRequestDispatcher("/Admin/order/orderList.jsp").forward(request, response);
     }
-    
-    private void getDetailView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        request.getRequestDispatcher("/Admin/order/detail.jsp").forward(request, response);
+
+    private void getDetailView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            request.getRequestDispatcher("/Admin/order/detail.jsp").forward(request, response);
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

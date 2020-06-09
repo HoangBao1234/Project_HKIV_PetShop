@@ -1,6 +1,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,11 +17,11 @@
         <fmt:setBundle basename="app"/>
 
         <!-- Custom fonts for this template-->
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="${context}/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template-->
-        <link href="../Admin/css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
 
     </head>
 
@@ -39,7 +39,7 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4"><fmt:message key="login.form.titleRe"/></h1>
                                 </div>
-                                <form class="user" action="../signupServlet" method="post">
+                                <form class="user" action="${context}/Customer/Store" method="post">
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input type="text" class="form-control form-control-user" id="exampleFirstName" name="regis_name" placeholder="<fmt:message key="login.textfield.name"/>">
@@ -95,14 +95,14 @@
         </div>
 
         <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
         <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+        <script src="${context}/Adminjs/sb-admin-2.min.js"></script>
 
     </body>
 

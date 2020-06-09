@@ -80,10 +80,14 @@ public class foodController extends HttpServlet {
                     update(request, response);
                     break;
                 default:
-                    out.print("Ko có");
+                    getViewError(request, response);
                     break;
             }
         }
+    }
+
+    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
     }
 
     private String extracFile(Part part) {
@@ -134,51 +138,63 @@ public class foodController extends HttpServlet {
     }
 
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String id = request.getParameter("food_id");
-        String name = request.getParameter("food_name");
-        int price = Integer.parseInt(request.getParameter("price"));
-        part = request.getPart("image");
-        String fileName = extracFile(part);
-        String description = request.getParameter("description");
-        int cFId = Integer.parseInt(request.getParameter("animals"));
-        Animals animals = animalsFacade.find(cFId);
-        String savePath = getFullPath(request, response) + File.separator + fileName;
-        Foods food = new Foods(id, name, price, fileName, description, animals);
-        foodsFacade.create(food);
-        saveToFolder(savePath);
-        response.sendRedirect("List");
+        try {
+            String id = request.getParameter("food_id");
+            String name = request.getParameter("food_name");
+            int price = Integer.parseInt(request.getParameter("price"));
+            part = request.getPart("image");
+            String fileName = extracFile(part);
+            String description = request.getParameter("description");
+            int cFId = Integer.parseInt(request.getParameter("animals"));
+            Animals animals = animalsFacade.find(cFId);
+            String savePath = getFullPath(request, response) + File.separator + fileName;
+            Foods food = new Foods(id, name, price, fileName, description, animals);
+            foodsFacade.create(food);
+            saveToFolder(savePath);
+            response.sendRedirect("List");
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
-    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String id = request.getParameter("id");
-        Foods food = foodsFacade.find(id);
-        String fileName = food.getImage();
-        String pathDe = getFullPath(request, response) + File.separator + fileName;
-        File file = new File(pathDe);
-        file.delete();
-        foodsFacade.remove(food);
-        response.sendRedirect("List");
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            String id = request.getParameter("id");
+            Foods food = foodsFacade.find(id);
+            String fileName = food.getImage();
+            String pathDe = getFullPath(request, response) + File.separator + fileName;
+            File file = new File(pathDe);
+            file.delete();
+            foodsFacade.remove(food);
+            response.sendRedirect("List");
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String id = request.getParameter("food_id");
-        String name = request.getParameter("food_name");
-        int price = Integer.parseInt(request.getParameter("price"));
-        part = request.getPart("image");
-        String fileName = extracFile(part);
-        String description = request.getParameter("description");
-        int cFId = Integer.parseInt(request.getParameter("animals"));
-        Animals animals = animalsFacade.find(cFId);
-        Foods food = foodsFacade.find(id);
-        String fileNameDe = food.getImage();
-        String pathDe = getFullPath(request, response) + File.separator + fileNameDe;
-        File fileDe = new File(pathDe);
-        fileDe.delete();
-        String savePath = getFullPath(request, response) + File.separator + fileName;
-        saveToFolder(savePath);
-        Foods foods = new Foods(id, name, price, fileName, description, animals);
-        foodsFacade.edit(foods);
-        response.sendRedirect("List");
+        try {
+            String id = request.getParameter("food_id");
+            String name = request.getParameter("food_name");
+            int price = Integer.parseInt(request.getParameter("price"));
+            part = request.getPart("image");
+            String fileName = extracFile(part);
+            String description = request.getParameter("description");
+            int cFId = Integer.parseInt(request.getParameter("animals"));
+            Animals animals = animalsFacade.find(cFId);
+            Foods food = foodsFacade.find(id);
+            String fileNameDe = food.getImage();
+            String pathDe = getFullPath(request, response) + File.separator + fileNameDe;
+            File fileDe = new File(pathDe);
+            fileDe.delete();
+            String savePath = getFullPath(request, response) + File.separator + fileName;
+            saveToFolder(savePath);
+            Foods foods = new Foods(id, name, price, fileName, description, animals);
+            foodsFacade.edit(foods);
+            response.sendRedirect("List");
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
     private void getViewList(HttpServletRequest request, HttpServletResponse response) {
@@ -192,10 +208,17 @@ public class foodController extends HttpServlet {
     }
 
     private void getViewEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
-        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
-            response.sendRedirect("List");
-        } else {
-            request.getRequestDispatcher("/Admin/food/updateFood.jsp").forward(request, response);
+        try {
+            if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+                response.sendRedirect("List");
+            } else {
+                String id = request.getParameter("id");
+                request.setAttribute("animals", animalsFacade.findAll());
+                request.setAttribute("food", foodsFacade.find(id));
+                request.getRequestDispatcher("/Admin/food/updateFood.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
 
     }

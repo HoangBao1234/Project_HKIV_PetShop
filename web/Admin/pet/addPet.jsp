@@ -2,6 +2,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="context" value="${pageContext.request.contextPath}" />
+<c:if test="${sessionScope.admin.mail == null}">
+    <c:redirect url="/Admins/Login"/>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +15,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Pet List</title>
+        <title>Pet Manager</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
@@ -38,7 +41,7 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                    <div class="sidebar-brand-text mx-3">PetShop <sup>Admin</sup></div>
                 </a>
 
                 <!-- Divider -->
@@ -292,7 +295,12 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                                    <c:if test="${sessionScope.admin.mail != null}">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.admin.mail}</span>
+                                    </c:if>
+                                    <c:if test="${sessionScope.admin.mail == null}">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Login</span>
+                                    </c:if>                 
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->
@@ -331,6 +339,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <input id="pet_id" name="pet_id" placeholder="Pet ID" class="form-control input-md" required="" type="text">
+                                        <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msg}</h6>
                                     </div>
                                 </div>
 
@@ -453,9 +462,7 @@
                                     <div class="col-md-4" style="text-align: left">
                                         <input type="submit" value="Insert" name="action" class="btn btn-primary"/>
                                     </div>
-                                </div>
-
-                                <h1>${msg}</h1>
+                                </div> 
                             </form>          
                     </div>
                 </div>

@@ -5,6 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${sessionScope.admin.mail == null}">
+    <c:redirect url="/Admins/Login"/>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>

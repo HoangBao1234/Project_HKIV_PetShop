@@ -43,7 +43,7 @@ public class loginServlet extends HttpServlet {
             for (Members member : membersFacade.findAll()) {
                 if (mail.equals(member.getMail()) && password.equals(member.getPassword())) {
                     // luu vao session
-                    session.setAttribute("username", mail);
+                    session.setAttribute("username", member);
 
                     // tao Cookie lay thong tin cua nguoi dung de nho lai
                     Cookie user = new Cookie("user", mail);

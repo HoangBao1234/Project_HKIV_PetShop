@@ -40,19 +40,23 @@ public class feedbackController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String path = request.getPathInfo();
-            
-            switch(path){
-               case "/List":
-                   getListView(request, response);
-                   break;
-               case "/Delete":
-                   delete(request, response);
-                   break;
-               default:
-                   out.print("Sai");
-                   break;
-           }
+
+            switch (path) {
+                case "/List":
+                    getListView(request, response);
+                    break;
+                case "/Delete":
+                    delete(request, response);
+                    break;
+                default:
+                    getViewError(request, response);
+                    break;
+            }
         }
+    }
+
+    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
     }
 
     private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,28 +64,40 @@ public class feedbackController extends HttpServlet {
         request.getRequestDispatcher("/Admin/feedback/fbList.jsp").forward(request, response);
     }
 
-    private void insert(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("admins_fbId"));
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            int id = Integer.parseInt(request.getParameter("admins_fbId"));
 
-        String content = request.getParameter("admins_content");
-        Feedbacks fb = new Feedbacks(content, null);
-        feedbacksFacade.create(fb);
+            String content = request.getParameter("admins_content");
+            Feedbacks fb = new Feedbacks(content, null);
+            feedbacksFacade.create(fb);
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
-    private void delete(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt("id");
-        Feedbacks fb = feedbacksFacade.find(id);
-        feedbacksFacade.remove(fb);
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            int id = Integer.parseInt("id");
+            Feedbacks fb = feedbacksFacade.find(id);
+            feedbacksFacade.remove(fb);
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
-    private void update(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("admins_fbId"));
-        String content = request.getParameter("admins_content");
-        Feedbacks fb = new Feedbacks(id, content);
-        feedbacksFacade.edit(fb);
+    private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            int id = Integer.parseInt(request.getParameter("admins_fbId"));
+            String content = request.getParameter("admins_content");
+            Feedbacks fb = new Feedbacks(id, content);
+            feedbacksFacade.edit(fb);
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
-    
-    private void getCreteView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+    private void getCreteView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/Admin/feedback/fbList.jsp").forward(request, response);
     }
 

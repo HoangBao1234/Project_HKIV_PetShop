@@ -7,6 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="context" value="${pageContext.request.contextPath}" />
+<c:if test="${sessionScope.admin.mail == null}">
+    <c:redirect url="/Admins/Login"/>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -42,7 +45,7 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                    <div class="sidebar-brand-text mx-3">PetShop <sup>Admin</sup></div>
                 </a>
 
                 <!-- Divider -->
@@ -296,7 +299,12 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                                    <c:if test="${sessionScope.admin.mail != null}">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.admin.mail}</span>
+                                    </c:if>
+                                    <c:if test="${sessionScope.admin.mail == null}">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Login</span>
+                                    </c:if>                 
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->
@@ -339,7 +347,7 @@
                                         Food Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="food_id" name="food_id" placeholder="Food Id" class="form-control input-md" required="" type="text">
+                                        <input id="food_id" name="food_id" value="${food.FId}" placeholder="Food Id" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
@@ -349,7 +357,7 @@
                                         Food Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="food_name" name="food_name" placeholder="Food Name" class="form-control input-md" required="" type="text">
+                                        <input id="food_name" name="food_name" value="${food.name}" placeholder="Food Name" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <!-- Text input-->
@@ -358,7 +366,7 @@
                                         Price
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="number">
+                                        <input id="price" name="price" value="${food.price}" placeholder="Price" class="form-control input-md" required="" type="number">
                                     </div>
                                 </div>
 
@@ -378,7 +386,7 @@
                                         Description
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="description" name="description" placeholder="Description" class="form-control input-md" required="" type="text">
+                                        <input id="description" name="description" value="${food.description}" placeholder="Description" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 
@@ -389,7 +397,14 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px">
-                                            <option>Duy</option>
+                                            <c:forEach var="aList" items="${animals}">
+                                                <c:if test="${food.CFId.CFId == aList.CFId}">
+                                                    <option value="${aList.CFId}" selected="selected">${aList.name}</option>
+                                                </c:if>
+                                                <c:if test="${food.CFId.CFId != aList.CFId}">
+                                                    <option value="${aList.CFId}">${aList.name}</option>
+                                                </c:if>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
@@ -397,7 +412,7 @@
 
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
-                                        <input name="action" value="Update" class="btn btn-primary"/>
+                                        <input name="action" type="submit" value="Update" class="btn btn-primary"/>
                                     </div>
                                 </div>
 

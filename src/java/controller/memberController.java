@@ -51,21 +51,29 @@ public class memberController extends HttpServlet {
                 case "/Store":
                     insert(request, response);
                 default:
-                    out.print("Sai");
+                    getViewError(request, response);
                     break;
             }
         }
     }
 
-    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String name = request.getParameter("members_name");
-        String mail = request.getParameter("mail");
-        String password = request.getParameter("password");
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        Members members = new Members(name, mail, password, phone, address);
-        membersFacade.create(members);
-        response.sendRedirect("List");
+    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+    }
+
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            String name = request.getParameter("members_name");
+            String mail = request.getParameter("mail");
+            String password = request.getParameter("password");
+            String phone = request.getParameter("phone");
+            String address = request.getParameter("address");
+            Members members = new Members(name, mail, password, phone, address);
+            membersFacade.create(members);
+            response.sendRedirect("List");
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
     private Members findById(HttpServletRequest request, HttpServletResponse response) {
@@ -74,23 +82,31 @@ public class memberController extends HttpServlet {
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Members members = membersFacade.find(id);
-        membersFacade.remove(members);
-        request.setAttribute("list", membersFacade.findAll());
-        request.getRequestDispatcher("/Admin/member/memberList.jsp").forward(request, response);
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Members members = membersFacade.find(id);
+            membersFacade.remove(members);
+            request.setAttribute("list", membersFacade.findAll());
+            request.getRequestDispatcher("/Admin/member/memberList.jsp").forward(request, response);
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("members_name");
-        String mail = request.getParameter("mail");
-        String password = request.getParameter("password");
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        Members members = new Members(id, name, mail, password, phone, address);
-        membersFacade.edit(members);
-        response.sendRedirect("List");
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            String name = request.getParameter("members_name");
+            String mail = request.getParameter("mail");
+            String password = request.getParameter("password");
+            String phone = request.getParameter("phone");
+            String address = request.getParameter("address");
+            Members members = new Members(id, name, mail, password, phone, address);
+            membersFacade.edit(members);
+            response.sendRedirect("List");
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
     private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -103,14 +119,18 @@ public class memberController extends HttpServlet {
     }
 
     private void getViewEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
 
-        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+            if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
 //            request.getRequestDispatcher("/Admin/member/memberList.jsp").forward(request, response);
-            response.sendRedirect("List");
-        } else {
-            int id = Integer.parseInt(request.getParameter("id"));
-            request.setAttribute("member", membersFacade.find(id));
-            request.getRequestDispatcher("/Admin/member/updateMem.jsp").forward(request, response);
+                response.sendRedirect("List");
+            } else {
+                int id = Integer.parseInt(request.getParameter("id"));
+                request.setAttribute("member", membersFacade.find(id));
+                request.getRequestDispatcher("/Admin/member/updateMem.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
 
     }

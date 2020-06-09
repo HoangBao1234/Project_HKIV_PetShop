@@ -5,17 +5,23 @@
  */
 package controller;
 
+import entity.AccessoriesFacadeLocal;
 import entity.Admins;
 import entity.AdminsFacadeLocal;
-import entity.Breeds;
+import entity.FeedbacksFacadeLocal;
+import entity.FoodsFacadeLocal;
+import entity.PethotelFacadeLocal;
+import entity.PetsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -23,6 +29,17 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "adminController", urlPatterns = {"/Admins/*"})
 public class adminController extends HttpServlet {
+
+    @EJB
+    private FeedbacksFacadeLocal feedbacksFacade;
+    @EJB
+    private PethotelFacadeLocal pethotelFacade;
+    @EJB
+    private AccessoriesFacadeLocal accessoriesFacade;
+    @EJB
+    private FoodsFacadeLocal foodsFacade;
+    @EJB
+    private PetsFacadeLocal petsFacade;
 
     @EJB
     private AdminsFacadeLocal adminsFacade;
@@ -41,8 +58,8 @@ public class adminController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String path = request.getPathInfo();
-            
-            switch(path){
+
+            switch (path) {
                 case "/List":
                     getListView(request, response);
                     break;
@@ -58,14 +75,27 @@ public class adminController extends HttpServlet {
                 case "/Update":
                     update(request, response);
                     break;
-                case "/Delete":    
+                case "/Delete":
                     delete(request, response);
                     break;
+                case "/Login":
+                    getViewLogin(request, response);
+                    break;
+                case "/Index":
+                    getViewIndex(request, response);
+                    break;
+                case "/Check":
+                    login(request, response);
+                    break;
                 default:
-                    out.print("huhu");
+                    getViewError(request, response);
                     break;
             }
         }
+    }
+
+    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
     }
 
     private void getListView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -73,41 +103,96 @@ public class adminController extends HttpServlet {
         request.getRequestDispatcher("/Admin/admin/adminList.jsp").forward(request, response);
     }
 
-    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException { 
-        String mail = request.getParameter("admins_mail");
-        String password = request.getParameter("admins_pass");
-        String msg =null;
-        Admins ad = new Admins( mail, password);
-        
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            String mail = request.getParameter("admins_mail");
+            String password = request.getParameter("admins_pass");
+            Admins ad = new Admins(mail, password);
             adminsFacade.create(ad);
-            
-     
+            response.sendRedirect("Login");
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Admins ad = adminsFacade.find(id);
+            adminsFacade.remove(ad);
             response.sendRedirect("List");
-       
-       
-        
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
-    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Admins ad = adminsFacade.find(id);
-        adminsFacade.remove(ad);
-        response.sendRedirect("List");
+    private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            String mail = request.getParameter("admins_mail");
+            String password = request.getParameter("admins_pass");
+            Admins ad = new Admins(mail, password);
+            adminsFacade.edit(ad);
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
-    private void update(HttpServletRequest request, HttpServletResponse response) {
-        String mail = request.getParameter("admins_mail");
-        String password = request.getParameter("admins_pass");
-        Admins ad = new Admins(mail, password);
-        adminsFacade.edit(ad);
-    }
-    
-    private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    private void getCreateView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/Login/register_admin.jsp").forward(request, response);
     }
-    
-    private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        request.getRequestDispatcher("/Admin/admin/updateAdmin.jsp").forward(request, response);
+
+    private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            request.getRequestDispatcher("/Admin/admin/updateAdmin.jsp").forward(request, response);
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
+    }
+
+    private void getViewLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/Login/admin_Login.jsp").forward(request, response);
+    }
+
+    private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String mail = request.getParameter("txtMail");
+        String password = request.getParameter("txtPassword");
+        boolean check = false;
+        // tao Session
+        HttpSession session = request.getSession();
+
+        for (Admins admin : adminsFacade.findAll()) {
+            if (mail.equals(admin.getMail()) && password.equals(admin.getPassword())) {
+                // luu vao session
+                session.setAttribute("admin", admin);
+
+                // tao Cookie lay thong tin cua nguoi dung de nho lai
+                Cookie user = new Cookie("user", mail);
+                Cookie pass = new Cookie("pass", password);
+                if (request.getParameter("chkRemember") != null) {
+                    user.setMaxAge(60 * 60 * 24);
+                    pass.setMaxAge(60 * 60 * 24);
+                } else {
+                    user.setMaxAge(0);
+                    pass.setMaxAge(0);
+                }
+                response.addCookie(user);
+                response.addCookie(pass);
+                response.sendRedirect("Index");
+                check = true;
+            }
+        }
+        if (check == false) {
+            request.setAttribute("error", "Username or Password invalid !");
+            response.sendRedirect("Login");
+        }
+    }
+
+    private void getViewIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("totalPet", petsFacade.findAll().size());
+        request.setAttribute("fa", (foodsFacade.findAll().size() + accessoriesFacade.findAll().size()));
+        request.setAttribute("hotel", pethotelFacade.findAll().size());
+        request.setAttribute("feedback", feedbacksFacade.findAll().size());
+        request.getRequestDispatcher("/Admin/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

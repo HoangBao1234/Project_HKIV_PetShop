@@ -2,6 +2,7 @@
 <html lang="en">
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    <c:set var="context" value="${pageContext.request.contextPath}"/>
     <head>
 
         <meta charset="utf-8">
@@ -14,12 +15,12 @@
         <c:import url="setLocale.jsp"/>
         <fmt:setBundle basename="app"/>
         <!-- Custom fonts for this template-->
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="${context}/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
         <!--Custom multilanguage  -->
 
         <!-- Custom styles for this template-->
-        <link href="../Admin/css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
 
     </head>
 
@@ -62,7 +63,7 @@
                                             }
                                         %>
                                         ${error}
-                                        <form class="user" action="../loginServlet" method="post">
+                                        <form class="user" action="${context}/Customer/Check" method="post">
                                             <div class="form-group">
                                                 <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" name="txtMail" value="<%out.print(user);%>" placeholder="<fmt:message key="login.textfield.mail"/>">
                                             </div>
@@ -90,7 +91,7 @@
                                             <a class="small" href="forgot-password.jsp">Forgot Password?</a>
                                         </div>
                                         <div class="text-center">
-                                            <a class="small" href="register.jsp">Create an Account!</a>
+                                            <a class="small" href="${context}/Customer/Register">Create an Account!</a>
                                         </div>
                                         <div class="text-center">
                                             <a class="small" href="?locale=en">
@@ -114,14 +115,14 @@
         </div>
 
         <!-- Bootstrap core JavaScript-->
-        <script src="../Admin/vendor/jquery/jquery.min.js"></script>
-        <script src="../Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
+        <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
-        <script src="../Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
         <!-- Custom scripts for all pages-->
-        <script src="../Admin/js/sb-admin-2.min.js"></script>
+        <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
 
     </body>
 

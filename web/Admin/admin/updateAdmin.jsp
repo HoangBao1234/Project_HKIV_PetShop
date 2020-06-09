@@ -7,6 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="context" value="${pageContext.request.contextPath}" />
+<c:if test="${sessionScope.admin.mail == null}">
+    <c:redirect url="/Admins/Login"/>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -42,7 +45,7 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                   <div class="sidebar-brand-text mx-3">PetShop <sup>Admin</sup></div>
                 </a>
 
                 <!-- Divider -->
@@ -296,7 +299,12 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                                    <c:if test="${sessionScope.admin.mail != null}">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.admin.mail}</span>
+                                    </c:if>
+                                    <c:if test="${sessionScope.admin.mail == null}">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Login</span>
+                                    </c:if>                 
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->
@@ -332,26 +340,28 @@
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        Animals Id
+                                       Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input name="admins_email" placeholder="Admin email" class="form-control input-md" required="" type="text">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input name="admins_pass" placeholder="Admin pass" class="form-control input-md" required="" type="text">
+                                        <input name="admins_id" placeholder="Admin Id" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
-                                <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        Animals Name
+                                       Gmail
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="animals_name" name="admins_pass" placeholder="Admin pass" class="form-control input-md" required="" type="text">
+                                        <input name="admins_email" placeholder="Gmail" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
-
-
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                       Password
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input name="password" placeholder="Password" class="form-control input-md" required="" type="text">
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="col-md-4" style="text-align: left">
                                         <input name="action" value="Update" type="submit" class="btn btn-primary"/>

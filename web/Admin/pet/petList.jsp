@@ -1,12 +1,11 @@
-<%-- 
-    Document   : header
-    Created on : May 26, 2020, 4:37:48 PM
-    Author     : DUY
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="context" value="${pageContext.request.contextPath}" />
+<c:if test="${sessionScope.admin.mail == null}">
+    <c:redirect url="/Admins/Login"/>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,7 +43,7 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                    <div class="sidebar-brand-text mx-3">PetShop <sup>Admin</sup></div>
                 </a>
 
                 <!-- Divider -->
@@ -127,6 +126,7 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Account</h6>
                             <a class="collapse-item" href="${context}/Admins/Create">Register</a>
+                            <a class="collapse-item" href="${context}/Admins/Create">Change Info</a>
                             <a class="collapse-item" href="utilities-border.html">Logout</a>
                         </div>
                     </div>
@@ -298,7 +298,12 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                                    <c:if test="${sessionScope.admin.mail != null}">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.admin.mail}</span>
+                                    </c:if>
+                                    <c:if test="${sessionScope.admin.mail == null}">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Login</span>
+                                    </c:if>                 
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->
@@ -352,8 +357,9 @@
                                             <td>${i.age}</td>
                                             <td>${i.price}</td>
                                             <td>
-                                                <a href="${context}/Pet/Delete?id=${i.PId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
-                                                <a href="${context}/Pet/Edit?id=${i.PId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                                <a href="${context}/Pet/Delete?id=${i.PId}"><i class="fas fa-trash-alt" aria-hidden="true" title="Delete"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Pet/Edit?id=${i.PId}"><i class="fas fa-pencil-alt" aria-hidden="true" title="Edit"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Pet/Detail?id=${i.PId}"><i class="fas fa-bars" title="Detail"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach>
