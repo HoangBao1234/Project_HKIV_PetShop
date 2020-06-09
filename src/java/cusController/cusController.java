@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author NGUYEN HOANG BAO
  */
-@WebServlet(name = "cusController", urlPatterns = {"/Customer/*"})
+@WebServlet(name = "cusController", urlPatterns = {"/Customers/*"})
 public class cusController extends HttpServlet {
 
     @EJB
@@ -127,12 +127,24 @@ public class cusController extends HttpServlet {
     private void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("regis_name");
         String mail = request.getParameter("regis_mail");
+
         String password = request.getParameter("regis_pass");
         String phone = request.getParameter("regis_phone");
         String address = request.getParameter("regis_address");
-        Members mem = new Members(name, mail, password, phone, address);
-        membersFacade.create(mem);
-        response.sendRedirect("Login");
+        boolean check = false;
+        for (Members member : membersFacade.findAll()) {
+            if (mail.equals(member.getMail())) {
+                check = true;
+                request.setAttribute("msg", "Mail already exists");
+                request.getRequestDispatcher("/Login/register.jsp").forward(request, response);
+            }
+        }
+        if (check == false) {
+            Members mem = new Members(name, mail, password, phone, address);
+            membersFacade.create(mem);
+            response.sendRedirect("Login");
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -180,7 +192,8 @@ public class cusController extends HttpServlet {
                 if (request.getParameter("logout").equals("ok")) {
                     request.removeAttribute("user");
                     request.removeAttribute("pass");
-
+                    HttpSession session = request.getSession();
+                    session.removeAttribute("username");
                     response.sendRedirect("Login");
                 }
             }
