@@ -59,15 +59,13 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
                         
-                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Pet</a>
+                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                 <li><a href="#">Pet</a></li>
                                 <li><a href="#">Food</a></li>
                                 <li><a href="#">Accessoreis</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="vet.html" class="nav-link">Foods</a></li>
-                        <li class="nav-item"><a href="services.html" class="nav-link">Accessoreis</a></li>
                         <li class="nav-item"><a href="services.html" class="nav-link">PetHotel</a></li>
                         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="blog.html" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>

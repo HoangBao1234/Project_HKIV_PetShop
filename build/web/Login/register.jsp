@@ -43,6 +43,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input type="text" class="form-control form-control-user" id="exampleFirstName" name="regis_name" placeholder="<fmt:message key="login.textfield.name"/>">
+                                            
                                         </div>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control form-control-user" id="exampleLastName" name="regis_phone" placeholder="<fmt:message key="login.textfield.phone"/>">
@@ -50,6 +51,7 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="regis_mail" placeholder="<fmt:message key="login.textfield.mail"/>" >
+                                        <h5 style="color:red; margin-left: 15px">${msg}</h5>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">

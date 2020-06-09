@@ -358,7 +358,8 @@
                                             <td>${i.CFId.name}</td>
                                             <td>
                                                 <a href="${context}/Foods/Delete?id=${i.FId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
-                                                <a href="${context}/Foods/Edit?id=${i.FId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                                <a href="${context}/Foods/Edit?id=${i.FId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Foods/Detail?id=${i.FId}"><i class="fas fa-bars" title="Detail"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach>

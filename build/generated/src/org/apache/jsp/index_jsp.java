@@ -121,15 +121,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <ul class=\"navbar-nav ml-auto\">\r\n");
       out.write("                        <li class=\"nav-item active\"><a href=\"index.html\" class=\"nav-link\">Home</a></li>\r\n");
       out.write("                        \r\n");
-      out.write("                        <li class=\"nav-item dropdown\" ><a href=\"about.html\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">Pet</a>\r\n");
+      out.write("                        <li class=\"nav-item dropdown\" ><a href=\"about.html\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">Product</a>\r\n");
       out.write("                            <ul class=\"dropdown-menu\" style=\"font-size: 14px; width: 200px\">\r\n");
       out.write("                                <li><a href=\"#\">Pet</a></li>\r\n");
       out.write("                                <li><a href=\"#\">Food</a></li>\r\n");
       out.write("                                <li><a href=\"#\">Accessoreis</a></li>\r\n");
       out.write("                            </ul>\r\n");
       out.write("                        </li>\r\n");
-      out.write("                        <li class=\"nav-item\"><a href=\"vet.html\" class=\"nav-link\">Foods</a></li>\r\n");
-      out.write("                        <li class=\"nav-item\"><a href=\"services.html\" class=\"nav-link\">Accessoreis</a></li>\r\n");
       out.write("                        <li class=\"nav-item\"><a href=\"services.html\" class=\"nav-link\">PetHotel</a></li>\r\n");
       out.write("                        <li class=\"nav-item\"><a href=\"about.html\" class=\"nav-link\">About</a></li>\r\n");
       out.write("                        <li class=\"nav-item\"><a href=\"blog.html\" class=\"nav-link\"><i class=\"fas fa-shopping-cart\"></i></a></li>\r\n");
@@ -141,6 +139,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_c_if_1(_jspx_page_context))
         return;
       out.write("\r\n");
+      out.write("                            <li class=\"nav-item dropdown\" ><a href=\"about.html\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">Language</a>\r\n");
+      out.write("                            <ul class=\"dropdown-menu\" style=\"font-size: 14px; width: 200px\">\r\n");
+      out.write("                                <li><a href=\"#\">Vietnamese</a></li>\r\n");
+      out.write("                                <li><a href=\"#\">English</a></li>\r\n");
+      out.write("                                \r\n");
+      out.write("                            </ul>\r\n");
+      out.write("                        </li>\r\n");
       out.write("                    </ul>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");

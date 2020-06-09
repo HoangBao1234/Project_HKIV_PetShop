@@ -355,7 +355,8 @@
                                             <td>${i.description}</td>
                                             <td>
                                                 <a href="${context}/Accessories/Delete?id=${i.ESId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
-                                                <a href="${context}/Accessories/Edit?id=${i.ESId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                                <a href="${context}/Accessories/Edit?id=${i.ESId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Accessories/Detail?id=${i.ESId}"><i class="fas fa-bars" title="Detail"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach>
