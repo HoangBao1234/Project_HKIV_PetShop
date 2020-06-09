@@ -77,7 +77,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
 
-                        <li class="nav-item dropdown" ><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Product</a>
+                        <li class="nav-item dropdown active" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                 <li><a href="#">Pet</a></li>
                                 <li><a href="#">Food</a></li>
@@ -124,7 +124,7 @@
                 <div class="row d-flex">
                     <div class="col-sm-8">
                         <div class="row">
-                            <c:forEach var="i" items="${list}">
+                            <c:forEach var="i" items="${breeds.petsCollection}">
                                 <div class="col-sm-4 d-flex ftco-animate">
                                     <div class="blog-entry align-self-stretch contentPage">
                                         <a href="blog-single.html" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
@@ -281,7 +281,7 @@
                                     showPage(1);
                                     ///** C?n truy?n giá tr? vào ?ây **///
                                     var totalRows = 10; // T?ng s? s?n ph?m hi?n th?
-                                    var btnPage = Math.ceil(${list.size()} / pageSize); // S? nút b?m hi?n th? di chuy?n trang
+                                    var btnPage = ${breeds.petsCollection.size()} / pageSize; // S? nút b?m hi?n th? di chuy?n trang
                                     var iTotalPages = Math.ceil(totalRows / pageSize);
 
                                     var obj = $('#pagination').twbsPagination({

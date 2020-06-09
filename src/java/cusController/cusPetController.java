@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package cusController;
 
+import entity.BreedsFacadeLocal;
 import entity.PetsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,6 +22,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "cusPetController", urlPatterns = {"/PetProduct/*"})
 public class cusPetController extends HttpServlet {
+
+    @EJB
+    private BreedsFacadeLocal breedsFacade;
     @EJB
     private PetsFacadeLocal petsFacade;
 
@@ -38,24 +41,40 @@ public class cusPetController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             String path = request.getPathInfo();
-            
-            switch(path){
+
+            switch (path) {
                 case "/All":
                     getViewAll(request, response);
+                    break;
+                case "/ShowByBreed":
+                    getViewBreed(request, response);
                     break;
                 default:
                     out.print("Huhu");
                     break;
             }
-            
+
         }
     }
-    
-    private void getViewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+    private void getViewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", petsFacade.findAll());
+        request.setAttribute("breed", breedsFacade.findAll());
         request.getRequestDispatcher("/Customer/Pets/index.jsp").forward(request, response);
+    }
+
+    private void getViewBreed(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+            response.sendRedirect("All");
+        } else {
+            int id = Integer.parseInt(request.getParameter("id"));
+            request.setAttribute("breeds", breedsFacade.find(id));
+            request.setAttribute("breed", breedsFacade.findAll());
+            request.getRequestDispatcher("/Customer/Pets/showByBreed.jsp").forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
