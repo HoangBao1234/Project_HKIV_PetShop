@@ -6,8 +6,10 @@
 
 package cusController;
 
+import entity.PetsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "cusPetController", urlPatterns = {"/PetProduct/*"})
 public class cusPetController extends HttpServlet {
+    @EJB
+    private PetsFacadeLocal petsFacade;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,7 +39,23 @@ public class cusPetController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            String path = request.getPathInfo();
+            
+            switch(path){
+                case "/All":
+                    getViewAll(request, response);
+                    break;
+                default:
+                    out.print("Huhu");
+                    break;
+            }
+            
         }
+    }
+    
+    private void getViewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.setAttribute("list", petsFacade.findAll());
+        request.getRequestDispatcher("/Customer/Pets/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

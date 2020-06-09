@@ -27,6 +27,11 @@
 
         <link rel="stylesheet" href="${context}/petsitting/css/flaticon.css">
         <link rel="stylesheet" href="${context}/petsitting/css/style.css">
+        <style>
+            img {
+                image-rendering: pixelated;
+            }
+        </style>
     </head>
     <body>
 
@@ -57,9 +62,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
 
-                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
+                        <li class="nav-item dropdown active" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                 <li><a href="#">Pet</a></li>
                                 <li><a href="#">Food</a></li>
@@ -99,96 +104,35 @@
             </div>
         </nav>
         <!-- END nav -->
-     
+
 
         <section class="ftco-section bg-light">
             <div class="container">
                 <div class="row d-flex">
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20 rounded" style="background-image: url('${context}/petsitting/images/image_1.jpg');">
-                            </a>
-                            <div class="text p-4">
-                                <div class="meta mb-2">
-                                    <div><a href="#">April 07, 2020</a></div>
-                                    <div><a href="#">Admin</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                    <c:forEach var="i" items="${list}">
+                        <div class="col-sm-3 d-flex ftco-animate">
+                            <div class="blog-entry align-self-stretch">
+                                <a href="blog-single.html" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
+                                </a>
+                                <div class="text p-4">
+                                    <div class="meta mb-2">
+                                        <div><a href="#">${i.PName}</a></div><br/>
+                                        <div><a href="#">${i.CPId.name}</a></div>
+                                        <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
+                                    </div>
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <button style="border: none; background-color: #00bd56;
+                                                        border-radius: 10px; padding: 4px  10px; color: whitesmoke">Add to cart</button>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <span style="color: #00bd56">${i.price}$</span>
+                                            </div>
+                                        </div>
                                 </div>
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20 rounded" style="background-image: url('${context}/petsitting/images/image_2.jpg');">
-                            </a>
-                            <div class="text p-4">
-                                <div class="meta mb-2">
-                                    <div><a href="#">April 07, 2020</a></div>
-                                    <div><a href="#">Admin</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                                </div>
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20 rounded" style="background-image: url('${context}/petsitting/images/image_3.jpg');">
-                            </a>
-                            <div class="text p-4">
-                                <div class="meta mb-2">
-                                    <div><a href="#">April 07, 2020</a></div>
-                                    <div><a href="#">Admin</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                                </div>
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20 rounded" style="background-image: url('${context}/petsitting/images/image_4.jpg');">
-                            </a>
-                            <div class="text p-4">
-                                <div class="meta mb-2">
-                                    <div><a href="#">April 07, 2020</a></div>
-                                    <div><a href="#">Admin</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                                </div>
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20 rounded" style="background-image: url('${context}/petsitting/images/image_5.jpg');">
-                            </a>
-                            <div class="text p-4">
-                                <div class="meta mb-2">
-                                    <div><a href="#">April 07, 2020</a></div>
-                                    <div><a href="#">Admin</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                                </div>
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20 rounded" style="background-image: url('${context}/petsitting/images/image_6.jpg');">
-                            </a>
-                            <div class="text p-4">
-                                <div class="meta mb-2">
-                                    <div><a href="#">April 07, 2020</a></div>
-                                    <div><a href="#">Admin</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                                </div>
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </div>
                 <div class="row mt-5">
                     <div class="col text-center">
