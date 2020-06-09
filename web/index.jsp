@@ -78,7 +78,7 @@
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                     <li><a href="#">Profile</a></li>
-                                    <li><a href="#">Logout</a></li>
+                                    <li><a href="${context}/Customer/Logout?logout=ok">Logout</a></li>
                                 </ul>
                             </li>
                         </c:if>
@@ -89,6 +89,13 @@
                                 </a>
                             </li>
                         </c:if>
+                            <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Language</a>
+                            <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
+                                <li><a href="#">Vietnamese</a></li>
+                                <li><a href="#">English</a></li>
+                                
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -925,7 +925,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("                                </a>\r\n");
         out.write("                                <ul class=\"dropdown-menu\" style=\"font-size: 14px; width: 200px\">\r\n");
         out.write("                                    <li><a href=\"#\">Profile</a></li>\r\n");
-        out.write("                                    <li><a href=\"#\">Logout</a></li>\r\n");
+        out.write("                                    <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/Customer/Logout?logout=ok\">Logout</a></li>\r\n");
         out.write("                                </ul>\r\n");
         out.write("                            </li>\r\n");
         out.write("                        ");

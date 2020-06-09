@@ -9,6 +9,7 @@ import entity.Members;
 import entity.MembersFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -61,6 +62,9 @@ public class cusController extends HttpServlet {
                 case "/Store":
                     register(request, response);
                     break;
+                case "/Logout":
+                    logout(request, response);
+                    break;
                 default:
                     getViewError(request, response);
                     break;
@@ -69,9 +73,10 @@ public class cusController extends HttpServlet {
         }
     }
 
-    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
     }
+
     private void getViewLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/Login/login.jsp").forward(request, response);
     }
@@ -112,7 +117,7 @@ public class cusController extends HttpServlet {
 
     private void success(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/Project_HKIV_PetShop/index.jsp").forward(request, response);
-        
+
     }
 
     private void getRegisterView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -169,4 +174,18 @@ public class cusController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            if (request.getParameter("logout") != null) {
+                if (request.getParameter("logout").equals("ok")) {
+                    request.removeAttribute("user");
+                    request.removeAttribute("pass");
+
+                    response.sendRedirect("Login");
+                }
+            }
+        } finally {
+            out.close();
+        }
+    }
 }
