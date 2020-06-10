@@ -65,6 +65,9 @@ public class orderController extends HttpServlet {
                 case "/Store":
                     addToCart(request, response);
                     break;
+                case "/Delete":
+                    delete(request, response);
+                    break;
                 default:
                     out.print("sai");
                     break;
@@ -74,12 +77,26 @@ public class orderController extends HttpServlet {
     }
 
     private void getOrderView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
+
+        HttpSession session = request.getSession();
+
+        if (session.getAttribute("order") != null) {
+            Orders orders = (Orders) session.getAttribute("order");
+            request.setAttribute("list", orders.getOdersDetailsCollection());
+            request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
+        }
+        if (session.getAttribute("order") == null) {
+            Orders orders = new Orders();
+            request.setAttribute("list", orders.getOdersDetailsCollection());
+            request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
+        }
+
     }
 
-    private void addToCart(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void addToCart(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int quantity = 1;
         HttpSession session = request.getSession();
+        int total = 5;
         PrintWriter out = response.getWriter();
         if (request.getParameter("PId") != null && !request.getParameter("PId").trim().isEmpty()) {
             String id = request.getParameter("PId");
@@ -87,17 +104,20 @@ public class orderController extends HttpServlet {
             String status = "running...";
             //neu chua co gio hang
             if (session.getAttribute("order") == null) {
-                
                 Orders orders = new Orders(status);
                 List<OdersDetails> cart = new ArrayList<>();
                 //items
-                OdersDetails items = new OdersDetails(pet.getPId(), pet.getPrice(), quantity, orders);
+                OdersDetails items = new OdersDetails(pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), orders);
                 //add to list
                 cart.add(items);
                 //add to order
                 orders.setOdersDetailsCollection(cart);
+                total = items.getProductPrice() * items.getQuantity();
+                orders.setTotal(total);
                 session.setAttribute("order", orders);
-                out.print("OK");
+                request.setAttribute("total", total);
+                request.setAttribute("list", orders.getOdersDetailsCollection());
+                request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
             } else {
                 Orders oders = (Orders) session.getAttribute("order");
                 List<OdersDetails> itemList = (List<OdersDetails>) oders.getOdersDetailsCollection();
@@ -109,15 +129,44 @@ public class orderController extends HttpServlet {
                     }
                 }
                 if (check == false) {
-                    OdersDetails items = new OdersDetails(pet.getPId(), pet.getPrice(), quantity, oders);
+                    OdersDetails items = new OdersDetails(pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), oders);
                     itemList.add(items);
                     oders.setOdersDetailsCollection(itemList);
                 }
+
+                total = 0;
+                for (OdersDetails items : itemList) {
+                    total += items.getProductPrice() * items.getQuantity();
+                }
+                oders.setTotal(total);
                 session.setAttribute("order", oders);
-                out.print("OK");
+                request.setAttribute("total", total);
+                request.setAttribute("list", oders.getOdersDetailsCollection());
+                request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
             }
-        }else{
+        } else {
             out.print("Null");
+        }
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        HttpSession session = request.getSession();
+        PrintWriter out = response.getWriter();
+        if (session.getAttribute("order") != null) {
+            String id = request.getParameter("productId");
+            Orders orders = (Orders) session.getAttribute("order");
+            List<OdersDetails> itemList = (List<OdersDetails>) orders.getOdersDetailsCollection();
+            OdersDetails itemDe = null;
+            for (OdersDetails item : itemList) {
+                if (item.getProductId().equals(id)) {
+                    itemDe  = item;
+                    
+                }
+            }
+            itemList.remove(itemDe);
+            orders.setOdersDetailsCollection(itemList);
+            session.setAttribute("order", orders);
+            response.sendRedirect(request.getContextPath()+"/Order/View");
         }
     }
 
