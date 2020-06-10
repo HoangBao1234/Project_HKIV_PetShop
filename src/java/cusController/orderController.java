@@ -78,18 +78,7 @@ public class orderController extends HttpServlet {
 
     private void getOrderView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
-
-        if (session.getAttribute("order") != null) {
-            Orders orders = (Orders) session.getAttribute("order");
-            request.setAttribute("list", orders.getOdersDetailsCollection());
-            request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
-        }
-        if (session.getAttribute("order") == null) {
-            Orders orders = new Orders();
-            request.setAttribute("list", orders.getOdersDetailsCollection());
-            request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
-        }
+        request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
 
     }
 
@@ -105,32 +94,37 @@ public class orderController extends HttpServlet {
             //neu chua co gio hang
             if (session.getAttribute("order") == null) {
                 Orders orders = new Orders(status);
+                ordersFacade.create(orders);
                 List<OdersDetails> cart = new ArrayList<>();
                 //items
-                OdersDetails items = new OdersDetails(pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), orders);
+                OdersDetails items = new OdersDetails(1, pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), orders);
                 //add to list
                 cart.add(items);
                 //add to order
                 orders.setOdersDetailsCollection(cart);
                 total = items.getProductPrice() * items.getQuantity();
                 orders.setTotal(total);
+                ordersFacade.edit(orders);
                 session.setAttribute("order", orders);
-                request.setAttribute("total", total);
-                request.setAttribute("list", orders.getOdersDetailsCollection());
                 request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
             } else {
                 Orders oders = (Orders) session.getAttribute("order");
                 List<OdersDetails> itemList = (List<OdersDetails>) oders.getOdersDetailsCollection();
+                
                 boolean check = false;
+                
                 for (OdersDetails items : itemList) {
                     if (items.getProductId().equals(pet.getPId())) {
                         items.setQuantity(items.getQuantity() + quantity);
+                        odersDetailsFacade.edit(items);
                         check = true;
                     }
                 }
+                
                 if (check == false) {
                     OdersDetails items = new OdersDetails(pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), oders);
                     itemList.add(items);
+                    odersDetailsFacade.create(items);
                     oders.setOdersDetailsCollection(itemList);
                 }
 
@@ -139,9 +133,8 @@ public class orderController extends HttpServlet {
                     total += items.getProductPrice() * items.getQuantity();
                 }
                 oders.setTotal(total);
+                ordersFacade.edit(oders);
                 session.setAttribute("order", oders);
-                request.setAttribute("total", total);
-                request.setAttribute("list", oders.getOdersDetailsCollection());
                 request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
             }
         } else {
@@ -159,14 +152,15 @@ public class orderController extends HttpServlet {
             OdersDetails itemDe = null;
             for (OdersDetails item : itemList) {
                 if (item.getProductId().equals(id)) {
-                    itemDe  = item;
-                    
+                    itemDe = item;
+
                 }
             }
             itemList.remove(itemDe);
+            odersDetailsFacade.remove(odersDetailsFacade.find(itemDe.getOdId()));
             orders.setOdersDetailsCollection(itemList);
             session.setAttribute("order", orders);
-            response.sendRedirect(request.getContextPath()+"/Order/View");
+            response.sendRedirect(request.getContextPath() + "/Order/View");
         }
     }
 

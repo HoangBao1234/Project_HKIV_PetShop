@@ -200,7 +200,7 @@
                 </div>
                 <div class="card-body">
                     <c:if test="${sessionScope.order != null}">
-                        <c:forEach var="i" items="${list}">
+                        <c:forEach var="i" items="${sessionScope.order.getOdersDetailsCollection()}">
                             <!-- PRODUCT -->
                             <div class="row">
                                 <div class="col-12 col-sm-12 col-md-2 text-center">

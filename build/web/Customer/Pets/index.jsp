@@ -47,16 +47,6 @@
         </style>
     </head>
     <body>
-        <c:if test="${sessionScope.order != null}">
-            ${sessionScope.order.oderId}
-            <c:forEach var="cart" items="${sessionScope.order.getOdersDetailsCollection()}">
-                <h1>${cart.quantity}</h1>
-                <h1>${cart.productId}</h1>
-            </c:forEach>
-        </c:if>
-        <c:if test="${sessionScope.order == null}">
-            <h1>Chua co</h1>
-        </c:if>
         <div class="wrap">
             <div class="container">
                 <div class="row">

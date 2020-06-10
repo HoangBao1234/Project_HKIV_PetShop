@@ -76,13 +76,13 @@
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                     <li><a href="#">Profile</a></li>
-                                    <li><a href="${context}/Customer/Logout?logout=ok">Logout</a></li>
+                                    <li><a href="${context}/Customers/Logout?logout=ok">Logout</a></li>
                                 </ul>
                             </li>
                         </c:if>
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
-                                <a href="${context}/Customer/Login" class="nav-link">
+                                <a href="${context}/Customers/Login" class="nav-link">
                                     Login
                                 </a>
                             </li>

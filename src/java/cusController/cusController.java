@@ -74,7 +74,7 @@ public class cusController extends HttpServlet {
     }
 
     private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+       
     }
 
     private void getViewLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
