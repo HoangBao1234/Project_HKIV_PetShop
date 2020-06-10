@@ -342,37 +342,28 @@
                                     <tr>
                                         <th scope="col" style="color: #006dcc">Id</th>
                                         <th scope="col" style="color: #006dcc">Name Pet</th>
+                                        <th scope="col" style="color: #006dcc">Date Start</th>
                                         <th scope="col" style="color: #006dcc">Date End</th>
-                                        <th scope="col" style="color: #006dcc">Phone Customer</th>
                                         <th scope="col" style="color: #006dcc">Price</th>
+                                        <th scope="col" style="color: #006dcc">Status</th>
                                         <th scope="col" style="color: #006dcc">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>1/1/1111</td>
-                                        <td>123456778</td>
-                                        <td>500 $</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>1/1/1111</td>
-                                        <td>123456778</td>
-                                        <td>500 $</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>1/1/1111</td>
-                                        <td>123456778</td>
-                                        <td>500 $</td>
-                                        <td>Edit || Delete || Details</td>
-                                    </tr>
+                                    <c:forEach var="i" items="${hotelList}">
+                                        <tr>
+                                            <td>${i.PHId}</td>
+                                            <td>${i.namePet}</td>
+                                            <td>${i.dateStart}</td>
+                                            <td>${i.dateEnd}</td>
+                                            <td>${i.price}</td>
+                                            <td>${i.status}</td>
+                                            <td>
+                                                <a href="${context}/Hotel/Delete?id=${i.PHId}"><i class="fas fa-trash-alt" aria-hidden="true" title="Delete"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Hotel/Edit?id=${i.PHId}"><i class="fas fa-pencil-alt" aria-hidden="true" title="Edit"></i></a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </center>
@@ -394,7 +385,7 @@
                 <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
                 <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
 
-                
+
                 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
                 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>

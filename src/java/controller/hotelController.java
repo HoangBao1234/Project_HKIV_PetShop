@@ -84,9 +84,10 @@ public class hotelController extends HttpServlet {
             String dateStart = request.getParameter("dateStart");
             String dateEnd = request.getParameter("dateEnd");
             int price = Integer.parseInt(request.getParameter("price"));
+            String status = request.getParameter("status");
             String mId = request.getParameter("MId");
             Members member = membersFacade.find(mId);
-            Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
+            Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, status, member);
             pethotelFacade.create(hotel);
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
@@ -111,9 +112,10 @@ public class hotelController extends HttpServlet {
             String dateStart = request.getParameter("dateStart");
             String dateEnd = request.getParameter("dateEnd");
             int price = Integer.parseInt(request.getParameter("price"));
+            String status = request.getParameter("status");
             String mId = request.getParameter("MId");
             Members member = membersFacade.find(mId);
-            Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, null, member);
+            Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, status, member);
             pethotelFacade.edit(hotel);
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
@@ -126,7 +128,9 @@ public class hotelController extends HttpServlet {
                 response.sendRedirect("List");
             } else {
                 String id = request.getParameter("id");
+                request.setAttribute("members", membersFacade.findAll());
                 request.setAttribute("hotel", pethotelFacade.find(id));
+
                 request.getRequestDispatcher("/Admin/hotel/updateHotel.jsp").forward(request, response);
             }
         } catch (Exception e) {

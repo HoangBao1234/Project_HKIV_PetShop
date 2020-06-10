@@ -51,6 +51,7 @@
             ${sessionScope.order.oderId}
             <c:forEach var="cart" items="${sessionScope.order.getOdersDetailsCollection()}">
                 <h1>${cart.quantity}</h1>
+                <h1>${cart.productId}</h1>
             </c:forEach>
         </c:if>
         <c:if test="${sessionScope.order == null}">
@@ -146,7 +147,9 @@
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <button style="border: none; background-color: #00bd56;
-                                                            border-radius: 10px; padding: 4px  10px; color: whitesmoke">Add Cart</button>
+                                                            border-radius: 10px; padding: 4px  10px; color: whitesmoke">
+                                                        <a href="${context}/Order/Store?PId=${i.PId}">Add Cart</a>
+                                                    </button>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <span style="color: #00bd56">${i.price}$</span>

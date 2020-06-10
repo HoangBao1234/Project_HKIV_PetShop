@@ -45,10 +45,14 @@ public class OdersDetails implements Serializable {
     @Size(max = 10)
     @Column(name = "productId", length = 10)
     private String productId;
+    @Column(name = "productName", length = 50)
+    private String productName;
     @Column(name = "productPrice")
     private Integer productPrice;
     @Column(name = "quantity")
     private Integer quantity;
+    @Column(name = "image", length = 50)
+    private String image;
     @JoinColumn(name = "oderId", referencedColumnName = "oderId")
     @ManyToOne
     private Orders oderId;
@@ -56,12 +60,32 @@ public class OdersDetails implements Serializable {
     public OdersDetails() {
     }
 
-    public OdersDetails(String productId, Integer productPrice, Integer quantity, Orders oderId) {
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public OdersDetails(String productId, String productName, Integer productPrice, Integer quantity, String image, Orders oderId) {
         this.productId = productId;
+        this.productName = productName;
         this.productPrice = productPrice;
         this.quantity = quantity;
+        this.image = image;
         this.oderId = oderId;
     }
+
+   
 
     public OdersDetails(Integer odId) {
         this.odId = odId;
