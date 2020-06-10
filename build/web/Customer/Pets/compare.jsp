@@ -47,7 +47,15 @@
         </style>
     </head>
     <body>
-
+        <c:if test="${sessionScope.order != null}">
+            ${sessionScope.order.oderId}
+            <c:forEach var="cart" items="${sessionScope.order.getOdersDetailsCollection()}">
+                <h1>${cart.quantity}</h1>
+            </c:forEach>
+        </c:if>
+        <c:if test="${sessionScope.order == null}">
+            <h1>Chua co</h1>
+        </c:if>
         <div class="wrap">
             <div class="container">
                 <div class="row">
@@ -77,7 +85,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
 
-                        <li class="nav-item dropdown active" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
+                        <li class="nav-item dropdown" ><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Product</a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                 <li><a href="#">Pet</a></li>
                                 <li><a href="#">Food</a></li>
@@ -86,7 +94,7 @@
                         </li>
                         <li class="nav-item"><a href="services.html" class="nav-link">PetHotel</a></li>
                         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li class="nav-item"><a href="${context}/Order/View" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                                 <c:if test="${sessionScope.username != null}">
                             <li class="nav-item dropdown" >
                                 <a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">
@@ -122,53 +130,81 @@
         <section class="ftco-section bg-light">
             <div class="container">
                 <div class="row d-flex">
-                    <div class="col-sm-8">
+                    <div class="col-sm-6">
                         <div class="row">
-                            <c:forEach var="i" items="${breeds.petsCollection}">
-                                <div class="col-sm-4 d-flex ftco-animate">
-                                    <div class="blog-entry align-self-stretch contentPage">
-                                        <a href="${context}/PetProduct/Detail?id=${i.getPId()}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
-                                        </a>
-                                        <div class="text p-4">
-                                            <div class="meta mb-2">
-                                                <div><a href="#">${i.PName}</a></div><br/>
-                                                <div><a href="#">${i.CPId.name}</a></div>
-                                                <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
+                            <div class="col-sm-6">
+                                <img src="${context}/ImageItems/${pet.image}" width="313" height="330"/>
+                                ${pet.description}
+                            </div>
+                            <div class="col-sm-6">
+                                <ul style="list-style-type: none">
+                                    <li><h1 style="font-family: initial">${pet.PName}</h1></li>
+                                    <li>Price: ${pet.price} $</li>
+                                    <li>Date of Birth: ${pet.age}</li>
+                                    <li>Color: ${pet.color}</li>
+                                    <li>Gender: ${pet.gender == true ? "Male" : "Female"}</li>
+                                    <li><hr/></li>
+                                    <li><button style="border: none; background-color: #00bd56;
+                                                border-radius: 5px; padding: 5px  15px; color: whitesmoke">Add to Cart</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img src="${context}/ImageItems/${compare.image}" width="313" height="330"/>
+                                ${compare.description}
+                            </div>
+                            <div class="col-sm-6">
+                                <ul style="list-style-type: none">
+                                    <li><h1 style="font-family: initial">${compare.PName}</h1></li>
+                                    <li>Price: ${compare.price} $</li>
+                                    <li>Date of Birth: ${compare.age}</li>
+                                    <li>Color: ${compare.color}</li>
+                                    <li>Gender: ${compare.gender == true ? "Male" : "Female"}</li>
+
+                                    <li><hr/></li>
+                                    <li><button style="border: none; background-color: #00bd56;
+                                                border-radius: 5px; padding: 5px  15px; color: whitesmoke">Add to Cart</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4 style="margin-top: 50px">Maybe you are interested</h4>
+                <hr/>
+                <div class="row">
+                    <c:forEach var="i" items="${list}">
+                        <c:if test="${i.getPId() != pet.getPId()}">
+                            <div class="col-sm-3 d-flex ftco-animate">
+                                <div class="blog-entry align-self-stretch contentPage">
+                                    <a href="${context}/PetProduct/Detail?id=${i.PId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
+                                    </a>
+                                    <div class="text p-4">
+                                        <div class="meta mb-2">
+                                            <div><a href="#">${i.PName}</a></div><br/>
+                                            <div><a href="#">${i.CPId.name}</a></div>
+                                            <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <button style="border: none; background-color: #00bd56;
+                                                        border-radius: 10px; padding: 4px  10px; color: whitesmoke">
+                                                    <a style="color: white" href="${context}/PetProduct/Detail?id=${i.getPId()}">Detail</a>
+                                                </button>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm-8">
-                                                    <button style="border: none; background-color: #00bd56;
-                                                            border-radius: 10px; padding: 4px  10px; color: whitesmoke">Add Cart</button>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <span style="color: #00bd56">${i.price}$</span>
-                                                </div>
+                                            <div class="col-sm-3">
+                                                <span style="color: #00bd56">${i.price}$</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </c:forEach>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div>
-                            <h4>Product Portfolio</h4>
-                            <ul>
-                                <c:forEach var="b" items="${breed}">
-                                    <li><a href="${context}/PetProduct/ShowByBreed?id=${b.CPId}">${b.name}(${b.petsCollection.size()})</a></li>
-                                </c:forEach>
-                            </ul>
-                            <hr/>
-                            <ul>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                            </ul>
-                        </div>
-                    </div>
+                            </div>
+                        </c:if>
+                    </c:forEach>
                 </div>
+
                 <!-- Hiên th? nút b?m -->
                 <ul id="pagination"></ul>
             </div>
@@ -268,33 +304,6 @@
         <!-- JS t?o nút b?m di chuy?n trang start -->
         <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
         <!-- JS t?o nút b?m di chuy?n trang end -->
-        <script type="text/javascript">
-                                $(function() {
-                                    var pageSize = 3; // Hi?n th? 6 s?n ph?m trên 1 trang
-                                    showPage = function(page) {
-                                        $(".contentPage").hide();
-                                        $(".contentPage").each(function(n) {
-                                            if (n >= pageSize * (page - 1) && n < pageSize * page)
-                                                $(this).show();
-                                        });
-                                    };
-                                    showPage(1);
-                                    ///** C?n truy?n giá tr? vào ?ây **///
-                                    var totalRows = 10; // T?ng s? s?n ph?m hi?n th?
-                                    var btnPage = ${breeds.petsCollection.size()} / pageSize; // S? nút b?m hi?n th? di chuy?n trang
-                                    var iTotalPages = Math.ceil(totalRows / pageSize);
-
-                                    var obj = $('#pagination').twbsPagination({
-                                        totalPages: iTotalPages,
-                                        visiblePages: btnPage,
-                                        onPageClick: function(event, page) {
-                                            /* console.info(page); */
-                                            showPage(page);
-                                        }
-                                    });
-                                    /*console.info(obj.data());*/
-                                });
-        </script>
 
     </body>
 </html>

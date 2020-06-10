@@ -29,7 +29,7 @@
         <link rel="stylesheet" href="petsitting/css/style.css">
     </head>
     <body>
-
+        
         <div class="wrap">
             <div class="container">
                 <div class="row">
@@ -68,7 +68,7 @@
                         </li>
                         <li class="nav-item"><a href="services.html" class="nav-link">PetHotel</a></li>
                         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li class="nav-item"><a href="${context}/Order/View" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                                 <c:if test="${sessionScope.username != null}">
                             <li class="nav-item dropdown" >
                                 <a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">

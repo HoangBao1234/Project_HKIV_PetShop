@@ -6,6 +6,7 @@
 
 package entity;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -43,6 +44,14 @@ public class PetsFacade extends AbstractFacade<Pets> implements PetsFacadeLocal 
         Query q = em.createQuery(query);
         q.setParameter("breeds", breeds);
         q.executeUpdate();
+    }
+
+    @Override
+    public List<Pets> recommentPet(Breeds breeds) {
+        String query = "SELECT p FROM Pets p WHERE p.cPId = :breeds";
+        Query q = em.createQuery(query).setMaxResults(5);
+        q.setParameter("breeds", breeds);
+        return q.getResultList();
     }
     
     

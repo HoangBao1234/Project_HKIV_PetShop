@@ -20,7 +20,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -66,6 +65,14 @@ public class Orders implements Serializable {
 
     public String getPaymentBy() {
         return paymentBy;
+    }
+
+    public Orders(String status) {
+        this.status = status;
+    }
+
+    public Orders(Collection<OdersDetails> odersDetailsCollection) {
+        this.odersDetailsCollection = odersDetailsCollection;
     }
 
     public Orders(Integer oderId, Integer total, String shipAddress, String oderDate, String paymentBy, String transport, String status, Collection<OdersDetails> odersDetailsCollection, Members mId) {

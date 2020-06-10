@@ -91,7 +91,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"petsitting/css/style.css\">\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
-      out.write("\r\n");
+      out.write("        <h1>");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.order.oderId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</h1>\r\n");
       out.write("        <div class=\"wrap\">\r\n");
       out.write("            <div class=\"container\">\r\n");
       out.write("                <div class=\"row\">\r\n");
@@ -123,14 +125,18 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        \r\n");
       out.write("                        <li class=\"nav-item dropdown\" ><a href=\"about.html\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">Product</a>\r\n");
       out.write("                            <ul class=\"dropdown-menu\" style=\"font-size: 14px; width: 200px\">\r\n");
-      out.write("                                <li><a href=\"#\">Pet</a></li>\r\n");
+      out.write("                                <li><a href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/PetProduct/All\">Pet</a></li>\r\n");
       out.write("                                <li><a href=\"#\">Food</a></li>\r\n");
       out.write("                                <li><a href=\"#\">Accessoreis</a></li>\r\n");
       out.write("                            </ul>\r\n");
       out.write("                        </li>\r\n");
       out.write("                        <li class=\"nav-item\"><a href=\"services.html\" class=\"nav-link\">PetHotel</a></li>\r\n");
       out.write("                        <li class=\"nav-item\"><a href=\"about.html\" class=\"nav-link\">About</a></li>\r\n");
-      out.write("                        <li class=\"nav-item\"><a href=\"blog.html\" class=\"nav-link\"><i class=\"fas fa-shopping-cart\"></i></a></li>\r\n");
+      out.write("                        <li class=\"nav-item\"><a href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Order/View\" class=\"nav-link\"><i class=\"fas fa-shopping-cart\"></i></a></li>\r\n");
       out.write("                                ");
       if (_jspx_meth_c_if_0(_jspx_page_context))
         return;

@@ -10,6 +10,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -37,7 +39,7 @@ public class OdersDetails implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "odId", nullable = false)
     private Integer odId;
     @Size(max = 10)
@@ -52,6 +54,13 @@ public class OdersDetails implements Serializable {
     private Orders oderId;
 
     public OdersDetails() {
+    }
+
+    public OdersDetails(String productId, Integer productPrice, Integer quantity, Orders oderId) {
+        this.productId = productId;
+        this.productPrice = productPrice;
+        this.quantity = quantity;
+        this.oderId = oderId;
     }
 
     public OdersDetails(Integer odId) {
