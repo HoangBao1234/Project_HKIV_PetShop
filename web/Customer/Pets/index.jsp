@@ -47,7 +47,15 @@
         </style>
     </head>
     <body>
-
+        <c:if test="${sessionScope.order != null}">
+            ${sessionScope.order.oderId}
+            <c:forEach var="cart" items="${sessionScope.order.getOdersDetailsCollection()}">
+                <h1>${cart.quantity}</h1>
+            </c:forEach>
+        </c:if>
+        <c:if test="${sessionScope.order == null}">
+            <h1>Chua co</h1>
+        </c:if>
         <div class="wrap">
             <div class="container">
                 <div class="row">
@@ -86,7 +94,7 @@
                         </li>
                         <li class="nav-item"><a href="services.html" class="nav-link">PetHotel</a></li>
                         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li class="nav-item"><a href="${context}/Order/View" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                                 <c:if test="${sessionScope.username != null}">
                             <li class="nav-item dropdown" >
                                 <a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">
@@ -151,12 +159,17 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <div>
+                        <div style="border: #000000">
                             <h4>Product Portfolio</h4>
+                            <form>
+                                <input style="padding: 2px 5px; border-radius: 10px" type="text" placeholder="Search">
+                                <button type="submit" style="border: none; background-color: #f8f9fd"><i class="fas fa-search" aria-hidden="true"></i></button>
+                            </form>
+                            <h6 style="margin-top: 10px">Breeds</h6>
                             <ul>
                                 <c:forEach var="b" items="${breed}">
-                                    <li><a href="${context}/PetProduct/ShowByBreed?id=${b.CPId}">${b.name}(${b.petsCollection.size()})</a></li>
-                                </c:forEach>
+                                    <li style="list-style-type: none;"><a style="color: black" href="${context}/PetProduct/ShowByBreed?id=${b.CPId}">${b.name}(${b.petsCollection.size()})</a></li>
+                                    </c:forEach>
                             </ul>
                             <hr/>
                             <ul>
