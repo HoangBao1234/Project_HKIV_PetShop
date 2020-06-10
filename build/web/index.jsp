@@ -62,8 +62,8 @@
                         <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                 <li><a href="${context}/PetProduct/All">Pet</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Accessoreis</a></li>
+                                <li><a href="${context}/FoodProduct/All">Food</a></li>
+                                <li><a href="${context}/AccessoriesProduct/All">Accessoreis</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a href="services.html" class="nav-link">PetHotel</a></li>

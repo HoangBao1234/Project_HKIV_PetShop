@@ -96,7 +96,7 @@ public class orderController extends HttpServlet {
                 Orders orders = new Orders(status);
                 List<OdersDetails> cart = new ArrayList<>();
                 //items
-                OdersDetails items = new OdersDetails(1,pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), orders);
+                OdersDetails items = new OdersDetails(1, pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), orders);
                 //add to list
                 cart.add(items);
                 //add to order
@@ -108,16 +108,16 @@ public class orderController extends HttpServlet {
             } else {
                 Orders oders = (Orders) session.getAttribute("order");
                 List<OdersDetails> itemList = (List<OdersDetails>) oders.getOdersDetailsCollection();
-                
+
                 boolean check = false;
-                
+
                 for (OdersDetails items : itemList) {
                     if (items.getProductId().equals(pet.getPId())) {
                         items.setQuantity(items.getQuantity() + quantity);
                         check = true;
                     }
                 }
-                
+
                 if (check == false) {
                     OdersDetails items = new OdersDetails(2,pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), oders);
                     itemList.add(items);
@@ -138,27 +138,36 @@ public class orderController extends HttpServlet {
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        HttpSession session = request.getSession();
-        int total = 0;
-        if (session.getAttribute("order") != null) {
-            String id = request.getParameter("productId");
-            Orders orders = (Orders) session.getAttribute("order");
-            List<OdersDetails> itemList = (List<OdersDetails>) orders.getOdersDetailsCollection();
-            OdersDetails itemDe = null;
-            for (OdersDetails item : itemList) {
-                if (item.getProductId().equals(id)) {
-                    itemDe = item;
-
-                }
-            }
-            itemList.remove(itemDe);
-            orders.setOdersDetailsCollection(itemList);
-            for(OdersDetails item : itemList){
-                total += item.getProductPrice() * item.getQuantity();
-            }
-            orders.setTotal(total);
-            session.setAttribute("order", orders);
+        if (request.getParameter("productId") == null || request.getParameter("productId").trim().isEmpty()) {
             response.sendRedirect(request.getContextPath() + "/Order/View");
+        } else {
+            HttpSession session = request.getSession();
+            int total = 0;
+            if (session.getAttribute("order") != null) {
+                String id = request.getParameter("productId");
+                Orders orders = (Orders) session.getAttribute("order");
+                List<OdersDetails> itemList = (List<OdersDetails>) orders.getOdersDetailsCollection();
+                OdersDetails itemDe = null;
+                for (OdersDetails item : itemList) {
+                    if (item.getProductId().equals(id)) {
+                        itemDe = item;
+                    }
+                }
+                itemList.remove(itemDe);
+                orders.setOdersDetailsCollection(itemList);
+                for (OdersDetails item : itemList) {
+                    total += item.getProductPrice() * item.getQuantity();
+                }
+                orders.setTotal(total);
+                if(itemList.size() == 0){
+                    session.removeAttribute("order");
+                    response.sendRedirect(request.getContextPath() + "/Order/View");
+                }else{
+                    session.setAttribute("order", orders);
+                    response.sendRedirect(request.getContextPath() + "/Order/View");
+                }
+                
+            }
         }
     }
 

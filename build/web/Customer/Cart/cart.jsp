@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="${context}/petsitting/css/flaticon.css">
         <link rel="stylesheet" href="${context}/petsitting/css/style.css">
 
-
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 
         <style>
@@ -119,6 +119,13 @@
                 height: 50px;
             }
         </style>
+        <script>
+            function check() {
+                swal("Are you sure you want to do this?", {
+                   buttons: ["Oh noez!", true],
+                });
+            }
+        </script>
     </head>
     <body>
 
@@ -225,9 +232,11 @@
                                         </div>
                                     </div>
                                     <div class="col-2 col-sm-2 col-md-2 text-right">
-                                        <button type="button" class="btn btn-outline-danger btn-xs">
-                                            <a href="${context}/Order/Delete?productId=${i.productId}"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                        </button>
+                                        <a href="${context}/Order/Delete?productId=${i.productId}" onclick="return confirm('Are You Sure')">
+                                            <button type="button" class="btn btn-outline-danger btn-xs">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +245,7 @@
                         </c:forEach>
                     </c:if>
                     <c:if test="${sessionScope.order == null}">
-                        <h1>Nothing</h1>
+                        <h1>You have no items in your shopping cart</h1>
                     </c:if>
                     <div class="pull-right">
                         <a href="" class="btn btn-outline-secondary pull-right">
@@ -248,7 +257,7 @@
                     <div class="pull-right" style="margin: 10px">
                         <a href="" class="btn btn-success pull-right">Checkout</a>
                         <div class="pull-right" style="margin: 5px">
-                                Total: ${sessionScope.order.getTotal()} $
+                            Total: ${sessionScope.order.getTotal()} $
                         </div>
                     </div>
                 </div>
