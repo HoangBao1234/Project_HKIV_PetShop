@@ -51,6 +51,11 @@ public class cusPetController extends HttpServlet {
                 case "/ShowByBreed":
                     getViewBreed(request, response);
                     break;
+                case "/Detail":
+                    getDetailView(request, response);
+                case "/Compare":
+                    getCompareView(request, response);
+                    break;
                 default:
                     out.print("Huhu");
                     break;
@@ -75,6 +80,32 @@ public class cusPetController extends HttpServlet {
             request.getRequestDispatcher("/Customer/Pets/showByBreed.jsp").forward(request, response);
         }
 
+    }
+
+    private void getDetailView(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+            response.sendRedirect("All");
+        } else {
+            String id = request.getParameter("id");
+            request.setAttribute("pet", petsFacade.find(id));
+            request.setAttribute("list", petsFacade.recommentPet(petsFacade.find(id).getCPId()));
+            request.getRequestDispatcher("/Customer/Pets/detail.jsp").forward(request, response);
+        }
+    }
+
+    private void getCompareView(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (request.getParameter("id_1") == null || request.getParameter("id_1").trim().isEmpty()) {
+            if (request.getParameter("id_2") == null || request.getParameter("id_2").trim().isEmpty()) {
+                response.sendRedirect("All");
+            }
+        } else {
+            String id_1 = request.getParameter("id_1");
+            String id_2 = request.getParameter("id_2");
+            request.setAttribute("pet", petsFacade.find(id_1));
+            request.setAttribute("compare", petsFacade.find(id_2));
+            request.setAttribute("list", petsFacade.recommentPet(petsFacade.find(id_1).getCPId()));
+            request.getRequestDispatcher("/Customer/Pets/compare.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

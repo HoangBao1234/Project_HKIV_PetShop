@@ -33,5 +33,7 @@ public interface PetsFacadeLocal {
     void deleteByAnimals(Animals animals);
     
     void deleteBYBreed(Breeds breeds);
+
+    List<Pets> recommentPet(Breeds breeds);
     
 }

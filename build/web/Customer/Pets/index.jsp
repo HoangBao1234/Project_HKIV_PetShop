@@ -135,7 +135,7 @@
                             <c:forEach var="i" items="${list}">
                                 <div class="col-sm-4 d-flex ftco-animate">
                                     <div class="blog-entry align-self-stretch contentPage">
-                                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
+                                        <a href="${context}/PetProduct/Detail?id=${i.PId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
                                         </a>
                                         <div class="text p-4">
                                             <div class="meta mb-2">
