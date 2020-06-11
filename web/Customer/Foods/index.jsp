@@ -126,7 +126,7 @@
                             <c:forEach var="i" items="${list}">
                                 <div class="col-sm-4 d-flex ftco-animate">
                                     <div class="blog-entry align-self-stretch contentPage">
-                                        <a href="${context}/PetProduct/Detail?id=${i.FId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
+                                        <a href="${context}/FoodProduct/Detail?id=${i.FId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
                                         </a>
                                         <div class="text p-4">
                                             <div class="meta mb-2">
@@ -176,7 +176,7 @@
                             <h6 style="margin-top: 10px">Pet catalog</h6>
                             <ul>
                                 <c:forEach var="a" items="${breed}">
-                                    <li>${a.name} (${a.petsCollection.size()})</li>
+                                    <li><a href="${context}/FoodProduct/ShowByBreed?id=${b.CPId}">${a.name} (${a.petsCollection.size()})</a></li>
                                     </c:forEach>
                             </ul>
                         </div>

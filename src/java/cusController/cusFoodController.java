@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package cusController;
 
 import entity.AnimalsFacadeLocal;
@@ -24,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "cusFoodController", urlPatterns = {"/FoodProduct/*"})
 public class cusFoodController extends HttpServlet {
+
     @EJB
     private BreedsFacadeLocal breedsFacade;
     @EJB
@@ -50,6 +50,12 @@ public class cusFoodController extends HttpServlet {
                 case "/All":
                     getViewAll(request, response);
                     break;
+                case "/Detail":
+                    getDetailView(request, response);
+                    break;
+                case "/ShowByBreed":
+                    getViewBreed(request, response);
+                    break;
                 default:
                     out.print("Huhu");
                     break;
@@ -57,13 +63,35 @@ public class cusFoodController extends HttpServlet {
         }
     }
 
-    private void getViewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    private void getViewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", foodsFacade.findAll());
         request.setAttribute("animals", animalsFacade.findAll());
         request.setAttribute("breed", breedsFacade.findAll());
         request.getRequestDispatcher("/Customer/Foods/index.jsp").forward(request, response);
     }
-    
+    private void getDetailView(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+            response.sendRedirect("All");
+        } else {
+            int id = Integer.parseInt(request.getParameter("id"));
+            request.setAttribute("food", foodsFacade.find(id));
+            request.getRequestDispatcher("/Customer/Foods/detail.jsp").forward(request, response);
+
+        }
+
+    }
+
+    private void getViewBreed(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if(request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()){
+            response.sendRedirect("All");
+        }else{
+             int id = Integer.parseInt(request.getParameter("id"));
+             request.setAttribute("breeds", breedsFacade.find(id));
+             request.setAttribute("breed", breedsFacade.findAll());
+             request.getRequestDispatcher("/Customer/Foods/showByAnimals").forward(request, response);
+        }
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -102,5 +130,7 @@ public class cusFoodController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    
 
 }
