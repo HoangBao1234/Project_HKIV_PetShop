@@ -202,15 +202,15 @@ public final class aboutus_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!-- END nav -->\n");
       out.write("    <div class=\"container1\">\n");
       out.write("        <div class=\"box\">\n");
-      out.write("            <img src=\"../ImageItems/103306787_2685307088420205_2140847627820034488_o.jpg\" alt=\"\">\n");
+      out.write("            <img src=\"ImageItems/103306787_2685307088420205_2140847627820034488_o.jpg\" alt=\"\">\n");
       out.write("            <span>NGUYEN HOANG BAO</span>\n");
       out.write("        </div>\n");
       out.write("        <div class=\"box\">\n");
-      out.write("            <img src=\"../ImageItems/15726706_222626308186911_4992976810070775594_n.jpg\" alt=\"\">\n");
+      out.write("            <img src=\"ImageItems/15726706_222626308186911_4992976810070775594_n.jpg\" alt=\"\">\n");
       out.write("            <span>PHAM HUU NHAN</span>\n");
       out.write("        </div>\n");
       out.write("        <div class=\"box\">\n");
-      out.write("            <img src=\"../ImageItems/103587739_140932717570549_2479435794499285162_o.jpg\" alt=\"\">\n");
+      out.write("            <img src=\"ImageItems/103587739_140932717570549_2479435794499285162_o.jpg\" alt=\"\">\n");
       out.write("            <span>DO KHANH DUY</span>\n");
       out.write("        </div>\n");
       out.write("            \n");
