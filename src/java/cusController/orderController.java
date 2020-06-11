@@ -78,18 +78,7 @@ public class orderController extends HttpServlet {
 
     private void getOrderView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
-
-        if (session.getAttribute("order") != null) {
-            Orders orders = (Orders) session.getAttribute("order");
-            request.setAttribute("list", orders.getOdersDetailsCollection());
-            request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
-        }
-        if (session.getAttribute("order") == null) {
-            Orders orders = new Orders();
-            request.setAttribute("list", orders.getOdersDetailsCollection());
-            request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
-        }
+        request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
 
     }
 
@@ -107,7 +96,7 @@ public class orderController extends HttpServlet {
                 Orders orders = new Orders(status);
                 List<OdersDetails> cart = new ArrayList<>();
                 //items
-                OdersDetails items = new OdersDetails(pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), orders);
+                OdersDetails items = new OdersDetails(1, pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), orders);
                 //add to list
                 cart.add(items);
                 //add to order
@@ -115,21 +104,22 @@ public class orderController extends HttpServlet {
                 total = items.getProductPrice() * items.getQuantity();
                 orders.setTotal(total);
                 session.setAttribute("order", orders);
-                request.setAttribute("total", total);
-                request.setAttribute("list", orders.getOdersDetailsCollection());
                 request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
             } else {
                 Orders oders = (Orders) session.getAttribute("order");
                 List<OdersDetails> itemList = (List<OdersDetails>) oders.getOdersDetailsCollection();
+
                 boolean check = false;
+
                 for (OdersDetails items : itemList) {
                     if (items.getProductId().equals(pet.getPId())) {
                         items.setQuantity(items.getQuantity() + quantity);
                         check = true;
                     }
                 }
+
                 if (check == false) {
-                    OdersDetails items = new OdersDetails(pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), oders);
+                    OdersDetails items = new OdersDetails(2,pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), oders);
                     itemList.add(items);
                     oders.setOdersDetailsCollection(itemList);
                 }
@@ -140,8 +130,6 @@ public class orderController extends HttpServlet {
                 }
                 oders.setTotal(total);
                 session.setAttribute("order", oders);
-                request.setAttribute("total", total);
-                request.setAttribute("list", oders.getOdersDetailsCollection());
                 request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
             }
         } else {
@@ -150,23 +138,36 @@ public class orderController extends HttpServlet {
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        HttpSession session = request.getSession();
-        PrintWriter out = response.getWriter();
-        if (session.getAttribute("order") != null) {
-            String id = request.getParameter("productId");
-            Orders orders = (Orders) session.getAttribute("order");
-            List<OdersDetails> itemList = (List<OdersDetails>) orders.getOdersDetailsCollection();
-            OdersDetails itemDe = null;
-            for (OdersDetails item : itemList) {
-                if (item.getProductId().equals(id)) {
-                    itemDe  = item;
-                    
+        if (request.getParameter("productId") == null || request.getParameter("productId").trim().isEmpty()) {
+            response.sendRedirect(request.getContextPath() + "/Order/View");
+        } else {
+            HttpSession session = request.getSession();
+            int total = 0;
+            if (session.getAttribute("order") != null) {
+                String id = request.getParameter("productId");
+                Orders orders = (Orders) session.getAttribute("order");
+                List<OdersDetails> itemList = (List<OdersDetails>) orders.getOdersDetailsCollection();
+                OdersDetails itemDe = null;
+                for (OdersDetails item : itemList) {
+                    if (item.getProductId().equals(id)) {
+                        itemDe = item;
+                    }
                 }
+                itemList.remove(itemDe);
+                orders.setOdersDetailsCollection(itemList);
+                for (OdersDetails item : itemList) {
+                    total += item.getProductPrice() * item.getQuantity();
+                }
+                orders.setTotal(total);
+                if(itemList.size() == 0){
+                    session.removeAttribute("order");
+                    response.sendRedirect(request.getContextPath() + "/Order/View");
+                }else{
+                    session.setAttribute("order", orders);
+                    response.sendRedirect(request.getContextPath() + "/Order/View");
+                }
+                
             }
-            itemList.remove(itemDe);
-            orders.setOdersDetailsCollection(itemList);
-            session.setAttribute("order", orders);
-            response.sendRedirect(request.getContextPath()+"/Order/View");
         }
     }
 

@@ -393,7 +393,7 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <select style="width: 150px" name="animals">
-                                            <c:forEach var="i" items="${animals}">
+                                            <c:forEach var="i" items="${alist}">
                                                 <option value="${i.CFId}">${i.name}</option>
                                             </c:forEach>
                                         </select>

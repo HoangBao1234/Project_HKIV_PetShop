@@ -18,7 +18,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -58,6 +57,16 @@ public class OdersDetails implements Serializable {
     private Orders oderId;
 
     public OdersDetails() {
+    }
+
+    public OdersDetails(Integer odId, String productId, String productName, Integer productPrice, Integer quantity, String image, Orders oderId) {
+        this.odId = odId;
+        this.productId = productId;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.quantity = quantity;
+        this.image = image;
+        this.oderId = oderId;
     }
 
     public String getProductName() {

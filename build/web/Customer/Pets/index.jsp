@@ -47,16 +47,6 @@
         </style>
     </head>
     <body>
-        <c:if test="${sessionScope.order != null}">
-            ${sessionScope.order.oderId}
-            <c:forEach var="cart" items="${sessionScope.order.getOdersDetailsCollection()}">
-                <h1>${cart.quantity}</h1>
-                <h1>${cart.productId}</h1>
-            </c:forEach>
-        </c:if>
-        <c:if test="${sessionScope.order == null}">
-            <h1>Chua co</h1>
-        </c:if>
         <div class="wrap">
             <div class="container">
                 <div class="row">
@@ -145,11 +135,12 @@
                                                 <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-9">
+                                                    <a href="${context}/Order/Store?PId=${i.PId}">
                                                     <button style="border: none; background-color: #00bd56;
-                                                            border-radius: 10px; padding: 4px  10px; color: whitesmoke">
-                                                        <a href="${context}/Order/Store?PId=${i.PId}">Add Cart</a>
+                                                            border-radius: 10px; padding: 4px  12px; color: whitesmoke">Add Cart
                                                     </button>
+                                                    </a>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <span style="color: #00bd56">${i.price}$</span>
