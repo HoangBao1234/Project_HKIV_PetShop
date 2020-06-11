@@ -366,7 +366,7 @@
                                         Desciption
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="description" name="description" placeholder="Description" class="form-control input-md" required="" type="text">
+                                        <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
                                     </div>
                                 </div>
                                 <!-- Textarea -->

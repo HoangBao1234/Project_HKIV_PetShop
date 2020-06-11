@@ -30,4 +30,6 @@ public interface FoodsFacadeLocal {
 
     int count();
     
+    List<Foods> recommentFood(Animals animals);
+    
 }

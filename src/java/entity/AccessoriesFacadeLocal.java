@@ -32,4 +32,6 @@ public interface AccessoriesFacadeLocal {
     
     void deleteByCateEs(CateES cate);
     
+    List<Accessories> reconmentAcc(CateES cate);
+    
 }

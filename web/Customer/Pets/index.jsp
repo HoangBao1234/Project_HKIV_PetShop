@@ -118,13 +118,13 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section bg-light">
+        <section class="ftco-section">
             <div class="container">
                 <div class="row d-flex">
                     <div class="col-sm-8">
                         <div class="row">
                             <c:forEach var="i" items="${list}">
-                                <div class="col-sm-4 d-flex ftco-animate">
+                                <div class="col-sm-4 d-flex ftco-animate" id="myTable">
                                     <div class="blog-entry align-self-stretch contentPage">
                                         <a href="${context}/PetProduct/Detail?id=${i.PId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
                                         </a>
@@ -137,9 +137,9 @@
                                             <div class="row">
                                                 <div class="col-sm-9">
                                                     <a href="${context}/Order/Store?PId=${i.PId}">
-                                                    <button style="border: none; background-color: #00bd56;
-                                                            border-radius: 10px; padding: 4px  12px; color: whitesmoke">Add Cart
-                                                    </button>
+                                                        <button style="border: none; background-color: #00bd56;
+                                                                border-radius: 10px; padding: 4px  12px; color: whitesmoke">Add Cart
+                                                        </button>
                                                     </a>
                                                 </div>
                                                 <div class="col-sm-3">
@@ -155,23 +155,31 @@
                     <div class="col-sm-4">
                         <div style="border: #000000">
                             <h4>Product Portfolio</h4>
-                            <form>
-                                <input style="padding: 2px 5px; border-radius: 10px" type="text" placeholder="Search">
+                            <hr style="background-color: #00bd56"/>
+                            <form action="${context}/PetProduct/Search" method="post" id="myForm">
+                                <input style="padding: 2px 5px; border-radius: 10px" id="myInput" name="txtName" type="text" placeholder="Search">
                                 <button type="submit" style="border: none; background-color: #f8f9fd"><i class="fas fa-search" aria-hidden="true"></i></button>
                             </form>
+                            <hr style="background-color: #00bd56"/>
                             <h6 style="margin-top: 10px">Breeds</h6>
                             <ul>
                                 <c:forEach var="b" items="${breed}">
-                                    <li style="list-style-type: none;"><a style="color: black" href="${context}/PetProduct/ShowByBreed?id=${b.CPId}">${b.name}(${b.petsCollection.size()})</a></li>
-                                    </c:forEach>
+                                    <li style="list-style-type: none;"><a style="color: black" href="${context}/PetProduct/ShowByBreed?id=${b.CPId}">${b.name}<sub><span class="badge">${b.petsCollection.size()}</span></a></li>
+                                                </c:forEach>
                             </ul>
-                            <hr/>
+                            <hr style="background-color: #00bd56"/>
+                            <h6 style="margin-top: 10px">Foods</h6>
                             <ul>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
+                                <c:forEach var="f" items="${forAnimals}">
+                                    <li style="list-style-type: none;"><a style="color: black" href="${context}/FoodProduct/ShowByAnimals?id=${f.CFId}">${f.name}<sub><span class="badge">${f.foodsCollection.size()}</span></a></li>
+                                                </c:forEach>
+                            </ul>
+                            <hr style="background-color: #00bd56"/>
+                            <h6 style="margin-top: 10px">Accessories</h6>
+                            <ul>
+                                <c:forEach var="a" items="${forAnimals}">
+                                    <li style="list-style-type: none;"><a style="color: black" href="${context}/AccessoriesProduct/ShowByAnimals?id=${a.CFId}">${a.name}<sub><span class="badge">${a.accessoriesCollection.size()}</span></a></li>
+                                                </c:forEach>
                             </ul>
                         </div>
                     </div>
@@ -250,10 +258,6 @@
             </div>
         </footer>
 
-
-
-
-
         <script src="${context}/petsitting/js/jquery.min.js"></script>
         <script src="${context}/petsitting/js/jquery-migrate-3.0.1.min.js"></script>
         <script src="${context}/petsitting/js/popper.min.js"></script>
@@ -276,8 +280,13 @@
         <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
         <!-- JS t?o nút b?m di chuy?n trang end -->
         <script type="text/javascript">
+                                $('#myForm').bind('keyup', function() {
+                                    $('#form').submit();
+                                });
+
+
                                 $(function() {
-                                    var pageSize = 3; // Hi?n th? 6 s?n ph?m trên 1 trang
+                                    var pageSize = 9; // Hi?n th? 6 s?n ph?m trên 1 trang
                                     showPage = function(page) {
                                         $(".contentPage").hide();
                                         $(".contentPage").each(function(n) {

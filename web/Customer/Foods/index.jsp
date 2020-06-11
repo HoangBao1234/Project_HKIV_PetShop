@@ -116,7 +116,7 @@
             </div>
         </nav>
         <!-- END nav -->
-
+   
 
         <section class="ftco-section bg-light">
             <div class="container">
@@ -137,7 +137,7 @@
                                             <div class="row">
                                                 <div class="col-sm-9">
                                                     <a href="${context}/Order/Store?FId=${i.FId}">
-                                                        <button style="border: none; background-color: #00bd56;
+                                                        <button style="border: none; background-color: #00bd56; width: 90px;
                                                                 border-radius: 10px; padding: 4px  12px; color: whitesmoke">Add Cart
                                                         </button>
                                                     </a>
@@ -152,6 +152,7 @@
                             </c:forEach>
                         </div>
                     </div>
+                         
                     <div class="col-sm-4">
                         <div style="border-width: 0.1px;
                              border-style: solid;

@@ -91,7 +91,6 @@ public class cusAccController extends HttpServlet {
         } else {
             int id = Integer.parseInt(request.getParameter("id"));
             request.setAttribute("animals", animalsFacade.find(id));
-            request.setAttribute("animal", animalsFacade.findAll());
             request.getRequestDispatcher("/Customer/Accessories/showByAnimals.jsp").forward(request, response);
         }
 
@@ -103,7 +102,6 @@ public class cusAccController extends HttpServlet {
         } else {
             int id = Integer.parseInt(request.getParameter("id"));
             request.setAttribute("cates", cateESFacade.find(id));
-            request.setAttribute("cate", cateESFacade.findAll());
             request.getRequestDispatcher("/Customer/Accessories/showByCate.jsp").forward(request, response);
         }
 

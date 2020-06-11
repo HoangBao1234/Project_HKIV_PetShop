@@ -47,15 +47,6 @@
         </style>
     </head>
     <body>
-        <c:if test="${sessionScope.order != null}">
-            ${sessionScope.order.oderId}
-            <c:forEach var="cart" items="${sessionScope.order.getOdersDetailsCollection()}">
-                <h1>${cart.quantity}</h1>
-            </c:forEach>
-        </c:if>
-        <c:if test="${sessionScope.order == null}">
-            <h1>Chua co</h1>
-        </c:if>
         <div class="wrap">
             <div class="container">
                 <div class="row">
@@ -127,7 +118,7 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section bg-light" style="background-color: #f1f1f1">
+        <section class="ftco-section" style="background-color: #f1f1f1">
             <div class="container">
                 <div class="row d-flex">
                     <div class="col-sm-8">
@@ -192,10 +183,10 @@
                                             <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
                                         </div>
                                         <div class="row">
-                                            <button style="border: none; background-color: #00bd56;
+                                            <button style="border: none; background-color: #00bd56; width: 90px;
                                                         border-radius: 10px; padding: 4px  10px; color: whitesmoke">
-                                                    <a style="color: white" href="${context}/PetProduct/Compare?id_1=${pet.getPId()}&id_2=${i.getPId()}">Compare</a>
-                                                </button>
+                                                <a style="color: white" href="${context}/PetProduct/Compare?id_1=${pet.getPId()}&id_2=${i.getPId()}">Compare</a>
+                                            </button>
                                             <div class="col-sm-3">
                                                 <span style="color: #00bd56">${i.price}$</span>
                                             </div>

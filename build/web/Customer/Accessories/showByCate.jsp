@@ -156,7 +156,7 @@
                             <ul>
                                 <c:forEach var="b" items="${cate}">
                                     <li><a href="${context}/AccessoriesProduct/ShowByCate?id=${b.CEId}">${b.name}(${b.accessoriesCollection.size()})</a></li>
-                                </c:forEach>
+                                    </c:forEach>
                             </ul>
                             <hr/>
                             <ul>

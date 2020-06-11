@@ -47,15 +47,6 @@
         </style>
     </head>
     <body>
-        <c:if test="${sessionScope.order != null}">
-            ${sessionScope.order.oderId}
-            <c:forEach var="cart" items="${sessionScope.order.getOdersDetailsCollection()}">
-                <h1>${cart.quantity}</h1>
-            </c:forEach>
-        </c:if>
-        <c:if test="${sessionScope.order == null}">
-            <h1>Chua co</h1>
-        </c:if>
         <div class="wrap">
             <div class="container">
                 <div class="row">
@@ -127,53 +118,61 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section bg-light">
+        <section class="ftco-section">
             <div class="container">
                 <div class="row d-flex">
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <img src="${context}/ImageItems/${pet.image}" width="313" height="330"/>
-                                ${pet.description}
-                            </div>
-                            <div class="col-sm-6">
-                                <ul style="list-style-type: none">
-                                    <li><h1 style="font-family: initial">${pet.PName}</h1></li>
-                                    <li>Price: ${pet.price} $</li>
-                                    <li>Date of Birth: ${pet.age}</li>
-                                    <li>Color: ${pet.color}</li>
-                                    <li>Gender: ${pet.gender == true ? "Male" : "Female"}</li>
-                                    <li><hr/></li>
-                                    <li><button style="border: none; background-color: #00bd56;
-                                                border-radius: 5px; padding: 5px  15px; color: whitesmoke">Add to Cart</button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <img src="${context}/ImageItems/${compare.image}" width="313" height="330"/>
-                                ${compare.description}
-                            </div>
-                            <div class="col-sm-6">
-                                <ul style="list-style-type: none">
-                                    <li><h1 style="font-family: initial">${compare.PName}</h1></li>
-                                    <li>Price: ${compare.price} $</li>
-                                    <li>Date of Birth: ${compare.age}</li>
-                                    <li>Color: ${compare.color}</li>
-                                    <li>Gender: ${compare.gender == true ? "Male" : "Female"}</li>
 
-                                    <li><hr/></li>
-                                    <li><button style="border: none; background-color: #00bd56;
-                                                border-radius: 5px; padding: 5px  15px; color: whitesmoke">Add to Cart</button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <table style="width: 100%; height: 600px; padding: 15px; border-color: #cccccc;
+                           " border="1">
+                        <tr>
+                            <th style="text-align: center">Product</th>
+                            <td style="font-family: initial">&nbsp;${pet.PName}</td>
+                            <td style="font-family: initial"> &nbsp;${compare.PName}</td>
+                        </tr>
+                        <tr style="text-align: center">
+                            <th style="text-align: center">Image</th>
+                            <td><img src="${context}/ImageItems/${pet.image}" width="313" height="330"/></td>
+                            <td><img src="${context}/ImageItems/${compare.image}" width="313" height="330"/></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center">Price</th>
+                            <td>&nbsp;${pet.price} $</td>
+                            <td> &nbsp;${compare.price} $</td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center">Breed</th>
+                            <td> &nbsp;${pet.CPId.name}</td>
+                            <td> &nbsp;${compare.CPId.name}</td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center">Orgin</th>
+                            <td>&nbsp;${pet.origin}</td>
+                            <td>&nbsp;${compare.origin}</td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center">Gender</th>
+                            <td> &nbsp;${pet.gender == true ? "Male" : "Female"}</td>
+                            <td> &nbsp;${compare.gender == true ? "Male" : "Female"}</td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center"></th>
+                            <td style="text-align: center">
+                                <button style="border: none; background-color: #00bd56; width: 80%;
+                                        border-radius: 5px; padding: 4px  15px; color: whitesmoke">
+                                    <a style="color: white" href="${context}/Order/Store?PId=${pet.PId}">Add to cart</a>
+                                </button>
+                            </td>
+                            <td style="text-align: center">
+                                <button style="border: none; background-color: #00bd56; width: 80%;
+                                        border-radius: 5px; padding: 4px  15px; color: whitesmoke">
+                                    <a style="color: white" href="${context}/Order/Store?PId=${compare.PId}">Add to cart</a>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <h4 style="margin-top: 50px">Maybe you are interested</h4>
-                <hr/>
+                <h4 style="margin-top: 50px; color: #00bd56; font-family: initial">Maybe you are interested</h4>
+                <hr style="background-color: #00bd56"/>
                 <div class="row">
                     <c:forEach var="i" items="${list}">
                         <c:if test="${i.getPId() != pet.getPId()}">
@@ -189,7 +188,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-8">
-                                                <button style="border: none; background-color: #00bd56;
+                                                <button style="border: none; background-color: #00bd56; width: 90px;
                                                         border-radius: 10px; padding: 4px  10px; color: whitesmoke">
                                                     <a style="color: white" href="${context}/PetProduct/Detail?id=${i.getPId()}">Detail</a>
                                                 </button>

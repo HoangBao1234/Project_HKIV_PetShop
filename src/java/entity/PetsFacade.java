@@ -53,6 +53,14 @@ public class PetsFacade extends AbstractFacade<Pets> implements PetsFacadeLocal 
         q.setParameter("breeds", breeds);
         return q.getResultList();
     }
+
+    @Override
+    public List<Pets> searchByName(String name) {
+        String query = "SELECT p FROM Pets p WHERE p.pName LIKE :name";
+        Query q = em.createQuery(query);
+        q.setParameter("name", "%"+name+"%");
+        return q.getResultList();
+    }
     
     
     

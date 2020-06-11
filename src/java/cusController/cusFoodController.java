@@ -53,8 +53,8 @@ public class cusFoodController extends HttpServlet {
                 case "/Detail":
                     getDetailView(request, response);
                     break;
-                case "/ShowByBreed":
-                    getViewBreed(request, response);
+                case "/ShowByAnimals":
+                    getViewAnimals(request, response);
                     break;
                 default:
                     out.print("Huhu");
@@ -73,7 +73,7 @@ public class cusFoodController extends HttpServlet {
         if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
             response.sendRedirect("All");
         } else {
-            int id = Integer.parseInt(request.getParameter("id"));
+            String id = request.getParameter("id");
             request.setAttribute("food", foodsFacade.find(id));
             request.getRequestDispatcher("/Customer/Foods/detail.jsp").forward(request, response);
 
@@ -81,14 +81,13 @@ public class cusFoodController extends HttpServlet {
 
     }
 
-    private void getViewBreed(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void getViewAnimals(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()){
             response.sendRedirect("All");
         }else{
              int id = Integer.parseInt(request.getParameter("id"));
-             request.setAttribute("breeds", breedsFacade.find(id));
-             request.setAttribute("breed", breedsFacade.findAll());
-             request.getRequestDispatcher("/Customer/Foods/showByAnimals").forward(request, response);
+             request.setAttribute("animlas", animalsFacade.find(id));
+             request.getRequestDispatcher("/Customer/Foods/showByAnimals.jsp").forward(request, response);
         }
     }
 

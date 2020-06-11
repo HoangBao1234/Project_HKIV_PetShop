@@ -31,6 +31,12 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 
+
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+
+      
+
         <style>
             img {
                 image-rendering: pixelated;
@@ -122,7 +128,7 @@
         <script>
             function check() {
                 swal("Are you sure you want to do this?", {
-                   buttons: ["Oh noez!", true],
+                    buttons: ["Oh noez!", true],
                 });
             }
         </script>
@@ -201,8 +207,8 @@
             <div class="card shopping-cart">
                 <div class="card-header bg-dark text-light">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    Shipping cart
-                    <a href="" class="btn btn-outline-info btn-sm pull-right">Continiu shopping</a>
+                    Shopping cart
+                    <a href="${context}" class="btn btn-outline-info btn-sm pull-right">Continiu shopping</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="card-body">
@@ -225,10 +231,8 @@
                                     </div>
                                     <div class="col-4 col-sm-4 col-md-4">
                                         <div class="quantity">
-                                            <input type="button" value="+" class="plus">
-                                            <input type="number" step="1" max="99" min="1" value="${i.quantity}" title="Qty" class="qty"
+                                            <input type="number" id="test" step="1" max="99" min="1" value="${i.quantity}" title="Qty" class="qty"
                                                    size="4">
-                                            <input type="button" value="-" class="minus">
                                         </div>
                                     </div>
                                     <div class="col-2 col-sm-2 col-md-2 text-right">

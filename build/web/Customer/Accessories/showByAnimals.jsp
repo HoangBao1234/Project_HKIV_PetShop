@@ -124,7 +124,7 @@
                 <div class="row d-flex">
                     <div class="col-sm-8">
                         <div class="row">
-                            <c:forEach var="i" items="${cates.accessoriesCollection}">
+                            <c:forEach var="i" items="${animals.accessoriesCollection}">
                                 <div class="col-sm-4 d-flex ftco-animate">
                                     <div class="blog-entry align-self-stretch contentPage">
                                         <a href="${context}/AccessoriesProduct/Detail?id=${i.getESId()}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">

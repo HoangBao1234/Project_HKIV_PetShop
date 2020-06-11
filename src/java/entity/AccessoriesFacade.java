@@ -6,6 +6,7 @@
 
 package entity;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -35,6 +36,14 @@ public class AccessoriesFacade extends AbstractFacade<Accessories> implements Ac
         Query q = em.createQuery(query);
         q.setParameter("cate", cate);
         q.executeUpdate();
+    }
+
+    @Override
+    public List<Accessories> reconmentAcc(CateES cate) {
+        String query = "SELECT a FROM Accessories a WHERE a.CFId = :cate";
+        Query q = em.createQuery(query).setMaxResults(5);
+        q.setParameter("cate", cate);
+        return q.getResultList();
     }
     
 }

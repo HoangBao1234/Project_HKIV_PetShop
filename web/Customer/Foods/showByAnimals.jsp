@@ -119,20 +119,20 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section bg-light">
+        <section class="ftco-section">
             <div class="container">
                 <div class="row d-flex">
                     <div class="col-sm-8">
                         <div class="row">
-                            <c:forEach var="i" items="${breeds.petsCollection}">
+                            <c:forEach var="i" items="${animlas.foodsCollection}">
                                 <div class="col-sm-4 d-flex ftco-animate">
                                     <div class="blog-entry align-self-stretch contentPage">
-                                        <a href="${context}/FoodProduct/Detail?id=${i.getPId()}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
+                                        <a href="${context}/FoodProduct/Detail?id=${i.FId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
                                         </a>
                                         <div class="text p-4">
                                             <div class="meta mb-2">
-                                                <div><a href="#">${i.PName}</a></div><br/>
-                                                <div><a href="#">${i.CPId.name}</a></div>
+                                                <div><a href="#">${i.name}</a></div><br/>
+                                                <div><a href="#">${i.CFId.name}</a></div>
                                                 <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
                                             </div>
                                             <div class="row">

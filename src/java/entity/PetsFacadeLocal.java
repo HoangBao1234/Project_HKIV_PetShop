@@ -36,4 +36,5 @@ public interface PetsFacadeLocal {
 
     List<Pets> recommentPet(Breeds breeds);
     
+    List<Pets> searchByName(String name);
 }

@@ -6,9 +6,11 @@
 
 package entity;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -26,6 +28,14 @@ public class FoodsFacade extends AbstractFacade<Foods> implements FoodsFacadeLoc
 
     public FoodsFacade() {
         super(Foods.class);
+    }
+
+    @Override
+    public List<Foods> recommentFood(Animals animals) {
+        String query = "SELECT f FROM Foods f WHERE f.cFId = :animals";
+        Query q = em.createQuery(query).setMaxResults(5);
+        q.setParameter("animals", animals);
+        return q.getResultList();
     }
     
 }

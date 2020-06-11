@@ -5,6 +5,8 @@
  */
 package cusController;
 
+import entity.AccessoriesFacadeLocal;
+import entity.AnimalsFacadeLocal;
 import entity.BreedsFacadeLocal;
 import entity.PetsFacadeLocal;
 import java.io.IOException;
@@ -22,6 +24,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "cusPetController", urlPatterns = {"/PetProduct/*"})
 public class cusPetController extends HttpServlet {
+
+    @EJB
+    private AccessoriesFacadeLocal accessoriesFacade;
+    @EJB
+    private AnimalsFacadeLocal animalsFacade;
 
     @EJB
     private BreedsFacadeLocal breedsFacade;
@@ -57,6 +64,9 @@ public class cusPetController extends HttpServlet {
                 case "/Compare":
                     getCompareView(request, response);
                     break;
+                case "/Search":
+                    searchByName(request, response);
+                    break;
                 default:
                     out.print("Huhu");
                     break;
@@ -68,6 +78,7 @@ public class cusPetController extends HttpServlet {
     private void getViewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", petsFacade.findAll());
         request.setAttribute("breed", breedsFacade.findAll());
+        request.setAttribute("forAnimals", animalsFacade.findAll());
         request.getRequestDispatcher("/Customer/Pets/index.jsp").forward(request, response);
     }
 
@@ -90,6 +101,8 @@ public class cusPetController extends HttpServlet {
             String id = request.getParameter("id");
             request.setAttribute("pet", petsFacade.find(id));
             request.setAttribute("list", petsFacade.recommentPet(petsFacade.find(id).getCPId()));
+            request.setAttribute("breed", breedsFacade.findAll());
+            request.setAttribute("forAnimals", animalsFacade.findAll());
             request.getRequestDispatcher("/Customer/Pets/detail.jsp").forward(request, response);
         }
     }
@@ -107,6 +120,19 @@ public class cusPetController extends HttpServlet {
             request.setAttribute("list", petsFacade.recommentPet(petsFacade.find(id_1).getCPId()));
             request.getRequestDispatcher("/Customer/Pets/compare.jsp").forward(request, response);
         }
+    }
+
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getParameter("txtName") == null || request.getParameter("txtName").trim().isEmpty()) {
+            response.sendRedirect("All");
+        } else {
+            String name = request.getParameter("txtName");
+            request.setAttribute("list", petsFacade.searchByName(name));
+            request.setAttribute("breed", breedsFacade.findAll());
+            request.setAttribute("forAnimals", animalsFacade.findAll());
+            request.getRequestDispatcher("/Customer/Pets/index.jsp").forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

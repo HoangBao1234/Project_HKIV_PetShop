@@ -119,7 +119,7 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section bg-light">
+        <section class="ftco-section">
             <div class="container">
                 <div class="row d-flex">
                     <div class="col-sm-8">
