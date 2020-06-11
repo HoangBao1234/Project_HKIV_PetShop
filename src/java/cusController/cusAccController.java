@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package cusController;
 
 import entity.AccessoriesFacadeLocal;
@@ -25,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "cusAccController", urlPatterns = {"/AccessoriesProduct/*"})
 public class cusAccController extends HttpServlet {
+
     @EJB
     private BreedsFacadeLocal breedsFacade;
     @EJB
@@ -53,6 +53,14 @@ public class cusAccController extends HttpServlet {
                 case "/All":
                     getViewAll(request, response);
                     break;
+                case "/ShowByAnimals":
+                    getViewAnimals(request, response);
+                    break;
+                case "/ShowByCate":
+                    getViewCate(request, response);
+                    break;
+                case "/Detail":
+                    getDetailView(request, response);
                 default:
                     out.print("Huhu");
                     break;
@@ -60,13 +68,47 @@ public class cusAccController extends HttpServlet {
         }
     }
 
-    private void getViewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    private void getViewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", accessoriesFacade.findAll());
         request.setAttribute("animals", animalsFacade.findAll());
         request.setAttribute("cate", cateESFacade.findAll());
         request.getRequestDispatcher("/Customer/Accessories/index.jsp").forward(request, response);
     }
-    
+
+    private void getDetailView(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+            response.sendRedirect("All");
+        } else {
+            String id = request.getParameter("id");
+            request.setAttribute("acc", accessoriesFacade.find(id));
+            request.getRequestDispatcher("/Customer/Accessories/detail.jsp").forward(request, response);
+        }
+    }
+
+    private void getViewAnimals(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+            response.sendRedirect("All");
+        } else {
+            int id = Integer.parseInt(request.getParameter("id"));
+            request.setAttribute("animals", animalsFacade.find(id));
+            request.setAttribute("animal", animalsFacade.findAll());
+            request.getRequestDispatcher("/Customer/Accessories/showByAnimals.jsp").forward(request, response);
+        }
+
+    }
+
+    private void getViewCate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+            response.sendRedirect("All");
+        } else {
+            int id = Integer.parseInt(request.getParameter("id"));
+            request.setAttribute("cates", cateESFacade.find(id));
+            request.setAttribute("cate", cateESFacade.findAll());
+            request.getRequestDispatcher("/Customer/Accessories/showByCate.jsp").forward(request, response);
+        }
+
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

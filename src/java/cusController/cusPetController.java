@@ -53,6 +53,7 @@ public class cusPetController extends HttpServlet {
                     break;
                 case "/Detail":
                     getDetailView(request, response);
+                    break;
                 case "/Compare":
                     getCompareView(request, response);
                     break;
