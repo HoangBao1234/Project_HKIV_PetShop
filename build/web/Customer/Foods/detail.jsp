@@ -171,7 +171,7 @@
                 <hr/>
                 <div class="row">
                     <c:forEach var="i" items="${list}">
-                        <c:if test="${i.getFId() != pet.getFId()}">
+                        <c:if test="${i.getFId() != food.getFId()}">
                             <div class="col-sm-3 d-flex ftco-animate">
                                 <div class="blog-entry align-self-stretch contentPage">
                                     <a href="${context}/FoodProduct/Detail?id=${i.FId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
@@ -185,7 +185,7 @@
                                         <div class="row">
                                             <button style="border: none; background-color: #00bd56; width: 90px;
                                                         border-radius: 10px; padding: 4px  10px; color: whitesmoke">
-                                                <a style="color: white" href="${context}/PetProduct/Compare?id_1=${pet.getPId()}&id_2=${i.getPId()}">Compare</a>
+                                                <a style="color: white" href="${context}/FoodProduct/Compare?id_1=${food.getFId()}&id_2=${i.getFId()}">Compare</a>
                                             </button>
                                             <div class="col-sm-3">
                                                 <span style="color: #00bd56">${i.price}$</span>

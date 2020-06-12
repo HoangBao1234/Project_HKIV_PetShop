@@ -67,7 +67,7 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a href="services.html" class="nav-link">PetHotel</a></li>
-                        <li class="nav-item"><a href="About_us/aboutus.jsp" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="aboutus.jsp" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="${context}/Order/View" class="nav-link"><i class="fas fa-shopping-cart"><sub><span class="badge">
                                             <c:if test="${sessionScope.order != null}">
                                                 ${sessionScope.order.odersDetailsCollection.size()}

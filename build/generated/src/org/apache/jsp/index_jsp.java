@@ -91,7 +91,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"petsitting/css/style.css\">\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
-      out.write("        \r\n");
+      out.write("\r\n");
       out.write("        <div class=\"wrap\">\r\n");
       out.write("            <div class=\"container\">\r\n");
       out.write("                <div class=\"row\">\r\n");
@@ -120,7 +120,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"collapse navbar-collapse\" id=\"ftco-nav\">\r\n");
       out.write("                    <ul class=\"navbar-nav ml-auto\">\r\n");
       out.write("                        <li class=\"nav-item active\"><a href=\"index.html\" class=\"nav-link\">Home</a></li>\r\n");
-      out.write("                        \r\n");
+      out.write("\r\n");
       out.write("                        <li class=\"nav-item dropdown\" ><a href=\"about.html\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">Product</a>\r\n");
       out.write("                            <ul class=\"dropdown-menu\" style=\"font-size: 14px; width: 200px\">\r\n");
       out.write("                                <li><a href=\"");
@@ -135,23 +135,32 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            </ul>\r\n");
       out.write("                        </li>\r\n");
       out.write("                        <li class=\"nav-item\"><a href=\"services.html\" class=\"nav-link\">PetHotel</a></li>\r\n");
-      out.write("                        <li class=\"nav-item\"><a href=\"About_us/aboutus.jsp\" class=\"nav-link\">About</a></li>\r\n");
+      out.write("                        <li class=\"nav-item\"><a href=\"aboutus.jsp\" class=\"nav-link\">About</a></li>\r\n");
       out.write("                        <li class=\"nav-item\"><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Order/View\" class=\"nav-link\"><i class=\"fas fa-shopping-cart\"></i></a></li>\r\n");
-      out.write("                                ");
+      out.write("/Order/View\" class=\"nav-link\"><i class=\"fas fa-shopping-cart\"><sub><span class=\"badge\">\r\n");
+      out.write("                                            ");
       if (_jspx_meth_c_if_0(_jspx_page_context))
+        return;
+      out.write("    \r\n");
+      out.write("                                            ");
+      if (_jspx_meth_c_if_1(_jspx_page_context))
+        return;
+      out.write("    \r\n");
+      out.write("                                        </span></sub></i> </a></li>\r\n");
+      out.write("                                        ");
+      if (_jspx_meth_c_if_2(_jspx_page_context))
         return;
       out.write("\r\n");
       out.write("                        ");
-      if (_jspx_meth_c_if_1(_jspx_page_context))
+      if (_jspx_meth_c_if_3(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("                            <li class=\"nav-item dropdown\" ><a href=\"about.html\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">Language</a>\r\n");
+      out.write("                        <li class=\"nav-item dropdown\" ><a href=\"about.html\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">Language</a>\r\n");
       out.write("                            <ul class=\"dropdown-menu\" style=\"font-size: 14px; width: 200px\">\r\n");
       out.write("                                <li><a href=\"#\">Vietnamese</a></li>\r\n");
       out.write("                                <li><a href=\"#\">English</a></li>\r\n");
-      out.write("                                \r\n");
+      out.write("\r\n");
       out.write("                            </ul>\r\n");
       out.write("                        </li>\r\n");
       out.write("                    </ul>\r\n");
@@ -924,26 +933,15 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_if_0.setPageContext(_jspx_page_context);
     _jspx_th_c_if_0.setParent(null);
-    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.username != null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.order != null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
     int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("                            <li class=\"nav-item dropdown\" >\r\n");
-        out.write("                                <a href=\"about.html\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">\r\n");
-        out.write("                                    ");
-        if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_0, _jspx_page_context))
-          return true;
+        out.write("                                                ");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.order.odersDetailsCollection.size()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("\r\n");
-        out.write("                                </a>\r\n");
-        out.write("                                <ul class=\"dropdown-menu\" style=\"font-size: 14px; width: 200px\">\r\n");
-        out.write("                                    <li><a href=\"#\">Profile</a></li>\r\n");
-        out.write("                                    <li><a href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/Customers/Logout?logout=ok\">Logout</a></li>\r\n");
-        out.write("                                </ul>\r\n");
-        out.write("                            </li>\r\n");
-        out.write("                        ");
+        out.write("                                            ");
         int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -957,24 +955,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_out_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_0 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_0);
-    _jspx_th_c_out_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.username.name}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_out_0 = _jspx_th_c_out_0.doStartTag();
-    if (_jspx_th_c_out_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
-      return true;
-    }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
-    return false;
-  }
-
   private boolean _jspx_meth_c_if_1(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -983,19 +963,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_1 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_if_1.setPageContext(_jspx_page_context);
     _jspx_th_c_if_1.setParent(null);
-    _jspx_th_c_if_1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.username == null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    _jspx_th_c_if_1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.order == null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
     int _jspx_eval_c_if_1 = _jspx_th_c_if_1.doStartTag();
     if (_jspx_eval_c_if_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("                            <li class=\"nav-item\" >\r\n");
-        out.write("                                <a href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/Customers/Login\" class=\"nav-link\">\r\n");
-        out.write("                                    Login\r\n");
-        out.write("                                </a>\r\n");
-        out.write("                            </li>\r\n");
-        out.write("                        ");
+        out.write("                                                0\r\n");
+        out.write("                                            ");
         int evalDoAfterBody = _jspx_th_c_if_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -1006,6 +980,99 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_2 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_2.setParent(null);
+    _jspx_th_c_if_2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.username != null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_2 = _jspx_th_c_if_2.doStartTag();
+    if (_jspx_eval_c_if_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                            <li class=\"nav-item dropdown\" >\r\n");
+        out.write("                                <a href=\"about.html\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">\r\n");
+        out.write("                                    ");
+        if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_2, _jspx_page_context))
+          return true;
+        out.write("\r\n");
+        out.write("                                </a>\r\n");
+        out.write("                                <ul class=\"dropdown-menu\" style=\"font-size: 14px; width: 200px\">\r\n");
+        out.write("                                    <li><a href=\"#\">Profile</a></li>\r\n");
+        out.write("                                    <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/Customers/Logout?logout=ok\">Logout</a></li>\r\n");
+        out.write("                                </ul>\r\n");
+        out.write("                            </li>\r\n");
+        out.write("                        ");
+        int evalDoAfterBody = _jspx_th_c_if_2.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_out_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_2, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:out
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_0 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_2);
+    _jspx_th_c_out_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.username.name}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_out_0 = _jspx_th_c_out_0.doStartTag();
+    if (_jspx_th_c_out_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
+      return true;
+    }
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_3(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_3 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_3.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_3.setParent(null);
+    _jspx_th_c_if_3.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.username == null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_3 = _jspx_th_c_if_3.doStartTag();
+    if (_jspx_eval_c_if_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                            <li class=\"nav-item\" >\r\n");
+        out.write("                                <a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/Customers/Login\" class=\"nav-link\">\r\n");
+        out.write("                                    Login\r\n");
+        out.write("                                </a>\r\n");
+        out.write("                            </li>\r\n");
+        out.write("                        ");
+        int evalDoAfterBody = _jspx_th_c_if_3.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_3);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_3);
     return false;
   }
 }

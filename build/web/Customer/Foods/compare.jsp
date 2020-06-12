@@ -118,63 +118,58 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section" style="background-color: #f1f1f1">
+        <section class="ftco-section">
             <div class="container">
                 <div class="row d-flex">
-                    <div class="col-sm-8">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <img src="${context}/ImageItems/${food.image}" width="313" height="330"/>
-                               
-                                
-                            </div>
-                            <div class="col-sm-6">
-                                <ul style="list-style-type: none">
-                                    <li><h1 style="font-family: initial">${food.name}</h1></li>
-                                    <li>${food.price} $</li>
-                                    <li>${food.description}</li>
-                                    
 
-                                    <li><hr/></li>
-                                    <li><button style="border: none; background-color: #00bd56;
-                                                border-radius: 5px; padding: 5px  15px; color: whitesmoke">Add to Cart</button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div style="border: #000000">
-                            <h4>Product Portfolio</h4>
-                            <hr/>
-                            <form>
-                                <input style="padding: 2px 5px; border-radius: 10px" type="text" placeholder="Search">
-                                <button type="submit" style="border: none; background-color: #f8f9fd"><i class="fas fa-search" aria-hidden="true"></i></button>
-                            </form>
-                            <h6 style="margin-top: 10px">Breeds</h6>
-                            <ul>
-                                <c:forEach var="b" items="${breed}">
-                                    <li style="list-style-type: none;"><a style="color: black" href="${context}/PetProduct/ShowByBreed?id=${b.CPId}">${b.name}(${b.petsCollection.size()})</a></li>
-                                    </c:forEach>
-                            </ul>
-                            <hr/>
-                            <ul>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <table style="width: 100%; height: 600px; padding: 15px; border-color: #cccccc;
+                           " border="1">
+                        <tr>
+                            <th style="text-align: center">Product</th>
+                            <td style="font-family: initial">&nbsp;${food.name}</td>
+                            <td style="font-family: initial"> &nbsp;${compare.name}</td>
+                        </tr>
+                        <tr style="text-align: center">
+                            <th style="text-align: center">Image</th>
+                            <td><img src="${context}/ImageItems/${food.image}" width="313" height="330"/></td>
+                            <td><img src="${context}/ImageItems/${compare.image}" width="313" height="330"/></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center">Price</th>
+                            <td>&nbsp;${food.price} $</td>
+                            <td> &nbsp;${compare.price} $</td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center">Breed</th>
+                            <td> &nbsp;${food.CFId.name}</td>
+                            <td> &nbsp;${compare.CFId.name}</td>
+                        </tr>
+                                             
+                        <tr>
+                            <th style="text-align: center"></th>
+                            <td style="text-align: center">
+                                <button style="border: none; background-color: #00bd56; width: 80%;
+                                        border-radius: 5px; padding: 4px  15px; color: whitesmoke">
+                                    <a style="color: white" href="${context}/Order/Store?FId=${food.FId}">Add to cart</a>
+                                </button>
+                            </td>
+                            <td style="text-align: center">
+                                <button style="border: none; background-color: #00bd56; width: 80%;
+                                        border-radius: 5px; padding: 4px  15px; color: whitesmoke">
+                                    <a style="color: white" href="${context}/Order/Store?FId=${compare.FId}">Add to cart</a>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <h4 style="margin-top: 50px">Maybe you are interested</h4>
-                <hr/>
+                <h4 style="margin-top: 50px; color: #00bd56; font-family: initial">Maybe you are interested</h4>
+                <hr style="background-color: #00bd56"/>
                 <div class="row">
                     <c:forEach var="i" items="${list}">
                         <c:if test="${i.getFId() != food.getFId()}">
                             <div class="col-sm-3 d-flex ftco-animate">
                                 <div class="blog-entry align-self-stretch contentPage">
-                                    <a href="${context}/FoodProduct/Detail?id=${i.FId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
+                                    <a href="${context}/PetProduct/Detail?id=${i.FId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
                                     </a>
                                     <div class="text p-4">
                                         <div class="meta mb-2">
@@ -183,10 +178,12 @@
                                             <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
                                         </div>
                                         <div class="row">
-                                            <button style="border: none; background-color: #00bd56; width: 90px;
+                                            <div class="col-sm-8">
+                                                <button style="border: none; background-color: #00bd56; width: 90px;
                                                         border-radius: 10px; padding: 4px  10px; color: whitesmoke">
-                                                <a style="color: white" href="${context}/FoodProduct/Compare?id_1=${food.getFId()}&id_2=${i.getFId()}">Compare</a>
-                                            </button>
+                                                    <a style="color: white" href="${context}/PetProduct/Detail?id=${i.getFId()}">Detail</a>
+                                                </button>
+                                            </div>
                                             <div class="col-sm-3">
                                                 <span style="color: #00bd56">${i.price}$</span>
                                             </div>
@@ -197,6 +194,7 @@
                         </c:if>
                     </c:forEach>
                 </div>
+
                 <!-- Hiên th? nút b?m -->
                 <ul id="pagination"></ul>
             </div>
