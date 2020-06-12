@@ -214,13 +214,13 @@ public class petController extends HttpServlet {
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
-            String pId = request.getParameter("PId");
+            String pId = request.getParameter("id");
             Pets pet = petsFacade.find(pId);
             String dePath = getFullPath(request) + File.separator + pet.getImage();
             File file = new File(dePath);
             file.delete();
             petsFacade.remove(pet);
-            response.sendRedirect("/List");
+            response.sendRedirect("List");
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }

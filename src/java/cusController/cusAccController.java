@@ -81,6 +81,7 @@ public class cusAccController extends HttpServlet {
         } else {
             String id = request.getParameter("id");
             request.setAttribute("acc", accessoriesFacade.find(id));
+            request.setAttribute("list", accessoriesFacade.reconmentAcc(accessoriesFacade.find(id).getCEId()));
             request.getRequestDispatcher("/Customer/Accessories/detail.jsp").forward(request, response);
         }
     }
