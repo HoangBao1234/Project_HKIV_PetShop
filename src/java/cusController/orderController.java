@@ -87,6 +87,7 @@ public class orderController extends HttpServlet {
         HttpSession session = request.getSession();
         int total = 5;
         PrintWriter out = response.getWriter();
+        //pet
         if (request.getParameter("PId") != null && !request.getParameter("PId").trim().isEmpty()) {
             String id = request.getParameter("PId");
             Pets pet = petsFacade.find(id);
@@ -135,6 +136,9 @@ public class orderController extends HttpServlet {
         } else {
             out.print("Null");
         }
+        
+        //food
+        
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
