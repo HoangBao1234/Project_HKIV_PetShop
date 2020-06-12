@@ -107,6 +107,21 @@ public class cusAccController extends HttpServlet {
 
     }
 
+    private void getCompareView(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (request.getParameter("id_1") == null || request.getParameter("id_1").trim().isEmpty()) {
+            if (request.getParameter("id_2") == null || request.getParameter("id_2").trim().isEmpty()) {
+                response.sendRedirect("All");
+            }
+        } else {
+            String id_1 = request.getParameter("id_1");
+            String id_2 = request.getParameter("id_2");
+            request.setAttribute("acc", accessoriesFacade.find(id_1));
+            request.setAttribute("compare", accessoriesFacade.find(id_2));
+            request.setAttribute("list", accessoriesFacade.reconmentAcc(accessoriesFacade.find(id_1).getCEId()));
+            request.getRequestDispatcher("/Customer/Accessories/compare.jsp").forward(request, response);
+        }
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
