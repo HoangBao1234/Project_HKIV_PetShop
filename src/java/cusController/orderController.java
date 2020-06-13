@@ -5,6 +5,8 @@
  */
 package cusController;
 
+import entity.Accessories;
+import entity.AccessoriesFacadeLocal;
 import entity.Foods;
 import entity.FoodsFacadeLocal;
 import entity.MembersFacadeLocal;
@@ -32,6 +34,8 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "orderController", urlPatterns = {"/Order/*"})
 public class orderController extends HttpServlet {
+    @EJB
+    private AccessoriesFacadeLocal accessoriesFacade;
     @EJB
     private FoodsFacadeLocal foodsFacade;
 
@@ -181,6 +185,56 @@ public class orderController extends HttpServlet {
 
                 if (check == false) {
                     OdersDetails items = new OdersDetails(2, food.getFId(), food.getName(), food.getPrice(), quantity ,food.getImage() , oders);
+                    itemList.add(items);
+                    oders.setOdersDetailsCollection(itemList);
+                }
+
+                total = 0;
+                for (OdersDetails items : itemList) {
+                    total += items.getProductPrice() * items.getQuantity();
+                }
+                oders.setTotal(total);
+                session.setAttribute("order", oders);
+                request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
+            }
+        } else {
+            out.print("Null");
+        }
+        
+          //accessory
+        if (request.getParameter("ESId") != null && !request.getParameter("ESId").trim().isEmpty()) {
+            String id = request.getParameter("ESId");
+            Accessories access = accessoriesFacade.find(id);
+            String status = "running...";
+            //neu chua co gio hang
+            if (session.getAttribute("order") == null) {
+                Orders orders = new Orders(status);
+                List<OdersDetails> cart = new ArrayList<>();
+                //items
+                OdersDetails items = new OdersDetails(1, access.getESId(), access.getName(), access.getPrice(), quantity ,access.getImage() , orders);
+                //add to list
+                cart.add(items);
+                //add to order
+                orders.setOdersDetailsCollection(cart);
+                total = items.getProductPrice() * items.getQuantity();
+                orders.setTotal(total);
+                session.setAttribute("order", orders);
+                request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
+            } else {
+                Orders oders = (Orders) session.getAttribute("order");
+                List<OdersDetails> itemList = (List<OdersDetails>) oders.getOdersDetailsCollection();
+
+                boolean check = false;
+
+                for (OdersDetails items : itemList) {
+                    if (items.getProductId().equals(access.getESId())) {
+                        items.setQuantity(items.getQuantity() + quantity);
+                        check = true;
+                    }
+                }
+
+                if (check == false) {
+                    OdersDetails items = new OdersDetails(2, access.getESId(), access.getName(), access.getPrice(), quantity ,access.getImage() , oders);;
                     itemList.add(items);
                     oders.setOdersDetailsCollection(itemList);
                 }
