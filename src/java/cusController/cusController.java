@@ -5,6 +5,8 @@
  */
 package cusController;
 
+import Common.GooglePojo;
+import Common.GoogleUtils;
 import entity.Members;
 import entity.MembersFacadeLocal;
 import java.io.IOException;
@@ -26,6 +28,12 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "cusController", urlPatterns = {"/Customers/*"})
 public class cusController extends HttpServlet {
+
+    private static final long serialVersionUID = 1L;
+
+    public cusController() {
+        super();
+    }
 
     @EJB
     private MembersFacadeLocal membersFacade;
@@ -74,7 +82,7 @@ public class cusController extends HttpServlet {
     }
 
     private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       
+
     }
 
     private void getViewLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -193,6 +201,7 @@ public class cusController extends HttpServlet {
                     request.removeAttribute("user");
                     request.removeAttribute("pass");
                     HttpSession session = request.getSession();
+                    session.removeAttribute("order");
                     session.removeAttribute("username");
                     response.sendRedirect("Login");
                 }

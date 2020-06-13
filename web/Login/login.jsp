@@ -63,7 +63,7 @@
                                             }
                                         %>
                                         ${error}
-                                        <form class="user" action="${context}/Customer/Check" method="post">
+                                        <form class="user" action="${context}/Customers/Check" method="post">
                                             <div class="form-group">
                                                 <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" name="txtMail" value="<%out.print(user);%>" placeholder="<fmt:message key="login.textfield.mail"/>">
                                             </div>
@@ -79,7 +79,8 @@
                                             <input type="submit" class="btn btn-primary btn-user btn-block" value="<fmt:message key="login.button.submit"/>"/>
 
                                             <hr>
-                                            <a href="../Admin/index.html" class="btn btn-google btn-user btn-block">
+                                            <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project_HKIV_PetShop/loginGoogle&response_type=code
+           &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force" class="btn btn-google btn-user btn-block">
                                                 <i class="fab fa-google fa-fw"></i>  <fmt:message key="login.button.submitGoogle"/>
                                             </a>
                                             <a href="../Admin/index.html" class="btn btn-facebook btn-user btn-block">
