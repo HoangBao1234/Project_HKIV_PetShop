@@ -68,6 +68,12 @@ public class orderController extends HttpServlet {
                 case "/Delete":
                     delete(request, response);
                     break;
+                case "/GetOrder":
+                    getCheckOutView(request, response);
+                    break;
+                case "/CheckOut":
+                    checkout(request, response);
+                    break;    
                 default:
                     out.print("sai");
                     break;
@@ -87,6 +93,7 @@ public class orderController extends HttpServlet {
         HttpSession session = request.getSession();
         int total = 5;
         PrintWriter out = response.getWriter();
+        //pet
         if (request.getParameter("PId") != null && !request.getParameter("PId").trim().isEmpty()) {
             String id = request.getParameter("PId");
             Pets pet = petsFacade.find(id);
@@ -119,7 +126,7 @@ public class orderController extends HttpServlet {
                 }
 
                 if (check == false) {
-                    OdersDetails items = new OdersDetails(2,pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), oders);
+                    OdersDetails items = new OdersDetails(2, pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), oders);
                     itemList.add(items);
                     oders.setOdersDetailsCollection(itemList);
                 }
@@ -135,6 +142,8 @@ public class orderController extends HttpServlet {
         } else {
             out.print("Null");
         }
+
+        //food
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -159,15 +168,25 @@ public class orderController extends HttpServlet {
                     total += item.getProductPrice() * item.getQuantity();
                 }
                 orders.setTotal(total);
-                if(itemList.size() == 0){
+                if (itemList.size() == 0) {
                     session.removeAttribute("order");
                     response.sendRedirect(request.getContextPath() + "/Order/View");
-                }else{
+                } else {
                     session.setAttribute("order", orders);
                     response.sendRedirect(request.getContextPath() + "/Order/View");
                 }
-                
+
             }
+        }
+    }
+    private void getCheckOutView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+         request.getRequestDispatcher("/Customer/Cart/checkout.jsp").forward(request, response);
+     }
+    
+    private void checkout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        HttpSession session = request.getSession();
+        if(session.getAttribute("username") == null){
+            request.getRequestDispatcher("/Login/login.jsp").forward(request, response);
         }
     }
 

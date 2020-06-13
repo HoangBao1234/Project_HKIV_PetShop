@@ -132,7 +132,6 @@
                                             <div class="meta mb-2">
                                                 <div><a href="#">${i.name}</a></div><br/>
                                                 <div><a href="#">${i.CEId.name}</a></div>
-                                                <div><a href="#">${i.CFId.name}</a></div>
                                                 <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
                                             </div>
                                             <div class="row">

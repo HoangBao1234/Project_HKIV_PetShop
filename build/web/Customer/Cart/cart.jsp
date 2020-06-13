@@ -259,7 +259,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="pull-right" style="margin: 10px">
-                        <a href="" class="btn btn-success pull-right">Checkout</a>
+                        <a href="${context}/Order/GetOrder" class="btn btn-success pull-right">Checkout</a>
                         <div class="pull-right" style="margin: 5px">
                             Total: ${sessionScope.order.getTotal()} $
                         </div>

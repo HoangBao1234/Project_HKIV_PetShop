@@ -118,70 +118,83 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section bg-light">
+        <section class="ftco-section">
             <div class="container">
                 <div class="row d-flex">
-                    <div class="col-sm-8">
-                        <div class="row">
-                            <c:forEach var="i" items="${list}">
-                                <div class="col-sm-4 d-flex ftco-animate">
-                                    <div class="blog-entry align-self-stretch contentPage">
-                                        <a href="${context}/AccessoriesProduct/Detail?id=${i.ESId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
-                                        </a>
-                                        <div class="text p-4">
-                                            <div class="meta mb-2">
-                                                <div><a href="#">${i.name}</a></div><br/>
-                                                <div><a href="#">${i.CEId.name}</a></div>
-                                                <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
+
+                    <table style="width: 100%; height: 600px; padding: 15px; border-color: #cccccc;
+                           " border="1">
+                        <tr>
+                            <th style="text-align: center">Product</th>
+                            <td style="font-family: initial">&nbsp;${acc.name}</td>
+                            <td style="font-family: initial"> &nbsp;${compare.name}</td>
+                        </tr>
+                        <tr style="text-align: center">
+                            <th style="text-align: center">Image</th>
+                            <td><img src="${context}/ImageItems/${acc.image}" width="313" height="330"/></td>
+                            <td><img src="${context}/ImageItems/${compare.image}" width="313" height="330"/></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center">Price</th>
+                            <td>&nbsp;${acc.price} $</td>
+                            <td> &nbsp;${compare.price} $</td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center">CateES</th>
+                            <td> &nbsp;${acc.CEId.name}</td>
+                            <td> &nbsp;${compare.CEId.name}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th style="text-align: center"></th>
+                            <td style="text-align: center">
+                                <button style="border: none; background-color: #00bd56; width: 80%;
+                                        border-radius: 5px; padding: 4px  15px; color: whitesmoke">
+                                    <a style="color: white" href="${context}/Order/Store?ESId=${pet.ESId}">Add to cart</a>
+                                </button>
+                            </td>
+                            <td style="text-align: center">
+                                <button style="border: none; background-color: #00bd56; width: 80%;
+                                        border-radius: 5px; padding: 4px  15px; color: whitesmoke">
+                                    <a style="color: white" href="${context}/Order/Store?ESId=${compare.ESId}">Add to cart</a>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <h4 style="margin-top: 50px; color: #00bd56; font-family: initial">Maybe you are interested</h4>
+                <hr style="background-color: #00bd56"/>
+                <div class="row">
+                    <c:forEach var="i" items="${list}">
+                        <c:if test="${i.getESId() != acc.getESId()}">
+                            <div class="col-sm-3 d-flex ftco-animate">
+                                <div class="blog-entry align-self-stretch contentPage">
+                                    <a href="${context}/AccessoriesProduct/Detail?id=${i.ESId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
+                                    </a>
+                                    <div class="text p-4">
+                                        <div class="meta mb-2">
+                                            <div><a href="#">${i.name}</a></div><br/>
+                                            <div><a href="#">${i.CEId.name}</a></div>
+                                            <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <button style="border: none; background-color: #00bd56; width: 90px;
+                                                        border-radius: 10px; padding: 4px  10px; color: whitesmoke">
+                                                    <a style="color: white" href="${context}/AccessoriesProduct/Detail?id=${i.getESId()}">Detail</a>
+                                                </button>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm-9">
-                                                    <a href="${context}/Order/Store?ESId=${i.ESId}">
-                                                        <button style="border: none; background-color: #00bd56;
-                                                                border-radius: 10px; padding: 4px  12px; color: whitesmoke">Add Cart
-                                                        </button>
-                                                    </a>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <span style="color: #00bd56">${i.price}$</span>
-                                                </div>
+                                            <div class="col-sm-3">
+                                                <span style="color: #00bd56">${i.price}$</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </c:forEach>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div style="border-width: 0.1px;
-                             border-style: solid;
-                             width: auto;
-                             height: auto;
-                             padding: 15px;
-                             border-color: #f1f1f1">
-                            <h4>Product Portfolio</h4>
-                            <hr/>
-                            <form>
-                                <input style="padding: 2px 5px; border-radius: 10px" type="text" placeholder="Search">
-                                <button type="submit" style="border: none; background-color: #f8f9fd"><i class="fas fa-search" aria-hidden="true"></i></button>
-                            </form>
-                            <hr/>
-                            <h6 style="margin-top: 10px">For</h6>
-                            <ul>
-                                <c:forEach var="a" items="${animals}">
-                                    <li style="list-style-type: none;"><a style="color: black" href="${context}/AccessoriesProduct/ShowByAnimals?id=${a.CFId}">${a.name}(${a.accessoriesCollection.size()})</a></li>
-                                </c:forEach>
-                            </ul>
-                            <hr/>
-                            <h6 style="margin-top: 10px">Pet catalog</h6>
-                            <ul>
-                                <c:forEach var="a" items="${cate}">
-                                    <li style="list-style-type: none;"><a style="color: black" href="${context}/AccessoriesProduct/ShowByCate?id=${a.CEId}">${a.name}(${a.accessoriesCollection.size()})</a></li>
-                                    </c:forEach>
-                            </ul>
-                        </div>
-                    </div>
+                            </div>
+                        </c:if>
+                    </c:forEach>
                 </div>
+
                 <!-- Hiên th? nút b?m -->
                 <ul id="pagination"></ul>
             </div>
@@ -281,33 +294,6 @@
         <!-- JS t?o nút b?m di chuy?n trang start -->
         <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
         <!-- JS t?o nút b?m di chuy?n trang end -->
-        <script type="text/javascript">
-                                $(function() {
-                                    var pageSize = 3; // Hi?n th? 6 s?n ph?m trên 1 trang
-                                    showPage = function(page) {
-                                        $(".contentPage").hide();
-                                        $(".contentPage").each(function(n) {
-                                            if (n >= pageSize * (page - 1) && n < pageSize * page)
-                                                $(this).show();
-                                        });
-                                    };
-                                    showPage(1);
-                                    ///** C?n truy?n giá tr? vào ?ây **///
-                                    var totalRows = 10; // T?ng s? s?n ph?m hi?n th?
-                                    var btnPage = Math.ceil(${list.size()} / pageSize); // S? nút b?m hi?n th? di chuy?n trang
-                                    var iTotalPages = Math.ceil(totalRows / pageSize);
-
-                                    var obj = $('#pagination').twbsPagination({
-                                        totalPages: iTotalPages,
-                                        visiblePages: btnPage,
-                                        onPageClick: function(event, page) {
-                                            /* console.info(page); */
-                                            showPage(page);
-                                        }
-                                    });
-                                    /*console.info(obj.data());*/
-                                });
-        </script>
 
     </body>
 </html>

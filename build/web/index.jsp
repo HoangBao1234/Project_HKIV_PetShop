@@ -13,20 +13,20 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- add icon link -->
         <link rel = "icon" href ="https://png.pngtree.com/png-clipart/20190916/original/pngtree-pet-icon-png-image_4584897.jpg" type = "image/x-icon">
-        <link rel="stylesheet" href="petsitting/css/animate.css">
+        <link rel="stylesheet" href="${context}/petsitting/css/animate.css">
 
-        <link rel="stylesheet" href="petsitting/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="petsitting/css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="petsitting/css/magnific-popup.css">
+        <link rel="stylesheet" href="${context}/petsitting/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="${context}/petsitting/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="${context}/petsitting/css/magnific-popup.css">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="petsitting/css/bootstrap-datepicker.css">
-        <link rel="stylesheet" href="petsitting/css/jquery.timepicker.css">
+        <link rel="stylesheet" href="${context}/petsitting/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="${context}/petsitting/css/jquery.timepicker.css">
 
-        <link rel="stylesheet" href="petsitting/css/flaticon.css">
-        <link rel="stylesheet" href="petsitting/css/style.css">
+        <link rel="stylesheet" href="${context}/petsitting/css/flaticon.css">
+        <link rel="stylesheet" href="${context}/petsitting/css/style.css">
     </head>
     <body>
 
@@ -810,22 +810,22 @@
         <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-        <script src="petsitting/js/jquery.min.js"></script>
-        <script src="petsitting/js/jquery-migrate-3.0.1.min.js"></script>
-        <script src="petsitting/js/popper.min.js"></script>
-        <script src="petsitting/js/bootstrap.min.js"></script>
-        <script src="petsitting/js/jquery.easing.1.3.js"></script>
-        <script src="petsitting/js/jquery.waypoints.min.js"></script>
-        <script src="petsitting/js/jquery.stellar.min.js"></script>
-        <script src="petsitting/js/jquery.animateNumber.min.js"></script>
-        <script src="petsitting/js/bootstrap-datepicker.js"></script>
-        <script src="petsitting/js/jquery.timepicker.min.js"></script>
-        <script src="petsitting/js/owl.carousel.min.js"></script>
-        <script src="petsitting/js/jquery.magnific-popup.min.js"></script>
-        <script src="petsitting/js/scrollax.min.js"></script>
+        <script src="${context}/petsitting/js/jquery.min.js"></script>
+        <script src="${context}/petsitting/js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="${context}/petsitting/js/popper.min.js"></script>
+        <script src="${context}/petsitting/js/bootstrap.min.js"></script>
+        <script src="${context}/petsitting/js/jquery.easing.1.3.js"></script>
+        <script src="${context}/petsitting/js/jquery.waypoints.min.js"></script>
+        <script src="${context}/petsitting/js/jquery.stellar.min.js"></script>
+        <script src="${context}/petsitting/js/jquery.animateNumber.min.js"></script>
+        <script src="${context}/petsitting/js/bootstrap-datepicker.js"></script>
+        <script src="${context}/petsitting/js/jquery.timepicker.min.js"></script>
+        <script src="${context}/petsitting/js/owl.carousel.min.js"></script>
+        <script src="${context}/petsitting/js/jquery.magnific-popup.min.js"></script>
+        <script src="${context}/petsitting/js/scrollax.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-        <script src="petsitting/js/google-map.js"></script>
-        <script src="petsitting/js/main.js"></script>
+        <script src="${context}/petsitting/js/google-map.js"></script>
+        <script src="${context}/petsitting/js/main.js"></script>
 
 
 
