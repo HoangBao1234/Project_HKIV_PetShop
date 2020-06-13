@@ -83,7 +83,7 @@
                                 <li><a href="#">Accessoreis</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="services.html" class="nav-link">PetHotel</a></li>
+                        <li class="nav-item"><a href="../petHotel/colorlib-regform-3/index.jsp" class="nav-link">PetHotel</a></li>
                         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="${context}/Order/View" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                                 <c:if test="${sessionScope.username != null}">

@@ -57,16 +57,16 @@
                 </button>
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
 
-                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
+                        <li class="nav-item dropdown" ><a href="aboutus.jsp" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                 <li><a href="${context}/PetProduct/All">Pet</a></li>
                                 <li><a href="${context}/FoodProduct/All">Food</a></li>
                                 <li><a href="${context}/AccessoriesProduct/All">Accessoreis</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="services.html" class="nav-link">PetHotel</a></li>
+                        <li class="nav-item"><a href="Customer/../Customer/petHotel/colorlib-regform-3/index.jsp" class="nav-link">PetHotel</a></li>
                         <li class="nav-item"><a href="aboutus.jsp" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="${context}/Order/View" class="nav-link"><i class="fas fa-shopping-cart"><sub><span class="badge">
                                             <c:if test="${sessionScope.order != null}">
