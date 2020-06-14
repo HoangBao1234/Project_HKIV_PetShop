@@ -155,7 +155,6 @@
                     <div class="col-sm-4">
                         <div style="border: #000000">
                             <h4>Product Portfolio</h4>
-                            <hr style="background-color: #00bd56"/>
                             <form action="${context}/PetProduct/Search" method="post" id="myForm">
                                 <input style="padding: 2px 5px; border-radius: 10px" id="myInput" name="txtName" type="text" placeholder="Search">
                                 <button type="submit" style="border: none; background-color: #f8f9fd"><i class="fas fa-search" aria-hidden="true"></i></button>

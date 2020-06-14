@@ -70,8 +70,9 @@ public class cusAccController extends HttpServlet {
 
     private void getViewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", accessoriesFacade.findAll());
-        request.setAttribute("animals", animalsFacade.findAll());
         request.setAttribute("cate", cateESFacade.findAll());
+        request.setAttribute("breed", breedsFacade.findAll());
+        request.setAttribute("forAnimals", animalsFacade.findAll());
         request.getRequestDispatcher("/Customer/Accessories/index.jsp").forward(request, response);
     }
 

@@ -68,7 +68,7 @@ public class cusFoodController extends HttpServlet {
 
     private void getViewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", foodsFacade.findAll());
-        request.setAttribute("animals", animalsFacade.findAll());
+        request.setAttribute("forAnimals", animalsFacade.findAll());
         request.setAttribute("breed", breedsFacade.findAll());
         request.getRequestDispatcher("/Customer/Foods/index.jsp").forward(request, response);
     }
