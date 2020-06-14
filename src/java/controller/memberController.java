@@ -36,11 +36,17 @@ public class memberController extends HttpServlet {
                 case "/List":
                     getListView(request, response);
                     break;
+                case "/ListProfile":
+                    getListProfile(request, response);
+                    break;
                 case "/Delete":
                     delete(request, response);
                     break;
                 case "/Update":
                     update(request, response);
+                    break;
+                case "/updateProfile":
+                    getListupdatePro(request, response);
                     break;
                 case "/Edit":
                     getViewEdit(request, response);
@@ -176,5 +182,23 @@ public class memberController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void getListProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        request.setAttribute("list", membersFacade.find(id));
+        request.getRequestDispatcher("/Profile/profile.jsp").forward(request, response);
+    }
+
+    private void getListupdatePro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String mail = request.getParameter("mail");
+        String password = request.getParameter("password");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        Members members = new Members(id, name, mail, password, phone, address);
+        membersFacade.edit(members);
+        
+    }
 
 }

@@ -82,7 +82,7 @@
                                     <c:out value="${sessionScope.username.name}" />
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="${context}/Member/ListProfile?id=${username.getMId()}">Profile</a></li>
                                     <li><a href="${context}/Customers/Logout?logout=ok">Logout</a></li>
                                 </ul>
                             </li>
