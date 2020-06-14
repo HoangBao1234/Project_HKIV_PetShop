@@ -156,8 +156,8 @@
                     <div class="col-sm-4">
                         <div style="border: #000000">
                             <h4>Product Portfolio</h4>
-                            <form>
-                                <input style="padding: 2px 5px; border-radius: 10px" type="text" placeholder="Search">
+                            <form action="${context}/FoodProduct/Search" method="post">
+                                <input style="padding: 2px 5px; border-radius: 10px" name="name" type="text" placeholder="Search">
                                 <button type="submit" style="border: none; background-color: #f8f9fd"><i class="fas fa-search" aria-hidden="true"></i></button>
                             </form>
                             <hr style="background-color: #00bd56"/>                            

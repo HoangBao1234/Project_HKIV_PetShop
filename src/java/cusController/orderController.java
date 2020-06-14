@@ -34,6 +34,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "orderController", urlPatterns = {"/Order/*"})
 public class orderController extends HttpServlet {
+
     @EJB
     private AccessoriesFacadeLocal accessoriesFacade;
     @EJB
@@ -73,6 +74,9 @@ public class orderController extends HttpServlet {
                 case "/Store":
                     addToCart(request, response);
                     break;
+                case "/UpdateCart":
+                    updateCart(request, response);
+                    break;
                 case "/Delete":
                     delete(request, response);
                     break;
@@ -81,7 +85,7 @@ public class orderController extends HttpServlet {
                     break;
                 case "/CheckOut":
                     checkout(request, response);
-                    break;    
+                    break;
                 default:
                     out.print("sai");
                     break;
@@ -161,7 +165,7 @@ public class orderController extends HttpServlet {
                 Orders orders = new Orders(status);
                 List<OdersDetails> cart = new ArrayList<>();
                 //items
-                OdersDetails items = new OdersDetails(1, food.getFId(), food.getName(), food.getPrice(), quantity ,food.getImage() , orders);
+                OdersDetails items = new OdersDetails(1, food.getFId(), food.getName(), food.getPrice(), quantity, food.getImage(), orders);
                 //add to list
                 cart.add(items);
                 //add to order
@@ -184,7 +188,7 @@ public class orderController extends HttpServlet {
                 }
 
                 if (check == false) {
-                    OdersDetails items = new OdersDetails(2, food.getFId(), food.getName(), food.getPrice(), quantity ,food.getImage() , oders);
+                    OdersDetails items = new OdersDetails(2, food.getFId(), food.getName(), food.getPrice(), quantity, food.getImage(), oders);
                     itemList.add(items);
                     oders.setOdersDetailsCollection(itemList);
                 }
@@ -200,8 +204,8 @@ public class orderController extends HttpServlet {
         } else {
             out.print("Null");
         }
-        
-          //accessory
+
+        //accessory
         if (request.getParameter("ESId") != null && !request.getParameter("ESId").trim().isEmpty()) {
             String id = request.getParameter("ESId");
             Accessories access = accessoriesFacade.find(id);
@@ -211,7 +215,7 @@ public class orderController extends HttpServlet {
                 Orders orders = new Orders(status);
                 List<OdersDetails> cart = new ArrayList<>();
                 //items
-                OdersDetails items = new OdersDetails(1, access.getESId(), access.getName(), access.getPrice(), quantity ,access.getImage() , orders);
+                OdersDetails items = new OdersDetails(1, access.getESId(), access.getName(), access.getPrice(), quantity, access.getImage(), orders);
                 //add to list
                 cart.add(items);
                 //add to order
@@ -234,7 +238,7 @@ public class orderController extends HttpServlet {
                 }
 
                 if (check == false) {
-                    OdersDetails items = new OdersDetails(2, access.getESId(), access.getName(), access.getPrice(), quantity ,access.getImage() , oders);;
+                    OdersDetails items = new OdersDetails(2, access.getESId(), access.getName(), access.getPrice(), quantity, access.getImage(), oders);;
                     itemList.add(items);
                     oders.setOdersDetailsCollection(itemList);
                 }
@@ -270,10 +274,12 @@ public class orderController extends HttpServlet {
                 }
                 itemList.remove(itemDe);
                 orders.setOdersDetailsCollection(itemList);
+                
                 for (OdersDetails item : itemList) {
                     total += item.getProductPrice() * item.getQuantity();
                 }
                 orders.setTotal(total);
+                
                 if (itemList.size() == 0) {
                     session.removeAttribute("order");
                     response.sendRedirect(request.getContextPath() + "/Order/View");
@@ -285,13 +291,40 @@ public class orderController extends HttpServlet {
             }
         }
     }
-    private void getCheckOutView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-         request.getRequestDispatcher("/Customer/Cart/checkout.jsp").forward(request, response);
-     }
-    
-    private void checkout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+    private void getCheckOutView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/Customer/Cart/checkout.jsp").forward(request, response);
+    }
+
+    private void updateCart(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String id = request.getParameter("productId");
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
         HttpSession session = request.getSession();
-        if(session.getAttribute("username") == null){
+        if(session != null){
+            Orders orders = (Orders)session.getAttribute("order");
+            List<OdersDetails> items = (List<OdersDetails>)orders.getOdersDetailsCollection();
+            for(OdersDetails i : items){
+                if(i.getProductId().equals(id)){
+                    i.setQuantity(quantity);
+                }
+            }
+            orders.setOdersDetailsCollection(items);
+            
+            int total = 0;
+            
+            for(OdersDetails i : items){
+                total += i.getProductPrice() * i.getQuantity();
+            }
+            orders.setTotal(total);
+            session.setAttribute("order", orders);
+            response.sendRedirect(request.getContextPath() + "/Order/View");
+        }
+        
+    }
+    
+    private void checkout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("username") == null) {
             request.getRequestDispatcher("/Login/login.jsp").forward(request, response);
         }
     }

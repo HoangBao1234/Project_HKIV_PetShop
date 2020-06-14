@@ -53,6 +53,9 @@ public class cusFoodController extends HttpServlet {
                 case "/Detail":
                     getDetailView(request, response);
                     break;
+                case "/Search":
+                    search(request, response);
+                    break;
                 case "/ShowByAnimals":
                     getViewAnimals(request, response);
                     break;
@@ -96,6 +99,18 @@ public class cusFoodController extends HttpServlet {
         }
     }
 
+    private void search(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (request.getParameter("name") == null || request.getParameter("name").trim().isEmpty()) {
+            response.sendRedirect("All");
+        } else {
+            String name = request.getParameter("name");
+            request.setAttribute("list", foodsFacade.searchByName(name));
+            request.setAttribute("forAnimals", animalsFacade.findAll());
+            request.setAttribute("breed", breedsFacade.findAll());
+            request.getRequestDispatcher("/Customer/Foods/index.jsp").forward(request, response);
+        }
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -136,13 +151,13 @@ public class cusFoodController extends HttpServlet {
     }// </editor-fold>
 
     private void getCompareView(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if(request.getParameter("id_1") == null || request.getParameter("id_1").trim().isEmpty()){
-            if(request.getParameter("id_2") == null || request.getParameter("id_2").trim().isEmpty()){
-            response.sendRedirect("All");
+        if (request.getParameter("id_1") == null || request.getParameter("id_1").trim().isEmpty()) {
+            if (request.getParameter("id_2") == null || request.getParameter("id_2").trim().isEmpty()) {
+                response.sendRedirect("All");
             }
-        }else{
-            String id_1=request.getParameter("id_1");
-            String id_2=request.getParameter("id_2");
+        } else {
+            String id_1 = request.getParameter("id_1");
+            String id_2 = request.getParameter("id_2");
             request.setAttribute("food", foodsFacade.find(id_1));
             request.setAttribute("compare", foodsFacade.find(id_2));
             request.setAttribute("list", foodsFacade.recommentFood(foodsFacade.find(id_1).getCFId()));

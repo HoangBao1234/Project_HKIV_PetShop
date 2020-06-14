@@ -32,4 +32,5 @@ public interface FoodsFacadeLocal {
     
     List<Foods> recommentFood(Animals animals);
     
+    List<Foods> searchByName(String name);
 }

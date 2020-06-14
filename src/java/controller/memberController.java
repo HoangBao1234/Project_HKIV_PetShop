@@ -198,7 +198,8 @@ public class memberController extends HttpServlet {
         String address = request.getParameter("address");
         Members members = new Members(id, name, mail, password, phone, address);
         membersFacade.edit(members);
-        
+        request.setAttribute("list", membersFacade.find(id));
+        request.getRequestDispatcher("/Profile/profile.jsp").forward(request, response);
     }
 
 }

@@ -37,5 +37,13 @@ public class FoodsFacade extends AbstractFacade<Foods> implements FoodsFacadeLoc
         q.setParameter("animals", animals);
         return q.getResultList();
     }
+
+    @Override
+    public List<Foods> searchByName(String name) {
+        String query = "SELECT f FROM Foods f WHERE f.name LIKE :name";
+        Query q = em.createQuery(query);
+        q.setParameter("name", "%"+name+"%");
+        return q.getResultList();
+    }
     
 }

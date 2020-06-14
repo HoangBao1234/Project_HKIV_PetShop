@@ -35,7 +35,7 @@
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <!------ Include the above in your HEAD tag ---------->
 
-      
+
 
         <style>
             img {
@@ -212,39 +212,43 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="card-body">
+                    <form action="${context}/Order/UpdateCart" method="post">
                     <c:if test="${sessionScope.order != null}">
                         <c:forEach var="i" items="${sessionScope.order.getOdersDetailsCollection()}">
                             <!-- PRODUCT -->
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-2 text-center">
-                                    <img class="img-responsive" src="${context}/ImageItems/${i.image}" alt="prewiew" width="120" height="80">
-                                </div>
-                                <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                                    <h4 class="product-name"><strong>${i.productName}</strong></h4>
-                                    <h4>
-                                        <small>Product description</small>
-                                    </h4>
-                                </div>
-                                <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
-                                    <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                                        <h6><strong>${i.productPrice} <span class="text-muted">x</span></strong></h6>
+                            
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-2 text-center">
+                                        <img class="img-responsive" src="${context}/ImageItems/${i.image}" alt="prewiew" width="120" height="80">
                                     </div>
-                                    <div class="col-4 col-sm-4 col-md-4">
-                                        <div class="quantity">
-                                            <input type="number" id="test" step="1" max="99" min="1" value="${i.quantity}" title="Qty" class="qty"
-                                                   size="4">
+                                    <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                                        <h4 class="product-name"><strong>${i.productName}</strong></h4>
+                                        <h4>
+                                            <small>Product description</small>
+                                        </h4>
+                                    </div>
+                                    <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+                                        <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+                                            <h6><strong>${i.productPrice} <span class="text-muted">x</span></strong></h6>
+                                        </div>
+                                        <div class="col-4 col-sm-4 col-md-4">
+                                            <div class="quantity">
+
+                                                <input type="text" value="${i.productId}" name="productId" style="display: none"/>
+                                                <input type="number" name="quantity" step="1" max="99" min="1" value="${i.quantity}" title="Qty" class="qty"
+                                                       size="4">
+                                            </div>
+                                        </div>
+                                        <div class="col-2 col-sm-2 col-md-2 text-right">
+                                            <a href="${context}/Order/Delete?productId=${i.productId}" onclick="return confirm('Are You Sure')">
+                                                <button type="button" class="btn btn-outline-danger btn-xs">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </button>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="col-2 col-sm-2 col-md-2 text-right">
-                                        <a href="${context}/Order/Delete?productId=${i.productId}" onclick="return confirm('Are You Sure')">
-                                            <button type="button" class="btn btn-outline-danger btn-xs">
-                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                            </button>
-                                        </a>
-                                    </div>
                                 </div>
-                            </div>
-                            <hr>
+                                <hr>
                             <!-- END PRODUCT -->
                         </c:forEach>
                     </c:if>
@@ -252,10 +256,9 @@
                         <h1>You have no items in your shopping cart</h1>
                     </c:if>
                     <div class="pull-right">
-                        <a href="" class="btn btn-outline-secondary pull-right">
-                            Update shopping cart
-                        </a>
+                        <input type="submit" value="Update Cart"/>    
                     </div>
+                    </form>
                 </div>
                 <div class="card-footer">
                     <div class="pull-right" style="margin: 10px">

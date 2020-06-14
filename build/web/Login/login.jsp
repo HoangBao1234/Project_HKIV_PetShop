@@ -92,7 +92,7 @@
                                             <a class="small" href="forgot-password.jsp">Forgot Password?</a>
                                         </div>
                                         <div class="text-center">
-                                            <a class="small" href="${context}/Customer/Register">Create an Account!</a>
+                                            <a class="small" href="${context}/Customers/Register">Create an Account!</a>
                                         </div>
                                         <div class="text-center">
                                             <a class="small" href="?locale=en">

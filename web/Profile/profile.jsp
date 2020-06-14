@@ -172,6 +172,10 @@
                                     <hr style="margin:5px 0 5px 0;">
 
                                     <form action="${context}/Member/updateProfile" method="post">
+                                        <div style="display: none" class="col-sm-5 col-xs-6 tital">Member ID</div>
+                                        <div style="display: none" class="col-sm-7 col-xs-6 ">
+                                            <input type="text" value="${list.MId}" name="id"/>
+                                        </div>
                                         <div class="col-sm-5 col-xs-6 tital " >Member Name:</div><div class="col-sm-7 col-xs-6 ">
                                             <input type="text" value="${list.name}" name="name"/>
                                         </div>
