@@ -297,15 +297,21 @@ public class orderController extends HttpServlet {
     }
 
     private void updateCart(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        String id = request.getParameter("productId");
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        PrintWriter out = response.getWriter();
+        
+        String[] ids = request.getParameterValues("productId");
+        
         HttpSession session = request.getSession();
         if(session != null){
             Orders orders = (Orders)session.getAttribute("order");
             List<OdersDetails> items = (List<OdersDetails>)orders.getOdersDetailsCollection();
+            
             for(OdersDetails i : items){
-                if(i.getProductId().equals(id)){
-                    i.setQuantity(quantity);
+                for(String id : ids){
+                    if(i.getProductId().equals(id)){
+                        int quantity = Integer.parseInt(request.getParameter("quantity-"+id));
+                        i.setQuantity(quantity);
+                    }
                 }
             }
             orders.setOdersDetailsCollection(items);

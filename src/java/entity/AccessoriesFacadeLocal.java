@@ -34,4 +34,6 @@ public interface AccessoriesFacadeLocal {
     
     List<Accessories> reconmentAcc(CateES cate);
     
+    List<Accessories> searchByName(String name);
+    
 }

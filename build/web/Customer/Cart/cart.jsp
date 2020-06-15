@@ -124,6 +124,13 @@
                 width: 50px;
                 height: 50px;
             }
+            #enable:hover{
+                cursor: no-drop;
+            }
+            #unenable:hover{
+                cursor: pointer;
+            }
+            
         </style>
         <script>
             function check() {
@@ -213,10 +220,10 @@
                 </div>
                 <div class="card-body">
                     <form action="${context}/Order/UpdateCart" method="post">
-                    <c:if test="${sessionScope.order != null}">
-                        <c:forEach var="i" items="${sessionScope.order.getOdersDetailsCollection()}">
-                            <!-- PRODUCT -->
-                            
+                        <c:if test="${sessionScope.order != null}">
+                            <c:forEach var="i" items="${sessionScope.order.getOdersDetailsCollection()}">
+                                <!-- PRODUCT -->
+
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-2 text-center">
                                         <img class="img-responsive" src="${context}/ImageItems/${i.image}" alt="prewiew" width="120" height="80">
@@ -235,7 +242,7 @@
                                             <div class="quantity">
 
                                                 <input type="text" value="${i.productId}" name="productId" style="display: none"/>
-                                                <input type="number" name="quantity" step="1" max="99" min="1" value="${i.quantity}" title="Qty" class="qty"
+                                                <input type="number" name="quantity-${i.productId}" step="1" max="99" min="1" value="${i.quantity}" title="Qty" class="qty"
                                                        size="4">
                                             </div>
                                         </div>
@@ -249,20 +256,25 @@
                                     </div>
                                 </div>
                                 <hr>
-                            <!-- END PRODUCT -->
-                        </c:forEach>
-                    </c:if>
-                    <c:if test="${sessionScope.order == null}">
-                        <h1>You have no items in your shopping cart</h1>
-                    </c:if>
-                    <div class="pull-right">
-                        <input type="submit" value="Update Cart"/>    
-                    </div>
+                                <!-- END PRODUCT -->
+                            </c:forEach>
+                        </c:if>
+                        <c:if test="${sessionScope.order == null}">
+                            <h1>You have no items in your shopping cart</h1>
+                        </c:if>
+                        <div class="pull-right">
+                            <input type="submit" value="Update Cart"/>    
+                        </div>
                     </form>
                 </div>
                 <div class="card-footer">
                     <div class="pull-right" style="margin: 10px">
-                        <a href="${context}/Order/GetOrder" class="btn btn-success pull-right">Checkout</a>
+                        <c:if test="${sessionScope.order != null}">
+                            <a href="${context}/Order/GetOrder" id="unenable" class="btn btn-success pull-right">Checkout</a>
+                        </c:if>
+                        <c:if test="${sessionScope.order == null}">
+                            <a href="${context}/Order/GetOrder" id="enable" class="btn btn-success pull-right">Checkout</a>
+                        </c:if>
                         <div class="pull-right" style="margin: 5px">
                             Total: ${sessionScope.order.getTotal()} $
                         </div>

@@ -45,5 +45,14 @@ public class AccessoriesFacade extends AbstractFacade<Accessories> implements Ac
         q.setParameter("cate", cate);
         return q.getResultList();
     }
+
+    @Override
+    public List<Accessories> searchByName(String name) {
+        String query = "SELECT a FROM Accessories a WHERE a.name LIKE :name";
+        Query q = em.createQuery(query);
+        q.setParameter("name", "%"+name+"%");
+        return q.getResultList();
+    }
+    
     
 }

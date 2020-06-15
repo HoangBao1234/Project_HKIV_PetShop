@@ -56,6 +56,9 @@ public class cusAccController extends HttpServlet {
                 case "/ShowByAnimals":
                     getViewAnimals(request, response);
                     break;
+                case "/Search":
+                    search(request, response);
+                    break;
                 case "/ShowByCate":
                     getViewCate(request, response);
                     break;
@@ -121,6 +124,19 @@ public class cusAccController extends HttpServlet {
             request.setAttribute("compare", accessoriesFacade.find(id_2));
             request.setAttribute("list", accessoriesFacade.reconmentAcc(accessoriesFacade.find(id_1).getCEId()));
             request.getRequestDispatcher("/Customer/Accessories/compare.jsp").forward(request, response);
+        }
+    }
+
+    private void search(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (request.getParameter("name") == null || request.getParameter("name").trim().isEmpty()) {
+            response.sendRedirect(request.getContextPath() + "/AccessoriesProduct/All");
+        } else {
+            String name = request.getParameter("name");
+            request.setAttribute("list", accessoriesFacade.searchByName(name));
+            request.setAttribute("cate", cateESFacade.findAll());
+            request.setAttribute("breed", breedsFacade.findAll());
+            request.setAttribute("forAnimals", animalsFacade.findAll());
+            request.getRequestDispatcher("/Customer/Accessories/index.jsp").forward(request, response);
         }
     }
 
