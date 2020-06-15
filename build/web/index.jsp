@@ -51,7 +51,7 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html"><span class="flaticon-pawprint-1 mr-2"></span>Pet Shop</a>
+                <a class="navbar-brand" href="index.jsp"><span class="flaticon-pawprint-1 mr-2"></span>Pet Shop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span> Menu
                 </button>
@@ -773,8 +773,8 @@
                     <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
                         <h2 class="footer-heading">Quick Links</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Home</a></li>
-                            <li><a href="#" class="py-2 d-block">About</a></li>
+                            <li><a href="index.jsp" class="py-2 d-block">Home</a></li>
+                            <li><a href="aboutus.jsp" class="py-2 d-block">About</a></li>
                             <li><a href="#" class="py-2 d-block">Services</a></li>
                             <li><a href="#" class="py-2 d-block">Works</a></li>
                             <li><a href="#" class="py-2 d-block">Blog</a></li>
