@@ -9,6 +9,7 @@ import entity.Accessories;
 import entity.AccessoriesFacadeLocal;
 import entity.Foods;
 import entity.FoodsFacadeLocal;
+import entity.Members;
 import entity.MembersFacadeLocal;
 import entity.OdersDetails;
 import entity.OdersDetailsFacadeLocal;
@@ -19,6 +20,7 @@ import entity.PetsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -330,7 +332,27 @@ public class orderController extends HttpServlet {
     
     private void checkout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        if (session.getAttribute("username") == null) {
+        if (session.getAttribute("username") != null) {
+            String name = request.getParameter("name");
+            String mail = request.getParameter("email");
+            String address = request.getParameter("address");
+            String phone = request.getParameter("phone");
+            String payment = request.getParameter("payment");
+            String transport = request.getParameter("transport");
+            
+            Orders orders = (Orders)session.getAttribute("order");
+            
+            orders.setmId((Members)session.getAttribute("username"));
+            orders.setShipAddress(address);
+            orders.setPaymentBy(payment);
+            orders.setTransport(transport);
+
+            ordersFacade.create(orders);
+            
+            session.removeAttribute("order");
+            response.sendRedirect(request.getContextPath() + "/Order/View");
+            
+        }else{
             request.getRequestDispatcher("/Login/login.jsp").forward(request, response);
         }
     }

@@ -9,6 +9,7 @@ package entity;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -57,7 +58,7 @@ public class Orders implements Serializable {
     private String transport;
     @Column(name = "status", length = 20)
     private String status;
-    @OneToMany(mappedBy = "oderId")
+    @OneToMany(mappedBy = "oderId", cascade = CascadeType.ALL)
     private Collection<OdersDetails> odersDetailsCollection;
     @JoinColumn(name = "MId", referencedColumnName = "MId")
     @ManyToOne

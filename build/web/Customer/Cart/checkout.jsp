@@ -216,13 +216,13 @@
                                 <div class="col-50">
                                     <h3>Billing Address</h3>
                                     <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                                    <input type="text" id="fname" name="firstname" value="${sessionScope.username.name}" placeholder="Your name ">
+                                    <input type="text" id="fname" name="name" value="${sessionScope.username.name}" placeholder="Your name ">
                                     <label for="email"><i class="fa fa-envelope"></i> Email</label>
                                     <input type="text" id="email" name="email" value="${sessionScope.username.mail}" placeholder="john@example.com">
                                     <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
                                     <input type="text" id="adr" name="address" value="${sessionScope.username.address}" placeholder="Your Address">   
                                     <label for="adr"><i class="fa fa-phone"></i> Phone</label>
-                                    <input type="text" id="adr" name="address" value="${sessionScope.username.phone}" placeholder="Your Phone">   
+                                    <input type="text" id="adr" name="phone" value="${sessionScope.username.phone}" placeholder="Your Phone">   
                                 </div>
                                 <div class="col-50">
                                     <h3>Payment</h3>
@@ -232,9 +232,9 @@
                                         <h4><input type="radio" name="payment" value="Cards"/> &nbsp;Cards&nbsp;<i class="fa fa-cc-visa" style="color:navy;"></i></h4>
                                         <label for="fname">Transport</label>
                                         <select name="transport" style="text-align: center">
-                                            <option>&nbsp;---Select---</option>
-                                            <option>Fast Shipping</option>
-                                            <option>Normal</option>
+                                            <option value="null">&nbsp;---Select---</option>
+                                            <option value="fast">Fast Shipping</option>
+                                            <option value="normal">Normal</option>
                                         </select>
                                     </div>
 
@@ -261,13 +261,12 @@
                                     <h3>Payment</h3>
                                     <label for="fname">Accepted Cards</label>
                                     <div class="icon-container">
-                                        <h4><input type="radio" name="payment" value="Cash"/> &nbsp;Cash&nbsp;<i class="fa fa-money"></i></h4>
+                                        <h4><input type="radio" checked="true" name="payment" value="Cash"/> &nbsp;Cash&nbsp;<i class="fa fa-money"></i></h4>
                                         <h4><input type="radio" name="payment" value="Cards"/> &nbsp;Cards&nbsp;<i class="fa fa-cc-visa" style="color:navy;"></i></h4>
                                         <label for="fname">Transport</label>
                                         <select name="transport" style="text-align: center">
-                                            <option>&nbsp;---Select---</option>
                                             <option>Fast Shipping</option>
-                                            <option>Normal</option>
+                                            <option selected="true">Normal</option>
                                         </select>
                                     </div>
 
@@ -284,10 +283,10 @@
                 <div class="container" style="background-color: #f1f1f1f1">
                     <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>${sessionScope.order.odersDetailsCollection.size()}</b></span></h4>
                     <c:forEach var="i" items="${sessionScope.order.odersDetailsCollection}">
-                        <p><a href="#">${i.productName}</a> <span class="price">${i.productPrice}$</span></p>
+                        <p><a href="#">${i.productName}</a><span class="price">${i.quantity} x ${i.productPrice}$</span></p>
                     </c:forEach>
                     <hr>
-                    <p>Total <span class="price" style="color:black"><b>${sessionScope.order.total}</b></span></p>
+                    <p>Total <span class="price" style="color:black"><b>${sessionScope.order.total} $</b></span></p>
                 </div>
             </div>
         </div>

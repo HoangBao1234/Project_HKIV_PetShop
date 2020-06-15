@@ -358,7 +358,7 @@
                                             <td>${i.shipAddress}</td>
                                             <td>${i.paymentBy}</td>
                                             <td>${i.transport}</td>
-                                            <td>${i.MId.name}</td>
+                                            <td>${i.mId.name}</td>
                                             <td>${i.total}</td>
                                             <td>${i.status}</td>
                                             <td>
