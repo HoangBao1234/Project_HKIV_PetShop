@@ -32,6 +32,9 @@
 
 
         <style>
+            *{
+                font-family: cursive;
+            }
             img {
                 image-rendering: pixelated;
             }
@@ -118,7 +121,7 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section">
+        <section class="ftco-section" style="padding-top: 20px">
             <div class="container">
                 <div class="row d-flex">
 

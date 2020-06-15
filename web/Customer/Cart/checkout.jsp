@@ -31,13 +31,14 @@
 
         <style>
             body {
-                font-family: Arial;
+                font-family: cursive;
                 font-size: 17px;
                 padding: 8px;
             }
 
             * {
                 box-sizing: border-box;
+                font-family: cursive;
             }
 
             .row {
@@ -74,13 +75,14 @@
                 width: 100%;
                 margin-bottom: 20px;
                 padding: 12px;
-                border: 1px solid #ccc;
+                border: 0.5px solid black;
                 border-radius: 3px;
             }
 
             label {
                 margin-bottom: 10px;
                 display: block;
+                color: black;
             }
 
             .icon-container {
@@ -106,7 +108,7 @@
             }
 
             a {
-                color: #2196F3;
+                color: black;
             }
 
             hr {
@@ -129,6 +131,22 @@
             }
         </style>
 
+        <script>
+            function test(){
+                console.log("ok");
+                var selectTran = document.getElementById("selectTran").value;
+                var total = document.getElementById("total").textContent;
+                var html;
+                if(selectTran.localeCompare("Fast") === 0){
+                    html = parseInt(total) + 10;
+                    document.getElementById("total").innerHTML = html;
+                }
+                if(selectTran.localeCompare("Normal") === 0){
+                    html = parseInt(total) - 10;
+                    document.getElementById("total").innerHTML = html;
+                } 
+            }
+        </script>
     </head>
     <body>
 
@@ -214,7 +232,6 @@
                         <form action="${context}/Order/CheckOut" method="post">
                             <div class="row">
                                 <div class="col-50">
-                                    <h3>Billing Address</h3>
                                     <label for="fname"><i class="fa fa-user"></i> Full Name</label>
                                     <input type="text" id="fname" name="name" value="${sessionScope.username.name}" placeholder="Your name ">
                                     <label for="email"><i class="fa fa-envelope"></i> Email</label>
@@ -225,13 +242,12 @@
                                     <input type="text" id="adr" name="phone" value="${sessionScope.username.phone}" placeholder="Your Phone">   
                                 </div>
                                 <div class="col-50">
-                                    <h3>Payment</h3>
                                     <label for="fname">Accepted Cards</label>
                                     <div class="icon-container">
                                         <h4><input type="radio" name="payment" value="Cash"/> &nbsp;Cash&nbsp;<i class="fa fa-money"></i></h4>
                                         <h4><input type="radio" name="payment" value="Cards"/> &nbsp;Cards&nbsp;<i class="fa fa-cc-visa" style="color:navy;"></i></h4>
                                         <label for="fname">Transport</label>
-                                        <select name="transport" style="text-align: center">
+                                        <select name="transport" id="selectTran" onchange="test()" style="text-align: center">
                                             <option value="null">&nbsp;---Select---</option>
                                             <option value="fast">Fast Shipping</option>
                                             <option value="normal">Normal</option>
@@ -249,7 +265,6 @@
                         <form action="${context}/Order/CheckOut" method="post">
                             <div class="row">
                                 <div class="col-50">
-                                    <h3>Billing Address</h3>
                                     <label for="fname"><i class="fa fa-user"></i> Full Name</label>
                                     <input type="text" id="fname" name="firstname" placeholder="Your name ">
                                     <label for="email"><i class="fa fa-envelope"></i> Email</label>
@@ -258,15 +273,14 @@
                                     <input type="text" id="adr" name="address" placeholder="Your Address">   
                                 </div>
                                 <div class="col-50">
-                                    <h3>Payment</h3>
                                     <label for="fname">Accepted Cards</label>
                                     <div class="icon-container">
                                         <h4><input type="radio" checked="true" name="payment" value="Cash"/> &nbsp;Cash&nbsp;<i class="fa fa-money"></i></h4>
                                         <h4><input type="radio" name="payment" value="Cards"/> &nbsp;Cards&nbsp;<i class="fa fa-cc-visa" style="color:navy;"></i></h4>
                                         <label for="fname">Transport</label>
-                                        <select name="transport" style="text-align: center">
-                                            <option>Fast Shipping</option>
-                                            <option selected="true">Normal</option>
+                                        <select name="transport" id="selectTran" onchange="test();" style="text-align: center">
+                                            <option value="Fast">Fast Shipping</option>
+                                            <option value="Normal" selected="true">Normal</option>
                                         </select>
                                     </div>
 
@@ -281,12 +295,12 @@
             </div>
             <div class="col-25">
                 <div class="container" style="background-color: #f1f1f1f1">
-                    <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>${sessionScope.order.odersDetailsCollection.size()}</b></span></h4>
+                    <h4><b>Cart</b><span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>${sessionScope.order.odersDetailsCollection.size()}</b></span></h4>
                     <c:forEach var="i" items="${sessionScope.order.odersDetailsCollection}">
                         <p><a href="#">${i.productName}</a><span class="price">${i.quantity} x ${i.productPrice}$</span></p>
                     </c:forEach>
                     <hr>
-                    <p>Total <span class="price" style="color:black"><b>${sessionScope.order.total} $</b></span></p>
+                    <p>Total <span class="price" style="color:black; font-weight: bold" ><span id="total">${sessionScope.order.total}</span> $</span></p>
                 </div>
             </div>
         </div>

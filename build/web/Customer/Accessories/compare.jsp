@@ -32,6 +32,12 @@
 
 
         <style>
+            *{
+                font-family: cursive;
+            }
+        </style>
+        
+        <style>
             img {
                 image-rendering: pixelated;
             }

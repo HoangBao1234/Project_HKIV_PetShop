@@ -30,6 +30,11 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"/>
 
+        <style>
+            *{
+                font-family: cursive;
+            }
+        </style>
 
         <style>
             img {
@@ -139,27 +144,33 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div style="border: #000000">
+                    <div class="col-sm-4" style="background-color: #FAFAFA; height: 100%;">
+                        <div style="border: 0 solid #ccc; padding: 15px; font-family: cursive">
                             <h4>Product Portfolio</h4>
-                            <hr/>
-                            <form>
-                                <input style="padding: 2px 5px; border-radius: 10px" type="text" placeholder="Search">
-                                <button type="submit" style="border: none; background-color: #f8f9fd"><i class="fas fa-search" aria-hidden="true"></i></button>
+                            <form action="${context}/PetProduct/Search" method="post" id="myForm">
+                                <input style="padding: 2px 5px; border-radius: 5px; border:3px;" id="myInput" name="txtName" type="text" placeholder="Search">
+                                <button type="submit" style="border: none; background-color: #FAFAFA"><i class="fas fa-search" aria-hidden="true"></i></button>
                             </form>
-                            <h6 style="margin-top: 10px">Category</h6>
+                            <hr/>
+                            <h6 style="margin-top: 10px">Breeds</h6>
                             <ul>
-                                <c:forEach var="b" items="${cate}">
-                                    <li style="list-style-type: none;"><a style="color: black" href="${context}/AccessoriesProduct/ShowByCate?id=${b.CEId}">${b.name}(${b.accessoriesCollection.size()})</a></li>
-                                    </c:forEach>
+                                <c:forEach var="b" items="${breed}">
+                                    <li style="list-style-type: none;"><a style="color: black" href="${context}/PetProduct/ShowByBreed?id=${b.CPId}">${b.name}<sub><span class="badge">${b.petsCollection.size()}</span></a></li>
+                                                </c:forEach>
                             </ul>
                             <hr/>
+                            <h6 style="margin-top: 10px">Foods</h6>
                             <ul>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
-                                <li>Accessories</li>
+                                <c:forEach var="f" items="${forAnimals}">
+                                    <li style="list-style-type: none;"><a style="color: black" href="${context}/FoodProduct/ShowByAnimals?id=${f.CFId}">${f.name}<sub><span class="badge">${f.foodsCollection.size()}</span></a></li>
+                                                </c:forEach>
+                            </ul>
+                            <hr/>
+                            <h6 style="margin-top: 10px">Accessories</h6>
+                            <ul>
+                                <c:forEach var="a" items="${forAnimals}">
+                                    <li style="list-style-type: none;"><a style="color: black" href="${context}/AccessoriesProduct/ShowByAnimals?id=${a.CFId}">${a.name}<sub><span class="badge">${a.accessoriesCollection.size()}</span></a></li>
+                                                </c:forEach>
                             </ul>
                         </div>
                     </div>

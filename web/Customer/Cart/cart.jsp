@@ -38,6 +38,9 @@
 
 
         <style>
+            *{
+                font-family: cursive;
+            }
             img {
                 image-rendering: pixelated;
             }

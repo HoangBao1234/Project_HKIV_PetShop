@@ -30,8 +30,13 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"/>
 
-
         <style>
+            *{
+                font-family: cursive;
+            }
+        </style>
+        <style>
+
             img {
                 image-rendering: pixelated;
             }
@@ -144,7 +149,7 @@
                             <td> &nbsp;${food.CFId.name}</td>
                             <td> &nbsp;${compare.CFId.name}</td>
                         </tr>
-                                             
+
                         <tr>
                             <th style="text-align: center"></th>
                             <td style="text-align: center">

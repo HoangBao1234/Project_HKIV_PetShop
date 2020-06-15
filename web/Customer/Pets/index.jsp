@@ -124,7 +124,7 @@
                     <div class="col-sm-8">
                         <div class="row">
                             <c:forEach var="i" items="${list}">
-                                <div class="col-sm-4 d-flex ftco-animate" id="myTable">
+                                <div class="col-sm-4 d-flex ftco-animate" id="myTable" style="font-family: cursive">
                                     <div class="blog-entry align-self-stretch contentPage">
                                         <a href="${context}/PetProduct/Detail?id=${i.PId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
                                         </a>
@@ -152,28 +152,28 @@
                             </c:forEach>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div style="border: #000000">
+                    <div class="col-sm-4" style="background-color: #FAFAFA; height: 100%;">
+                        <div style="border: 0 solid #ccc; padding: 15px; font-family: cursive">
                             <h4>Product Portfolio</h4>
                             <form action="${context}/PetProduct/Search" method="post" id="myForm">
-                                <input style="padding: 2px 5px; border-radius: 10px" id="myInput" name="txtName" type="text" placeholder="Search">
-                                <button type="submit" style="border: none; background-color: #f8f9fd"><i class="fas fa-search" aria-hidden="true"></i></button>
+                                <input style="padding: 2px 5px; border-radius: 5px; border:3px;" id="myInput" name="txtName" type="text" placeholder="Search">
+                                <button type="submit" style="border: none; background-color: #FAFAFA"><i class="fas fa-search" aria-hidden="true"></i></button>
                             </form>
-                            <hr style="background-color: #00bd56"/>
+                            <hr/>
                             <h6 style="margin-top: 10px">Breeds</h6>
                             <ul>
                                 <c:forEach var="b" items="${breed}">
                                     <li style="list-style-type: none;"><a style="color: black" href="${context}/PetProduct/ShowByBreed?id=${b.CPId}">${b.name}<sub><span class="badge">${b.petsCollection.size()}</span></a></li>
                                                 </c:forEach>
                             </ul>
-                            <hr style="background-color: #00bd56"/>
+                            <hr/>
                             <h6 style="margin-top: 10px">Foods</h6>
                             <ul>
                                 <c:forEach var="f" items="${forAnimals}">
                                     <li style="list-style-type: none;"><a style="color: black" href="${context}/FoodProduct/ShowByAnimals?id=${f.CFId}">${f.name}<sub><span class="badge">${f.foodsCollection.size()}</span></a></li>
                                                 </c:forEach>
                             </ul>
-                            <hr style="background-color: #00bd56"/>
+                            <hr/>
                             <h6 style="margin-top: 10px">Accessories</h6>
                             <ul>
                                 <c:forEach var="a" items="${forAnimals}">

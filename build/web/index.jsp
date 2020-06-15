@@ -27,6 +27,11 @@
 
         <link rel="stylesheet" href="${context}/petsitting/css/flaticon.css">
         <link rel="stylesheet" href="${context}/petsitting/css/style.css">
+        <style>
+            *{
+                font-family: cursive;
+            }
+        </style>
     </head>
     <body>
 
