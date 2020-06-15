@@ -13,8 +13,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_fmt_setBundle_basename_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_fmt_message_key_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_import_url_nobody;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -24,14 +27,20 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _jspx_tagPool_c_set_var_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_fmt_setBundle_basename_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_fmt_message_key_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_import_url_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_c_set_var_value_nobody.release();
+    _jspx_tagPool_fmt_setBundle_basename_nobody.release();
     _jspx_tagPool_c_out_value_nobody.release();
+    _jspx_tagPool_fmt_message_key_nobody.release();
     _jspx_tagPool_c_if_test.release();
+    _jspx_tagPool_c_import_url_nobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -47,7 +56,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html");
+      response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -59,6 +68,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write("\r\n");
+      out.write("    \r\n");
+      out.write("\r\n");
       out.write("\r\n");
       if (_jspx_meth_c_set_0(_jspx_page_context))
         return;
@@ -67,6 +78,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html lang=\"en\">\r\n");
       out.write("    <head>\r\n");
       out.write("        <title>PetShop</title>\r\n");
+      out.write("        ");
+      if (_jspx_meth_fmt_setBundle_0(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("         ");
+      if (_jspx_meth_c_import_0(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("        <meta charset=\"utf-8\">\r\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n");
       out.write("\r\n");
@@ -105,6 +124,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/petsitting/css/style.css\">\r\n");
+      out.write("        <style>\r\n");
+      out.write("            *{\r\n");
+      out.write("                font-family: cursive;\r\n");
+      out.write("            }\r\n");
+      out.write("        </style>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
       out.write("\r\n");
@@ -135,23 +159,44 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </button>\r\n");
       out.write("                <div class=\"collapse navbar-collapse\" id=\"ftco-nav\">\r\n");
       out.write("                    <ul class=\"navbar-nav ml-auto\">\r\n");
-      out.write("                        <li class=\"nav-item active\"><a href=\"index.jsp\" class=\"nav-link\">Home</a></li>\r\n");
+      out.write("                        <li class=\"nav-item active\"><a href=\"index.jsp\" class=\"nav-link\">");
+      if (_jspx_meth_fmt_message_0(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
       out.write("\r\n");
-      out.write("                        <li class=\"nav-item dropdown\" ><a href=\"aboutus.jsp\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">Product</a>\r\n");
+      out.write("                        <li class=\"nav-item dropdown\" ><a href=\"aboutus.jsp\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">");
+      if (_jspx_meth_fmt_message_1(_jspx_page_context))
+        return;
+      out.write("</a>\r\n");
       out.write("                            <ul class=\"dropdown-menu\" style=\"font-size: 14px; width: 200px\">\r\n");
       out.write("                                <li><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/PetProduct/All\">Pet</a></li>\r\n");
+      out.write("/PetProduct/All\">");
+      if (_jspx_meth_fmt_message_2(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
       out.write("                                <li><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/FoodProduct/All\">Food</a></li>\r\n");
+      out.write("/FoodProduct/All\">");
+      if (_jspx_meth_fmt_message_3(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
       out.write("                                <li><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/AccessoriesProduct/All\">Accessoreis</a></li>\r\n");
+      out.write("/AccessoriesProduct/All\">");
+      if (_jspx_meth_fmt_message_4(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
       out.write("                            </ul>\r\n");
       out.write("                        </li>\r\n");
-      out.write("                        <li class=\"nav-item\"><a href=\"Customer/../Customer/petHotel/colorlib-regform-3/index.jsp\" class=\"nav-link\">PetHotel</a></li>\r\n");
-      out.write("                        <li class=\"nav-item\"><a href=\"aboutus.jsp\" class=\"nav-link\">About</a></li>\r\n");
+      out.write("                        <li class=\"nav-item\"><a href=\"Customer/../Customer/petHotel/colorlib-regform-3/index.jsp\" class=\"nav-link\">");
+      if (_jspx_meth_fmt_message_5(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
+      out.write("                        <li class=\"nav-item\"><a href=\"aboutus.jsp\" class=\"nav-link\">");
+      if (_jspx_meth_fmt_message_6(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
       out.write("                        <li class=\"nav-item\"><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/Order/View\" class=\"nav-link\"><i class=\"fas fa-shopping-cart\"><sub><span class=\"badge\">\r\n");
@@ -172,10 +217,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_c_if_3(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("                        <li class=\"nav-item dropdown\" ><a href=\"about.html\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">Language</a>\r\n");
+      out.write("                        <li class=\"nav-item dropdown\" ><a href=\"about.html\" class=\"nav-link  dropdown-toggle\" data-toggle=\"dropdown\">");
+      if (_jspx_meth_fmt_message_10(_jspx_page_context))
+        return;
+      out.write("</a>\r\n");
       out.write("                            <ul class=\"dropdown-menu\" style=\"font-size: 14px; width: 200px\">\r\n");
-      out.write("                                <li><a href=\"#\">Vietnamese</a></li>\r\n");
-      out.write("                                <li><a href=\"#\">English</a></li>\r\n");
+      out.write("                                <li><a href=\"?locale=en\">English</a></li>\r\n");
+      out.write("                                <li><a href=\"?locale=vi\">Vietnamese</a></li>\r\n");
       out.write("\r\n");
       out.write("                            </ul>\r\n");
       out.write("                        </li>\r\n");
@@ -189,8 +237,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"container\">\r\n");
       out.write("                <div class=\"row no-gutters slider-text js-fullheight align-items-center justify-content-center\" data-scrollax-parent=\"true\">\r\n");
       out.write("                    <div class=\"col-md-11 ftco-animate text-center\">\r\n");
-      out.write("                        <h1 class=\"mb-4\">Highest Quality Care For Pets You'll Love </h1>\r\n");
-      out.write("                        <p><a href=\"#\" class=\"btn btn-primary mr-md-4 py-3 px-4\">Learn more <span class=\"ion-ios-arrow-forward\"></span></a></p>\r\n");
+      out.write("                        <h1 class=\"mb-4\"> ");
+      if (_jspx_meth_fmt_message_11(_jspx_page_context))
+        return;
+      out.write("  </h1>\r\n");
+      out.write("                        <p><a href=\"#\" class=\"btn btn-primary mr-md-4 py-3 px-4\">");
+      if (_jspx_meth_fmt_message_12(_jspx_page_context))
+        return;
+      out.write("<span class=\"ion-ios-arrow-forward\"></span></a></p>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
@@ -205,8 +259,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <span class=\"flaticon-blind\"></span>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"media-body\">\r\n");
-      out.write("                                <h3 class=\"heading\" style=\"margin-top: 20px\">Pets</h3>\r\n");
-      out.write("                                <p>Carefully selected pets are fully vaccinated, have clear origins, and are reasonably priced in the market</p>\r\n");
+      out.write("                                <h3 class=\"heading\" style=\"margin-top: 20px\">");
+      if (_jspx_meth_fmt_message_13(_jspx_page_context))
+        return;
+      out.write(" </h3>\r\n");
+      out.write("                                <p>");
+      if (_jspx_meth_fmt_message_14(_jspx_page_context))
+        return;
+      out.write("</p>\r\n");
       out.write("                                <a href=\"#\" class=\"btn-custom d-flex align-items-center justify-content-center\"><span class=\"fa fa-chevron-right\"></span><i class=\"sr-only\">Read more</i></a>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>      \r\n");
@@ -217,8 +277,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <span class=\"flaticon-dog-eating\"></span>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"media-body\">\r\n");
-      out.write("                                <h3 class=\"heading\" style=\"margin-top: 20px\">Foods</h3>\r\n");
-      out.write("                                <p>PetShop is a leading partner providing pet dogs and domesticated cats for breeding farms, pet dog shops nationwide.</p>\r\n");
+      out.write("                                <h3 class=\"heading\" style=\"margin-top: 20px\">");
+      if (_jspx_meth_fmt_message_15(_jspx_page_context))
+        return;
+      out.write("</h3>\r\n");
+      out.write("                                <p>");
+      if (_jspx_meth_fmt_message_16(_jspx_page_context))
+        return;
+      out.write("</p>\r\n");
       out.write("                                <a href=\"#\" class=\"btn-custom d-flex align-items-center justify-content-center\"><span class=\"fa fa-chevron-right\"></span><i class=\"sr-only\">Read more</i></a>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>    \r\n");
@@ -229,8 +295,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <span class=\"flaticon-grooming\"></span>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"media-body\">\r\n");
-      out.write("                                <h3 class=\"heading\" style=\"margin-top: 20px\">Accessories</h3>\r\n");
-      out.write("                                <p>Providing accessories to help take care of your pet better saves time</p>\r\n");
+      out.write("                                <h3 class=\"heading\" style=\"margin-top: 20px\">");
+      if (_jspx_meth_fmt_message_17(_jspx_page_context))
+        return;
+      out.write("</h3>\r\n");
+      out.write("                                <p>");
+      if (_jspx_meth_fmt_message_18(_jspx_page_context))
+        return;
+      out.write("</p>\r\n");
       out.write("                                <a href=\"#\" class=\"btn-custom d-flex align-items-center justify-content-center\"><span class=\"fa fa-chevron-right\"></span><i class=\"sr-only\">Read more</i></a>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>      \r\n");
@@ -248,34 +320,49 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"col-md-7 pl-md-5 py-md-5\">\r\n");
       out.write("                        <div class=\"heading-section pt-md-5\">\r\n");
-      out.write("                            <h2 class=\"mb-4\">Why Choose Us?</h2>\r\n");
+      out.write("                            <h2 class=\"mb-4\">");
+      if (_jspx_meth_fmt_message_19(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                        </div>\r\n");
       out.write("                        <div class=\"row\">\r\n");
       out.write("                            <div class=\"col-md-6 services-2 w-100 d-flex\">\r\n");
       out.write("                                <div class=\"icon d-flex align-items-center justify-content-center\"><span class=\"flaticon-stethoscope\"></span></div>\r\n");
       out.write("                                <div class=\"text pl-3\">\r\n");
-      out.write("                                    <h4>Care Advices</h4>\r\n");
+      out.write("                                    <h4>");
+      if (_jspx_meth_fmt_message_20(_jspx_page_context))
+        return;
+      out.write("</h4>\r\n");
       out.write("                                    <p>Far far away, behind the word mountains, far from the countries.</p>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"col-md-6 services-2 w-100 d-flex\">\r\n");
       out.write("                                <div class=\"icon d-flex align-items-center justify-content-center\"><span class=\"flaticon-customer-service\"></span></div>\r\n");
       out.write("                                <div class=\"text pl-3\">\r\n");
-      out.write("                                    <h4>Customer Supports</h4>\r\n");
+      out.write("                                    <h4>");
+      if (_jspx_meth_fmt_message_21(_jspx_page_context))
+        return;
+      out.write("</h4>\r\n");
       out.write("                                    <p>Far far away, behind the word mountains, far from the countries.</p>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"col-md-6 services-2 w-100 d-flex\">\r\n");
       out.write("                                <div class=\"icon d-flex align-items-center justify-content-center\"><span class=\"flaticon-emergency-call\"></span></div>\r\n");
       out.write("                                <div class=\"text pl-3\">\r\n");
-      out.write("                                    <h4>Emergency Services</h4>\r\n");
+      out.write("                                    <h4>");
+      if (_jspx_meth_fmt_message_22(_jspx_page_context))
+        return;
+      out.write("</h4>\r\n");
       out.write("                                    <p>Far far away, behind the word mountains, far from the countries.</p>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"col-md-6 services-2 w-100 d-flex\">\r\n");
       out.write("                                <div class=\"icon d-flex align-items-center justify-content-center\"><span class=\"flaticon-veterinarian\"></span></div>\r\n");
       out.write("                                <div class=\"text pl-3\">\r\n");
-      out.write("                                    <h4>Veterinary Help</h4>\r\n");
+      out.write("                                    <h4>");
+      if (_jspx_meth_fmt_message_23(_jspx_page_context))
+        return;
+      out.write("</h4>\r\n");
       out.write("                                    <p>Far far away, behind the word mountains, far from the countries.</p>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
@@ -294,7 +381,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <strong class=\"number\" data-number=\"50\">0</strong>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"text\">\r\n");
-      out.write("                                <span>Customer</span>\r\n");
+      out.write("                                <span>");
+      if (_jspx_meth_fmt_message_24(_jspx_page_context))
+        return;
+      out.write("</span>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -304,7 +394,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <strong class=\"number\" data-number=\"8500\">0</strong>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"text\">\r\n");
-      out.write("                                <span>Professionals</span>\r\n");
+      out.write("                                <span>");
+      if (_jspx_meth_fmt_message_25(_jspx_page_context))
+        return;
+      out.write("</span>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -314,7 +407,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <strong class=\"number\" data-number=\"20\">0</strong>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"text\">\r\n");
-      out.write("                                <span>Products</span>\r\n");
+      out.write("                                <span>");
+      if (_jspx_meth_fmt_message_26(_jspx_page_context))
+        return;
+      out.write("</span>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -324,7 +420,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <strong class=\"number\" data-number=\"50\">0</strong>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"text\">\r\n");
-      out.write("                                <span>Pets Hosted</span>\r\n");
+      out.write("                                <span>");
+      if (_jspx_meth_fmt_message_27(_jspx_page_context))
+        return;
+      out.write("</span>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -349,7 +448,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("                    <div class=\"col-lg-6\">\r\n");
       out.write("                        <div class=\"heading-section mb-5 mt-5 mt-lg-0\">\r\n");
-      out.write("                            <h2 class=\"mb-3\">Frequently Asks Questions</h2>\r\n");
+      out.write("                            <h2 class=\"mb-3\">");
+      if (_jspx_meth_fmt_message_28(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>\r\n");
       out.write("                        </div>\r\n");
       out.write("                        <div id=\"accordion\" class=\"myaccordion w-100\" aria-multiselectable=\"true\">\r\n");
@@ -357,7 +459,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"card-header p-0\" id=\"headingOne\">\r\n");
       out.write("                                    <h2 class=\"mb-0\">\r\n");
       out.write("                                        <button href=\"#collapseOne\" class=\"d-flex py-3 px-4 align-items-center justify-content-between btn btn-link\" data-parent=\"#accordion\" data-toggle=\"collapse\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\r\n");
-      out.write("                                            <p class=\"mb-0\">How to train your pet dog?</p>\r\n");
+      out.write("                                            <p class=\"mb-0\">");
+      if (_jspx_meth_fmt_message_29(_jspx_page_context))
+        return;
+      out.write("</p>\r\n");
       out.write("                                            <i class=\"fa\" aria-hidden=\"true\"></i>\r\n");
       out.write("                                        </button>\r\n");
       out.write("                                    </h2>\r\n");
@@ -379,7 +484,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"card-header p-0\" id=\"headingTwo\" role=\"tab\">\r\n");
       out.write("                                    <h2 class=\"mb-0\">\r\n");
       out.write("                                        <button href=\"#collapseTwo\" class=\"d-flex py-3 px-4 align-items-center justify-content-between btn btn-link\" data-parent=\"#accordion\" data-toggle=\"collapse\" aria-expanded=\"false\" aria-controls=\"collapseTwo\">\r\n");
-      out.write("                                            <p class=\"mb-0\">How to manage your pets?</p>\r\n");
+      out.write("                                            <p class=\"mb-0\">");
+      if (_jspx_meth_fmt_message_30(_jspx_page_context))
+        return;
+      out.write("</p>\r\n");
       out.write("                                            <i class=\"fa\" aria-hidden=\"true\"></i>\r\n");
       out.write("                                        </button>\r\n");
       out.write("                                    </h2>\r\n");
@@ -401,7 +509,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"card-header p-0\" id=\"headingThree\" role=\"tab\">\r\n");
       out.write("                                    <h2 class=\"mb-0\">\r\n");
       out.write("                                        <button href=\"#collapseThree\" class=\"d-flex py-3 px-4 align-items-center justify-content-between btn btn-link\" data-parent=\"#accordion\" data-toggle=\"collapse\" aria-expanded=\"false\" aria-controls=\"collapseThree\">\r\n");
-      out.write("                                            <p class=\"mb-0\">What is the best grooming for your pets?</p>\r\n");
+      out.write("                                            <p class=\"mb-0\">");
+      if (_jspx_meth_fmt_message_31(_jspx_page_context))
+        return;
+      out.write("</p>\r\n");
       out.write("                                            <i class=\"fa\" aria-hidden=\"true\"></i>\r\n");
       out.write("                                        </button>\r\n");
       out.write("                                    </h2>\r\n");
@@ -423,7 +534,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"card-header p-0\" id=\"headingFour\" role=\"tab\">\r\n");
       out.write("                                    <h2 class=\"mb-0\">\r\n");
       out.write("                                        <button href=\"#collapseFour\" class=\"d-flex py-3 px-4 align-items-center justify-content-between btn btn-link\" data-parent=\"#accordion\" data-toggle=\"collapse\" aria-expanded=\"false\" aria-controls=\"collapseFour\">\r\n");
-      out.write("                                            <p class=\"mb-0\">What are those requirements for sitting pets?</p>\r\n");
+      out.write("                                            <p class=\"mb-0\">");
+      if (_jspx_meth_fmt_message_32(_jspx_page_context))
+        return;
+      out.write("</p>\r\n");
       out.write("                                            <i class=\"fa\" aria-hidden=\"true\"></i>\r\n");
       out.write("                                        </button>\r\n");
       out.write("                                    </h2>\r\n");
@@ -445,7 +559,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"container\">\r\n");
       out.write("                <div class=\"row justify-content-center pb-5 mb-3\">\r\n");
       out.write("                    <div class=\"col-md-7 heading-section text-center ftco-animate\">\r\n");
-      out.write("                        <h2>Happy Clients &amp; Feedbacks</h2>\r\n");
+      out.write("                        <h2>");
+      if (_jspx_meth_fmt_message_33(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"row ftco-animate\">\r\n");
@@ -536,7 +653,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"container\">\r\n");
       out.write("                <div class=\"row justify-content-center pb-5 mb-3\">\r\n");
       out.write("                    <div class=\"col-md-7 heading-section text-center ftco-animate\">\r\n");
-      out.write("                        <h2>Affordable Packages</h2>\r\n");
+      out.write("                        <h2>");
+      if (_jspx_meth_fmt_message_34(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"row\">\r\n");
@@ -602,7 +722,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"container\">\r\n");
       out.write("                <div class=\"row justify-content-center pb-5 mb-3\">\r\n");
       out.write("                    <div class=\"col-md-7 heading-section text-center ftco-animate\">\r\n");
-      out.write("                        <h2>Pets Gallery</h2>\r\n");
+      out.write("                        <h2>");
+      if (_jspx_meth_fmt_message_35(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"row\">\r\n");
@@ -693,7 +816,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"container\">\r\n");
       out.write("                <div class=\"row justify-content-center pb-5 mb-3\">\r\n");
       out.write("                    <div class=\"col-md-7 heading-section text-center ftco-animate\">\r\n");
-      out.write("                        <h2>Latest news from our blog</h2>\r\n");
+      out.write("                        <h2>");
+      if (_jspx_meth_fmt_message_36(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"row d-flex\">\r\n");
@@ -815,7 +941,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"container\">\r\n");
       out.write("                <div class=\"row\">\r\n");
       out.write("                    <div class=\"col-md-6 col-lg-3 mb-4 mb-md-0\">\r\n");
-      out.write("                        <h2 class=\"footer-heading\">Petsitting</h2>\r\n");
+      out.write("                        <h2 class=\"footer-heading\">");
+      if (_jspx_meth_fmt_message_37(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>\r\n");
       out.write("                        <ul class=\"ftco-footer-social p-0\">\r\n");
       out.write("                            <li class=\"ftco-animate\"><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Twitter\"><span class=\"fa fa-twitter\"></span></a></li>\r\n");
@@ -824,7 +953,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </ul>\r\n");
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"col-md-6 col-lg-3 mb-4 mb-md-0\">\r\n");
-      out.write("                        <h2 class=\"footer-heading\">Latest News</h2>\r\n");
+      out.write("                        <h2 class=\"footer-heading\">");
+      if (_jspx_meth_fmt_message_38(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                        <div class=\"block-21 mb-4 d-flex\">\r\n");
       out.write("                            <a class=\"img mr-4 rounded\" style=\"background-image: url(petsitting/images/image_1.jpg);\"></a>\r\n");
       out.write("                            <div class=\"text\">\r\n");
@@ -849,23 +981,47 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0\">\r\n");
-      out.write("                        <h2 class=\"footer-heading\">Quick Links</h2>\r\n");
+      out.write("                        <h2 class=\"footer-heading\">");
+      if (_jspx_meth_fmt_message_39(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                        <ul class=\"list-unstyled\">\r\n");
-      out.write("                            <li><a href=\"index.jsp\" class=\"py-2 d-block\">Home</a></li>\r\n");
-      out.write("                            <li><a href=\"aboutus.jsp\" class=\"py-2 d-block\">About</a></li>\r\n");
-      out.write("                            <li><a href=\"#\" class=\"py-2 d-block\">Services</a></li>\r\n");
-      out.write("                            <li><a href=\"#\" class=\"py-2 d-block\">Works</a></li>\r\n");
-      out.write("                            <li><a href=\"#\" class=\"py-2 d-block\">Blog</a></li>\r\n");
-      out.write("                            <li><a href=\"#\" class=\"py-2 d-block\">Contact</a></li>\r\n");
+      out.write("                            <li><a href=\"index.jsp\" class=\"py-2 d-block\">");
+      if (_jspx_meth_fmt_message_40(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
+      out.write("                            <li><a href=\"aboutus.jsp\" class=\"py-2 d-block\">");
+      if (_jspx_meth_fmt_message_41(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
+      out.write("                            <li><a href=\"#\" class=\"py-2 d-block\">");
+      if (_jspx_meth_fmt_message_42(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
+      out.write("                            <li><a href=\"#\" class=\"py-2 d-block\">");
+      if (_jspx_meth_fmt_message_43(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
+      out.write("                            <li><a href=\"#\" class=\"py-2 d-block\">");
+      if (_jspx_meth_fmt_message_44(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
+      out.write("                            <li><a href=\"#\" class=\"py-2 d-block\">");
+      if (_jspx_meth_fmt_message_45(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
       out.write("                        </ul>\r\n");
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"col-md-6 col-lg-3 mb-4 mb-md-0\">\r\n");
-      out.write("                        <h2 class=\"footer-heading\">Have a Questions?</h2>\r\n");
+      out.write("                        <h2 class=\"footer-heading\">");
+      if (_jspx_meth_fmt_message_46(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                        <div class=\"block-23 mb-3\">\r\n");
       out.write("                            <ul>\r\n");
       out.write("                                <li><span class=\"icon fa fa-map\"></span><span class=\"text\">203 Fake St. Mountain View, San Francisco, California, USA</span></li>\r\n");
       out.write("                                <li><a href=\"#\"><span class=\"icon fa fa-phone\"></span><span class=\"text\">+2 392 3929 210</span></a></li>\r\n");
-      out.write("                                <li><a href=\"#\"><span class=\"icon fa fa-paper-plane\"></span><span class=\"text\">info@yourdomain.com</span></a></li>\r\n");
+      out.write("                                <li><a href=\"#\"><span class=\"icon fa fa-paper-plane\"></span><span class=\"text\">info@yourdomain.com</span></a></li>s\r\n");
       out.write("                            </ul>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -971,6 +1127,176 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
+  private boolean _jspx_meth_fmt_setBundle_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:setBundle
+    org.apache.taglibs.standard.tag.rt.fmt.SetBundleTag _jspx_th_fmt_setBundle_0 = (org.apache.taglibs.standard.tag.rt.fmt.SetBundleTag) _jspx_tagPool_fmt_setBundle_basename_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.SetBundleTag.class);
+    _jspx_th_fmt_setBundle_0.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_setBundle_0.setParent(null);
+    _jspx_th_fmt_setBundle_0.setBasename("app");
+    int _jspx_eval_fmt_setBundle_0 = _jspx_th_fmt_setBundle_0.doStartTag();
+    if (_jspx_th_fmt_setBundle_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_setBundle_basename_nobody.reuse(_jspx_th_fmt_setBundle_0);
+      return true;
+    }
+    _jspx_tagPool_fmt_setBundle_basename_nobody.reuse(_jspx_th_fmt_setBundle_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_import_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:import
+    org.apache.taglibs.standard.tag.rt.core.ImportTag _jspx_th_c_import_0 = (org.apache.taglibs.standard.tag.rt.core.ImportTag) _jspx_tagPool_c_import_url_nobody.get(org.apache.taglibs.standard.tag.rt.core.ImportTag.class);
+    _jspx_th_c_import_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_import_0.setParent(null);
+    _jspx_th_c_import_0.setUrl("setLocale.jsp");
+    int[] _jspx_push_body_count_c_import_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_import_0 = _jspx_th_c_import_0.doStartTag();
+      if (_jspx_th_c_import_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_import_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_import_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_import_0.doFinally();
+      _jspx_tagPool_c_import_url_nobody.reuse(_jspx_th_c_import_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_0 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_0.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_0.setParent(null);
+    _jspx_th_fmt_message_0.setKey("home.textfied.home");
+    int _jspx_eval_fmt_message_0 = _jspx_th_fmt_message_0.doStartTag();
+    if (_jspx_th_fmt_message_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_1 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_1.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_1.setParent(null);
+    _jspx_th_fmt_message_1.setKey("home.textfied.product");
+    int _jspx_eval_fmt_message_1 = _jspx_th_fmt_message_1.doStartTag();
+    if (_jspx_th_fmt_message_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_2 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_2.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_2.setParent(null);
+    _jspx_th_fmt_message_2.setKey("home.textfied.product.pet");
+    int _jspx_eval_fmt_message_2 = _jspx_th_fmt_message_2.doStartTag();
+    if (_jspx_th_fmt_message_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_3(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_3 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_3.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_3.setParent(null);
+    _jspx_th_fmt_message_3.setKey("home.textfied.product.food");
+    int _jspx_eval_fmt_message_3 = _jspx_th_fmt_message_3.doStartTag();
+    if (_jspx_th_fmt_message_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_4(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_4 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_4.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_4.setParent(null);
+    _jspx_th_fmt_message_4.setKey("home.textfied.product.Accessories");
+    int _jspx_eval_fmt_message_4 = _jspx_th_fmt_message_4.doStartTag();
+    if (_jspx_th_fmt_message_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_5(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_5 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_5.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_5.setParent(null);
+    _jspx_th_fmt_message_5.setKey("home.textfied.pethotel");
+    int _jspx_eval_fmt_message_5 = _jspx_th_fmt_message_5.doStartTag();
+    if (_jspx_th_fmt_message_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_6(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_6 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_6.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_6.setParent(null);
+    _jspx_th_fmt_message_6.setKey("home.textfied.about");
+    int _jspx_eval_fmt_message_6 = _jspx_th_fmt_message_6.doStartTag();
+    if (_jspx_th_fmt_message_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
+    return false;
+  }
+
   private boolean _jspx_meth_c_if_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -1054,10 +1380,16 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/Member/ListProfile?id=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${username.getMId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("\">Profile</a></li>\r\n");
+        out.write("\"> ");
+        if (_jspx_meth_fmt_message_7((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_2, _jspx_page_context))
+          return true;
+        out.write("</a></li>\r\n");
         out.write("                                    <li><a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/Customers/Logout?logout=ok\">Logout</a></li>\r\n");
+        out.write("/Customers/Logout?logout=ok\"> ");
+        if (_jspx_meth_fmt_message_8((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_2, _jspx_page_context))
+          return true;
+        out.write("</a></li>\r\n");
         out.write("                                </ul>\r\n");
         out.write("                            </li>\r\n");
         out.write("                        ");
@@ -1092,6 +1424,42 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
+  private boolean _jspx_meth_fmt_message_7(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_2, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_7 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_7.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_2);
+    _jspx_th_fmt_message_7.setKey("home.textfied.profile");
+    int _jspx_eval_fmt_message_7 = _jspx_th_fmt_message_7.doStartTag();
+    if (_jspx_th_fmt_message_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_8(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_2, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_8 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_8.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_2);
+    _jspx_th_fmt_message_8.setKey("home.textfied.logout");
+    int _jspx_eval_fmt_message_8 = _jspx_th_fmt_message_8.doStartTag();
+    if (_jspx_th_fmt_message_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_8);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_8);
+    return false;
+  }
+
   private boolean _jspx_meth_c_if_3(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -1109,7 +1477,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("                                <a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/Customers/Login\" class=\"nav-link\">\r\n");
-        out.write("                                    Login\r\n");
+        out.write("                                  ");
+        if (_jspx_meth_fmt_message_9((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_3, _jspx_page_context))
+          return true;
+        out.write("  \r\n");
         out.write("                                </a>\r\n");
         out.write("                            </li>\r\n");
         out.write("                        ");
@@ -1123,6 +1494,690 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_3);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_9(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_3, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_9 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_9.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_3);
+    _jspx_th_fmt_message_9.setKey("home.textfied.login");
+    int _jspx_eval_fmt_message_9 = _jspx_th_fmt_message_9.doStartTag();
+    if (_jspx_th_fmt_message_9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_9);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_9);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_10(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_10 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_10.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_10.setParent(null);
+    _jspx_th_fmt_message_10.setKey("home.textfied.language");
+    int _jspx_eval_fmt_message_10 = _jspx_th_fmt_message_10.doStartTag();
+    if (_jspx_th_fmt_message_10.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_10);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_10);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_11(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_11 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_11.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_11.setParent(null);
+    _jspx_th_fmt_message_11.setKey("home.textfied.highesqualiti");
+    int _jspx_eval_fmt_message_11 = _jspx_th_fmt_message_11.doStartTag();
+    if (_jspx_th_fmt_message_11.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_11);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_11);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_12(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_12 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_12.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_12.setParent(null);
+    _jspx_th_fmt_message_12.setKey("home.button.learnmore");
+    int _jspx_eval_fmt_message_12 = _jspx_th_fmt_message_12.doStartTag();
+    if (_jspx_th_fmt_message_12.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_12);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_12);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_13(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_13 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_13.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_13.setParent(null);
+    _jspx_th_fmt_message_13.setKey("home.cricle.pet");
+    int _jspx_eval_fmt_message_13 = _jspx_th_fmt_message_13.doStartTag();
+    if (_jspx_th_fmt_message_13.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_13);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_13);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_14(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_14 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_14.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_14.setParent(null);
+    _jspx_th_fmt_message_14.setKey("home.cricle.textfied.pet");
+    int _jspx_eval_fmt_message_14 = _jspx_th_fmt_message_14.doStartTag();
+    if (_jspx_th_fmt_message_14.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_14);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_14);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_15(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_15 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_15.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_15.setParent(null);
+    _jspx_th_fmt_message_15.setKey("home.cricle.food");
+    int _jspx_eval_fmt_message_15 = _jspx_th_fmt_message_15.doStartTag();
+    if (_jspx_th_fmt_message_15.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_15);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_15);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_16(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_16 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_16.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_16.setParent(null);
+    _jspx_th_fmt_message_16.setKey("home.cricle.textfied.food");
+    int _jspx_eval_fmt_message_16 = _jspx_th_fmt_message_16.doStartTag();
+    if (_jspx_th_fmt_message_16.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_16);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_16);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_17(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_17 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_17.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_17.setParent(null);
+    _jspx_th_fmt_message_17.setKey("home.cricle.accessories");
+    int _jspx_eval_fmt_message_17 = _jspx_th_fmt_message_17.doStartTag();
+    if (_jspx_th_fmt_message_17.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_17);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_17);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_18(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_18 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_18.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_18.setParent(null);
+    _jspx_th_fmt_message_18.setKey("home.cricle.textfied.accessories");
+    int _jspx_eval_fmt_message_18 = _jspx_th_fmt_message_18.doStartTag();
+    if (_jspx_th_fmt_message_18.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_18);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_18);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_19(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_19 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_19.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_19.setParent(null);
+    _jspx_th_fmt_message_19.setKey("home.textfied.whychooseus");
+    int _jspx_eval_fmt_message_19 = _jspx_th_fmt_message_19.doStartTag();
+    if (_jspx_th_fmt_message_19.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_19);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_19);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_20(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_20 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_20.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_20.setParent(null);
+    _jspx_th_fmt_message_20.setKey("home.cricle.textfied.careadvices");
+    int _jspx_eval_fmt_message_20 = _jspx_th_fmt_message_20.doStartTag();
+    if (_jspx_th_fmt_message_20.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_20);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_20);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_21(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_21 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_21.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_21.setParent(null);
+    _jspx_th_fmt_message_21.setKey("home.cricle.textfied.customerSupp");
+    int _jspx_eval_fmt_message_21 = _jspx_th_fmt_message_21.doStartTag();
+    if (_jspx_th_fmt_message_21.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_21);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_21);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_22(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_22 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_22.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_22.setParent(null);
+    _jspx_th_fmt_message_22.setKey("home.cricle.textfied.emergency");
+    int _jspx_eval_fmt_message_22 = _jspx_th_fmt_message_22.doStartTag();
+    if (_jspx_th_fmt_message_22.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_22);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_22);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_23(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_23 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_23.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_23.setParent(null);
+    _jspx_th_fmt_message_23.setKey("home.cricle.textfied.veterinary");
+    int _jspx_eval_fmt_message_23 = _jspx_th_fmt_message_23.doStartTag();
+    if (_jspx_th_fmt_message_23.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_23);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_23);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_24(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_24 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_24.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_24.setParent(null);
+    _jspx_th_fmt_message_24.setKey("home.textfied.Customer");
+    int _jspx_eval_fmt_message_24 = _jspx_th_fmt_message_24.doStartTag();
+    if (_jspx_th_fmt_message_24.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_24);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_24);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_25(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_25 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_25.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_25.setParent(null);
+    _jspx_th_fmt_message_25.setKey("home.textfied.Professionals");
+    int _jspx_eval_fmt_message_25 = _jspx_th_fmt_message_25.doStartTag();
+    if (_jspx_th_fmt_message_25.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_25);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_25);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_26(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_26 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_26.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_26.setParent(null);
+    _jspx_th_fmt_message_26.setKey("home.textfied.Products");
+    int _jspx_eval_fmt_message_26 = _jspx_th_fmt_message_26.doStartTag();
+    if (_jspx_th_fmt_message_26.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_26);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_26);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_27(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_27 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_27.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_27.setParent(null);
+    _jspx_th_fmt_message_27.setKey("home.textfied.PetsHosted");
+    int _jspx_eval_fmt_message_27 = _jspx_th_fmt_message_27.doStartTag();
+    if (_jspx_th_fmt_message_27.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_27);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_27);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_28(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_28 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_28.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_28.setParent(null);
+    _jspx_th_fmt_message_28.setKey("home.textfied.question");
+    int _jspx_eval_fmt_message_28 = _jspx_th_fmt_message_28.doStartTag();
+    if (_jspx_th_fmt_message_28.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_28);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_28);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_29(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_29 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_29.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_29.setParent(null);
+    _jspx_th_fmt_message_29.setKey("home.box.httrain");
+    int _jspx_eval_fmt_message_29 = _jspx_th_fmt_message_29.doStartTag();
+    if (_jspx_th_fmt_message_29.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_29);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_29);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_30(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_30 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_30.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_30.setParent(null);
+    _jspx_th_fmt_message_30.setKey("home.box.htmanage");
+    int _jspx_eval_fmt_message_30 = _jspx_th_fmt_message_30.doStartTag();
+    if (_jspx_th_fmt_message_30.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_30);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_30);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_31(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_31 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_31.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_31.setParent(null);
+    _jspx_th_fmt_message_31.setKey("home.box.bestGrooming");
+    int _jspx_eval_fmt_message_31 = _jspx_th_fmt_message_31.doStartTag();
+    if (_jspx_th_fmt_message_31.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_31);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_31);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_32(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_32 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_32.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_32.setParent(null);
+    _jspx_th_fmt_message_32.setKey("home.box.requirements");
+    int _jspx_eval_fmt_message_32 = _jspx_th_fmt_message_32.doStartTag();
+    if (_jspx_th_fmt_message_32.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_32);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_32);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_33(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_33 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_33.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_33.setParent(null);
+    _jspx_th_fmt_message_33.setKey("home.textfied.hc&fb");
+    int _jspx_eval_fmt_message_33 = _jspx_th_fmt_message_33.doStartTag();
+    if (_jspx_th_fmt_message_33.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_33);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_33);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_34(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_34 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_34.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_34.setParent(null);
+    _jspx_th_fmt_message_34.setKey("home.textfied.AffordablePackages");
+    int _jspx_eval_fmt_message_34 = _jspx_th_fmt_message_34.doStartTag();
+    if (_jspx_th_fmt_message_34.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_34);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_34);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_35(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_35 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_35.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_35.setParent(null);
+    _jspx_th_fmt_message_35.setKey("home.textfied.PetsGallery");
+    int _jspx_eval_fmt_message_35 = _jspx_th_fmt_message_35.doStartTag();
+    if (_jspx_th_fmt_message_35.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_35);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_35);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_36(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_36 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_36.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_36.setParent(null);
+    _jspx_th_fmt_message_36.setKey("home.textfied.news");
+    int _jspx_eval_fmt_message_36 = _jspx_th_fmt_message_36.doStartTag();
+    if (_jspx_th_fmt_message_36.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_36);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_36);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_37(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_37 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_37.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_37.setParent(null);
+    _jspx_th_fmt_message_37.setKey("home.footer.Petsitting");
+    int _jspx_eval_fmt_message_37 = _jspx_th_fmt_message_37.doStartTag();
+    if (_jspx_th_fmt_message_37.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_37);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_37);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_38(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_38 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_38.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_38.setParent(null);
+    _jspx_th_fmt_message_38.setKey("home.footer.LatestNews");
+    int _jspx_eval_fmt_message_38 = _jspx_th_fmt_message_38.doStartTag();
+    if (_jspx_th_fmt_message_38.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_38);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_38);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_39(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_39 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_39.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_39.setParent(null);
+    _jspx_th_fmt_message_39.setKey("home.footer.QuickLinks");
+    int _jspx_eval_fmt_message_39 = _jspx_th_fmt_message_39.doStartTag();
+    if (_jspx_th_fmt_message_39.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_39);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_39);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_40(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_40 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_40.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_40.setParent(null);
+    _jspx_th_fmt_message_40.setKey("home.footer.QuickLinks.textfied1");
+    int _jspx_eval_fmt_message_40 = _jspx_th_fmt_message_40.doStartTag();
+    if (_jspx_th_fmt_message_40.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_40);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_40);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_41(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_41 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_41.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_41.setParent(null);
+    _jspx_th_fmt_message_41.setKey("home.footer.QuickLinks.textfied2");
+    int _jspx_eval_fmt_message_41 = _jspx_th_fmt_message_41.doStartTag();
+    if (_jspx_th_fmt_message_41.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_41);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_41);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_42(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_42 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_42.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_42.setParent(null);
+    _jspx_th_fmt_message_42.setKey("home.footer.QuickLinks.textfied3");
+    int _jspx_eval_fmt_message_42 = _jspx_th_fmt_message_42.doStartTag();
+    if (_jspx_th_fmt_message_42.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_42);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_42);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_43(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_43 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_43.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_43.setParent(null);
+    _jspx_th_fmt_message_43.setKey("home.footer.QuickLinks.textfied4");
+    int _jspx_eval_fmt_message_43 = _jspx_th_fmt_message_43.doStartTag();
+    if (_jspx_th_fmt_message_43.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_43);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_43);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_44(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_44 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_44.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_44.setParent(null);
+    _jspx_th_fmt_message_44.setKey("home.footer.QuickLinks.textfied5");
+    int _jspx_eval_fmt_message_44 = _jspx_th_fmt_message_44.doStartTag();
+    if (_jspx_th_fmt_message_44.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_44);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_44);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_45(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_45 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_45.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_45.setParent(null);
+    _jspx_th_fmt_message_45.setKey("home.footer.QuickLinks.textfied6");
+    int _jspx_eval_fmt_message_45 = _jspx_th_fmt_message_45.doStartTag();
+    if (_jspx_th_fmt_message_45.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_45);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_45);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_46(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_46 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_46.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_46.setParent(null);
+    _jspx_th_fmt_message_46.setKey("home.footer.HaveaQuestions");
+    int _jspx_eval_fmt_message_46 = _jspx_th_fmt_message_46.doStartTag();
+    if (_jspx_th_fmt_message_46.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_46);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_46);
     return false;
   }
 }

@@ -80,7 +80,7 @@
 
                                             <hr>
                                             <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project_HKIV_PetShop/loginGoogle&response_type=code
-           &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force" class="btn btn-google btn-user btn-block">
+                                               &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force" class="btn btn-google btn-user btn-block">
                                                 <i class="fab fa-google fa-fw"></i>  <fmt:message key="login.button.submitGoogle"/>
                                             </a>
                                             <a href="../Admin/index.html" class="btn btn-facebook btn-user btn-block">
