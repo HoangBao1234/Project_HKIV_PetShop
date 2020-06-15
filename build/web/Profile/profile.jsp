@@ -5,8 +5,10 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="context" value="${pageContext.request.contextPath}" />
+    <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="entity.Members"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
     <style>
@@ -27,6 +29,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <fmt:setBundle basename="app"/>
+         <c:import url="setLocale.jsp"/>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -74,23 +78,23 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html"><span class="flaticon-pawprint-1 mr-2"></span>Pet Shop</a>
+                <a class="navbar-brand" href="index.jsp"><span class="flaticon-pawprint-1 mr-2"></span>Pet Shop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span> Menu
                 </button>
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
+                        <li class="nav-item active"><a href="index.jsp" class="nav-link"><fmt:message key="home.textfied.home"/></a></li>
 
-                        <li class="nav-item dropdown" ><a href="aboutus.jsp" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
+                        <li class="nav-item dropdown" ><a href="aboutus.jsp" class="nav-link  dropdown-toggle" data-toggle="dropdown"><fmt:message key="home.textfied.product"/></a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                <li><a href="${context}/PetProduct/All">Pet</a></li>
-                                <li><a href="${context}/FoodProduct/All">Food</a></li>
-                                <li><a href="${context}/AccessoriesProduct/All">Accessoreis</a></li>
+                                <li><a href="${context}/PetProduct/All"><fmt:message key="home.textfied.product.pet"/></a></li>
+                                <li><a href="${context}/FoodProduct/All"><fmt:message key="home.textfied.product.food"/></a></li>
+                                <li><a href="${context}/AccessoriesProduct/All"><fmt:message key="home.textfied.product.Accessories"/></a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="Customer/../Customer/petHotel/colorlib-regform-3/index.jsp" class="nav-link">PetHotel</a></li>
-                        <li class="nav-item"><a href="aboutus.jsp" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="Customer/../Customer/petHotel/colorlib-regform-3/index.jsp" class="nav-link"><fmt:message key="home.textfied.pethotel"/></a></li>
+                        <li class="nav-item"><a href="aboutus.jsp" class="nav-link"><fmt:message key="home.textfied.about"/></a></li>
                         <li class="nav-item"><a href="${context}/Order/View" class="nav-link"><i class="fas fa-shopping-cart"><sub><span class="badge">
                                             <c:if test="${sessionScope.order != null}">
                                                 ${sessionScope.order.odersDetailsCollection.size()}
@@ -105,22 +109,22 @@
                                     <c:out value="${sessionScope.username.name}" />
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                    <li><a href="${context}/Member/ListProfile?id=${username.getMId()}">Profile</a></li>
-                                    <li><a href="${context}/Customers/Logout?logout=ok">Logout</a></li>
+                                    <li><a href="${context}/Member/ListProfile?id=${username.getMId()}"> <fmt:message key="home.textfied.profile"/></a></li>
+                                    <li><a href="${context}/Customers/Logout?logout=ok"> <fmt:message key="home.textfied.logout"/></a></li>
                                 </ul>
                             </li>
                         </c:if>
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
                                 <a href="${context}/Customers/Login" class="nav-link">
-                                    Login
+                                  <fmt:message key="home.textfied.login"/>  
                                 </a>
                             </li>
                         </c:if>
-                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Language</a>
+                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown"><fmt:message key="home.textfied.language"/></a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                <li><a href="#">Vietnamese</a></li>
-                                <li><a href="#">English</a></li>
+                                <li><a href="?locale=en">English</a></li>
+                                <li><a href="?locale=vi">Vietnamese</a></li>
 
                             </ul>
                         </li>
@@ -236,7 +240,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Petsitting</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.Petsitting"/></h2>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                         <ul class="ftco-footer-social p-0">
                             <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
@@ -245,7 +249,7 @@
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Latest News</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.LatestNews"/></h2>
                         <div class="block-21 mb-4 d-flex">
                             <a class="img mr-4 rounded" style="background-image: url(petsitting/images/image_1.jpg);"></a>
                             <div class="text">
@@ -270,23 +274,23 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Quick Links</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.QuickLinks"/></h2>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Home</a></li>
-                            <li><a href="#" class="py-2 d-block">About</a></li>
-                            <li><a href="#" class="py-2 d-block">Services</a></li>
-                            <li><a href="#" class="py-2 d-block">Works</a></li>
-                            <li><a href="#" class="py-2 d-block">Blog</a></li>
-                            <li><a href="#" class="py-2 d-block">Contact</a></li>
+                            <li><a href="index.jsp" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied1"/></a></li>
+                            <li><a href="aboutus.jsp" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied2"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied3"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied4"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied5"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied6"/></a></li>
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Have a Questions?</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.HaveaQuestions"/></h2>
                         <div class="block-23 mb-3">
                             <ul>
                                 <li><span class="icon fa fa-map"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
                                 <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>
+                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>s
                             </ul>
                         </div>
                     </div>
@@ -301,6 +305,7 @@
                 </div>
             </div>
         </footer>
+
 
 
 

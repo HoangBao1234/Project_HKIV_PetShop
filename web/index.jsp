@@ -1,10 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="entity.Members"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>PetShop</title>
+        <fmt:setBundle basename="app"/>
+         <c:import url="setLocale.jsp"/>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -62,17 +66,17 @@
                 </button>
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
+                        <li class="nav-item active"><a href="index.jsp" class="nav-link"><fmt:message key="home.textfied.home"/></a></li>
 
-                        <li class="nav-item dropdown" ><a href="aboutus.jsp" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
+                        <li class="nav-item dropdown" ><a href="aboutus.jsp" class="nav-link  dropdown-toggle" data-toggle="dropdown"><fmt:message key="home.textfied.product"/></a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                <li><a href="${context}/PetProduct/All">Pet</a></li>
-                                <li><a href="${context}/FoodProduct/All">Food</a></li>
-                                <li><a href="${context}/AccessoriesProduct/All">Accessoreis</a></li>
+                                <li><a href="${context}/PetProduct/All"><fmt:message key="home.textfied.product.pet"/></a></li>
+                                <li><a href="${context}/FoodProduct/All"><fmt:message key="home.textfied.product.food"/></a></li>
+                                <li><a href="${context}/AccessoriesProduct/All"><fmt:message key="home.textfied.product.Accessories"/></a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="Customer/../Customer/petHotel/colorlib-regform-3/index.jsp" class="nav-link">PetHotel</a></li>
-                        <li class="nav-item"><a href="aboutus.jsp" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="Customer/../Customer/petHotel/colorlib-regform-3/index.jsp" class="nav-link"><fmt:message key="home.textfied.pethotel"/></a></li>
+                        <li class="nav-item"><a href="aboutus.jsp" class="nav-link"><fmt:message key="home.textfied.about"/></a></li>
                         <li class="nav-item"><a href="${context}/Order/View" class="nav-link"><i class="fas fa-shopping-cart"><sub><span class="badge">
                                             <c:if test="${sessionScope.order != null}">
                                                 ${sessionScope.order.odersDetailsCollection.size()}
@@ -87,22 +91,22 @@
                                     <c:out value="${sessionScope.username.name}" />
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                    <li><a href="${context}/Member/ListProfile?id=${username.getMId()}">Profile</a></li>
-                                    <li><a href="${context}/Customers/Logout?logout=ok">Logout</a></li>
+                                    <li><a href="${context}/Member/ListProfile?id=${username.getMId()}"> <fmt:message key="home.textfied.profile"/></a></li>
+                                    <li><a href="${context}/Customers/Logout?logout=ok"> <fmt:message key="home.textfied.logout"/></a></li>
                                 </ul>
                             </li>
                         </c:if>
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
                                 <a href="${context}/Customers/Login" class="nav-link">
-                                    Login
+                                  <fmt:message key="home.textfied.login"/>  
                                 </a>
                             </li>
                         </c:if>
-                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Language</a>
+                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown"><fmt:message key="home.textfied.language"/></a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                <li><a href="#">Vietnamese</a></li>
-                                <li><a href="#">English</a></li>
+                                <li><a href="?locale=en">English</a></li>
+                                <li><a href="?locale=vi">Vietnamese</a></li>
 
                             </ul>
                         </li>
@@ -116,8 +120,8 @@
             <div class="container">
                 <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
                     <div class="col-md-11 ftco-animate text-center">
-                        <h1 class="mb-4">Highest Quality Care For Pets You'll Love </h1>
-                        <p><a href="#" class="btn btn-primary mr-md-4 py-3 px-4">Learn more <span class="ion-ios-arrow-forward"></span></a></p>
+                        <h1 class="mb-4"> <fmt:message key="home.textfied.highesqualiti"/>  </h1>
+                        <p><a href="#" class="btn btn-primary mr-md-4 py-3 px-4"><fmt:message key="home.button.learnmore"/><span class="ion-ios-arrow-forward"></span></a></p>
                     </div>
                 </div>
             </div>
@@ -132,8 +136,8 @@
                                 <span class="flaticon-blind"></span>
                             </div>
                             <div class="media-body">
-                                <h3 class="heading" style="margin-top: 20px">Pets</h3>
-                                <p>Carefully selected pets are fully vaccinated, have clear origins, and are reasonably priced in the market</p>
+                                <h3 class="heading" style="margin-top: 20px"><fmt:message key="home.cricle.pet"/> </h3>
+                                <p><fmt:message key="home.cricle.textfied.pet"/></p>
                                 <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
                             </div>
                         </div>      
@@ -144,8 +148,8 @@
                                 <span class="flaticon-dog-eating"></span>
                             </div>
                             <div class="media-body">
-                                <h3 class="heading" style="margin-top: 20px">Foods</h3>
-                                <p>PetShop is a leading partner providing pet dogs and domesticated cats for breeding farms, pet dog shops nationwide.</p>
+                                <h3 class="heading" style="margin-top: 20px"><fmt:message key="home.cricle.food"/></h3>
+                                <p><fmt:message key="home.cricle.textfied.food"/></p>
                                 <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
                             </div>
                         </div>    
@@ -156,8 +160,8 @@
                                 <span class="flaticon-grooming"></span>
                             </div>
                             <div class="media-body">
-                                <h3 class="heading" style="margin-top: 20px">Accessories</h3>
-                                <p>Providing accessories to help take care of your pet better saves time</p>
+                                <h3 class="heading" style="margin-top: 20px"><fmt:message key="home.cricle.accessories"/></h3>
+                                <p><fmt:message key="home.cricle.textfied.accessories"/></p>
                                 <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
                             </div>
                         </div>      
@@ -175,34 +179,34 @@
                     </div>
                     <div class="col-md-7 pl-md-5 py-md-5">
                         <div class="heading-section pt-md-5">
-                            <h2 class="mb-4">Why Choose Us?</h2>
+                            <h2 class="mb-4"><fmt:message key="home.textfied.whychooseus"/></h2>
                         </div>
                         <div class="row">
                             <div class="col-md-6 services-2 w-100 d-flex">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-stethoscope"></span></div>
                                 <div class="text pl-3">
-                                    <h4>Care Advices</h4>
+                                    <h4><fmt:message key="home.cricle.textfied.careadvices"/></h4>
                                     <p>Far far away, behind the word mountains, far from the countries.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 services-2 w-100 d-flex">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-customer-service"></span></div>
                                 <div class="text pl-3">
-                                    <h4>Customer Supports</h4>
+                                    <h4><fmt:message key="home.cricle.textfied.customerSupp"/></h4>
                                     <p>Far far away, behind the word mountains, far from the countries.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 services-2 w-100 d-flex">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-emergency-call"></span></div>
                                 <div class="text pl-3">
-                                    <h4>Emergency Services</h4>
+                                    <h4><fmt:message key="home.cricle.textfied.emergency"/></h4>
                                     <p>Far far away, behind the word mountains, far from the countries.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 services-2 w-100 d-flex">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-veterinarian"></span></div>
                                 <div class="text pl-3">
-                                    <h4>Veterinary Help</h4>
+                                    <h4><fmt:message key="home.cricle.textfied.veterinary"/></h4>
                                     <p>Far far away, behind the word mountains, far from the countries.</p>
                                 </div>
                             </div>
@@ -221,7 +225,7 @@
                                 <strong class="number" data-number="50">0</strong>
                             </div>
                             <div class="text">
-                                <span>Customer</span>
+                                <span><fmt:message key="home.textfied.Customer"/></span>
                             </div>
                         </div>
                     </div>
@@ -231,7 +235,7 @@
                                 <strong class="number" data-number="8500">0</strong>
                             </div>
                             <div class="text">
-                                <span>Professionals</span>
+                                <span><fmt:message key="home.textfied.Professionals"/></span>
                             </div>
                         </div>
                     </div>
@@ -241,7 +245,7 @@
                                 <strong class="number" data-number="20">0</strong>
                             </div>
                             <div class="text">
-                                <span>Products</span>
+                                <span><fmt:message key="home.textfied.Products"/></span>
                             </div>
                         </div>
                     </div>
@@ -251,7 +255,7 @@
                                 <strong class="number" data-number="50">0</strong>
                             </div>
                             <div class="text">
-                                <span>Pets Hosted</span>
+                                <span><fmt:message key="home.textfied.PetsHosted"/></span>
                             </div>
                         </div>
                     </div>
@@ -276,7 +280,7 @@
 
                     <div class="col-lg-6">
                         <div class="heading-section mb-5 mt-5 mt-lg-0">
-                            <h2 class="mb-3">Frequently Asks Questions</h2>
+                            <h2 class="mb-3"><fmt:message key="home.textfied.question"/></h2>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                         </div>
                         <div id="accordion" class="myaccordion w-100" aria-multiselectable="true">
@@ -284,7 +288,7 @@
                                 <div class="card-header p-0" id="headingOne">
                                     <h2 class="mb-0">
                                         <button href="#collapseOne" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
-                                            <p class="mb-0">How to train your pet dog?</p>
+                                            <p class="mb-0"><fmt:message key="home.box.httrain"/></p>
                                             <i class="fa" aria-hidden="true"></i>
                                         </button>
                                     </h2>
@@ -306,7 +310,7 @@
                                 <div class="card-header p-0" id="headingTwo" role="tab">
                                     <h2 class="mb-0">
                                         <button href="#collapseTwo" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
-                                            <p class="mb-0">How to manage your pets?</p>
+                                            <p class="mb-0"><fmt:message key="home.box.htmanage"/></p>
                                             <i class="fa" aria-hidden="true"></i>
                                         </button>
                                     </h2>
@@ -328,7 +332,7 @@
                                 <div class="card-header p-0" id="headingThree" role="tab">
                                     <h2 class="mb-0">
                                         <button href="#collapseThree" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
-                                            <p class="mb-0">What is the best grooming for your pets?</p>
+                                            <p class="mb-0"><fmt:message key="home.box.bestGrooming"/></p>
                                             <i class="fa" aria-hidden="true"></i>
                                         </button>
                                     </h2>
@@ -350,7 +354,7 @@
                                 <div class="card-header p-0" id="headingFour" role="tab">
                                     <h2 class="mb-0">
                                         <button href="#collapseFour" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFour">
-                                            <p class="mb-0">What are those requirements for sitting pets?</p>
+                                            <p class="mb-0"><fmt:message key="home.box.requirements"/></p>
                                             <i class="fa" aria-hidden="true"></i>
                                         </button>
                                     </h2>
@@ -372,7 +376,7 @@
             <div class="container">
                 <div class="row justify-content-center pb-5 mb-3">
                     <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2>Happy Clients &amp; Feedbacks</h2>
+                        <h2><fmt:message key="home.textfied.hc&fb"/></h2>
                     </div>
                 </div>
                 <div class="row ftco-animate">
@@ -463,7 +467,7 @@
             <div class="container">
                 <div class="row justify-content-center pb-5 mb-3">
                     <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2>Affordable Packages</h2>
+                        <h2><fmt:message key="home.textfied.AffordablePackages"/></h2>
                     </div>
                 </div>
                 <div class="row">
@@ -529,7 +533,7 @@
             <div class="container">
                 <div class="row justify-content-center pb-5 mb-3">
                     <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2>Pets Gallery</h2>
+                        <h2><fmt:message key="home.textfied.PetsGallery"/></h2>
                     </div>
                 </div>
                 <div class="row">
@@ -620,7 +624,7 @@
             <div class="container">
                 <div class="row justify-content-center pb-5 mb-3">
                     <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2>Latest news from our blog</h2>
+                        <h2><fmt:message key="home.textfied.news"/></h2>
                     </div>
                 </div>
                 <div class="row d-flex">
@@ -742,7 +746,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Petsitting</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.Petsitting"/></h2>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                         <ul class="ftco-footer-social p-0">
                             <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
@@ -751,7 +755,7 @@
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Latest News</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.LatestNews"/></h2>
                         <div class="block-21 mb-4 d-flex">
                             <a class="img mr-4 rounded" style="background-image: url(petsitting/images/image_1.jpg);"></a>
                             <div class="text">
@@ -776,23 +780,23 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Quick Links</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.QuickLinks"/></h2>
                         <ul class="list-unstyled">
-                            <li><a href="index.jsp" class="py-2 d-block">Home</a></li>
-                            <li><a href="aboutus.jsp" class="py-2 d-block">About</a></li>
-                            <li><a href="#" class="py-2 d-block">Services</a></li>
-                            <li><a href="#" class="py-2 d-block">Works</a></li>
-                            <li><a href="#" class="py-2 d-block">Blog</a></li>
-                            <li><a href="#" class="py-2 d-block">Contact</a></li>
+                            <li><a href="index.jsp" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied1"/></a></li>
+                            <li><a href="aboutus.jsp" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied2"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied3"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied4"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied5"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied6"/></a></li>
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Have a Questions?</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.HaveaQuestions"/></h2>
                         <div class="block-23 mb-3">
                             <ul>
                                 <li><span class="icon fa fa-map"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
                                 <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>
+                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>s
                             </ul>
                         </div>
                     </div>
