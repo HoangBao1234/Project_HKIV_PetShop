@@ -16,22 +16,22 @@
         <c:import url="setLocale.jsp"/>
         <fmt:setBundle basename="app"/>
         <!--===============================================================================================-->	
-        <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+        <link rel="icon" type="image/png" href="${context}/Login/loginCustomer/Login_v11/images/icons/favicon.ico"/>
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="${context}/Login/loginCustomer/Login_v11/vendor/bootstrap/css/bootstrap.min.css">
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="${context}/Login/loginCustomer/Login_v11/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+        <link rel="stylesheet" type="text/css" href="${context}/Login/loginCustomer/Login_v11/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+        <link rel="stylesheet" type="text/css" href="${context}/Login/loginCustomer/Login_v11/vendor/animate/animate.css">
         <!--===============================================================================================-->	
-        <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+        <link rel="stylesheet" type="text/css" href="${context}/Login/loginCustomer/Login_v11/vendor/css-hamburgers/hamburgers.min.css">
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+        <link rel="stylesheet" type="text/css" href="${context}/Login/loginCustomer/Login_v11/vendor/select2/select2.min.css">
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="css/util.css">
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="${context}/Login/loginCustomer/Login_v11/css/util.css">
+        <link rel="stylesheet" type="text/css" href="${context}/Login/loginCustomer/Login_v11/css/main.css">
         <!--===============================================================================================-->
     </head>
     <body>
@@ -58,7 +58,7 @@
                         }
                     %>
                     ${error}
-                    <form class="login100-form validate-form" action="${context}/Admins/Check" method="post">
+                    <form class="login100-form validate-form" action="${context}/Customers/Check" method="post">
                         <span class="login100-form-title p-b-55">
                             Login
                         </span>
@@ -87,7 +87,7 @@
                         </div>
 
                         <div class="container-login100-form-btn p-t-25">
-                            <button class="login100-form-btn" value="<fmt:message key="login.button.submit"/>">
+                            <button class="login100-form-btn" type="submit" value="<fmt:message key="login.button.submit"/>">
                                 Login
                             </button>
                         </div>
@@ -107,7 +107,7 @@
 
                         <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project_HKIV_PetShop/loginGoogle&response_type=code
            &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force" class="btn-google m-b-10">
-                            <img src="images/icons/icon-google.png" alt="GOOGLE"><fmt:message key="login.button.submitGoogle"/>
+                            <img src="${context}/Login/loginCustomer/Login_v11/images/icons/icon-google.png" alt="GOOGLE"><fmt:message key="login.button.submitGoogle"/>
                             Google
                         </a>
 
@@ -121,14 +121,14 @@
 
 
         <!--===============================================================================================-->	
-        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+        <script src="${context}/Login/loginCustomer/Login_v11/vendor/jquery/jquery-3.2.1.min.js"></script>
         <!--===============================================================================================-->
-        <script src="vendor/bootstrap/js/popper.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="${context}/Login/loginCustomer/Login_v11/vendor/bootstrap/js/popper.js"></script>
+        <script src="${context}/Login/loginCustomer/Login_v11/vendor/bootstrap/js/bootstrap.min.js"></script>
         <!--===============================================================================================-->
-        <script src="vendor/select2/select2.min.js"></script>
+        <script src="${context}/Login/loginCustomer/Login_v11/vendor/select2/select2.min.js"></script>
         <!--===============================================================================================-->
-        <script src="js/main.js"></script>
+        <script src="${context}/Login/loginCustomer/Login_v11/js/main.js"></script>
 
     </body>
 </html>

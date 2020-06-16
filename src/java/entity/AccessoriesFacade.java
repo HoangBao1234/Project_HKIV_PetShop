@@ -40,7 +40,7 @@ public class AccessoriesFacade extends AbstractFacade<Accessories> implements Ac
 
     @Override
     public List<Accessories> reconmentAcc(CateES cate) {
-        String query = "SELECT a FROM Accessories a WHERE a.CFId = :cate";
+        String query = "SELECT a FROM Accessories a WHERE a.cEId = :cate";
         Query q = em.createQuery(query).setMaxResults(5);
         q.setParameter("cate", cate);
         return q.getResultList();

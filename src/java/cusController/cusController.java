@@ -86,7 +86,7 @@ public class cusController extends HttpServlet {
     }
 
     private void getViewLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/Login/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/Login/loginCustomer/Login_v11/index.jsp").forward(request, response);
     }
 
     private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

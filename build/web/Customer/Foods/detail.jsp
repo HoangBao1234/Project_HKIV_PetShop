@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="entity.Members"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="context" value="${pageContext.request.contextPath}" />
@@ -8,7 +8,7 @@
     <head>
         <title>PetShop</title>
         <fmt:setBundle basename="app"/>
-         <c:import url="setLocale.jsp"/>
+        <c:import url="setLocale.jsp"/>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -53,10 +53,62 @@
                 justify-content: center;
                 -webkit-justify-content: center;
             }
-        </style>
-    </head>
-    <body>
-        <div class="wrap">
+            .quantity {
+                display: inline-block; }
+
+            .quantity .input-text.qty {
+                width: 35px;
+                height: 39px;
+                padding: 0 5px;
+                text-align: center;
+                background-color: transparent;
+                border: 1px solid #efefef;
+            }
+
+            .quantity.buttons_added {
+                text-align: left;
+                position: relative;
+                white-space: nowrap;
+                vertical-align: top; }
+
+            .quantity.buttons_added input {
+                display: inline-block;
+                margin: 0;
+                vertical-align: top;
+                box-shadow: none;
+            }
+
+            .quantity.buttons_added .minus,
+            .quantity.buttons_added .plus {
+                padding: 7px 10px 8px;
+                height: 41px;
+                background-color: #ffffff;
+                border: 1px solid #efefef;
+                cursor:pointer;}
+
+            .quantity.buttons_added .minus {
+                border-right: 0; }
+
+            .quantity.buttons_added .plus {
+                border-left: 0; }
+
+            .quantity.buttons_added .minus:hover,
+            .quantity.buttons_added .plus:hover {
+                background: #eeeeee; }
+
+            .quantity input::-webkit-outer-spin-button,
+            .quantity input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                margin: 0; }
+
+            .quantity.buttons_added .minus:focus,
+            .quantity.buttons_added .plus:focus {
+                outline: none; }
+            </style>
+        </head>
+        <body>
+            <div class="wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 d-flex align-items-center">
@@ -116,7 +168,7 @@
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
                                 <a href="${context}/Customers/Login" class="nav-link">
-                                  <fmt:message key="home.textfied.login"/>  
+                                    <fmt:message key="home.textfied.login"/>  
                                 </a>
                             </li>
                         </c:if>
@@ -134,24 +186,28 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section" style="background-color: #f1f1f1">
+        <section class="ftco-section">
             <div class="container">
                 <div class="row d-flex">
                     <div class="col-sm-8">
                         <div class="row">
                             <div class="col-sm-6">
                                 <img src="${context}/ImageItems/${food.image}" width="313" height="330"/>
-                               
-                                
+                                ${food.description}
+
                             </div>
                             <div class="col-sm-6">
                                 <ul style="list-style-type: none">
                                     <li><h1 style="font-family: initial">${food.name}</h1></li>
                                     <li>${food.price} $</li>
-                                    <li>${food.description}</li>
-                                    
-
                                     <li><hr/></li>
+                                    <li>
+                                        <div class="quantity buttons_added" style="margin-top:30px; margin-bottom: 20px;">
+                                            <form>
+                                                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+                                            </form>
+                                        </div>
+                                    </li>
                                     <li><button style="border: none; background-color: #00bd56;
                                                 border-radius: 5px; padding: 5px  15px; color: whitesmoke">Add to Cart</button></li>
                                 </ul>
@@ -189,7 +245,7 @@
                         </div>
                     </div>
                 </div>
-                            <h4 style="margin-top: 50px"><fmt:message key="product.textfied.detail.interested"/></h4>
+                <h4 style="margin-top: 50px"><fmt:message key="product.textfied.detail.interested"/></h4>
                 <hr/>
                 <div class="row">
                     <c:forEach var="i" items="${list}">
@@ -206,7 +262,7 @@
                                         </div>
                                         <div class="row">
                                             <button style="border: none; background-color: #00bd56; width: 90px;
-                                                        border-radius: 10px; padding: 4px  10px; color: whitesmoke">
+                                                    border-radius: 10px; padding: 4px  10px; color: whitesmoke">
                                                 <a style="color: white" href="${context}/FoodProduct/Compare?id_1=${food.getFId()}&id_2=${i.getFId()}">Compare</a>
                                             </button>
                                             <div class="col-sm-3">
@@ -223,7 +279,7 @@
                 <ul id="pagination"></ul>
             </div>
         </section>
-            <footer class="footer">
+        <footer class="footer">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">

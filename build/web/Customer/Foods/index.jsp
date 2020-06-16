@@ -1,14 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="entity.Members"%>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
+<fmt:setBundle basename="app"/>
+<c:import url="setLocale.jsp"/>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <title>PetShop</title>
-         <fmt:setBundle basename="app"/>
-         <c:import url="setLocale.jsp"/>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -34,13 +35,13 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"/>
 
-
+        
         <style>
             *{
                 font-family: cursive;
             }
         </style>
-        
+
         <style>
             img {
                 image-rendering: pixelated;
@@ -54,7 +55,11 @@
                 justify-content: center;
                 -webkit-justify-content: center;
             }
+            .ftco-navbar-light .navbar-nav > .nav-item > .nav-link{
+                font-size: 13px !important;
+            }
         </style>
+
     </head>
     <body>
         <div class="wrap">
@@ -78,13 +83,13 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.jsp"><span class="flaticon-pawprint-1 mr-2"></span>Pet Shop</a>
+                <a class="navbar-brand" href="index.jsp" style="color: black"><span class="flaticon-pawprint-1 mr-2"></span>Pet Shop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span> Menu
                 </button>
                 <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="${context}/index.jsp" class="nav-link"><fmt:message key="home.textfied.home"/></a></li>
+                    <ul class="navbar-nav ml-auto" style="font-size: 13px">
+                        <li class="nav-item"><a href="${context}/index.jsp" class="nav-link"><fmt:message key="home.textfied.home"/></a></li>
 
                         <li class="nav-item dropdown" ><a href="aboutus.jsp" class="nav-link  dropdown-toggle" data-toggle="dropdown"><fmt:message key="home.textfied.product"/></a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
@@ -117,7 +122,7 @@
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
                                 <a href="${context}/Customers/Login" class="nav-link">
-                                  <fmt:message key="home.textfied.login"/>  
+                                    <fmt:message key="home.textfied.login"/>  
                                 </a>
                             </li>
                         </c:if>

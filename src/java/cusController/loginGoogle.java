@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package cusController;
 
 import Common.GooglePojo;
@@ -27,6 +26,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "loginGoogle", urlPatterns = {"/loginGoogle"})
 public class loginGoogle extends HttpServlet {
+
     @EJB
     private MembersFacadeLocal membersFacade;
 
@@ -53,11 +53,22 @@ public class loginGoogle extends HttpServlet {
                 GooglePojo googlePojo = GoogleUtils.getUserInfo(accessToken);
                 String id = googlePojo.getId();
                 String mail = googlePojo.getEmail();
+                
                 String name = mail.substring(0, mail.indexOf("@"));
-                Members member = new Members(name, mail, null, null, null);
-                membersFacade.create(member);
-                session.setAttribute("username", member);
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                boolean check = false;
+                for (Members members : membersFacade.findAll()) {
+                    if (members.getMail().equals(mail)) {
+                        check = true;
+                        session.setAttribute("username", members);
+                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                    }
+                }
+                if (check == false) {
+                    Members member = new Members(name, mail, null, null, null);
+                    membersFacade.create(member);
+                    session.setAttribute("username", member);
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                }
             }
         }
     }

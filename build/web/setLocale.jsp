@@ -15,10 +15,10 @@
     </head>
     <body>
         <c:choose>
-            <c:when test="${param.locale=='en'}">
+            <c:when test="${param.locale == 'en'}">
                 <fmt:setLocale value="en" scope="session"/>
             </c:when>
-            <c:when test="${param.locale=='vi'}">
+            <c:when test="${param.locale == 'vi'}">
                 <fmt:setLocale value="vi" scope="session"/>
             </c:when>
         </c:choose>

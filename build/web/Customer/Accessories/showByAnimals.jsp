@@ -49,6 +49,9 @@
                 justify-content: center;
                 -webkit-justify-content: center;
             }
+            .ftco-navbar-light .navbar-nav > .nav-item > .nav-link{
+                font-size: 13px !important;
+            }
         </style>
     </head>
     <body>

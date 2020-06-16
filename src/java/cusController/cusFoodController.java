@@ -83,6 +83,8 @@ public class cusFoodController extends HttpServlet {
             String id = request.getParameter("id");
             request.setAttribute("food", foodsFacade.find(id));
             request.setAttribute("list", foodsFacade.recommentFood(foodsFacade.find(id).getCFId()));
+            request.setAttribute("breed", breedsFacade.findAll());
+            request.setAttribute("forAnimals", animalsFacade.findAll());
             request.getRequestDispatcher("/Customer/Foods/detail.jsp").forward(request, response);
 
         }

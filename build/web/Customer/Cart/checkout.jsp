@@ -39,6 +39,7 @@
             * {
                 box-sizing: border-box;
                 font-family: cursive;
+                color: black;
             }
 
             .row {
@@ -132,19 +133,21 @@
         </style>
 
         <script>
-            function test(){
+            function test() {
                 console.log("ok");
                 var selectTran = document.getElementById("selectTran").value;
                 var total = document.getElementById("total").textContent;
                 var html;
-                if(selectTran.localeCompare("Fast") === 0){
+                if (selectTran.localeCompare("Fast") === 0) {
                     html = parseInt(total) + 10;
                     document.getElementById("total").innerHTML = html;
+                    document.getElementById("msg").innerHTML = "(*) Fast shipping 10 $";
                 }
-                if(selectTran.localeCompare("Normal") === 0){
+                if (selectTran.localeCompare("Normal") === 0) {
                     html = parseInt(total) - 10;
                     document.getElementById("total").innerHTML = html;
-                } 
+                    document.getElementById("msg").innerHTML = "";
+                }
             }
         </script>
     </head>
@@ -244,14 +247,14 @@
                                 <div class="col-50">
                                     <label for="fname">Accepted Cards</label>
                                     <div class="icon-container">
-                                        <h4><input type="radio" name="payment" value="Cash"/> &nbsp;Cash&nbsp;<i class="fa fa-money"></i></h4>
+                                        <h4><input type="radio" checked="true" name="payment" value="Cash"/> &nbsp;Cash&nbsp;<i class="fa fa-money"></i></h4>
                                         <h4><input type="radio" name="payment" value="Cards"/> &nbsp;Cards&nbsp;<i class="fa fa-cc-visa" style="color:navy;"></i></h4>
                                         <label for="fname">Transport</label>
-                                        <select name="transport" id="selectTran" onchange="test()" style="text-align: center">
-                                            <option value="null">&nbsp;---Select---</option>
-                                            <option value="fast">Fast Shipping</option>
-                                            <option value="normal">Normal</option>
+                                        <select name="transport" id="selectTran" onchange="test();" style="text-align: center">
+                                            <option value="Fast">Fast Shipping</option>
+                                            <option value="Normal" selected="true">Normal</option>
                                         </select>
+                                        <span id="msg" style="font-size: 13px"></span>
                                     </div>
 
                                     <div class="row">
@@ -282,6 +285,7 @@
                                             <option value="Fast">Fast Shipping</option>
                                             <option value="Normal" selected="true">Normal</option>
                                         </select>
+                                        <span id="msg" style="font-size: 13px"></span>
                                     </div>
 
                                     <div class="row">
@@ -298,7 +302,7 @@
                     <h4><b>Cart</b><span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>${sessionScope.order.odersDetailsCollection.size()}</b></span></h4>
                     <c:forEach var="i" items="${sessionScope.order.odersDetailsCollection}">
                         <p><a href="#">${i.productName}</a><span class="price">${i.quantity} x ${i.productPrice}$</span></p>
-                    </c:forEach>
+                            </c:forEach>
                     <hr>
                     <p>Total <span class="price" style="color:black; font-weight: bold" ><span id="total">${sessionScope.order.total}</span> $</span></p>
                 </div>

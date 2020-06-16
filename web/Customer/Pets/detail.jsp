@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="entity.Members"%>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
     <head>
         <title>PetShop</title>
         <fmt:setBundle basename="app"/>
-         <c:import url="setLocale.jsp"/>
+        <c:import url="setLocale.jsp"/>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -37,6 +37,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"/>
 
         <style>
+            *{
+                font-family: cursive;
+            }
             img {
                 image-rendering: pixelated;
             }
@@ -104,7 +107,9 @@
             .quantity.buttons_added .plus:focus {
                 outline: none; }
 
-
+            .ftco-navbar-light .navbar-nav > .nav-item > .nav-link{
+                font-size: 13px !important;
+            }
         </style>
         <script>
             function wcqib_refresh_quantity_increments() {
@@ -192,7 +197,7 @@
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
                                 <a href="${context}/Customers/Login" class="nav-link">
-                                  <fmt:message key="home.textfied.login"/>  
+                                    <fmt:message key="home.textfied.login"/>  
                                 </a>
                             </li>
                         </c:if>
@@ -229,7 +234,9 @@
                                     <li></li>
                                     <li>
                                         <div class="quantity buttons_added" style="margin-top:30px; margin-bottom: 20px;">
-                                            <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+                                            <form>
+                                                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+                                            </form>
                                         </div>
                                     </li>
                                     <li style="margin-top: 15px; margin-bottom: 15px"><a href="${context}/Order/Store?PId=${pet.PId}">
@@ -240,7 +247,7 @@
                             </div>
                         </div>
                     </div>
-                  <div class="col-sm-4" style="background-color: #FAFAFA; height: 100%;">
+                    <div class="col-sm-4" style="background-color: #FAFAFA; height: 100%;">
                         <div style="border: 0 solid #ccc; padding: 15px; font-family: cursive">
                             <h4><fmt:message key="product.textfied.productlist"/></h4>
                             <form action="${context}/PetProduct/Search" method="post" id="myForm">
@@ -271,7 +278,7 @@
                         </div>
                     </div>
                 </div>
-                            <h4 style="margin-top: 50px"><fmt:message key="product.textfied.detail.interested"/></h4>
+                <h4 style="margin-top: 50px"><fmt:message key="product.textfied.detail.interested"/></h4>
                 <hr style="background-color: #00bd56"/>
                 <div class="row">
                     <c:forEach var="i" items="${list}">

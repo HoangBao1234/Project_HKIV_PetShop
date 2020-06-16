@@ -53,6 +53,9 @@
                 justify-content: center;
                 -webkit-justify-content: center;
             }
+            .ftco-navbar-light .navbar-nav > .nav-item > .nav-link{
+                font-size: 13px !important;
+            }
         </style>
     </head>
     <body>
@@ -134,7 +137,7 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section bg-light" style="background-color: #f1f1f1">
+        <section class="ftco-section bg-light">
             <div class="container">
                 <div class="row d-flex">
                     <div class="col-sm-8">

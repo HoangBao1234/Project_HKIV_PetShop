@@ -135,7 +135,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            Login\r\n");
       out.write("                        </span>\r\n");
       out.write("\r\n");
-      out.write("                        <div class=\"wrap-input100 validate-input m-b-16\" data-validate = \"Valid email is required: ex@abc.xyz\">\r\n");
+      out.write("                        <div class=\"wrap-input100 validate-input m-b-16\" data-validate = \"Valid email is required: ex@abc.xyz\" >\r\n");
       out.write("                            <input class=\"input100\" type=\"text\" name=\"txtMail\" value=\"");
 out.print(user);
       out.write("\" placeholder=\"");

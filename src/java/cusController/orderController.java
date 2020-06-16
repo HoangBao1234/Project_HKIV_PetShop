@@ -346,6 +346,9 @@ public class orderController extends HttpServlet {
             orders.setShipAddress(address);
             orders.setPaymentBy(payment);
             orders.setTransport(transport);
+            if(transport.equals("Fast")){
+                orders.setTotal(orders.getTotal()+10);
+            }
 
             ordersFacade.create(orders);
             

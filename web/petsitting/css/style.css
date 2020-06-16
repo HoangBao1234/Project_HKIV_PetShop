@@ -8084,7 +8084,6 @@ h1, h2, h3, h4, h5,
     .ftco-navbar-light .navbar-nav {
       padding-bottom: 10px; } }
   .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
-    font-size: 14px;
     padding-top: 2.3rem;
     padding-bottom: 2.3rem;
     padding-left: 18px;
@@ -8101,6 +8100,7 @@ h1, h2, h3, h4, h5,
       height: 2px;
       bottom: 0px;
       left: 0;
+      font-size: 13px;
       background-color: #00bd56;
       visibility: hidden;
       -webkit-transform: scaleX(0);
