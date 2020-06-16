@@ -217,7 +217,7 @@
                     <div class="col-sm-4" style="background-color: #FAFAFA; height: 100%;">
                         <div style="border: 0 solid #ccc; padding: 15px; font-family: cursive">
                             <h4><fmt:message key="product.textfied.productlist"/></h4>
-                            <form action="${context}/PetProduct/Search" method="post" id="myForm">
+                            <form action="${context}/FoodProduct/Search" method="post" id="myForm">
                                 <input style="padding: 2px 5px; border-radius: 5px; border:3px;" id="myInput" name="txtName" type="text" placeholder="<fmt:message key="product.textfied.search"/>">
                                 <button type="submit" style="border: none; background-color: #FAFAFA"><i class="fas fa-search" aria-hidden="true"></i></button>
                             </form>

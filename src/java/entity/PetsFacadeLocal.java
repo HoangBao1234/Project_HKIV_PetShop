@@ -37,4 +37,8 @@ public interface PetsFacadeLocal {
     List<Pets> recommentPet(Breeds breeds);
     
     List<Pets> searchByName(String name);
+    
+    List<Pets> searchByPrice(int from, int to);
+    
+    List<Pets> searchByMaxPrice(int max);
 }

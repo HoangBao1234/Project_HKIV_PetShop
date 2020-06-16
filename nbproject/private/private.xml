@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3">
+        <file>
+            <url>src/java/entity/OrdersFacade.java</url>
+            <bookmark id="3">
+                <name/>
+                <line>34</line>
+                <key/>
+            </bookmark>
+        </file>
         <file>
             <url>src/java/entity/AccessoriesFacade.java</url>
             <bookmark id="1">
@@ -9,18 +17,29 @@
                 <key/>
             </bookmark>
         </file>
+        <file>
+            <url>src/java/entity/FoodsFacade.java</url>
+            <bookmark id="2">
+                <name/>
+                <line>51</line>
+                <key/>
+            </bookmark>
+        </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Login/registerCustomer/colorlib-regform-2/index.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Login/registerCustomer/colorlib-regform-2/css/main.css</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Pets/detail.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/entity/Accessories.java</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Login/register.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Login/loginCustomer/Login_v11/index.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Accessories/detail.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/index.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Login/login.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/OrdersFacade.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/cusController/cusAccController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/cusController/orderController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Customer/Accessories/index.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Orders.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Customer/Cart/checkout.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Customer/Cart/cart.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/OrdersFacadeLocal.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/AccessoriesFacade.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/AccessoriesFacadeLocal.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Customer/Cart/printOrder.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/cusController/cusFoodController.java</file>
         </group>
     </open-files>
 </project-private>

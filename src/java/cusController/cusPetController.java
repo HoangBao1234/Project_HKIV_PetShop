@@ -67,6 +67,9 @@ public class cusPetController extends HttpServlet {
                 case "/Search":
                     searchByName(request, response);
                     break;
+                case "/SearchByPrice":
+                    searchByPrice(request, response);
+                    break;
                 default:
                     out.print("Huhu");
                     break;
@@ -82,6 +85,39 @@ public class cusPetController extends HttpServlet {
         request.getRequestDispatcher("/Customer/Pets/index.jsp").forward(request, response);
     }
 
+    private void searchByPrice(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (request.getParameter("price") == null || request.getParameter("price").trim().isEmpty()) {
+            response.sendRedirect("All");
+        } else {
+            String price = request.getParameter("price");
+            int from;
+            int to;
+            if (price.equals("value1")) {
+                from = 10;
+                to = 50;
+                request.setAttribute("list", petsFacade.searchByPrice(from, to));
+                request.setAttribute("breed", breedsFacade.findAll());
+                request.setAttribute("forAnimals", animalsFacade.findAll());
+                request.getRequestDispatcher("/Customer/Pets/index.jsp").forward(request, response);
+            }
+            if (price.equals("value2")) {
+                from = 50;
+                to = 100;
+                request.setAttribute("list", petsFacade.searchByPrice(from, to));
+                request.setAttribute("breed", breedsFacade.findAll());
+                request.setAttribute("forAnimals", animalsFacade.findAll());
+                request.getRequestDispatcher("/Customer/Pets/index.jsp").forward(request, response);
+            }
+            if (price.equals("value3")) {
+                from = 100;
+                request.setAttribute("list", petsFacade.searchByMaxPrice(from));
+                request.setAttribute("breed", breedsFacade.findAll());
+                request.setAttribute("forAnimals", animalsFacade.findAll());
+                request.getRequestDispatcher("/Customer/Pets/index.jsp").forward(request, response);
+            }
+        }
+    }
+
     private void getViewBreed(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
             response.sendRedirect("All");
@@ -89,6 +125,7 @@ public class cusPetController extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             request.setAttribute("breeds", breedsFacade.find(id));
             request.setAttribute("breed", breedsFacade.findAll());
+            request.setAttribute("forAnimals", animalsFacade.findAll());
             request.getRequestDispatcher("/Customer/Pets/showByBreed.jsp").forward(request, response);
         }
 

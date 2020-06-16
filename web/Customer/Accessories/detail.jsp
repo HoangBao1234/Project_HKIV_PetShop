@@ -53,6 +53,59 @@
                 justify-content: center;
                 -webkit-justify-content: center;
             }
+            .quantity {
+                display: inline-block; }
+
+            .quantity .input-text.qty {
+                width: 35px;
+                height: 39px;
+                padding: 0 5px;
+                text-align: center;
+                background-color: transparent;
+                border: 1px solid #efefef;
+            }
+
+            .quantity.buttons_added {
+                text-align: left;
+                position: relative;
+                white-space: nowrap;
+                vertical-align: top; }
+
+            .quantity.buttons_added input {
+                display: inline-block;
+                margin: 0;
+                vertical-align: top;
+                box-shadow: none;
+            }
+
+            .quantity.buttons_added .minus,
+            .quantity.buttons_added .plus {
+                padding: 7px 10px 8px;
+                height: 41px;
+                background-color: #ffffff;
+                border: 1px solid #efefef;
+                cursor:pointer;}
+
+            .quantity.buttons_added .minus {
+                border-right: 0; }
+
+            .quantity.buttons_added .plus {
+                border-left: 0; }
+
+            .quantity.buttons_added .minus:hover,
+            .quantity.buttons_added .plus:hover {
+                background: #eeeeee; }
+
+            .quantity input::-webkit-outer-spin-button,
+            .quantity input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                margin: 0; }
+
+            .quantity.buttons_added .minus:focus,
+            .quantity.buttons_added .plus:focus {
+                outline: none; }
+
             .ftco-navbar-light .navbar-nav > .nav-item > .nav-link{
                 font-size: 13px !important;
             }
@@ -170,7 +223,7 @@
                     <div class="col-sm-4" style="background-color: #FAFAFA; height: 100%;">
                         <div style="border: 0 solid #ccc; padding: 15px; font-family: cursive">
                             <h4><fmt:message key="product.textfied.productlist"/></h4>
-                            <form action="${context}/PetProduct/Search" method="post" id="myForm">
+                            <form action="${context}/AccessoriesProduct/Search" method="post" id="myForm">
                                 <input style="padding: 2px 5px; border-radius: 5px; border:3px;" id="myInput" name="txtName" type="text" placeholder="<fmt:message key="product.textfied.search"/>">
                                 <button type="submit" style="border: none; background-color: #FAFAFA"><i class="fas fa-search" aria-hidden="true"></i></button>
                             </form>
@@ -209,7 +262,7 @@
                                     </a>
                                     <div class="text p-4">
                                         <div class="meta mb-2">
-                                            <div><a href="#">${i.ESName}</a></div><br/>
+                                            <div><a href="#">${i.name}</a></div><br/>
                                             <div><a href="#">${i.CEId.name}</a></div>
                                             <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
                                         </div>

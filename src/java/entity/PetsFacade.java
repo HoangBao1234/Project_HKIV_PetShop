@@ -61,7 +61,21 @@ public class PetsFacade extends AbstractFacade<Pets> implements PetsFacadeLocal 
         q.setParameter("name", "%"+name+"%");
         return q.getResultList();
     }
-    
-    
-    
+
+    @Override
+    public List<Pets> searchByPrice(int from, int to) {
+        String query = "SELECT p FROM Pets p WHERE p.price >= :from AND p.price <= :to";
+        Query q = em.createQuery(query);
+        q.setParameter("from", from);
+        q.setParameter("to", to);
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Pets> searchByMaxPrice(int max) {
+        String query = "SELECT p FROM Pets p WHERE p.price >= :max";
+        Query q = em.createQuery(query);
+        q.setParameter("max", max);
+        return q.getResultList();
+    }
 }

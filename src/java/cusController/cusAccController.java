@@ -59,11 +59,16 @@ public class cusAccController extends HttpServlet {
                 case "/Search":
                     search(request, response);
                     break;
+                case "/SearchByPrice":
+                    searchByPrice(request, response);
+                    break;
                 case "/ShowByCate":
                     getViewCate(request, response);
                     break;
                 case "/Detail":
                     getDetailView(request, response);
+                case "/Compare":
+                    getCompareView(request, response);
                 default:
                     out.print("Huhu");
                     break;
@@ -73,10 +78,42 @@ public class cusAccController extends HttpServlet {
 
     private void getViewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", accessoriesFacade.findAll());
-        request.setAttribute("cate", cateESFacade.findAll());
         request.setAttribute("breed", breedsFacade.findAll());
         request.setAttribute("forAnimals", animalsFacade.findAll());
         request.getRequestDispatcher("/Customer/Accessories/index.jsp").forward(request, response);
+    }
+
+    private void searchByPrice(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (request.getParameter("price") == null || request.getParameter("price").trim().isEmpty()) {
+            response.sendRedirect("All");
+        } else {
+            String price = request.getParameter("price");
+            int from;
+            int to;
+            if (price.equals("value1")) {
+                from = 10;
+                to = 50;
+                request.setAttribute("list", accessoriesFacade.searchByPrice(from, to));
+                request.setAttribute("breed", breedsFacade.findAll());
+                request.setAttribute("forAnimals", animalsFacade.findAll());
+                request.getRequestDispatcher("/Customer/Accessories/index.jsp").forward(request, response);
+            }
+            if (price.equals("value2")) {
+                from = 50;
+                to = 100;
+                request.setAttribute("list", accessoriesFacade.searchByPrice(from, to));
+                request.setAttribute("breed", breedsFacade.findAll());
+                request.setAttribute("forAnimals", animalsFacade.findAll());
+                request.getRequestDispatcher("/Customer/Accessories/index.jsp").forward(request, response);
+            }
+            if (price.equals("value3")) {
+                from = 100;
+                request.setAttribute("list", accessoriesFacade.searchByMaxPrice(from));
+                request.setAttribute("breed", breedsFacade.findAll());
+                request.setAttribute("forAnimals", animalsFacade.findAll());
+                request.getRequestDispatcher("/Customer/Accessories/index.jsp").forward(request, response);
+            }
+        }
     }
 
     private void getDetailView(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -86,6 +123,8 @@ public class cusAccController extends HttpServlet {
             String id = request.getParameter("id");
             request.setAttribute("acc", accessoriesFacade.find(id));
             request.setAttribute("list", accessoriesFacade.reconmentAcc(accessoriesFacade.find(id).getCEId()));
+            request.setAttribute("breed", breedsFacade.findAll());
+            request.setAttribute("forAnimals", animalsFacade.findAll());
             request.getRequestDispatcher("/Customer/Accessories/detail.jsp").forward(request, response);
         }
     }
@@ -96,6 +135,8 @@ public class cusAccController extends HttpServlet {
         } else {
             int id = Integer.parseInt(request.getParameter("id"));
             request.setAttribute("animals", animalsFacade.find(id));
+            request.setAttribute("breed", breedsFacade.findAll());
+            request.setAttribute("forAnimals", animalsFacade.findAll());
             request.getRequestDispatcher("/Customer/Accessories/showByAnimals.jsp").forward(request, response);
         }
 
@@ -128,12 +169,11 @@ public class cusAccController extends HttpServlet {
     }
 
     private void search(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if (request.getParameter("name") == null || request.getParameter("name").trim().isEmpty()) {
+        if (request.getParameter("txtName") == null || request.getParameter("txtName").trim().isEmpty()) {
             response.sendRedirect(request.getContextPath() + "/AccessoriesProduct/All");
         } else {
-            String name = request.getParameter("name");
+            String name = request.getParameter("txtName");
             request.setAttribute("list", accessoriesFacade.searchByName(name));
-            request.setAttribute("cate", cateESFacade.findAll());
             request.setAttribute("breed", breedsFacade.findAll());
             request.setAttribute("forAnimals", animalsFacade.findAll());
             request.getRequestDispatcher("/Customer/Accessories/index.jsp").forward(request, response);

@@ -9,6 +9,7 @@ package entity;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -26,6 +27,14 @@ public class OrdersFacade extends AbstractFacade<Orders> implements OrdersFacade
 
     public OrdersFacade() {
         super(Orders.class);
+    }
+
+    @Override
+    public Orders getOrderByUser(Members mId) {
+        String query = "SELECT o FROM Orders o WHERE o.mId = :mId";
+        Query q = em.createQuery(query);
+        q.setParameter("mId", mId);
+        return (Orders)q.getSingleResult();
     }
     
 }

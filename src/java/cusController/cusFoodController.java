@@ -56,6 +56,9 @@ public class cusFoodController extends HttpServlet {
                 case "/Search":
                     search(request, response);
                     break;
+                case "/SearchByPrice":
+                    searchByPrice(request, response);
+                    break;
                 case "/ShowByAnimals":
                     getViewAnimals(request, response);
                     break;
@@ -65,6 +68,39 @@ public class cusFoodController extends HttpServlet {
                 default:
                     out.print("Huhu");
                     break;
+            }
+        }
+    }
+
+    private void searchByPrice(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (request.getParameter("price") == null || request.getParameter("price").trim().isEmpty()) {
+            response.sendRedirect("All");
+        } else {
+            String price = request.getParameter("price");
+            int from;
+            int to;
+            if (price.equals("value1")) {
+                from = 10;
+                to = 50;
+                request.setAttribute("list", foodsFacade.searchByPrice(from, to));
+                request.setAttribute("forAnimals", animalsFacade.findAll());
+                request.setAttribute("breed", breedsFacade.findAll());
+                request.getRequestDispatcher("/Customer/Foods/index.jsp").forward(request, response);
+            }
+            if (price.equals("value2")) {
+                from = 50;
+                to = 100;
+                request.setAttribute("list", foodsFacade.searchByPrice(from, to));
+                request.setAttribute("forAnimals", animalsFacade.findAll());
+                request.setAttribute("breed", breedsFacade.findAll());
+                request.getRequestDispatcher("/Customer/Foods/index.jsp").forward(request, response);
+            }
+            if (price.equals("value3")) {
+                from = 100;
+                request.setAttribute("list", foodsFacade.searchByMaxPrice(from));
+                request.setAttribute("forAnimals", animalsFacade.findAll());
+                request.setAttribute("breed", breedsFacade.findAll());
+                request.getRequestDispatcher("/Customer/Foods/index.jsp").forward(request, response);
             }
         }
     }
@@ -97,15 +133,17 @@ public class cusFoodController extends HttpServlet {
         } else {
             int id = Integer.parseInt(request.getParameter("id"));
             request.setAttribute("animlas", animalsFacade.find(id));
+            request.setAttribute("forAnimals", animalsFacade.findAll());
+            request.setAttribute("breed", breedsFacade.findAll());
             request.getRequestDispatcher("/Customer/Foods/showByAnimals.jsp").forward(request, response);
         }
     }
 
     private void search(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if (request.getParameter("name") == null || request.getParameter("name").trim().isEmpty()) {
+        if (request.getParameter("txtName") == null || request.getParameter("txtName").trim().isEmpty()) {
             response.sendRedirect("All");
         } else {
-            String name = request.getParameter("name");
+            String name = request.getParameter("txtName");
             request.setAttribute("list", foodsFacade.searchByName(name));
             request.setAttribute("forAnimals", animalsFacade.findAll());
             request.setAttribute("breed", breedsFacade.findAll());

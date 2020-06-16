@@ -35,7 +35,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"/>
 
-        
+
         <style>
             *{
                 font-family: cursive;
@@ -56,6 +56,11 @@
                 font-size: 13px !important;
             }
         </style>
+        <script>
+            function submitForm(){
+                document.getElementById("testForm").submit();
+            }
+        </script>
     </head>
     <body>
         <div class="wrap">
@@ -136,8 +141,17 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section">
+        <section class="ftco-section" style="padding-top: 20px">
             <div class="container">
+                <form style="margin-bottom: 25px;" action="${context}/PetProduct/SearchByPrice" id="testForm" method="post">
+                    <label>Choose your desired price</label>
+                    <select style="padding: 5px 10px; border-radius: 5px" name="price" onchange="submitForm();" id="testPrice">
+                        <option>--Select--</option>
+                        <option value="value1">10 - 50</option>
+                        <option value="value2">50 - 100</option>
+                        <option value="value3">  100 < </option>
+                    </select>
+                </form>
                 <div class="row d-flex">
                     <div class="col-sm-8">
                         <div class="row">

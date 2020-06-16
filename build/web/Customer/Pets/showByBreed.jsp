@@ -55,6 +55,11 @@
                 font-size: 13px !important;
             }
         </style>
+        <script>
+            function submitForm(){
+                document.getElementById("testForm").submit();
+            }
+        </script>
     </head>
     <body>
 
@@ -136,8 +141,17 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section">
+        <section class="ftco-section" style="padding-top: 20px">
             <div class="container">
+                <form style="margin-bottom: 25px;" action="${context}/PetProduct/SearchByPrice" id="testForm" method="post">
+                    <label>Choose your desired price</label>
+                    <select style="padding: 5px 10px; border-radius: 5px" name="price" onchange="submitForm();" id="testPrice">
+                        <option>--Select--</option>
+                        <option value="value1">10 - 50</option>
+                        <option value="value2">50 - 100</option>
+                        <option value="value3">  100 < </option>
+                    </select>
+                </form>
                 <div class="row d-flex">
                     <div class="col-sm-8">
                         <div class="row">
@@ -169,27 +183,27 @@
                     </div>
                     <div class="col-sm-4" style="background-color: #FAFAFA; height: 100%;">
                         <div style="border: 0 solid #ccc; padding: 15px; font-family: cursive">
-                            <h4>Product Portfolio</h4>
+                            <h4><fmt:message key="product.textfied.productlist"/></h4>
                             <form action="${context}/PetProduct/Search" method="post" id="myForm">
-                                <input style="padding: 2px 5px; border-radius: 5px; border:3px;" id="myInput" name="txtName" type="text" placeholder="Search">
+                                <input style="padding: 2px 5px; border-radius: 5px; border:3px;" id="myInput" name="txtName" type="text" placeholder="<fmt:message key="product.textfied.search"/>">
                                 <button type="submit" style="border: none; background-color: #FAFAFA"><i class="fas fa-search" aria-hidden="true"></i></button>
                             </form>
                             <hr/>
-                            <h6 style="margin-top: 10px">Breeds</h6>
+                            <h6 style="margin-top: 10px"><fmt:message key="product.textfied.breeds"/></h6>
                             <ul>
                                 <c:forEach var="b" items="${breed}">
                                     <li style="list-style-type: none;"><a style="color: black" href="${context}/PetProduct/ShowByBreed?id=${b.CPId}">${b.name}<sub><span class="badge">${b.petsCollection.size()}</span></a></li>
                                                 </c:forEach>
                             </ul>
                             <hr/>
-                            <h6 style="margin-top: 10px">Foods</h6>
+                            <h6 style="margin-top: 10px"><fmt:message key="product.textfied.foods"/></h6>
                             <ul>
                                 <c:forEach var="f" items="${forAnimals}">
                                     <li style="list-style-type: none;"><a style="color: black" href="${context}/FoodProduct/ShowByAnimals?id=${f.CFId}">${f.name}<sub><span class="badge">${f.foodsCollection.size()}</span></a></li>
                                                 </c:forEach>
                             </ul>
                             <hr/>
-                            <h6 style="margin-top: 10px">Accessories</h6>
+                            <h6 style="margin-top: 10px"><fmt:message key="product.textfied.accessories"/></h6>
                             <ul>
                                 <c:forEach var="a" items="${forAnimals}">
                                     <li style="list-style-type: none;"><a style="color: black" href="${context}/AccessoriesProduct/ShowByAnimals?id=${a.CFId}">${a.name}<sub><span class="badge">${a.accessoriesCollection.size()}</span></a></li>

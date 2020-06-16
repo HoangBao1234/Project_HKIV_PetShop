@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="entity.Members"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
@@ -8,7 +8,7 @@
     <head>
         <title>PetShop</title>
         <fmt:setBundle basename="app"/>
-         <c:import url="setLocale.jsp"/>
+        <c:import url="setLocale.jsp"/>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -57,9 +57,14 @@
                 font-size: 13px !important;
             }
         </style>
+        <script>
+            function testSubmit(){
+                document.getElementById("testForm").submit();
+            }
+        </script>
     </head>
     <body>
-         <div class="wrap">
+        <div class="wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 d-flex align-items-center">
@@ -119,7 +124,7 @@
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
                                 <a href="${context}/Customers/Login" class="nav-link">
-                                  <fmt:message key="home.textfied.login"/>  
+                                    <fmt:message key="home.textfied.login"/>  
                                 </a>
                             </li>
                         </c:if>
@@ -137,8 +142,17 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section bg-light">
+        <section class="ftco-section bg-light" style="padding-top: 20px">
             <div class="container">
+                <form style="margin-bottom: 25px;" action="${context}/AccessoriesProduct/SearchByPrice" method="post" id="testForm">
+                    <label>Choose your desired price</label>
+                    <select style="padding: 5px 10px; border-radius: 5px" name="price" onchange="testSubmit();">
+                        <option>--Select--</option>
+                        <option value="value1">10 - 50</option>
+                        <option value="value2">50 - 100</option>
+                        <option value="value3">  100 < </option>
+                    </select>
+                </form>
                 <div class="row d-flex">
                     <div class="col-sm-8">
                         <div class="row">
@@ -171,10 +185,10 @@
                             </c:forEach>
                         </div>
                     </div>
-                   <div class="col-sm-4" style="background-color: #FAFAFA; height: 100%;">
+                    <div class="col-sm-4" style="background-color: #FAFAFA; height: 100%;">
                         <div style="border: 0 solid #ccc; padding: 15px; font-family: cursive">
                             <h4><fmt:message key="product.textfied.productlist"/></h4>
-                            <form action="${context}/PetProduct/Search" method="post" id="myForm">
+                            <form action="${context}/AccessoriesProduct/Search" method="post" id="myForm">
                                 <input style="padding: 2px 5px; border-radius: 5px; border:3px;" id="myInput" name="txtName" type="text" placeholder="<fmt:message key="product.textfied.search"/>">
                                 <button type="submit" style="border: none; background-color: #FAFAFA"><i class="fas fa-search" aria-hidden="true"></i></button>
                             </form>
@@ -306,7 +320,7 @@
         <!-- JS t?o nút b?m di chuy?n trang end -->
         <script type="text/javascript">
                                 $(function() {
-                                    var pageSize = 3; // Hi?n th? 6 s?n ph?m trên 1 trang
+                                    var pageSize = 9; // Hi?n th? 6 s?n ph?m trên 1 trang
                                     showPage = function(page) {
                                         $(".contentPage").hide();
                                         $(".contentPage").each(function(n) {

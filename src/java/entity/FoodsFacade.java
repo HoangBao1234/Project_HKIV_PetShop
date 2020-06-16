@@ -45,5 +45,22 @@ public class FoodsFacade extends AbstractFacade<Foods> implements FoodsFacadeLoc
         q.setParameter("name", "%"+name+"%");
         return q.getResultList();
     }
+
+    @Override
+    public List<Foods> searchByPrice(int from, int to) {
+        String query = "SELECT f FROM Foods f WHERE f.price >= :from AND f.price <= :to";
+        Query q = em.createQuery(query);
+        q.setParameter("from", from);
+        q.setParameter("to", to);
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Foods> searchByMaxPrice(int max) {
+        String query = "SELECT f FROM Foods f WHERE f.price >= :max";
+        Query q = em.createQuery(query);
+        q.setParameter("max", max);
+        return q.getResultList();
+    }
     
 }

@@ -121,7 +121,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/Customers/Store\" method=\"post\">\r\n");
       out.write("                            <div class=\"input-group\">\r\n");
-      out.write("                                <input class=\"input--style-2\" type=\"text\" id=\"exampleFirstName\" name=\"regis_name\" placeholder=\"");
+      out.write("                                <input class=\"input--style-3\" type=\"text\" id=\"exampleFirstName\" name=\"regis_name\" placeholder=\"");
       if (_jspx_meth_fmt_message_0(_jspx_page_context))
         return;
       out.write("\">\r\n");
@@ -129,7 +129,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <div class=\"row row-space\">\r\n");
       out.write("                                <div class=\"col-2\">\r\n");
       out.write("                                    <div class=\"input-group\">\r\n");
-      out.write("                                        <input class=\"input--style-2\" type=\"password\" id=\"exampleInputPassword\" name=\"regis_pass\" placeholder=\"");
+      out.write("                                        <input class=\"input--style-3\" type=\"password\" id=\"exampleInputPassword\" name=\"regis_pass\" placeholder=\"");
       if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
       out.write("\" >\r\n");
@@ -138,7 +138,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"col-2\">\r\n");
       out.write("                                    <div class=\"input-group\">\r\n");
       out.write("                                        <div class=\"rs-select2 js-select-simple select--no-search\">\r\n");
-      out.write("                                            <input class=\"input--style-2\" type=\"text\" id=\"exampleLastName\" name=\"regis_phone\" placeholder=\"");
+      out.write("                                            <input class=\"input--style-3\" type=\"text\" id=\"exampleLastName\" name=\"regis_phone\" placeholder=\"");
       if (_jspx_meth_fmt_message_2(_jspx_page_context))
         return;
       out.write("\">\r\n");
@@ -148,7 +148,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"input-group\">\r\n");
       out.write("                                <div class=\"rs-select2 js-select-simple select--no-search\">\r\n");
-      out.write("                                    <input class=\"input--style-2\" type=\"email\" id=\"exampleInputEmail\" name=\"regis_mail\" placeholder=\"");
+      out.write("                                    <input class=\"input--style-3\" type=\"email\" id=\"exampleInputEmail\" name=\"regis_mail\" placeholder=\"");
       if (_jspx_meth_fmt_message_3(_jspx_page_context))
         return;
       out.write("\">\r\n");
@@ -157,7 +157,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <div class=\"row row-space\">\r\n");
       out.write("                                <div class=\"col-2\">\r\n");
       out.write("                                    <div class=\"input-group\">\r\n");
-      out.write("                                        <input class=\"input--style-2\" type=\"text\" id=\"exampleRepeatPassword\" name=\"regis_address\" placeholder=\"");
+      out.write("                                        <input class=\"input--style-3\" type=\"text\" id=\"exampleRepeatPassword\" name=\"regis_address\" placeholder=\"");
       if (_jspx_meth_fmt_message_4(_jspx_page_context))
         return;
       out.write("\">\r\n");

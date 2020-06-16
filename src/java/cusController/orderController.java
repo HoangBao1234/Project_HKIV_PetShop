@@ -19,6 +19,8 @@ import entity.Pets;
 import entity.PetsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -76,6 +78,9 @@ public class orderController extends HttpServlet {
                 case "/Store":
                     addToCart(request, response);
                     break;
+                case "/PrintOrder":
+                    printOrder(request, response);
+                    break;
                 case "/UpdateCart":
                     updateCart(request, response);
                     break;
@@ -100,6 +105,20 @@ public class orderController extends HttpServlet {
 
         request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
 
+    }
+
+    private void printOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        PrintWriter out = response.getWriter();
+        if (session.getAttribute("order") != null) {
+            Orders orders = (Orders)session.getAttribute("order");
+            List<OdersDetails> items = (List<OdersDetails>)orders.getOdersDetailsCollection();
+            out.print("Date: "+orders.getOderDate()+"<br/>");
+            for(OdersDetails item : items){
+                out.print("Sản Phẩm: "+item.getProductName()+"--- Giá: "+item.getProductPrice()+"--- Số Lượng: "+item.getQuantity()+"<br/>");
+            }
+            out.print("Tổng: "+orders.getTotal());
+        }
     }
 
     private void addToCart(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -276,12 +295,12 @@ public class orderController extends HttpServlet {
                 }
                 itemList.remove(itemDe);
                 orders.setOdersDetailsCollection(itemList);
-                
+
                 for (OdersDetails item : itemList) {
                     total += item.getProductPrice() * item.getQuantity();
                 }
                 orders.setTotal(total);
-                
+
                 if (itemList.size() == 0) {
                     session.removeAttribute("order");
                     response.sendRedirect(request.getContextPath() + "/Order/View");
@@ -298,38 +317,38 @@ public class orderController extends HttpServlet {
         request.getRequestDispatcher("/Customer/Cart/checkout.jsp").forward(request, response);
     }
 
-    private void updateCart(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    private void updateCart(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
-        
+
         String[] ids = request.getParameterValues("productId");
-        
+
         HttpSession session = request.getSession();
-        if(session != null){
-            Orders orders = (Orders)session.getAttribute("order");
-            List<OdersDetails> items = (List<OdersDetails>)orders.getOdersDetailsCollection();
-            
-            for(OdersDetails i : items){
-                for(String id : ids){
-                    if(i.getProductId().equals(id)){
-                        int quantity = Integer.parseInt(request.getParameter("quantity-"+id));
+        if (session != null) {
+            Orders orders = (Orders) session.getAttribute("order");
+            List<OdersDetails> items = (List<OdersDetails>) orders.getOdersDetailsCollection();
+
+            for (OdersDetails i : items) {
+                for (String id : ids) {
+                    if (i.getProductId().equals(id)) {
+                        int quantity = Integer.parseInt(request.getParameter("quantity-" + id));
                         i.setQuantity(quantity);
                     }
                 }
             }
             orders.setOdersDetailsCollection(items);
-            
+
             int total = 0;
-            
-            for(OdersDetails i : items){
+
+            for (OdersDetails i : items) {
                 total += i.getProductPrice() * i.getQuantity();
             }
             orders.setTotal(total);
             session.setAttribute("order", orders);
             response.sendRedirect(request.getContextPath() + "/Order/View");
         }
-        
+
     }
-    
+
     private void checkout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session.getAttribute("username") != null) {
@@ -339,23 +358,25 @@ public class orderController extends HttpServlet {
             String phone = request.getParameter("phone");
             String payment = request.getParameter("payment");
             String transport = request.getParameter("transport");
-            
-            Orders orders = (Orders)session.getAttribute("order");
-            
-            orders.setmId((Members)session.getAttribute("username"));
+
+            Orders orders = (Orders) session.getAttribute("order");
+
+            orders.setmId((Members) session.getAttribute("username"));
             orders.setShipAddress(address);
+            Date date = new Date(System.currentTimeMillis());
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");  
+            String hihi = dateFormat.format(date);
+            orders.setOderDate(hihi);
             orders.setPaymentBy(payment);
             orders.setTransport(transport);
-            if(transport.equals("Fast")){
-                orders.setTotal(orders.getTotal()+10);
+            if (transport.equals("Fast")) {
+                orders.setTotal(orders.getTotal() + 10);
             }
 
             ordersFacade.create(orders);
-            
-            session.removeAttribute("order");
-            response.sendRedirect(request.getContextPath() + "/Order/View");
-            
-        }else{
+            response.sendRedirect(request.getContextPath() + "/Order/PrintOrder");
+
+        } else {
             request.getRequestDispatcher("/Login/login.jsp").forward(request, response);
         }
     }

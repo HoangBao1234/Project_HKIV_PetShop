@@ -35,7 +35,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"/>
 
-        
+
         <style>
             *{
                 font-family: cursive;
@@ -59,7 +59,11 @@
                 font-size: 13px !important;
             }
         </style>
-
+        <script>
+            function testSubmit(){
+                document.getElementById("testForm").submit();
+            }
+        </script>
     </head>
     <body>
         <div class="wrap">
@@ -140,8 +144,17 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section bg-light">
+        <section class="ftco-section bg-light" style="padding-top: 20px">
             <div class="container">
+                <form style="margin-bottom: 25px;" action="${context}/FoodProduct/SearchByPrice" method="post" id="testForm">
+                    <label>Choose your desired price</label>
+                    <select style="padding: 5px 10px; border-radius: 5px" onchange="testSubmit();" name="price">
+                        <option>--Select--</option>
+                        <option value="value1">10 - 50</option>
+                        <option value="value2">50 - 100</option>
+                        <option value="value3">  100 < </option>
+                    </select>
+                </form>
                 <div class="row d-flex">
                     <div class="col-sm-8">
                         <div class="row">
@@ -159,7 +172,7 @@
                                             <div class="row">
                                                 <div class="col-sm-9">
                                                     <a href="${context}/Order/Store?FId=${i.FId}">
-                                                        <button style="border: none; background-color: #00bd56; width: 90px;
+                                                        <button style="border: none; background-color: #00bd56; width: 100px;
                                                                 border-radius: 10px; padding: 4px  12px; color: whitesmoke">Add Cart
                                                         </button>
                                                     </a>
@@ -178,7 +191,7 @@
                     <div class="col-sm-4" style="background-color: #FAFAFA; height: 100%;">
                         <div style="border: 0 solid #ccc; padding: 15px; font-family: cursive">
                             <h4><fmt:message key="product.textfied.productlist"/></h4>
-                            <form action="${context}/PetProduct/Search" method="post" id="myForm">
+                            <form action="${context}/FoodProduct/Search" method="post" id="myForm">
                                 <input style="padding: 2px 5px; border-radius: 5px; border:3px;" id="myInput" name="txtName" type="text" placeholder="<fmt:message key="product.textfied.search"/>">
                                 <button type="submit" style="border: none; background-color: #FAFAFA"><i class="fas fa-search" aria-hidden="true"></i></button>
                             </form>
@@ -310,7 +323,7 @@
         <!-- JS t?o nút b?m di chuy?n trang end -->
         <script type="text/javascript">
                                 $(function() {
-                                    var pageSize = 3; // Hi?n th? 6 s?n ph?m trên 1 trang
+                                    var pageSize = 9; // Hi?n th? 6 s?n ph?m trên 1 trang
                                     showPage = function(page) {
                                         $(".contentPage").hide();
                                         $(".contentPage").each(function(n) {

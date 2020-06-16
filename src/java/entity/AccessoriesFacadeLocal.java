@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package entity;
 
 import java.util.List;
@@ -29,11 +28,14 @@ public interface AccessoriesFacadeLocal {
     List<Accessories> findRange(int[] range);
 
     int count();
-    
+
     void deleteByCateEs(CateES cate);
-    
+
     List<Accessories> reconmentAcc(CateES cate);
-    
+
     List<Accessories> searchByName(String name);
-    
+
+    List<Accessories> searchByPrice(int from, int to);
+
+    List<Accessories> searchByMaxPrice(int max);
 }

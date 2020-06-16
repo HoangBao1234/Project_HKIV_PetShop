@@ -53,6 +53,23 @@ public class AccessoriesFacade extends AbstractFacade<Accessories> implements Ac
         q.setParameter("name", "%"+name+"%");
         return q.getResultList();
     }
+
+    @Override
+    public List<Accessories> searchByPrice(int from, int to) {
+        String query = "SELECT a FROM Accessories a WHERE a.price >= :from and a.price <= :to";
+        Query q = em.createQuery(query);
+        q.setParameter("from", from);
+        q.setParameter("to", to);
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Accessories> searchByMaxPrice(int max) {
+        String query = "SELECT a FROM Accessories a WHERE a.price >= :max";
+        Query q = em.createQuery(query);
+        q.setParameter("max", max);
+        return q.getResultList();
+    }
     
     
 }

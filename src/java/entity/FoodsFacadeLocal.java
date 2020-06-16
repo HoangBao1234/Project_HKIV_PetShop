@@ -33,4 +33,8 @@ public interface FoodsFacadeLocal {
     List<Foods> recommentFood(Animals animals);
     
     List<Foods> searchByName(String name);
+    
+    List<Foods> searchByPrice(int from, int to);
+    
+    List<Foods> searchByMaxPrice(int max);
 }
