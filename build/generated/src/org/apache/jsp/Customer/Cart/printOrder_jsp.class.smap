@@ -1,10 +1,10 @@
 SMAP
-cart_jsp.java
+printOrder_jsp.java
 JSP
 *S JSP
 *F
-+ 0 cart.jsp
-Customer/Cart/cart.jsp
++ 0 printOrder.jsp
+Customer/Cart/printOrder.jsp
 *L
 1,5:73
 5:422,6

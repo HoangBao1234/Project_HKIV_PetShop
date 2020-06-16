@@ -81,46 +81,53 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html"><span class="flaticon-pawprint-1 mr-2"></span><span style="color: #000">PetShop</span>></a>
+                <a class="navbar-brand" href="${context}/index.jsp"><span class="flaticon-pawprint-1 mr-2"></span><span style="color: #000">PetShop</span>></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span> Menu
                 </button>
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="${context}/index.jsp" class="nav-link">Home</a></li>
 
-                        <li class="nav-item dropdown active" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
+                        <li class="nav-item dropdown active" ><a href="${context}/aboutus.jsp" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                <li><a href="#">Pet</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Accessoreis</a></li>
+                                <li><a href="${context}/PetProduct/All"><fmt:message key="home.textfied.product.pet"/></a></li>
+                                <li><a href="${context}/FoodProduct/All"><fmt:message key="home.textfied.product.food"/></a></li>
+                                <li><a href="${context}/AccessoriesProduct/All"><fmt:message key="home.textfied.product.Accessories"/></a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="services.html" class="nav-link">PetHotel</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
-                                <c:if test="${sessionScope.username != null}">
+                        <li class="nav-item"><a href="${context}/Customer/petHotel/colorlib-regform-3/index.jsp" class="nav-link"><fmt:message key="home.textfied.pethotel"/></a></li>
+                        <li class="nav-item"><a href="${context}/aboutus.jsp" class="nav-link"><fmt:message key="home.textfied.about"/></a></li>
+                        <li class="nav-item"><a href="${context}/Order/View" class="nav-link"><i class="fas fa-shopping-cart"><sub><span class="badge">
+                                            <c:if test="${sessionScope.order != null}">
+                                                ${sessionScope.order.odersDetailsCollection.size()}
+                                            </c:if>    
+                                            <c:if test="${sessionScope.order == null}">
+                                                0
+                                            </c:if>    
+                                        </span></sub></i> </a></li>
+                                        <c:if test="${sessionScope.username != null}">
                             <li class="nav-item dropdown" >
                                 <a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">
                                     <c:out value="${sessionScope.username.name}" />
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                    <li><a href="#">Profile</a></li>
-                                    <li><a href="${context}/Customer/Logout?logout=ok">Logout</a></li>
+                                    <li><a href="${context}/Member/ListProfile?id=${username.getMId()}"> <fmt:message key="home.textfied.profile"/></a></li>
+                                    <li><a href="${context}/Customers/Logout?logout=ok"> <fmt:message key="home.textfied.logout"/></a></li>
                                 </ul>
                             </li>
                         </c:if>
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
-                                <a href="${context}/Customer/Login" class="nav-link">
-                                    Login
+                                <a href="${context}/Customers/Login" class="nav-link">
+                                    <fmt:message key="home.textfied.login"/>  
                                 </a>
                             </li>
                         </c:if>
-                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Language</a>
+                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown"><fmt:message key="home.textfied.language"/></a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                <li><a href="#">Vietnamese</a></li>
-                                <li><a href="#">English</a></li>
+                                <li><a href="?locale=en">English</a></li>
+                                <li><a href="?locale=vi">Vietnamese</a></li>
 
                             </ul>
                         </li>

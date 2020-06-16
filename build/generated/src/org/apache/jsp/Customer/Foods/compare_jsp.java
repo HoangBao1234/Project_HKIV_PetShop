@@ -173,7 +173,7 @@ public final class compare_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>\r\n");
       out.write("        <nav class=\"navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light\" id=\"ftco-navbar\">\r\n");
       out.write("            <div class=\"container\">\r\n");
-      out.write("                <a class=\"navbar-brand\" href=\"index.jsp\"><span class=\"flaticon-pawprint-1 mr-2\"></span>Pet Shop</a>\r\n");
+      out.write("                <a class=\"navbar-brand\" href=\"index.jsp\" style=\"color: black\"><span class=\"flaticon-pawprint-1 mr-2\"></span>Pet Shop</a>\r\n");
       out.write("                <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#ftco-nav\" aria-controls=\"ftco-nav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n");
       out.write("                    <span class=\"fa fa-bars\"></span> Menu\r\n");
       out.write("                </button>\r\n");

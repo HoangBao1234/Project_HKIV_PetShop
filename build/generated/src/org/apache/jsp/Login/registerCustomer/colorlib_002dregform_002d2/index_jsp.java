@@ -49,7 +49,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html");
+      response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -64,6 +64,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       if (_jspx_meth_c_set_0(_jspx_page_context))
         return;
+      out.write("\r\n");
       out.write("\r\n");
       out.write("<html lang=\"en\">\r\n");
       out.write("\r\n");
@@ -116,13 +117,16 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"card card-2\">\r\n");
       out.write("                    <div class=\"card-heading\"></div>\r\n");
       out.write("                    <div class=\"card-body\">\r\n");
-      out.write("                        <h2 class=\"title\">Registration Info</h2>\r\n");
+      out.write("                        <h2 class=\"title\">");
+      if (_jspx_meth_fmt_message_0(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                        <form action=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/Customers/Store\" method=\"post\">\r\n");
       out.write("                            <div class=\"input-group\">\r\n");
       out.write("                                <input class=\"input--style-3\" type=\"text\" id=\"exampleFirstName\" name=\"regis_name\" placeholder=\"");
-      if (_jspx_meth_fmt_message_0(_jspx_page_context))
+      if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
       out.write("\">\r\n");
       out.write("                            </div>\r\n");
@@ -130,7 +134,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"col-2\">\r\n");
       out.write("                                    <div class=\"input-group\">\r\n");
       out.write("                                        <input class=\"input--style-3\" type=\"password\" id=\"exampleInputPassword\" name=\"regis_pass\" placeholder=\"");
-      if (_jspx_meth_fmt_message_1(_jspx_page_context))
+      if (_jspx_meth_fmt_message_2(_jspx_page_context))
         return;
       out.write("\" >\r\n");
       out.write("                                    </div>\r\n");
@@ -139,7 +143,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    <div class=\"input-group\">\r\n");
       out.write("                                        <div class=\"rs-select2 js-select-simple select--no-search\">\r\n");
       out.write("                                            <input class=\"input--style-3\" type=\"text\" id=\"exampleLastName\" name=\"regis_phone\" placeholder=\"");
-      if (_jspx_meth_fmt_message_2(_jspx_page_context))
+      if (_jspx_meth_fmt_message_3(_jspx_page_context))
         return;
       out.write("\">\r\n");
       out.write("                                        </div>\r\n");
@@ -149,7 +153,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <div class=\"input-group\">\r\n");
       out.write("                                <div class=\"rs-select2 js-select-simple select--no-search\">\r\n");
       out.write("                                    <input class=\"input--style-3\" type=\"email\" id=\"exampleInputEmail\" name=\"regis_mail\" placeholder=\"");
-      if (_jspx_meth_fmt_message_3(_jspx_page_context))
+      if (_jspx_meth_fmt_message_4(_jspx_page_context))
         return;
       out.write("\">\r\n");
       out.write("                                </div>\r\n");
@@ -158,7 +162,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"col-2\">\r\n");
       out.write("                                    <div class=\"input-group\">\r\n");
       out.write("                                        <input class=\"input--style-3\" type=\"text\" id=\"exampleRepeatPassword\" name=\"regis_address\" placeholder=\"");
-      if (_jspx_meth_fmt_message_4(_jspx_page_context))
+      if (_jspx_meth_fmt_message_5(_jspx_page_context))
         return;
       out.write("\">\r\n");
       out.write("                                    </div>\r\n");
@@ -171,7 +175,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <a href=\"https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project_HKIV_PetShop/loginGoogle&response_type=code\r\n");
       out.write("                           &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force\" style=\"color: #007bff;\">\r\n");
       out.write("                                      ");
-      if (_jspx_meth_fmt_message_5(_jspx_page_context))
+      if (_jspx_meth_fmt_message_6(_jspx_page_context))
         return;
       out.write("\r\n");
       out.write("                                </a>\r\n");
@@ -180,7 +184,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <a class=\"small\" href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/Login/loginCustomer/Login_v11\"> ");
-      if (_jspx_meth_fmt_message_6(_jspx_page_context))
+      if (_jspx_meth_fmt_message_7(_jspx_page_context))
         return;
       out.write(" </a>\r\n");
       out.write("                            </div>\r\n");
@@ -306,7 +310,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_0 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_0.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_0.setParent(null);
-    _jspx_th_fmt_message_0.setKey("login.textfield.name");
+    _jspx_th_fmt_message_0.setKey("login.form.titleRe");
     int _jspx_eval_fmt_message_0 = _jspx_th_fmt_message_0.doStartTag();
     if (_jspx_th_fmt_message_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
@@ -324,7 +328,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_1 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_1.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_1.setParent(null);
-    _jspx_th_fmt_message_1.setKey("login.textfield.password");
+    _jspx_th_fmt_message_1.setKey("login.textfield.name");
     int _jspx_eval_fmt_message_1 = _jspx_th_fmt_message_1.doStartTag();
     if (_jspx_th_fmt_message_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
@@ -342,7 +346,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_2 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_2.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_2.setParent(null);
-    _jspx_th_fmt_message_2.setKey("login.textfield.phone");
+    _jspx_th_fmt_message_2.setKey("login.textfield.password");
     int _jspx_eval_fmt_message_2 = _jspx_th_fmt_message_2.doStartTag();
     if (_jspx_th_fmt_message_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
@@ -360,7 +364,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_3 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_3.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_3.setParent(null);
-    _jspx_th_fmt_message_3.setKey("login.textfield.mail");
+    _jspx_th_fmt_message_3.setKey("login.textfield.phone");
     int _jspx_eval_fmt_message_3 = _jspx_th_fmt_message_3.doStartTag();
     if (_jspx_th_fmt_message_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
@@ -378,7 +382,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_4 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_4.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_4.setParent(null);
-    _jspx_th_fmt_message_4.setKey("login.textfield.address");
+    _jspx_th_fmt_message_4.setKey("login.textfield.mail");
     int _jspx_eval_fmt_message_4 = _jspx_th_fmt_message_4.doStartTag();
     if (_jspx_th_fmt_message_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
@@ -396,7 +400,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_5 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_5.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_5.setParent(null);
-    _jspx_th_fmt_message_5.setKey("login.button.submitGoogle");
+    _jspx_th_fmt_message_5.setKey("login.textfield.address");
     int _jspx_eval_fmt_message_5 = _jspx_th_fmt_message_5.doStartTag();
     if (_jspx_th_fmt_message_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
@@ -414,13 +418,31 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_6 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_6.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_6.setParent(null);
-    _jspx_th_fmt_message_6.setKey("login.button.alhaveaccount");
+    _jspx_th_fmt_message_6.setKey("login.button.submitGoogle");
     int _jspx_eval_fmt_message_6 = _jspx_th_fmt_message_6.doStartTag();
     if (_jspx_th_fmt_message_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
       return true;
     }
     _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_7(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_7 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_7.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_7.setParent(null);
+    _jspx_th_fmt_message_7.setKey("login.button.alhaveaccount");
+    int _jspx_eval_fmt_message_7 = _jspx_th_fmt_message_7.doStartTag();
+    if (_jspx_th_fmt_message_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
     return false;
   }
 }
