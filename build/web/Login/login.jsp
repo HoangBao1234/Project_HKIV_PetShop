@@ -3,6 +3,7 @@
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <c:set var="context" value="${pageContext.request.contextPath}"/>
+    <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
 
         <meta charset="utf-8">
@@ -89,10 +90,10 @@
                                         </form>
                                         <hr>
                                         <div class="text-center">
-                                            <a class="small" href="forgot-password.jsp">Forgot Password?</a>
+                                            <a class="small" href="forgot-password.jsp"><fmt:message key="login.button.fogot"/></a>
                                         </div>
                                         <div class="text-center">
-                                            <a class="small" href="${context}/Customers/Register">Create an Account!</a>
+                                            <a class="small" href="${context}/Customers/Register"><fmt:message key="login.textfield.Register"/></a>
                                         </div>
                                         <div class="text-center">
                                             <a class="small" href="?locale=en">

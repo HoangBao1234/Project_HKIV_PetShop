@@ -8,6 +8,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -60,7 +61,7 @@
                     ${error}
                     <form class="login100-form validate-form" action="${context}/Customers/Check" method="post">
                         <span class="login100-form-title p-b-55">
-                            Login
+                            <fmt:message key="login.form.title"/>
                         </span>
 
                         <div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: ex@abc.xyz" >
@@ -82,35 +83,43 @@
                         <div class="contact100-form-checkbox m-l-4">
                             <input class="input-checkbox100" id="ckb1" type="checkbox" id="customCheck" name="chkRemember">
                             <label class="label-checkbox100" for="customCheck"><fmt:message key="login.textfield.checkbox"/>
-                                Remember me
+
                             </label>
                         </div>
 
                         <div class="container-login100-form-btn p-t-25">
-                            <button class="login100-form-btn" type="submit" value="<fmt:message key="login.button.submit"/>">
-                                Login
+                            <button class="login100-form-btn" type="submit" value="">
+                                <fmt:message key="login.button.submit"/>
                             </button>
                         </div>
                         <div class="text-center w-full p-t-42 p-b-22">
                             <span class="txt1">
-                                <a class="small" href="${context}/Admins/Create">Create an Account!</a>
+                                <a class="small" href="${context}/Admins/Create"><fmt:message key="login.textfield.Register"/></a>
                             </span><br/>
                             <span class="txt1">
-                                <a class="small" href="forgot-password.jsp">Forgot Password?</a>
+                                <a class="small" href="forgot-password.jsp"><fmt:message key="login.button.fogot"/></a>
                             </span>
                         </div>
 
                         <a href="../Admin/index.html" class="btn-face m-b-10">
-                            <i class="fa fa-facebook-official"></i><fmt:message key="login.button.submitFacebook"/>
+                            <i class="fa fa-facebook-official"></i>
                             Facebook
                         </a>
 
                         <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project_HKIV_PetShop/loginGoogle&response_type=code
-           &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force" class="btn-google m-b-10">
+                           &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force" class="btn-google m-b-10">
                             <img src="${context}/Login/loginCustomer/Login_v11/images/icons/icon-google.png" alt="GOOGLE"><fmt:message key="login.button.submitGoogle"/>
                             Google
                         </a>
+                            <div class="text-center w-full p-t-42 p-b-22">
+                            <a class="small" href="?locale=en">
+                                English |
+                            </a>
+                            <a class="small" href="?locale=vi">
+                                Vietnamese
+                            </a>
 
+                        </div>
 
                     </form>
                 </div>

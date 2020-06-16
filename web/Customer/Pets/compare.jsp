@@ -38,6 +38,7 @@
         <style>
             *{
                 font-family: cursive;
+               
             }
             img {
                 image-rendering: pixelated;
@@ -50,6 +51,9 @@
                 -webkit-flex-wrap: wrap; /* Safari 8 */
                 justify-content: center;
                 -webkit-justify-content: center;
+            }
+            .ftco-navbar-light .navbar-nav > .nav-item > .nav-link{
+                font-size: 13px !important;
             }
         </style>
     </head>
@@ -75,7 +79,7 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.jsp"><span class="flaticon-pawprint-1 mr-2"></span>Pet Shop</a>
+                <a class="navbar-brand" href="index.jsp" style="color: black"><span class="flaticon-pawprint-1 mr-2"></span>Pet Shop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span> Menu
                 </button>

@@ -1,6 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="entity.Members"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
+<fmt:setBundle basename="app"/>
+<c:import url="setLocale.jsp"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -41,7 +45,7 @@
             img {
                 image-rendering: pixelated;
             }
-            /* CSS c?n id pagination ra gi?a màn hình */
+            /* CSS c?n id pagination ra gi?a mÃ n hÃ¬nh */
             #pagination {
                 display: flex;
                 display: -webkit-flex; /* Safari 8 */
@@ -49,6 +53,9 @@
                 -webkit-flex-wrap: wrap; /* Safari 8 */
                 justify-content: center;
                 -webkit-justify-content: center;
+            }
+            .ftco-navbar-light .navbar-nav > .nav-item > .nav-link{
+                font-size: 13px !important;
             }
         </style>
     </head>
@@ -75,46 +82,53 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html"><span class="flaticon-pawprint-1 mr-2"></span><span style="color: #000">PetShop</span>></a>
+                <a class="navbar-brand" href="index.jsp" style="color: black"><span class="flaticon-pawprint-1 mr-2"></span>Pet Shop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span> Menu
                 </button>
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item active"><a href="${context}/index.jsp" class="nav-link"><fmt:message key="home.textfied.home"/></a></li>
 
-                        <li class="nav-item dropdown active" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Product</a>
+                        <li class="nav-item dropdown" ><a href="aboutus.jsp" class="nav-link  dropdown-toggle" data-toggle="dropdown"><fmt:message key="home.textfied.product"/></a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                <li><a href="#">Pet</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Accessoreis</a></li>
+                                <li><a href="${context}/PetProduct/All"><fmt:message key="home.textfied.product.pet"/></a></li>
+                                <li><a href="${context}/FoodProduct/All"><fmt:message key="home.textfied.product.food"/></a></li>
+                                <li><a href="${context}/AccessoriesProduct/All"><fmt:message key="home.textfied.product.Accessories"/></a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="services.html" class="nav-link">PetHotel</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
-                                <c:if test="${sessionScope.username != null}">
+                        <li class="nav-item"><a href="${context}/Customer/petHotel/colorlib-regform-3/index.jsp" class="nav-link"><fmt:message key="home.textfied.pethotel"/></a></li>
+                        <li class="nav-item"><a href="${context}/aboutus.jsp" class="nav-link"><fmt:message key="home.textfied.about"/></a></li>
+                        <li class="nav-item"><a href="${context}/Order/View" class="nav-link"><i class="fas fa-shopping-cart"><sub><span class="badge">
+                                            <c:if test="${sessionScope.order != null}">
+                                                ${sessionScope.order.odersDetailsCollection.size()}
+                                            </c:if>    
+                                            <c:if test="${sessionScope.order == null}">
+                                                0
+                                            </c:if>    
+                                        </span></sub></i> </a></li>
+                                        <c:if test="${sessionScope.username != null}">
                             <li class="nav-item dropdown" >
                                 <a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">
                                     <c:out value="${sessionScope.username.name}" />
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                    <li><a href="#">Profile</a></li>
-                                    <li><a href="${context}/Customer/Logout?logout=ok">Logout</a></li>
+                                    <li><a href="${context}/Member/ListProfile?id=${username.getMId()}"> <fmt:message key="home.textfied.profile"/></a></li>
+                                    <li><a href="${context}/Customers/Logout?logout=ok"> <fmt:message key="home.textfied.logout"/></a></li>
                                 </ul>
                             </li>
                         </c:if>
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
-                                <a href="${context}/Customer/Login" class="nav-link">
-                                    Login
+                                <a href="${context}/Customers/Login" class="nav-link">
+                                    <fmt:message key="home.textfied.login"/>  
                                 </a>
                             </li>
                         </c:if>
-                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Language</a>
+                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown"><fmt:message key="home.textfied.language"/></a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                <li><a href="#">Vietnamese</a></li>
-                                <li><a href="#">English</a></li>
+                                <li><a href="?locale=en">English</a></li>
+                                <li><a href="?locale=vi">Vietnamese</a></li>
 
                             </ul>
                         </li>
@@ -187,15 +201,15 @@
                         </div>
                     </div>
                 </div>
-                <!-- Hiên th? nút b?m -->
+                <!-- HiÃªn th? nÃºt b?m -->
                 <ul id="pagination"></ul>
             </div>
         </section>
-        <footer class="footer">
+         <footer class="footer">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Petsitting</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.Petsitting"/></h2>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                         <ul class="ftco-footer-social p-0">
                             <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
@@ -204,9 +218,9 @@
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Latest News</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.LatestNews"/></h2>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="img mr-4 rounded" style="background-image: url(images/image_1.jpg);"></a>
+                            <a class="img mr-4 rounded" style="background-image: url(petsitting/images/image_1.jpg);"></a>
                             <div class="text">
                                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                                 <div class="meta">
@@ -217,7 +231,7 @@
                             </div>
                         </div>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="img mr-4 rounded" style="background-image: url(images/image_2.jpg);"></a>
+                            <a class="img mr-4 rounded" style="background-image: url(petsitting/images/image_2.jpg);"></a>
                             <div class="text">
                                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                                 <div class="meta">
@@ -229,23 +243,23 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Quick Links</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.QuickLinks"/></h2>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Home</a></li>
-                            <li><a href="#" class="py-2 d-block">About</a></li>
-                            <li><a href="#" class="py-2 d-block">Services</a></li>
-                            <li><a href="#" class="py-2 d-block">Works</a></li>
-                            <li><a href="#" class="py-2 d-block">Blog</a></li>
-                            <li><a href="#" class="py-2 d-block">Contact</a></li>
+                            <li><a href="index.jsp" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied1"/></a></li>
+                            <li><a href="aboutus.jsp" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied2"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied3"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied4"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied5"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied6"/></a></li>
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Have a Questions?</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.HaveaQuestions"/></h2>
                         <div class="block-23 mb-3">
                             <ul>
                                 <li><span class="icon fa fa-map"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
                                 <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>
+                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>s
                             </ul>
                         </div>
                     </div>
@@ -283,12 +297,12 @@
         <script src="${context}/petsitting/js/main.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.2.1.js" ></script>
-        <!-- JS t?o nút b?m di chuy?n trang start -->
+        <!-- JS t?o nÃºt b?m di chuy?n trang start -->
         <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
-        <!-- JS t?o nút b?m di chuy?n trang end -->
+        <!-- JS t?o nÃºt b?m di chuy?n trang end -->
         <script type="text/javascript">
                                 $(function() {
-                                    var pageSize = 3; // Hi?n th? 6 s?n ph?m trên 1 trang
+                                    var pageSize = 3; // Hi?n th? 6 s?n ph?m trÃªn 1 trang
                                     showPage = function(page) {
                                         $(".contentPage").hide();
                                         $(".contentPage").each(function(n) {
@@ -297,9 +311,9 @@
                                         });
                                     };
                                     showPage(1);
-                                    ///** C?n truy?n giá tr? vào ?ây **///
+                                    ///** C?n truy?n giÃ¡ tr? vÃ o ?Ã¢y **///
                                     var totalRows = 10; // T?ng s? s?n ph?m hi?n th?
-                                    var btnPage = ${breeds.petsCollection.size()} / pageSize; // S? nút b?m hi?n th? di chuy?n trang
+                                    var btnPage = ${breeds.petsCollection.size()} / pageSize; // S? nÃºt b?m hi?n th? di chuy?n trang
                                     var iTotalPages = Math.ceil(totalRows / pageSize);
 
                                     var obj = $('#pagination').twbsPagination({

@@ -1,6 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="entity.Members"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
+<fmt:setBundle basename="app"/>
+<c:import url="setLocale.jsp"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -40,7 +44,7 @@
             img {
                 image-rendering: pixelated;
             }
-            /* CSS c?n id pagination ra gi?a màn hình */
+            /* CSS c?n id pagination ra gi?a mÃ n hÃ¬nh */
             #pagination {
                 display: flex;
                 display: -webkit-flex; /* Safari 8 */
@@ -189,15 +193,15 @@
                         </div>
                     </div>
                 </div>
-                <!-- Hiên th? nút b?m -->
+                <!-- HiÃªn th? nÃºt b?m -->
                 <ul id="pagination"></ul>
             </div>
         </section>
-        <footer class="footer">
+         <footer class="footer">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Petsitting</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.Petsitting"/></h2>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                         <ul class="ftco-footer-social p-0">
                             <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
@@ -206,9 +210,9 @@
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Latest News</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.LatestNews"/></h2>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="img mr-4 rounded" style="background-image: url(images/image_1.jpg);"></a>
+                            <a class="img mr-4 rounded" style="background-image: url(petsitting/images/image_1.jpg);"></a>
                             <div class="text">
                                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                                 <div class="meta">
@@ -219,7 +223,7 @@
                             </div>
                         </div>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="img mr-4 rounded" style="background-image: url(images/image_2.jpg);"></a>
+                            <a class="img mr-4 rounded" style="background-image: url(petsitting/images/image_2.jpg);"></a>
                             <div class="text">
                                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                                 <div class="meta">
@@ -231,23 +235,23 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Quick Links</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.QuickLinks"/></h2>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Home</a></li>
-                            <li><a href="#" class="py-2 d-block">About</a></li>
-                            <li><a href="#" class="py-2 d-block">Services</a></li>
-                            <li><a href="#" class="py-2 d-block">Works</a></li>
-                            <li><a href="#" class="py-2 d-block">Blog</a></li>
-                            <li><a href="#" class="py-2 d-block">Contact</a></li>
+                            <li><a href="index.jsp" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied1"/></a></li>
+                            <li><a href="aboutus.jsp" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied2"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied3"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied4"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied5"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied6"/></a></li>
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Have a Questions?</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.HaveaQuestions"/></h2>
                         <div class="block-23 mb-3">
                             <ul>
                                 <li><span class="icon fa fa-map"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
                                 <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>
+                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>s
                             </ul>
                         </div>
                     </div>
@@ -285,12 +289,12 @@
         <script src="${context}/petsitting/js/main.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.2.1.js" ></script>
-        <!-- JS t?o nút b?m di chuy?n trang start -->
+        <!-- JS t?o nÃºt b?m di chuy?n trang start -->
         <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
-        <!-- JS t?o nút b?m di chuy?n trang end -->
+        <!-- JS t?o nÃºt b?m di chuy?n trang end -->
         <script type="text/javascript">
                                 $(function() {
-                                    var pageSize = 3; // Hi?n th? 6 s?n ph?m trên 1 trang
+                                    var pageSize = 3; // Hi?n th? 6 s?n ph?m trÃªn 1 trang
                                     showPage = function(page) {
                                         $(".contentPage").hide();
                                         $(".contentPage").each(function(n) {
@@ -299,9 +303,9 @@
                                         });
                                     };
                                     showPage(1);
-                                    ///** C?n truy?n giá tr? vào ?ây **///
+                                    ///** C?n truy?n giÃ¡ tr? vÃ o ?Ã¢y **///
                                     var totalRows = 10; // T?ng s? s?n ph?m hi?n th?
-                                    var btnPage = ${breeds.petsCollection.size()} / pageSize; // S? nút b?m hi?n th? di chuy?n trang
+                                    var btnPage = ${breeds.petsCollection.size()} / pageSize; // S? nÃºt b?m hi?n th? di chuy?n trang
                                     var iTotalPages = Math.ceil(totalRows / pageSize);
 
                                     var obj = $('#pagination').twbsPagination({
