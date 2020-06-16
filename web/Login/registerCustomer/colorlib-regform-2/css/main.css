@@ -322,10 +322,10 @@ input {
   cursor: pointer;
 }
 
-.input--style-2 {
+.input--style-3 {
   padding: 9px 0;
   color: #666;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 

@@ -71,8 +71,8 @@ public final class detail_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write("\r\n");
-      out.write("    \r\n");
-      out.write("    \r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       if (_jspx_meth_c_set_0(_jspx_page_context))
         return;
@@ -81,11 +81,11 @@ public final class detail_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html lang=\"en\">\r\n");
       out.write("    <head>\r\n");
       out.write("        <title>PetShop</title>\r\n");
-      out.write("         ");
+      out.write("        ");
       if (_jspx_meth_fmt_setBundle_0(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("         ");
+      out.write("        ");
       if (_jspx_meth_c_import_0(_jspx_page_context))
         return;
       out.write("\r\n");
@@ -176,7 +176,7 @@ public final class detail_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>\r\n");
       out.write("        <nav class=\"navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light\" id=\"ftco-navbar\">\r\n");
       out.write("            <div class=\"container\">\r\n");
-      out.write("                <a class=\"navbar-brand\" href=\"index.jsp\"><span class=\"flaticon-pawprint-1 mr-2\"></span>Pet Shop</a>\r\n");
+      out.write("                <a class=\"navbar-brand\" href=\"index.jsp\" style=\"color: black\"><span class=\"flaticon-pawprint-1 mr-2\"></span>Pet Shop</a>\r\n");
       out.write("                <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#ftco-nav\" aria-controls=\"ftco-nav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n");
       out.write("                    <span class=\"fa fa-bars\"></span> Menu\r\n");
       out.write("                </button>\r\n");
@@ -263,33 +263,46 @@ public final class detail_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!-- END nav -->\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("        <section class=\"ftco-section bg-light\">\r\n");
+      out.write("        <section class=\"ftco-section\" style=\"padding-top: 20px\">\r\n");
       out.write("            <div class=\"container\">\r\n");
       out.write("                <div class=\"row d-flex\">\r\n");
       out.write("                    <div class=\"col-sm-8\">\r\n");
       out.write("                        <div class=\"row\">\r\n");
-      out.write("                            <div class=\"col-sm-6\">\r\n");
+      out.write("                            <div class=\"col-sm-6\" style=\"font-family: cursive\">\r\n");
       out.write("                                <img src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/ImageItems/");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${acc.image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\" width=\"313\" height=\"330\"/>\r\n");
       out.write("                                <br/>\r\n");
+      out.write("                                <br/>\r\n");
       out.write("                                ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${acc.description}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\r\n");
       out.write("                            </div>\r\n");
-      out.write("                            <div class=\"col-sm-6\">\r\n");
+      out.write("                            <div class=\"col-sm-6\" style=\"font-family: cursive\">\r\n");
       out.write("                                <ul style=\"list-style-type: none\">\r\n");
       out.write("                                    <li><h1 style=\"font-family: initial\">");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${acc.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</h1></li>\r\n");
-      out.write("                                    <li>");
+      out.write("                                    <li><span style=\"font-size: 25px\">");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${acc.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write(" $</li>                         \r\n");
-      out.write("                                    <li><hr/></li>\r\n");
-      out.write("                                    <li><button style=\"border: none; background-color: #00bd56;\r\n");
-      out.write("                                                border-radius: 5px; padding: 5px  15px; color: whitesmoke\">Add to Cart</button></li>\r\n");
+      out.write(" $</span></li>                         \r\n");
+      out.write("                                    <li></li>\r\n");
+      out.write("                                    <li>\r\n");
+      out.write("                                        <div class=\"quantity buttons_added\" style=\"margin-top:30px; margin-bottom: 20px;\">\r\n");
+      out.write("                                            <form>\r\n");
+      out.write("                                                <input type=\"button\" value=\"-\" class=\"minus\"><input type=\"number\" step=\"1\" min=\"1\" max=\"\" name=\"quantity\" value=\"1\" title=\"Qty\" class=\"input-text qty text\" size=\"4\" pattern=\"\" inputmode=\"\"><input type=\"button\" value=\"+\" class=\"plus\">\r\n");
+      out.write("                                            </form>\r\n");
+      out.write("                                        </div>\r\n");
+      out.write("                                    </li>\r\n");
+      out.write("                                    <li tyle=\"margin-top: 15px; margin-bottom: 15px\"><a href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Order/Store?ESId=");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${acc.ESId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\">\r\n");
+      out.write("                                            <button style=\"border: none; background-color: #00bd56;\r\n");
+      out.write("                                                    border-radius: 5px; padding: 5px  15px; color: whitesmoke\">Add to Cart</button></a></li>\r\n");
       out.write("                                </ul>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
@@ -349,7 +362,7 @@ public final class detail_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_fmt_message_16(_jspx_page_context))
         return;
       out.write("</h4>\r\n");
-      out.write("                <hr/>\r\n");
+      out.write("                <hr style=\"background-color: #00bd56\"/>\r\n");
       out.write("                <div class=\"row\">\r\n");
       out.write("                    ");
       if (_jspx_meth_c_forEach_3(_jspx_page_context))
@@ -900,7 +913,7 @@ public final class detail_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("                                <a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/Customers/Login\" class=\"nav-link\">\r\n");
-        out.write("                                  ");
+        out.write("                                    ");
         if (_jspx_meth_fmt_message_9((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_3, _jspx_page_context))
           return true;
         out.write("  \r\n");
@@ -1277,7 +1290,25 @@ public final class detail_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("</a></div>\r\n");
         out.write("                                            <div><a href=\"#\" class=\"meta-chat\"><i class=\"far fa-heart\"></i></span> 3</a></div>\r\n");
         out.write("                                        </div>\r\n");
-        out.write("                                        \r\n");
+        out.write("                                        <div class=\"row\">\r\n");
+        out.write("                                            <div class=\"col-sm-8\">\r\n");
+        out.write("                                                <button style=\"border: none; background-color: #00bd56;\r\n");
+        out.write("                                                        border-radius: 10px; padding: 4px  10px; color: whitesmoke\">\r\n");
+        out.write("                                                    <a style=\"color: white\" href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/AccessoriesProduct/Compare?id_1=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${acc.getESId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&id_2=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.getESId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("\">Compare</a>\r\n");
+        out.write("                                                </button>\r\n");
+        out.write("                                            </div>\r\n");
+        out.write("                                            <div class=\"col-sm-3\">\r\n");
+        out.write("                                                <span style=\"color: #00bd56\">");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("$</span>\r\n");
+        out.write("                                            </div>\r\n");
+        out.write("                                        </div>\r\n");
         out.write("                                    </div>\r\n");
         out.write("                                </div>\r\n");
         out.write("                            </div>\r\n");

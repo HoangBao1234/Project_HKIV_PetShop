@@ -94,7 +94,7 @@
                         </div>
                         <div class="text-center w-full p-t-42 p-b-22">
                             <span class="txt1">
-                                <a class="small" href="${context}/Admins/Create"><fmt:message key="login.textfield.Register"/></a>
+                                <a class="small" href="${context}/Login/registerCustomer/colorlib-regform-2/index.jsp"><fmt:message key="login.textfield.Register"/></a>
                             </span><br/>
                             <span class="txt1">
                                 <a class="small" href="forgot-password.jsp"><fmt:message key="login.button.fogot"/></a>
@@ -109,7 +109,7 @@
                         <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project_HKIV_PetShop/loginGoogle&response_type=code
                            &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force" class="btn-google m-b-10">
                             <img src="${context}/Login/loginCustomer/Login_v11/images/icons/icon-google.png" alt="GOOGLE"><fmt:message key="login.button.submitGoogle"/>
-                            Google
+                            
                         </a>
                             <div class="text-center w-full p-t-42 p-b-22">
                             <a class="small" href="?locale=en">

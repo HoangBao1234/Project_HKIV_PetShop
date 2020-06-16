@@ -1,14 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="entity.Members"%>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>PetShop</title>
-         <fmt:setBundle basename="app"/>
-         <c:import url="setLocale.jsp"/>
+        <fmt:setBundle basename="app"/>
+        <c:import url="setLocale.jsp"/>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -119,7 +119,7 @@
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
                                 <a href="${context}/Customers/Login" class="nav-link">
-                                  <fmt:message key="home.textfied.login"/>  
+                                    <fmt:message key="home.textfied.login"/>  
                                 </a>
                             </li>
                         </c:if>
@@ -137,23 +137,32 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section bg-light">
+        <section class="ftco-section" style="padding-top: 20px">
             <div class="container">
                 <div class="row d-flex">
                     <div class="col-sm-8">
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-6" style="font-family: cursive">
                                 <img src="${context}/ImageItems/${acc.image}" width="313" height="330"/>
+                                <br/>
                                 <br/>
                                 ${acc.description}
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6" style="font-family: cursive">
                                 <ul style="list-style-type: none">
                                     <li><h1 style="font-family: initial">${acc.name}</h1></li>
-                                    <li>${acc.price} $</li>                         
-                                    <li><hr/></li>
-                                    <li><button style="border: none; background-color: #00bd56;
-                                                border-radius: 5px; padding: 5px  15px; color: whitesmoke">Add to Cart</button></li>
+                                    <li><span style="font-size: 25px">${acc.price} $</span></li>                         
+                                    <li></li>
+                                    <li>
+                                        <div class="quantity buttons_added" style="margin-top:30px; margin-bottom: 20px;">
+                                            <form>
+                                                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+                                            </form>
+                                        </div>
+                                    </li>
+                                    <li tyle="margin-top: 15px; margin-bottom: 15px"><a href="${context}/Order/Store?ESId=${acc.ESId}">
+                                            <button style="border: none; background-color: #00bd56;
+                                                    border-radius: 5px; padding: 5px  15px; color: whitesmoke">Add to Cart</button></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -190,7 +199,7 @@
                     </div>
                 </div>
                 <h4 style="margin-top: 50px"><fmt:message key="product.textfied.detail.interested"/></h4>
-                <hr/>
+                <hr style="background-color: #00bd56"/>
                 <div class="row">
                     <c:forEach var="i" items="${list}">
                         <c:if test="${i.getESId() != cate.getESId()}">
@@ -204,7 +213,17 @@
                                             <div><a href="#">${i.CEId.name}</a></div>
                                             <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
                                         </div>
-                                        
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <button style="border: none; background-color: #00bd56;
+                                                        border-radius: 10px; padding: 4px  10px; color: whitesmoke">
+                                                    <a style="color: white" href="${context}/AccessoriesProduct/Compare?id_1=${acc.getESId()}&id_2=${i.getESId()}">Compare</a>
+                                                </button>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <span style="color: #00bd56">${i.price}$</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

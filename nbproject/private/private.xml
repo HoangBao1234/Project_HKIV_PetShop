@@ -12,11 +12,15 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/Login/registerCustomer/colorlib-regform-2/index.jsp</file>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/index.jsp</file>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/Login/loginCustomer/Login_v11/index.jsp</file>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/Login/login.jsp</file>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/src/java/app_en.properties</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Login/registerCustomer/colorlib-regform-2/index.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Login/registerCustomer/colorlib-regform-2/css/main.css</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Pets/detail.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/entity/Accessories.java</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Login/register.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Login/loginCustomer/Login_v11/index.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Accessories/detail.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/index.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Login/login.jsp</file>
         </group>
     </open-files>
 </project-private>
