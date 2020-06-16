@@ -1,6 +1,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="en">
 
     <head>
@@ -36,7 +37,7 @@
                 <div class="card card-2">
                     <div class="card-heading"></div>
                     <div class="card-body">
-                        <h2 class="title">Registration Info</h2>
+                        <h2 class="title"><fmt:message key="login.form.titleRe"/></h2>
                         <form action="${context}/Customers/Store" method="post">
                             <div class="input-group">
                                 <input class="input--style-3" type="text" id="exampleFirstName" name="regis_name" placeholder="<fmt:message key="login.textfield.name"/>">

@@ -49,7 +49,7 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html");
+      response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -64,6 +64,7 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       if (_jspx_meth_c_set_0(_jspx_page_context))
         return;
+      out.write("\r\n");
       out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"en\">\r\n");
