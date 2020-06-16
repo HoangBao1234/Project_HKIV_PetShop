@@ -1,10 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="entity.Members"%>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>PetShop</title>
+        <fmt:setBundle basename="app"/>
+         <c:import url="setLocale.jsp"/>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -38,7 +42,7 @@
             img {
                 image-rendering: pixelated;
             }
-            /* CSS c?n id pagination ra gi?a m‡n hÏnh */
+            /* CSS c?n id pagination ra gi?a m√†n h√¨nh */
             #pagination {
                 display: flex;
                 display: -webkit-flex; /* Safari 8 */
@@ -71,46 +75,53 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" href="${context}/index.jsp"><span class="flaticon-pawprint-1 mr-2"></span><span style="color: #000">PetShop</span>></a>
+                <a class="navbar-brand" href="index.jsp"><span class="flaticon-pawprint-1 mr-2"></span>Pet Shop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span> Menu
                 </button>
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="${context}/index.jsp" class="nav-link">Home</a></li>
+                        <li class="nav-item active"><a href="${context}/index.jsp" class="nav-link"><fmt:message key="home.textfied.home"/></a></li>
 
-                        <li class="nav-item dropdown" ><a href="${context}/aboutus.jsp" class="nav-link dropdown-toggle" data-toggle="dropdown">Product</a>
+                        <li class="nav-item dropdown" ><a href="aboutus.jsp" class="nav-link  dropdown-toggle" data-toggle="dropdown"><fmt:message key="home.textfied.product"/></a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                               <li><a href="${context}/PetProduct/All">Pet</a></li>
-                                <li><a href="${context}/FoodProduct/All">Food</a></li>
-                                <li><a href="${context}/AccessoriesProduct/All">Accessoreis</a></li>
+                                <li><a href="${context}/PetProduct/All"><fmt:message key="home.textfied.product.pet"/></a></li>
+                                <li><a href="${context}/FoodProduct/All"><fmt:message key="home.textfied.product.food"/></a></li>
+                                <li><a href="${context}/AccessoriesProduct/All"><fmt:message key="home.textfied.product.Accessories"/></a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="${context}/cusHotelController/All" class="nav-link">PetHotel</a></li>
-                        <li class="nav-item"><a href="${context}/aboutus.jsp" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="${context}/Order/View" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
-                                <c:if test="${sessionScope.username != null}">
+                        <li class="nav-item"><a href="${context}/Customer/petHotel/colorlib-regform-3/index.jsp" class="nav-link"><fmt:message key="home.textfied.pethotel"/></a></li>
+                        <li class="nav-item"><a href="${context}/aboutus.jsp" class="nav-link"><fmt:message key="home.textfied.about"/></a></li>
+                        <li class="nav-item"><a href="${context}/Order/View" class="nav-link"><i class="fas fa-shopping-cart"><sub><span class="badge">
+                                            <c:if test="${sessionScope.order != null}">
+                                                ${sessionScope.order.odersDetailsCollection.size()}
+                                            </c:if>    
+                                            <c:if test="${sessionScope.order == null}">
+                                                0
+                                            </c:if>    
+                                        </span></sub></i> </a></li>
+                                        <c:if test="${sessionScope.username != null}">
                             <li class="nav-item dropdown" >
-                                <a href="${context}/aboutus.jsp" class="nav-link  dropdown-toggle" data-toggle="dropdown">
+                                <a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">
                                     <c:out value="${sessionScope.username.name}" />
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                    <li><a href="#">Profile</a></li>
-                                    <li><a href="${context}/Customer/Logout?logout=ok">Logout</a></li>
+                                    <li><a href="${context}/Member/ListProfile?id=${username.getMId()}"> <fmt:message key="home.textfied.profile"/></a></li>
+                                    <li><a href="${context}/Customers/Logout?logout=ok"> <fmt:message key="home.textfied.logout"/></a></li>
                                 </ul>
                             </li>
                         </c:if>
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
                                 <a href="${context}/Customers/Login" class="nav-link">
-                                    Login
+                                  <fmt:message key="home.textfied.login"/>  
                                 </a>
                             </li>
                         </c:if>
-                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown">Language</a>
+                        <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown"><fmt:message key="home.textfied.language"/></a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                <li><a href="#">Vietnamese</a></li>
-                                <li><a href="#">English</a></li>
+                                <li><a href="?locale=en">English</a></li>
+                                <li><a href="?locale=vi">Vietnamese</a></li>
 
                             </ul>
                         </li>
@@ -174,7 +185,7 @@
                         </tr>
                     </table>
                 </div>
-                <h4 style="margin-top: 50px; color: #00bd56; font-family: initial">Maybe you are interested</h4>
+                                    <h4 style="margin-top: 50px; color: #00bd56; font-family: initial"><fmt:message key="product.textfied.detail.interested"/></h4>
                 <hr style="background-color: #00bd56"/>
                 <div class="row">
                     <c:forEach var="i" items="${list}">
@@ -207,7 +218,7 @@
                     </c:forEach>
                 </div>
 
-                <!-- HiÍn th? n˙t b?m -->
+                <!-- Hi√™n th? n√∫t b?m -->
                 <ul id="pagination"></ul>
             </div>
         </section>
@@ -215,7 +226,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Petsitting</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.Petsitting"/></h2>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                         <ul class="ftco-footer-social p-0">
                             <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
@@ -224,9 +235,9 @@
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Latest News</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.LatestNews"/></h2>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="img mr-4 rounded" style="background-image: url(images/image_1.jpg);"></a>
+                            <a class="img mr-4 rounded" style="background-image: url(petsitting/images/image_1.jpg);"></a>
                             <div class="text">
                                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                                 <div class="meta">
@@ -237,7 +248,7 @@
                             </div>
                         </div>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="img mr-4 rounded" style="background-image: url(images/image_2.jpg);"></a>
+                            <a class="img mr-4 rounded" style="background-image: url(petsitting/images/image_2.jpg);"></a>
                             <div class="text">
                                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                                 <div class="meta">
@@ -249,23 +260,23 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Quick Links</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.QuickLinks"/></h2>
                         <ul class="list-unstyled">
-                            <li><a href="${context}/index.jsp" class="py-2 d-block">Home</a></li>
-                            <li><a href="${context}/aboutus.jsp" class="py-2 d-block">About</a></li>
-                            <li><a href="#" class="py-2 d-block">Services</a></li>
-                            <li><a href="#" class="py-2 d-block">Works</a></li>
-                            <li><a href="#" class="py-2 d-block">Blog</a></li>
-                            <li><a href="#" class="py-2 d-block">Contact</a></li>
+                            <li><a href="index.jsp" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied1"/></a></li>
+                            <li><a href="aboutus.jsp" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied2"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied3"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied4"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied5"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied6"/></a></li>
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Have a Questions?</h2>
+                        <h2 class="footer-heading"><fmt:message key="home.footer.HaveaQuestions"/></h2>
                         <div class="block-23 mb-3">
                             <ul>
                                 <li><span class="icon fa fa-map"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
                                 <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>
+                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>s
                             </ul>
                         </div>
                     </div>
@@ -303,9 +314,9 @@
         <script src="${context}/petsitting/js/main.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.2.1.js" ></script>
-        <!-- JS t?o n˙t b?m di chuy?n trang start -->
+        <!-- JS t?o n√∫t b?m di chuy?n trang start -->
         <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
-        <!-- JS t?o n˙t b?m di chuy?n trang end -->
+        <!-- JS t?o n√∫t b?m di chuy?n trang end -->
 
     </body>
 </html>

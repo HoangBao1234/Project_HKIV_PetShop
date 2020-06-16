@@ -1,10 +1,10 @@
-package org.apache.jsp.Login.loginCustomer.Login_005fv11;
+package org.apache.jsp.Login;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class admin_005fLogin_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -49,7 +49,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -60,19 +60,23 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html lang=\"en\">\r\n");
+      out.write("    \r\n");
+      out.write("    \r\n");
+      out.write("    ");
       if (_jspx_meth_c_set_0(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("<!DOCTYPE html>\r\n");
-      out.write("<html>\r\n");
       out.write("    <head>\r\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>Login</title>\r\n");
+      out.write("\r\n");
+      out.write("        <meta charset=\"utf-8\">\r\n");
+      out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n");
+      out.write("        <meta name=\"description\" content=\"\">\r\n");
+      out.write("        <meta name=\"author\" content=\"\">\r\n");
+      out.write("\r\n");
+      out.write("        <title>SB Admin 2 - Login</title>\r\n");
       out.write("        ");
       if (_jspx_meth_c_import_0(_jspx_page_context))
         return;
@@ -81,152 +85,163 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_fmt_setBundle_0(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("        <!--===============================================================================================-->\t\r\n");
-      out.write("        <link rel=\"icon\" type=\"image/png\" href=\"images/icons/favicon.ico\"/>\r\n");
-      out.write("        <!--===============================================================================================-->\r\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"vendor/bootstrap/css/bootstrap.min.css\">\r\n");
-      out.write("        <!--===============================================================================================-->\r\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"fonts/font-awesome-4.7.0/css/font-awesome.min.css\">\r\n");
-      out.write("        <!--===============================================================================================-->\r\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"fonts/Linearicons-Free-v1.0.0/icon-font.min.css\">\r\n");
-      out.write("        <!--===============================================================================================-->\r\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"vendor/animate/animate.css\">\r\n");
-      out.write("        <!--===============================================================================================-->\t\r\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"vendor/css-hamburgers/hamburgers.min.css\">\r\n");
-      out.write("        <!--===============================================================================================-->\r\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"vendor/select2/select2.min.css\">\r\n");
-      out.write("        <!--===============================================================================================-->\r\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/util.css\">\r\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\">\r\n");
-      out.write("        <!--===============================================================================================-->\r\n");
-      out.write("    </head>\r\n");
-      out.write("    <body>\r\n");
-      out.write("\r\n");
-      out.write("        <div class=\"limiter\">\r\n");
-      out.write("            <div class=\"container-login100\">\r\n");
-      out.write("                <div class=\"wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30\">\r\n");
-      out.write("                    ");
-
-                        Cookie[] listCookie = request.getCookies();
-                        String user = "";
-                        String pass = "";
-                        int co = 0;
-                        if (listCookie != null) {
-                            while (co < listCookie.length) {
-                                if (listCookie[co].getName().equals("user")) {
-                                    user = listCookie[co].getValue();
-                                }
-                                if (listCookie[co].getName().equals("pass")) {
-                                    pass = listCookie[co].getValue();
-                                }
-                                co++;
-                            }
-
-                        }
-                    
-      out.write("\r\n");
-      out.write("                    ");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${error}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\r\n");
-      out.write("                    <form class=\"login100-form validate-form\" action=\"");
+      out.write("        <!-- Custom fonts for this template-->\r\n");
+      out.write("        <link href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Admins/Check\" method=\"post\">\r\n");
-      out.write("                        <span class=\"login100-form-title p-b-55\">\r\n");
-      out.write("                            Login\r\n");
-      out.write("                        </span>\r\n");
+      out.write("/Admin/vendor/fontawesome-free/css/all.min.css\" rel=\"stylesheet\" type=\"text/css\">\r\n");
+      out.write("        <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\">\r\n");
+      out.write("        <!--Custom multilanguage  -->\r\n");
       out.write("\r\n");
-      out.write("                        <div class=\"wrap-input100 validate-input m-b-16\" data-validate = \"Valid email is required: ex@abc.xyz\">\r\n");
-      out.write("                            <input class=\"input100\" type=\"text\" name=\"txtMail\" value=\"");
-out.print(user);
-      out.write("\" placeholder=\"");
+      out.write("        <!-- Custom styles for this template-->\r\n");
+      out.write("        <link href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Admin/css/sb-admin-2.min.css\" rel=\"stylesheet\">\r\n");
+      out.write("\r\n");
+      out.write("    </head>\r\n");
+      out.write("\r\n");
+      out.write("    <body class=\"bg-gradient-primary\">\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("        <div class=\"container\">\r\n");
+      out.write("\r\n");
+      out.write("            <!-- Outer Row -->\r\n");
+      out.write("            <div class=\"row justify-content-center\">\r\n");
+      out.write("\r\n");
+      out.write("                <div class=\"col-xl-10 col-lg-12 col-md-9\">\r\n");
+      out.write("\r\n");
+      out.write("                    <div class=\"card o-hidden border-0 shadow-lg my-5\">\r\n");
+      out.write("                        <div class=\"card-body p-0\">\r\n");
+      out.write("                            <!-- Nested Row within Card Body -->\r\n");
+      out.write("                            <div class=\"row\">\r\n");
+      out.write("                                <div class=\"col-lg-6 d-none d-lg-block bg-login-image\"></div>\r\n");
+      out.write("                                <div class=\"col-lg-6\">\r\n");
+      out.write("                                    <div class=\"p-5\">\r\n");
+      out.write("                                        <div class=\"text-center\">\r\n");
+      out.write("                                            <h1 class=\"h4 text-gray-900 mb-4\">");
       if (_jspx_meth_fmt_message_0(_jspx_page_context))
         return;
-      out.write("\">\r\n");
-      out.write("                            <span class=\"focus-input100\"></span>\r\n");
-      out.write("                            <span class=\"symbol-input100\">\r\n");
-      out.write("                                <span class=\"lnr lnr-envelope\"></span>\r\n");
-      out.write("                            </span>\r\n");
-      out.write("                        </div>\r\n");
+      out.write("</h1>\r\n");
+      out.write("                                        </div>\r\n");
+      out.write("                                        ");
+
+                                            Cookie[] listCookie = request.getCookies();
+                                            String user = "";
+                                            String pass = "";
+                                            int co = 0;
+                                            if (listCookie != null) {
+                                                while (co < listCookie.length) {
+                                                    if (listCookie[co].getName().equals("user")) {
+                                                        user = listCookie[co].getValue();
+                                                    }
+                                                    if (listCookie[co].getName().equals("pass")) {
+                                                        pass = listCookie[co].getValue();
+                                                    }
+                                                    co++;
+                                                }
+
+                                            }
+                                        
       out.write("\r\n");
-      out.write("                        <div class=\"wrap-input100 validate-input m-b-16\" data-validate = \"Password is required\">\r\n");
-      out.write("                            <input class=\"input100\" type=\"password\" name=\"txtPassword\" value=\"");
-out.print(pass);
-      out.write("\"  placeholder=\"");
+      out.write("                                        ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${error}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\r\n");
+      out.write("                                        <form class=\"user\" action=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Admins/Check\" method=\"post\">\r\n");
+      out.write("                                            <div class=\"form-group\">\r\n");
+      out.write("                                                <input type=\"email\" class=\"form-control form-control-user\" id=\"exampleInputEmail\" aria-describedby=\"emailHelp\" name=\"txtMail\" value=\"");
+out.print(user);
+      out.write("\" placeholder=\"");
       if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
       out.write("\">\r\n");
-      out.write("                            <span class=\"focus-input100\"></span>\r\n");
-      out.write("                            <span class=\"symbol-input100\">\r\n");
-      out.write("                                <span class=\"lnr lnr-lock\"></span>\r\n");
-      out.write("                            </span>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("\r\n");
-      out.write("                        <div class=\"contact100-form-checkbox m-l-4\">\r\n");
-      out.write("                            <input class=\"input-checkbox100\" id=\"ckb1\" type=\"checkbox\" id=\"customCheck\" name=\"chkRemember\">\r\n");
-      out.write("                            <label class=\"label-checkbox100\" for=\"customCheck\">");
+      out.write("                                            </div>\r\n");
+      out.write("                                            <div class=\"form-group\">\r\n");
+      out.write("                                                <input type=\"password\" class=\"form-control form-control-user\" id=\"exampleInputPassword\" name=\"txtPassword\" value=\"");
+out.print(pass);
+      out.write("\"  placeholder=\"");
       if (_jspx_meth_fmt_message_2(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("                                Remember me\r\n");
-      out.write("                            </label>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("\r\n");
-      out.write("                        <div class=\"container-login100-form-btn p-t-25\">\r\n");
-      out.write("                            <button class=\"login100-form-btn\" value=\"");
+      out.write("\">\r\n");
+      out.write("                                            </div>\r\n");
+      out.write("                                            <div class=\"form-group\">\r\n");
+      out.write("                                                <div class=\"custom-control custom-checkbox small\">\r\n");
+      out.write("                                                    <input type=\"checkbox\" class=\"custom-control-input\" id=\"customCheck\" name=\"chkRemember\">\r\n");
+      out.write("                                                    <label class=\"custom-control-label\" for=\"customCheck\">");
       if (_jspx_meth_fmt_message_3(_jspx_page_context))
         return;
-      out.write("\">\r\n");
-      out.write("                                Login\r\n");
-      out.write("                            </button>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <div class=\"text-center w-full p-t-42 p-b-22\">\r\n");
-      out.write("                            <span class=\"txt1\">\r\n");
-      out.write("                                <a class=\"small\" href=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Admins/Create\">Create an Account!</a>\r\n");
-      out.write("                            </span><br/>\r\n");
-      out.write("                            <span class=\"txt1\">\r\n");
-      out.write("                                <a class=\"small\" href=\"forgot-password.jsp\">Forgot Password?</a>\r\n");
-      out.write("                            </span>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("\r\n");
-      out.write("                        <a href=\"../Admin/index.html\" class=\"btn-face m-b-10\">\r\n");
-      out.write("                            <i class=\"fa fa-facebook-official\"></i>");
+      out.write("</label>\r\n");
+      out.write("                                                </div>\r\n");
+      out.write("                                            </div>\r\n");
+      out.write("                                            <input type=\"submit\" class=\"btn btn-primary btn-user btn-block\" value=\"");
       if (_jspx_meth_fmt_message_4(_jspx_page_context))
         return;
+      out.write("\"/>\r\n");
       out.write("\r\n");
-      out.write("                            Facebook\r\n");
-      out.write("                        </a>\r\n");
-      out.write("\r\n");
-      out.write("                        <a href=\"https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project_HKIV_PetShop/loginGoogle&response_type=code\r\n");
-      out.write("           &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force\" class=\"btn-google m-b-10\">\r\n");
-      out.write("                            <img src=\"images/icons/icon-google.png\" alt=\"GOOGLE\">");
+      out.write("                                            <hr>\r\n");
+      out.write("                                            <a href=\"../Admin/index.html\" class=\"btn btn-google btn-user btn-block\">\r\n");
+      out.write("                                                <i class=\"fab fa-google fa-fw\"></i>  ");
       if (_jspx_meth_fmt_message_5(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("                            Google\r\n");
-      out.write("                        </a>\r\n");
+      out.write("                                            </a>\r\n");
+      out.write("                                            <a href=\"../Admin/index.html\" class=\"btn btn-facebook btn-user btn-block\">\r\n");
+      out.write("                                                <i class=\"fab fa-facebook-f fa-fw\"></i>  ");
+      if (_jspx_meth_fmt_message_6(_jspx_page_context))
+        return;
       out.write("\r\n");
+      out.write("                                            </a>\r\n");
+      out.write("                                        </form>\r\n");
+      out.write("                                        <hr>\r\n");
+      out.write("                                        <div class=\"text-center\">\r\n");
+      out.write("                                            <a class=\"small\" href=\"forgot-password.jsp\">Forgot Password?</a>\r\n");
+      out.write("                                        </div>\r\n");
+      out.write("                                        <div class=\"text-center\">\r\n");
+      out.write("                                            <a class=\"small\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Admins/Create\">Create an Account!</a>\r\n");
+      out.write("                                        </div>\r\n");
+      out.write("                                        <div class=\"text-center\">\r\n");
+      out.write("                                            <a class=\"small\" href=\"?locale=en\">\r\n");
+      out.write("                                                English |\r\n");
+      out.write("                                            </a>\r\n");
+      out.write("                                            <a class=\"small\" href=\"?locale=vi\">\r\n");
+      out.write("                                                Vietnamese\r\n");
+      out.write("                                            </a>\r\n");
       out.write("\r\n");
-      out.write("                    </form>\r\n");
+      out.write("                                        </div>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                </div>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("\r\n");
       out.write("                </div>\r\n");
+      out.write("\r\n");
       out.write("            </div>\r\n");
+      out.write("\r\n");
       out.write("        </div>\r\n");
       out.write("\r\n");
+      out.write("        <!-- Bootstrap core JavaScript-->\r\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Admin/vendor/jquery/jquery.min.js\"></script>\r\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>\r\n");
       out.write("\r\n");
+      out.write("        <!-- Core plugin JavaScript-->\r\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Admin/vendor/jquery-easing/jquery.easing.min.js\"></script>\r\n");
       out.write("\r\n");
-      out.write("\r\n");
-      out.write("        <!--===============================================================================================-->\t\r\n");
-      out.write("        <script src=\"vendor/jquery/jquery-3.2.1.min.js\"></script>\r\n");
-      out.write("        <!--===============================================================================================-->\r\n");
-      out.write("        <script src=\"vendor/bootstrap/js/popper.js\"></script>\r\n");
-      out.write("        <script src=\"vendor/bootstrap/js/bootstrap.min.js\"></script>\r\n");
-      out.write("        <!--===============================================================================================-->\r\n");
-      out.write("        <script src=\"vendor/select2/select2.min.js\"></script>\r\n");
-      out.write("        <!--===============================================================================================-->\r\n");
-      out.write("        <script src=\"js/main.js\"></script>\r\n");
+      out.write("        <!-- Custom scripts for all pages-->\r\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Admin/js/sb-admin-2.min.js\"></script>\r\n");
       out.write("\r\n");
       out.write("    </body>\r\n");
+      out.write("\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -312,7 +327,7 @@ out.print(pass);
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_0 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_0.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_0.setParent(null);
-    _jspx_th_fmt_message_0.setKey("login.textfield.mail");
+    _jspx_th_fmt_message_0.setKey("login.form.title");
     int _jspx_eval_fmt_message_0 = _jspx_th_fmt_message_0.doStartTag();
     if (_jspx_th_fmt_message_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
@@ -330,7 +345,7 @@ out.print(pass);
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_1 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_1.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_1.setParent(null);
-    _jspx_th_fmt_message_1.setKey("login.textfield.password");
+    _jspx_th_fmt_message_1.setKey("login.textfield.mail");
     int _jspx_eval_fmt_message_1 = _jspx_th_fmt_message_1.doStartTag();
     if (_jspx_th_fmt_message_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
@@ -348,7 +363,7 @@ out.print(pass);
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_2 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_2.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_2.setParent(null);
-    _jspx_th_fmt_message_2.setKey("login.textfield.checkbox");
+    _jspx_th_fmt_message_2.setKey("login.textfield.password");
     int _jspx_eval_fmt_message_2 = _jspx_th_fmt_message_2.doStartTag();
     if (_jspx_th_fmt_message_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
@@ -366,7 +381,7 @@ out.print(pass);
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_3 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_3.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_3.setParent(null);
-    _jspx_th_fmt_message_3.setKey("login.button.submit");
+    _jspx_th_fmt_message_3.setKey("login.textfield.checkbox");
     int _jspx_eval_fmt_message_3 = _jspx_th_fmt_message_3.doStartTag();
     if (_jspx_th_fmt_message_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
@@ -384,7 +399,7 @@ out.print(pass);
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_4 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_4.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_4.setParent(null);
-    _jspx_th_fmt_message_4.setKey("login.button.submitFacebook");
+    _jspx_th_fmt_message_4.setKey("login.button.submit");
     int _jspx_eval_fmt_message_4 = _jspx_th_fmt_message_4.doStartTag();
     if (_jspx_th_fmt_message_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
@@ -409,6 +424,24 @@ out.print(pass);
       return true;
     }
     _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_6(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_6 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_6.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_6.setParent(null);
+    _jspx_th_fmt_message_6.setKey("login.button.submitFacebook");
+    int _jspx_eval_fmt_message_6 = _jspx_th_fmt_message_6.doStartTag();
+    if (_jspx_th_fmt_message_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
     return false;
   }
 }

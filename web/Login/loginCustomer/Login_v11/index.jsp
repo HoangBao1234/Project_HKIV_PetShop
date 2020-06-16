@@ -63,7 +63,7 @@
                             Login
                         </span>
 
-                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: ex@abc.xyz">
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: ex@abc.xyz" >
                             <input class="input100" type="text" name="txtMail" value="<%out.print(user);%>" placeholder="<fmt:message key="login.textfield.mail"/>">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
