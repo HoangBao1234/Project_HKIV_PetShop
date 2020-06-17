@@ -129,7 +129,7 @@ public class cusController extends HttpServlet {
     }
 
     private void getRegisterView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/Login/register.jsp").forward(request, response);
+        request.getRequestDispatcher("/registerCustomer/colorlib-regform-2/index.jsp").forward(request, response);
     }
 
     private void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

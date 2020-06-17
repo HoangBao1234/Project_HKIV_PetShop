@@ -142,7 +142,7 @@
         <!-- END nav -->
 
 
-        <section class="ftco-section bg-light" style="padding-top: 20px">
+        <section class="ftco-section" style="padding-top: 20px">
             <div class="container">
                 <form style="margin-bottom: 25px;" action="${context}/AccessoriesProduct/SearchByPrice" method="post" id="testForm">
                     <label>Choose your desired price</label>

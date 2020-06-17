@@ -377,7 +377,7 @@ public class orderController extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/Order/PrintOrder");
 
         } else {
-            request.getRequestDispatcher("/Login/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/Login/loginCustomer/Login_v11/index.jsp").forward(request, response);
         }
     }
 

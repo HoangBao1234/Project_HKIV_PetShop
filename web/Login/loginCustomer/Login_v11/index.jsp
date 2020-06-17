@@ -33,6 +33,11 @@
         <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="${context}/Login/loginCustomer/Login_v11/css/util.css">
         <link rel="stylesheet" type="text/css" href="${context}/Login/loginCustomer/Login_v11/css/main.css">
+        <style>
+            *{
+                font-family: cursive;
+            }
+        </style>
         <!--===============================================================================================-->
     </head>
     <body>
