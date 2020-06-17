@@ -113,11 +113,9 @@ public class orderController extends HttpServlet {
         if (session.getAttribute("order") != null) {
             Orders orders = (Orders)session.getAttribute("order");
             List<OdersDetails> items = (List<OdersDetails>)orders.getOdersDetailsCollection();
-            out.print("Date: "+orders.getOderDate()+"<br/>");
-            for(OdersDetails item : items){
-                out.print("Sản Phẩm: "+item.getProductName()+"--- Giá: "+item.getProductPrice()+"--- Số Lượng: "+item.getQuantity()+"<br/>");
-            }
-            out.print("Tổng: "+orders.getTotal());
+            request.setAttribute("oder", orders );
+            request.setAttribute("item", items);
+            request.getRequestDispatcher("/Customer/Cart/printBill.jsp").forward(request, response);
         }
     }
 

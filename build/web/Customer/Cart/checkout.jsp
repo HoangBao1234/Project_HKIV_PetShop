@@ -232,7 +232,7 @@
             <div class="col-75">
                 <div class="container" style="background-color: #f1f1f1f1">
                     <c:if test="${sessionScope.username != null}">
-                        <form action="${context}/Order/CheckOut" method="post">
+                        <form action="${context}/Order/PrintOrder" method="post">
                             <div class="row">
                                 <div class="col-50">
                                     <label for="fname"><i class="fa fa-user"></i> Full Name</label>
