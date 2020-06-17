@@ -396,7 +396,7 @@
                                         Animals
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px">
+                                        <select style="width: 150px" name="animals">
                                             <c:forEach var="aList" items="${animals}">
                                                 <c:if test="${food.CFId.CFId == aList.CFId}">
                                                     <option value="${aList.CFId}" selected="selected">${aList.name}</option>

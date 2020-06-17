@@ -60,7 +60,7 @@
             }
         </style>
         <script>
-            function testSubmit(){
+            function testSubmit() {
                 document.getElementById("testForm").submit();
             }
         </script>
@@ -158,33 +158,38 @@
                 <div class="row d-flex">
                     <div class="col-sm-8">
                         <div class="row">
-                            <c:forEach var="i" items="${list}">
-                                <div class="col-sm-4 d-flex ftco-animate">
-                                    <div class="blog-entry align-self-stretch contentPage">
-                                        <a href="${context}/FoodProduct/Detail?id=${i.FId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
-                                        </a>
-                                        <div class="text p-4">
-                                            <div class="meta mb-2">
-                                                <div><a href="#">${i.name}</a></div><br/>
-                                                <div><a href="#">${i.CFId.name}</a></div>
-                                                <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-9">
-                                                    <a href="${context}/Order/Store?FId=${i.FId}">
-                                                        <button style="border: none; background-color: #00bd56; width: 100px;
-                                                                border-radius: 10px; padding: 4px  12px; color: whitesmoke">Add Cart
-                                                        </button>
-                                                    </a>
+                            <c:if test="${list.size() > 0}">
+                                <c:forEach var="i" items="${list}">
+                                    <div class="col-sm-4 d-flex ftco-animate">
+                                        <div class="blog-entry align-self-stretch contentPage">
+                                            <a href="${context}/FoodProduct/Detail?id=${i.FId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
+                                            </a>
+                                            <div class="text p-4">
+                                                <div class="meta mb-2">
+                                                    <div><a href="#">${i.name}</a></div><br/>
+                                                    <div><a href="#">${i.CFId.name}</a></div>
+                                                    <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
                                                 </div>
-                                                <div class="col-sm-3">
-                                                    <span style="color: #00bd56">${i.price}$</span>
+                                                <div class="row">
+                                                    <div class="col-sm-9">
+                                                        <a href="${context}/Order/Store?FId=${i.FId}">
+                                                            <button style="border: none; background-color: #00bd56; width: 100px;
+                                                                    border-radius: 10px; padding: 4px  12px; color: whitesmoke">Add Cart
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <span style="color: #00bd56">${i.price}$</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </c:forEach>
+                                </c:forEach>
+                            </c:if>
+                            <c:if test="${list.size() == 0}">
+                                <h4>--- No Items Here</h4>
+                            </c:if>
                         </div>
                     </div>
 
@@ -322,30 +327,30 @@
         <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
         <!-- JS t?o nút b?m di chuy?n trang end -->
         <script type="text/javascript">
-                                $(function() {
-                                    var pageSize = 9; // Hi?n th? 6 s?n ph?m trên 1 trang
-                                    showPage = function(page) {
-                                        $(".contentPage").hide();
+                            $(function() {
+                                var pageSize = 9; // Hi?n th? 6 s?n ph?m trên 1 trang
+                                showPage = function(page) {
+                                    $(".contentPage").hide();
                                         $(".contentPage").each(function(n) {
-                                            if (n >= pageSize * (page - 1) && n < pageSize * page)
-                                                $(this).show();
-                                        });
+                                if (n >= pageSize * (page - 1) && n < pageSize * page)
+                            $(this).show();
+                            });
                                     };
-                                    showPage(1);
-                                    ///** C?n truy?n giá tr? vào ?ây **///
+                            showPage(1);
+                            ///** C?n truy?n giá tr? vào ?ây **///
                                     var totalRows = 10; // T?ng s? s?n ph?m hi?n th?
                                     var btnPage = Math.ceil(${list.size()} / pageSize); // S? nút b?m hi?n th? di chuy?n trang
-                                    var iTotalPages = Math.ceil(totalRows / pageSize);
+                                        var iTotalPages = Math.ceil(totalRows / pageSize);
 
-                                    var obj = $('#pagination').twbsPagination({
+                                        var obj = $('#pagination').twbsPagination({
                                         totalPages: iTotalPages,
-                                        visiblePages: btnPage,
-                                        onPageClick: function(event, page) {
-                                            /* console.info(page); */
-                                            showPage(page);
+                                            visiblePages: btnPage,
+                                            onPageClick: function(event, page) {
+                                        /* console.info(page); */
+                                    showPage(page);
                                         }
-                                    });
-                                    /*console.info(obj.data());*/
+                                });
+                            /*console.info(obj.data());*/
                                 });
         </script>
 

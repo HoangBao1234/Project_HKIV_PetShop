@@ -58,7 +58,7 @@
             }
         </style>
         <script>
-            function testSubmit(){
+            function testSubmit() {
                 document.getElementById("testForm").submit();
             }
         </script>
@@ -156,33 +156,38 @@
                 <div class="row d-flex">
                     <div class="col-sm-8">
                         <div class="row">
-                            <c:forEach var="i" items="${list}">
-                                <div class="col-sm-4 d-flex ftco-animate">
-                                    <div class="blog-entry align-self-stretch contentPage">
-                                        <a href="${context}/AccessoriesProduct/Detail?id=${i.ESId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
-                                        </a>
-                                        <div class="text p-4">
-                                            <div class="meta mb-2">
-                                                <div><a href="#">${i.name}</a></div><br/>
-                                                <div><a href="#">${i.CEId.name}</a></div>
-                                                <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-9">
-                                                    <a href="${context}/Order/Store?ESId=${i.ESId}">
-                                                        <button style="border: none; background-color: #00bd56;
-                                                                border-radius: 10px; padding: 4px  12px; color: whitesmoke">Add Cart
-                                                        </button>
-                                                    </a>
+                            <c:if test="${list.size() > 0}">
+                                <c:forEach var="i" items="${list}">
+                                    <div class="col-sm-4 d-flex ftco-animate">
+                                        <div class="blog-entry align-self-stretch contentPage">
+                                            <a href="${context}/AccessoriesProduct/Detail?id=${i.ESId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
+                                            </a>
+                                            <div class="text p-4">
+                                                <div class="meta mb-2">
+                                                    <div><a href="#">${i.name}</a></div><br/>
+                                                    <div><a href="#">${i.CEId.name}</a></div>
+                                                    <div><a href="#" class="meta-chat"><i class="far fa-heart"></i></span> 3</a></div>
                                                 </div>
-                                                <div class="col-sm-3">
-                                                    <span style="color: #00bd56">${i.price}$</span>
+                                                <div class="row">
+                                                    <div class="col-sm-9">
+                                                        <a href="${context}/Order/Store?ESId=${i.ESId}">
+                                                            <button style="border: none; background-color: #00bd56;
+                                                                    border-radius: 10px; padding: 4px  12px; color: whitesmoke">Add Cart
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <span style="color: #00bd56">${i.price}$</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </c:forEach>
+                                </c:forEach>
+                            </c:if>
+                            <c:if test="${list.size() == 0}">
+                                <h4>--- No Items Here</h4>
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-sm-4" style="background-color: #FAFAFA; height: 100%;">
