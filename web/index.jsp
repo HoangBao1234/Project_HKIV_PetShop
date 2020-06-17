@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="entity.Members"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
@@ -8,7 +8,7 @@
     <head>
         <title>PetShop</title>
         <fmt:setBundle basename="app"/>
-         <c:import url="setLocale.jsp"/>
+        <c:import url="setLocale.jsp"/>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -99,7 +99,7 @@
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
                                 <a href="${context}/Customers/Login" class="nav-link">
-                                  <fmt:message key="home.textfied.login"/>  
+                                    <fmt:message key="home.textfied.login"/>  
                                 </a>
                             </li>
                         </c:if>
@@ -673,70 +673,30 @@
                 </div>
             </div>
         </section>
-
+                    
+        <div class="row justify-content-center pb-5 mb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2><fmt:message key="home.textfied.ourstore"/></h2>
+            </div>
+        </div>
         <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img" style="background-image: url(petsitting/images/bg_3.jpg);">
             <div class="overlay"></div>
-            <div class="container">
+            <div class="container" >
                 <div class="row d-md-flex justify-content-end">
-                    <div class="col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate">
-                        <h2 class="mb-4">Free Consultation</h2>
-                        <form action="#" class="appointment">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <div class="form-field">
-                                            <div class="select-wrap">
-                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                <select name="" id="" class="form-control">
-                                                    <option value="">Select services</option>
-                                                    <option value="">Cat Sitting</option>
-                                                    <option value="">Dog Walk</option>
-                                                    <option value="">Pet Spa</option>
-                                                    <option value="">Pet Grooming</option>
-                                                    <option value="">Pet Daycare</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Your Name">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Vehicle number">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="input-wrap">
-                                            <div class="icon"><span class="fa fa-calendar"></span></div>
-                                            <input type="text" class="form-control appointment_date" placeholder="Date">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="input-wrap">
-                                            <div class="icon"><span class="fa fa-clock-o"></span></div>
-                                            <input type="text" class="form-control appointment_time" placeholder="Time">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="submit" value="Send message" class="btn btn-primary py-3 px-4">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+
+                    <div class="col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate" id="googleMap">                     
+                        <script>
+                            function myMap() {
+                                var mapProp = {
+                                    center: new google.maps.LatLng(51.508742, -0.120850),
+                                    zoom:5p;
+                                };
+                                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                            }
+                        </script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5AmezZ2ReRoypvpYKsPQ8612AojH8h24&callback=myMap"></script>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.535611105015!2d106.67292031462247!3d10.770228392325723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752edf949244a9%3A0xcc76335a7312de7b!2zNDIgVHLhuqduIE1pbmggUXV54buBbiwgUGjGsOG7nW5nIDExLCBRdeG6rW4gMTAsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1591859038893!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
                     </div>
                 </div>
             </div>
