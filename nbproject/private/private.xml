@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3">
         <file>
+            <url>src/java/entity/OrdersFacade.java</url>
+            <bookmark id="3">
+                <name/>
+                <line>34</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
             <url>src/java/entity/AccessoriesFacade.java</url>
             <bookmark id="1">
                 <name/>
@@ -17,21 +25,14 @@
                 <key/>
             </bookmark>
         </file>
-        <file>
-            <url>src/java/entity/OrdersFacade.java</url>
-            <bookmark id="3">
-                <name/>
-                <line>34</line>
-                <key/>
-            </bookmark>
-        </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/pet/addPet.jsp</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/food/addFood.jsp</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/accessories/addAccessories.jsp</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Customer/Pets/index.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Pets/compare.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Pets/detail.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Cart/printBill.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Pets/showByBreed.jsp</file>
+            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Pets/index.jsp</file>
         </group>
     </open-files>
 </project-private>

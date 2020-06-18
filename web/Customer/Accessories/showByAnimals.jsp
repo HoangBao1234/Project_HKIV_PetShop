@@ -156,8 +156,11 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <button style="border: none; background-color: #00bd56;
-                                                            border-radius: 10px; padding: 4px  10px; color: whitesmoke">Add Cart</button>
+                                                    <a href="${context}/Order/Store?ESId=${i.ESId}">
+                                                        <button style="border: none; background-color: #00bd56;
+                                                                border-radius: 10px; padding: 4px  12px; color: whitesmoke">Add Cart
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <span style="color: #00bd56">${i.price}$</span>
@@ -204,7 +207,7 @@
                 <ul id="pagination"></ul>
             </div>
         </section>
-         <footer class="footer">
+        <footer class="footer">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">

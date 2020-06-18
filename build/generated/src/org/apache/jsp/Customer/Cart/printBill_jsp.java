@@ -11,10 +11,20 @@ public final class printBill_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_forEach_var_items.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -41,6 +51,7 @@ public final class printBill_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -208,45 +219,48 @@ public final class printBill_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </style>\n");
       out.write("    </head>\n");
       out.write("    <body onload=\"window.print();\">\n");
-      out.write("<div id=\"page\" class=\"page\">\n");
-      out.write("    <div class=\"header\">\n");
-      out.write("        <div class=\"logo\"><img src=\"abs.jpg\"/></div>\n");
-      out.write("        <div class=\"company\">Shop Pet</div>\n");
-      out.write("    </div>\n");
-      out.write("  <br/>\n");
-      out.write("  <div class=\"title\">\n");
-      out.write("        HÓA ĐƠN THANH TOÁN\n");
-      out.write("        <br/>\n");
-      out.write("        -------oOo-------\n");
-      out.write("  </div>\n");
-      out.write("  <br/>\n");
-      out.write("  <br/>\n");
-      out.write("  <table class=\"TableData\">\n");
-      out.write("    <tr>\n");
-      out.write("      <th>STT</th>\n");
-      out.write("      <th>Tên</th>\n");
-      out.write("      <th>Đơn giá</th>\n");
-      out.write("      <th>Số</th>\n");
-      out.write("      <th>Thành tiền</th>\n");
-      out.write("    </tr>\n");
-      out.write("    <tr align=\"center\">\n");
-      out.write("    \t<td>1</td>\n");
-      out.write("        <td>Duy</td>\n");
-      out.write("        <td>123$</td>\n");
-      out.write("        <td>12</td>\n");
-      out.write("        <td>1234$</td>\n");
-      out.write("    </tr>\n");
-      out.write("    <tr>\n");
-      out.write("      <td colspan=\"4\" class=\"tong\">Tổng cộng</td>\n");
-      out.write("      <td class=\"cotSo\"></td>\n");
-      out.write("    </tr>\n");
-      out.write("  </table>\n");
-      out.write("  <div class=\"footer-left\"> TP Hồ Chí Minh, ngày 14 tháng 6 năm 2020<br/>\n");
-      out.write("    Khách hàng </div>\n");
-      out.write("  <div class=\"footer-right\"> TP Hồ Chí Minh, ngày 14 tháng 6 năm 2020<br/>\n");
-      out.write("    Nhân viên </div>\n");
-      out.write("</div>\n");
-      out.write("</body>\n");
+      out.write("        <div id=\"page\" class=\"page\">\n");
+      out.write("            <div class=\"header\">\n");
+      out.write("                <div class=\"logo\"><img src=\"../../ImageItems/abs.jpg\"/></div>\n");
+      out.write("                <div class=\"company\">Shop Pet</div>\n");
+      out.write("            </div>\n");
+      out.write("            <br/>\n");
+      out.write("            <div class=\"title\">\n");
+      out.write("                HÓA ĐƠN THANH TOÁN\n");
+      out.write("                <br/>\n");
+      out.write("                -------oOo-------\n");
+      out.write("            </div>\n");
+      out.write("            <br/>\n");
+      out.write("            <br/>\n");
+      out.write("            <table class=\"TableData\">\n");
+      out.write("                <thead>\n");
+      out.write("                <tr>\n");
+      out.write("                    <th>Product</th>\n");
+      out.write("                    <th>Date</th>\n");
+      out.write("                    <th>Unit price</th>\n");
+      out.write("                    <th>Amount</th>\n");
+      out.write("                    <th>Total</th>\n");
+      out.write("                    \n");
+      out.write("                </tr>\n");
+      out.write("                \n");
+      out.write("                </thead>\n");
+      out.write("                <tbody>\n");
+      out.write("                   \n");
+      out.write("                ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
+      out.write("\n");
+      out.write("                \n");
+      out.write("                </tbody>\n");
+      out.write("\n");
+      out.write("            </table>\n");
+      out.write("            <div class=\"footer-left\"> TP Hồ Chí Minh, ngày 14 tháng 6 năm 2020<br/>\n");
+      out.write("                Khách hàng </div>\n");
+      out.write("            <div class=\"footer-right\"> TP Hồ Chí Minh, ngày 14 tháng 6 năm 2020<br/>\n");
+      out.write("                Nhân viên <br/>Duy<br/>Đỗ Khánh Duy</div>\n");
+      out.write("\n");
+      out.write("        </div>\n");
+      out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -259,5 +273,52 @@ public final class printBill_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent(null);
+    _jspx_th_c_forEach_0.setVar("i");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\n");
+          out.write("                    <tr>\n");
+          out.write("                        <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.getProductName()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\n");
+          out.write("                        <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.getProductPrice()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\n");
+          out.write("                        <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.getQuantity()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\n");
+          out.write("                    </tr>\n");
+          out.write("                ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
   }
 }

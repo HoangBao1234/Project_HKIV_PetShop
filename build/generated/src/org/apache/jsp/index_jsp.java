@@ -68,7 +68,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write("\r\n");
-      out.write("    \r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       if (_jspx_meth_c_set_0(_jspx_page_context))
@@ -82,7 +82,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_fmt_setBundle_0(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("         ");
+      out.write("        ");
       if (_jspx_meth_c_import_0(_jspx_page_context))
         return;
       out.write("\r\n");
@@ -868,70 +868,33 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("        </section>\r\n");
-      out.write("\r\n");
+      out.write("                    \r\n");
+      out.write("        <div class=\"row justify-content-center pb-5 mb-3\">\r\n");
+      out.write("            <div class=\"col-md-7 heading-section text-center ftco-animate\">\r\n");
+      out.write("                <h2>");
+      if (_jspx_meth_fmt_message_37(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
       out.write("        <section class=\"ftco-appointment ftco-section ftco-no-pt ftco-no-pb img\" style=\"background-image: url(petsitting/images/bg_3.jpg);\">\r\n");
       out.write("            <div class=\"overlay\"></div>\r\n");
-      out.write("            <div class=\"container\">\r\n");
+      out.write("            <div class=\"container\" >\r\n");
       out.write("                <div class=\"row d-md-flex justify-content-end\">\r\n");
-      out.write("                    <div class=\"col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate\">\r\n");
-      out.write("                        <h2 class=\"mb-4\">Free Consultation</h2>\r\n");
-      out.write("                        <form action=\"#\" class=\"appointment\">\r\n");
-      out.write("                            <div class=\"row\">\r\n");
-      out.write("                                <div class=\"col-md-12\">\r\n");
-      out.write("                                    <div class=\"form-group\">\r\n");
-      out.write("                                        <div class=\"form-field\">\r\n");
-      out.write("                                            <div class=\"select-wrap\">\r\n");
-      out.write("                                                <div class=\"icon\"><span class=\"fa fa-chevron-down\"></span></div>\r\n");
-      out.write("                                                <select name=\"\" id=\"\" class=\"form-control\">\r\n");
-      out.write("                                                    <option value=\"\">Select services</option>\r\n");
-      out.write("                                                    <option value=\"\">Cat Sitting</option>\r\n");
-      out.write("                                                    <option value=\"\">Dog Walk</option>\r\n");
-      out.write("                                                    <option value=\"\">Pet Spa</option>\r\n");
-      out.write("                                                    <option value=\"\">Pet Grooming</option>\r\n");
-      out.write("                                                    <option value=\"\">Pet Daycare</option>\r\n");
-      out.write("                                                </select>\r\n");
-      out.write("                                            </div>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"col-md-6\">\r\n");
-      out.write("                                    <div class=\"form-group\">\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" placeholder=\"Your Name\">\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"col-md-6\">\r\n");
-      out.write("                                    <div class=\"form-group\">\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" placeholder=\"Vehicle number\">\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"col-md-6\">\r\n");
-      out.write("                                    <div class=\"form-group\">\r\n");
-      out.write("                                        <div class=\"input-wrap\">\r\n");
-      out.write("                                            <div class=\"icon\"><span class=\"fa fa-calendar\"></span></div>\r\n");
-      out.write("                                            <input type=\"text\" class=\"form-control appointment_date\" placeholder=\"Date\">\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"col-md-6\">\r\n");
-      out.write("                                    <div class=\"form-group\">\r\n");
-      out.write("                                        <div class=\"input-wrap\">\r\n");
-      out.write("                                            <div class=\"icon\"><span class=\"fa fa-clock-o\"></span></div>\r\n");
-      out.write("                                            <input type=\"text\" class=\"form-control appointment_time\" placeholder=\"Time\">\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"col-md-12\">\r\n");
-      out.write("                                    <div class=\"form-group\">\r\n");
-      out.write("                                        <textarea name=\"\" id=\"\" cols=\"30\" rows=\"7\" class=\"form-control\" placeholder=\"Message\"></textarea>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"col-md-12\">\r\n");
-      out.write("                                    <div class=\"form-group\">\r\n");
-      out.write("                                        <input type=\"submit\" value=\"Send message\" class=\"btn btn-primary py-3 px-4\">\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </form>\r\n");
+      out.write("\r\n");
+      out.write("                    <div class=\"col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate\" id=\"googleMap\">                     \r\n");
+      out.write("                        <script>\r\n");
+      out.write("                            function myMap() {\r\n");
+      out.write("                                var mapProp = {\r\n");
+      out.write("                                    center: new google.maps.LatLng(51.508742, -0.120850),\r\n");
+      out.write("                                    zoom:5p;\r\n");
+      out.write("                                };\r\n");
+      out.write("                                var map = new google.maps.Map(document.getElementById(\"googleMap\"), mapProp);\r\n");
+      out.write("                            }\r\n");
+      out.write("                        </script>\r\n");
+      out.write("                        <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyC5AmezZ2ReRoypvpYKsPQ8612AojH8h24&callback=myMap\"></script>\r\n");
+      out.write("                        <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.535611105015!2d106.67292031462247!3d10.770228392325723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752edf949244a9%3A0xcc76335a7312de7b!2zNDIgVHLhuqduIE1pbmggUXV54buBbiwgUGjGsOG7nW5nIDExLCBRdeG6rW4gMTAsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1591859038893!5m2!1svi!2s\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>\r\n");
+      out.write("\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
@@ -942,7 +905,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"row\">\r\n");
       out.write("                    <div class=\"col-md-6 col-lg-3 mb-4 mb-md-0\">\r\n");
       out.write("                        <h2 class=\"footer-heading\">");
-      if (_jspx_meth_fmt_message_37(_jspx_page_context))
+      if (_jspx_meth_fmt_message_38(_jspx_page_context))
         return;
       out.write("</h2>\r\n");
       out.write("                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>\r\n");
@@ -954,7 +917,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"col-md-6 col-lg-3 mb-4 mb-md-0\">\r\n");
       out.write("                        <h2 class=\"footer-heading\">");
-      if (_jspx_meth_fmt_message_38(_jspx_page_context))
+      if (_jspx_meth_fmt_message_39(_jspx_page_context))
         return;
       out.write("</h2>\r\n");
       out.write("                        <div class=\"block-21 mb-4 d-flex\">\r\n");
@@ -982,19 +945,15 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0\">\r\n");
       out.write("                        <h2 class=\"footer-heading\">");
-      if (_jspx_meth_fmt_message_39(_jspx_page_context))
+      if (_jspx_meth_fmt_message_40(_jspx_page_context))
         return;
       out.write("</h2>\r\n");
       out.write("                        <ul class=\"list-unstyled\">\r\n");
       out.write("                            <li><a href=\"index.jsp\" class=\"py-2 d-block\">");
-      if (_jspx_meth_fmt_message_40(_jspx_page_context))
-        return;
-      out.write("</a></li>\r\n");
-      out.write("                            <li><a href=\"aboutus.jsp\" class=\"py-2 d-block\">");
       if (_jspx_meth_fmt_message_41(_jspx_page_context))
         return;
       out.write("</a></li>\r\n");
-      out.write("                            <li><a href=\"#\" class=\"py-2 d-block\">");
+      out.write("                            <li><a href=\"aboutus.jsp\" class=\"py-2 d-block\">");
       if (_jspx_meth_fmt_message_42(_jspx_page_context))
         return;
       out.write("</a></li>\r\n");
@@ -1010,11 +969,15 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_fmt_message_45(_jspx_page_context))
         return;
       out.write("</a></li>\r\n");
+      out.write("                            <li><a href=\"#\" class=\"py-2 d-block\">");
+      if (_jspx_meth_fmt_message_46(_jspx_page_context))
+        return;
+      out.write("</a></li>\r\n");
       out.write("                        </ul>\r\n");
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"col-md-6 col-lg-3 mb-4 mb-md-0\">\r\n");
       out.write("                        <h2 class=\"footer-heading\">");
-      if (_jspx_meth_fmt_message_46(_jspx_page_context))
+      if (_jspx_meth_fmt_message_47(_jspx_page_context))
         return;
       out.write("</h2>\r\n");
       out.write("                        <div class=\"block-23 mb-3\">\r\n");
@@ -1477,7 +1440,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("                                <a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/Customers/Login\" class=\"nav-link\">\r\n");
-        out.write("                                  ");
+        out.write("                                    ");
         if (_jspx_meth_fmt_message_9((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_3, _jspx_page_context))
           return true;
         out.write("  \r\n");
@@ -2009,7 +1972,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_37 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_37.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_37.setParent(null);
-    _jspx_th_fmt_message_37.setKey("home.footer.Petsitting");
+    _jspx_th_fmt_message_37.setKey("home.textfied.ourstore");
     int _jspx_eval_fmt_message_37 = _jspx_th_fmt_message_37.doStartTag();
     if (_jspx_th_fmt_message_37.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_37);
@@ -2027,7 +1990,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_38 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_38.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_38.setParent(null);
-    _jspx_th_fmt_message_38.setKey("home.footer.LatestNews");
+    _jspx_th_fmt_message_38.setKey("home.footer.Petsitting");
     int _jspx_eval_fmt_message_38 = _jspx_th_fmt_message_38.doStartTag();
     if (_jspx_th_fmt_message_38.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_38);
@@ -2045,7 +2008,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_39 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_39.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_39.setParent(null);
-    _jspx_th_fmt_message_39.setKey("home.footer.QuickLinks");
+    _jspx_th_fmt_message_39.setKey("home.footer.LatestNews");
     int _jspx_eval_fmt_message_39 = _jspx_th_fmt_message_39.doStartTag();
     if (_jspx_th_fmt_message_39.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_39);
@@ -2063,7 +2026,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_40 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_40.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_40.setParent(null);
-    _jspx_th_fmt_message_40.setKey("home.footer.QuickLinks.textfied1");
+    _jspx_th_fmt_message_40.setKey("home.footer.QuickLinks");
     int _jspx_eval_fmt_message_40 = _jspx_th_fmt_message_40.doStartTag();
     if (_jspx_th_fmt_message_40.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_40);
@@ -2081,7 +2044,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_41 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_41.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_41.setParent(null);
-    _jspx_th_fmt_message_41.setKey("home.footer.QuickLinks.textfied2");
+    _jspx_th_fmt_message_41.setKey("home.footer.QuickLinks.textfied1");
     int _jspx_eval_fmt_message_41 = _jspx_th_fmt_message_41.doStartTag();
     if (_jspx_th_fmt_message_41.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_41);
@@ -2099,7 +2062,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_42 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_42.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_42.setParent(null);
-    _jspx_th_fmt_message_42.setKey("home.footer.QuickLinks.textfied3");
+    _jspx_th_fmt_message_42.setKey("home.footer.QuickLinks.textfied2");
     int _jspx_eval_fmt_message_42 = _jspx_th_fmt_message_42.doStartTag();
     if (_jspx_th_fmt_message_42.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_42);
@@ -2117,7 +2080,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_43 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_43.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_43.setParent(null);
-    _jspx_th_fmt_message_43.setKey("home.footer.QuickLinks.textfied4");
+    _jspx_th_fmt_message_43.setKey("home.footer.QuickLinks.textfied3");
     int _jspx_eval_fmt_message_43 = _jspx_th_fmt_message_43.doStartTag();
     if (_jspx_th_fmt_message_43.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_43);
@@ -2135,7 +2098,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_44 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_44.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_44.setParent(null);
-    _jspx_th_fmt_message_44.setKey("home.footer.QuickLinks.textfied5");
+    _jspx_th_fmt_message_44.setKey("home.footer.QuickLinks.textfied4");
     int _jspx_eval_fmt_message_44 = _jspx_th_fmt_message_44.doStartTag();
     if (_jspx_th_fmt_message_44.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_44);
@@ -2153,7 +2116,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_45 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_45.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_45.setParent(null);
-    _jspx_th_fmt_message_45.setKey("home.footer.QuickLinks.textfied6");
+    _jspx_th_fmt_message_45.setKey("home.footer.QuickLinks.textfied5");
     int _jspx_eval_fmt_message_45 = _jspx_th_fmt_message_45.doStartTag();
     if (_jspx_th_fmt_message_45.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_45);
@@ -2171,13 +2134,31 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_46 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_46.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_46.setParent(null);
-    _jspx_th_fmt_message_46.setKey("home.footer.HaveaQuestions");
+    _jspx_th_fmt_message_46.setKey("home.footer.QuickLinks.textfied6");
     int _jspx_eval_fmt_message_46 = _jspx_th_fmt_message_46.doStartTag();
     if (_jspx_th_fmt_message_46.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_46);
       return true;
     }
     _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_46);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_47(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_47 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_47.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_47.setParent(null);
+    _jspx_th_fmt_message_47.setKey("home.footer.HaveaQuestions");
+    int _jspx_eval_fmt_message_47 = _jspx_th_fmt_message_47.doStartTag();
+    if (_jspx_th_fmt_message_47.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_47);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_47);
     return false;
   }
 }

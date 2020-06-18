@@ -172,8 +172,8 @@
     <body onload="window.print();">
         <div id="page" class="page">
             <div class="header">
-                <div class="logo"><img src="abs.jpg"/></div>
-                <div class="company">Shop Pet</div>
+                <div class="logo"><img src="../../ImageItems/abs.jpg"/></div>
+                <div class="company" style="color: #0000FF;">Shop Pet</div>
             </div>
             <br/>
             <div class="title">
@@ -187,8 +187,10 @@
                 <thead>
                 <tr>
                     <th>Product</th>
+                    <th>Date</th>
                     <th>Unit price</th>
                     <th>Amount</th>
+                    <th>Total</th>
                     
                 </tr>
                 

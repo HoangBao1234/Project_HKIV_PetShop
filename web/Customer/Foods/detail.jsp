@@ -211,8 +211,11 @@
                                             </form>
                                         </div>
                                     </li>
-                                    <li><button style="border: none; background-color: #00bd56;
-                                                border-radius: 5px; padding: 5px  15px; color: whitesmoke">Add to Cart</button></li>
+                                    <li><a href="${context}/Order/Store?FId=${food.FId}">
+                                            <button style="border: none; background-color: #00bd56; width: 100px;
+                                                    border-radius: 10px; padding: 4px  12px; color: whitesmoke">Add Cart
+                                            </button>
+                                        </a></li>
                                 </ul>
                             </div>
                         </div>
