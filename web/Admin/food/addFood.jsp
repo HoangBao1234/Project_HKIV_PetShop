@@ -363,6 +363,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="number">
+                                        <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msgPrice}</h6>
                                     </div>
                                 </div>
 

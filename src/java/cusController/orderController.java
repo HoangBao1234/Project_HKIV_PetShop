@@ -111,22 +111,28 @@ public class orderController extends HttpServlet {
         HttpSession session = request.getSession();
         PrintWriter out = response.getWriter();
         if (session.getAttribute("order") != null) {
-            Orders orders = (Orders)session.getAttribute("order");
-            List<OdersDetails> items = (List<OdersDetails>)orders.getOdersDetailsCollection();
-            request.setAttribute("oder", orders );
-            request.setAttribute("item", items);
+            Orders orders = (Orders) session.getAttribute("order");
+            request.setAttribute("order", orders);
             request.getRequestDispatcher("/Customer/Cart/printBill.jsp").forward(request, response);
+            session.removeAttribute("order");
         }
     }
 
     private void addToCart(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int quantity = 1;
         HttpSession session = request.getSession();
-        int total = 5;
+        int total = 0;
         PrintWriter out = response.getWriter();
+
         //pet
         if (request.getParameter("PId") != null && !request.getParameter("PId").trim().isEmpty()) {
             String id = request.getParameter("PId");
+            int quan = 1;
+            if (request.getParameter("quantityPet") == null || request.getParameter("quantityPet").trim().isEmpty()) {
+                quan = 1;
+            }else{
+                quan = Integer.parseInt(request.getParameter("quantityPet"));
+            }
             Pets pet = petsFacade.find(id);
             String status = "running...";
             //neu chua co gio hang
@@ -134,7 +140,7 @@ public class orderController extends HttpServlet {
                 Orders orders = new Orders(status);
                 List<OdersDetails> cart = new ArrayList<>();
                 //items
-                OdersDetails items = new OdersDetails(1, pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), orders);
+                OdersDetails items = new OdersDetails(1, pet.getPId(), pet.getPName(), pet.getPrice(), quan, pet.getImage(), orders);
                 //add to list
                 cart.add(items);
                 //add to order
@@ -151,13 +157,13 @@ public class orderController extends HttpServlet {
 
                 for (OdersDetails items : itemList) {
                     if (items.getProductId().equals(pet.getPId())) {
-                        items.setQuantity(items.getQuantity() + quantity);
+                        items.setQuantity(items.getQuantity() + quan);
                         check = true;
                     }
                 }
 
                 if (check == false) {
-                    OdersDetails items = new OdersDetails(2, pet.getPId(), pet.getPName(), pet.getPrice(), quantity, pet.getImage(), oders);
+                    OdersDetails items = new OdersDetails(2, pet.getPId(), pet.getPName(), pet.getPrice(), quan, pet.getImage(), oders);
                     itemList.add(items);
                     oders.setOdersDetailsCollection(itemList);
                 }
@@ -170,21 +176,28 @@ public class orderController extends HttpServlet {
                 session.setAttribute("order", oders);
                 request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
             }
-        } else {
-            out.print("Null");
+        }else{
+            out.print("Null Pet");
         }
 
-        //food
+    //food
         if (request.getParameter("FId") != null && !request.getParameter("FId").trim().isEmpty()) {
             String id = request.getParameter("FId");
+            int quan = 1;
+            if (request.getParameter("quantityFood") == null || request.getParameter("quantityFood").trim().isEmpty()) {
+                quan = 1;
+            }else{
+                quan = Integer.parseInt(request.getParameter("quantityFood"));
+            }
             Foods food = foodsFacade.find(id);
             String status = "running...";
+
             //neu chua co gio hang
             if (session.getAttribute("order") == null) {
                 Orders orders = new Orders(status);
                 List<OdersDetails> cart = new ArrayList<>();
                 //items
-                OdersDetails items = new OdersDetails(1, food.getFId(), food.getName(), food.getPrice(), quantity, food.getImage(), orders);
+                OdersDetails items = new OdersDetails(1, food.getFId(), food.getName(), food.getPrice(), quan, food.getImage(), orders);
                 //add to list
                 cart.add(items);
                 //add to order
@@ -201,13 +214,13 @@ public class orderController extends HttpServlet {
 
                 for (OdersDetails items : itemList) {
                     if (items.getProductId().equals(food.getFId())) {
-                        items.setQuantity(items.getQuantity() + quantity);
+                        items.setQuantity(items.getQuantity() + quan);
                         check = true;
                     }
                 }
 
                 if (check == false) {
-                    OdersDetails items = new OdersDetails(2, food.getFId(), food.getName(), food.getPrice(), quantity, food.getImage(), oders);
+                    OdersDetails items = new OdersDetails(2, food.getFId(), food.getName(), food.getPrice(), quan, food.getImage(), oders);
                     itemList.add(items);
                     oders.setOdersDetailsCollection(itemList);
                 }
@@ -220,13 +233,20 @@ public class orderController extends HttpServlet {
                 session.setAttribute("order", oders);
                 request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
             }
-        } else {
-            out.print("Null");
-        }
+        }else{
+            out.print("Null Food");
+        } 
 
-        //accessory
+//accessory
         if (request.getParameter("ESId") != null && !request.getParameter("ESId").trim().isEmpty()) {
             String id = request.getParameter("ESId");
+            int quan = 1;
+            if (request.getParameter("quantityAcc") == null || request.getParameter("quantityAcc").trim().isEmpty()) {
+                quan = 1;
+            }else{
+                quan = Integer.parseInt(request.getParameter("quantityAcc"));
+            }
+            out.print(id+" Quantity: "+quan);
             Accessories access = accessoriesFacade.find(id);
             String status = "running...";
             //neu chua co gio hang
@@ -234,7 +254,7 @@ public class orderController extends HttpServlet {
                 Orders orders = new Orders(status);
                 List<OdersDetails> cart = new ArrayList<>();
                 //items
-                OdersDetails items = new OdersDetails(1, access.getESId(), access.getName(), access.getPrice(), quantity, access.getImage(), orders);
+                OdersDetails items = new OdersDetails(1, access.getESId(), access.getName(), access.getPrice(), quan, access.getImage(), orders);
                 //add to list
                 cart.add(items);
                 //add to order
@@ -251,13 +271,13 @@ public class orderController extends HttpServlet {
 
                 for (OdersDetails items : itemList) {
                     if (items.getProductId().equals(access.getESId())) {
-                        items.setQuantity(items.getQuantity() + quantity);
+                        items.setQuantity(items.getQuantity() + quan);
                         check = true;
                     }
                 }
 
                 if (check == false) {
-                    OdersDetails items = new OdersDetails(2, access.getESId(), access.getName(), access.getPrice(), quantity, access.getImage(), oders);;
+                    OdersDetails items = new OdersDetails(2, access.getESId(), access.getName(), access.getPrice(), quan, access.getImage(), oders);;
                     itemList.add(items);
                     oders.setOdersDetailsCollection(itemList);
                 }
@@ -270,9 +290,9 @@ public class orderController extends HttpServlet {
                 session.setAttribute("order", oders);
                 request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
             }
-        } else {
-            out.print("Null");
-        }
+        }else{
+            out.print("Null ACc");
+        } 
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -349,8 +369,9 @@ public class orderController extends HttpServlet {
 
     private void checkout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+        PrintWriter out = response.getWriter();
         if (session.getAttribute("username") != null) {
-            String name = request.getParameter("name");
+            String name = request.getParameter("firstname");
             String mail = request.getParameter("email");
             String address = request.getParameter("address");
             String phone = request.getParameter("phone");
@@ -362,7 +383,7 @@ public class orderController extends HttpServlet {
             orders.setmId((Members) session.getAttribute("username"));
             orders.setShipAddress(address);
             Date date = new Date(System.currentTimeMillis());
-            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");  
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             String hihi = dateFormat.format(date);
             orders.setOderDate(hihi);
             orders.setPaymentBy(payment);
@@ -370,7 +391,7 @@ public class orderController extends HttpServlet {
             if (transport.equals("Fast")) {
                 orders.setTotal(orders.getTotal() + 10);
             }
-
+            session.setAttribute("order", orders);
             ordersFacade.create(orders);
             response.sendRedirect(request.getContextPath() + "/Order/PrintOrder");
 

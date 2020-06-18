@@ -143,7 +143,7 @@ public class petController extends HttpServlet {
         try {
             String id = request.getParameter("pet_id");
             String msg = null;
-
+            String msgPrice = null;
             if (petsFacade.find(id) == null) {
                 String name = request.getParameter("pet_name");
                 String color = request.getParameter("color");
@@ -157,12 +157,22 @@ public class petController extends HttpServlet {
                 part = request.getPart("image");
                 String filename = extracFile(part);
                 String savePath = getFullPath(request) + File.separator + filename;
-                saveToFolder(savePath);
-                Animals animals = animalsFacade.find(AId);
-                Breeds breeds = breedsFacade.find(BId);
-                Pets pet = new Pets(id, name, color, age, gender, origin, price, filename, description, animals, breeds);
-                petsFacade.create(pet);
-                response.sendRedirect("List");
+
+                if (price > 0 && price <= 100000000) {
+                    saveToFolder(savePath);
+                    Animals animals = animalsFacade.find(AId);
+                    Breeds breeds = breedsFacade.find(BId);
+                    Pets pet = new Pets(id, name, color, age, gender, origin, price, filename, description, animals, breeds);
+                    petsFacade.create(pet);
+                    response.sendRedirect("List");
+                } else {
+                    msgPrice = "Price must be between 0 - 100000000";
+                    request.setAttribute("msgPrice", msgPrice);
+                    request.setAttribute("animals", animalsFacade.findAll());
+                    request.setAttribute("breeds", breedsFacade.findAll());
+                    request.getRequestDispatcher("/Admin/pet/addPet.jsp").forward(request, response);
+                }
+
             } else {
                 msg = "Id already exists";
                 request.setAttribute("msg", msg);

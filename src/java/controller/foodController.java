@@ -144,6 +144,7 @@ public class foodController extends HttpServlet {
         try {
             String id = request.getParameter("food_id");
             String msg = null;
+            String msgPrice = null;
             if (foodsFacade.find(id) == null) {
                 String name = request.getParameter("food_name");
                 int price = Integer.parseInt(request.getParameter("price"));
@@ -153,15 +154,23 @@ public class foodController extends HttpServlet {
                 int cFId = Integer.parseInt(request.getParameter("animals"));
                 Animals animals = animalsFacade.find(cFId);
 
-                Foods food = new Foods(id, name, price, fileName, description, animals);
-                foodsFacade.create(food);
-                String savePath = getFullPath(request, response) + File.separator + fileName;
-                saveToFolder(savePath);
-                response.sendRedirect("List");
-            }else {
+                if (price > 0 && price <= 100000) {
+                    Foods food = new Foods(id, name, price, fileName, description, animals);
+                    foodsFacade.create(food);
+                    String savePath = getFullPath(request, response) + File.separator + fileName;
+                    saveToFolder(savePath);
+                    response.sendRedirect("List");
+                } else {
+                    msgPrice = "Price must be between 0 - 100000000";
+                    request.setAttribute("msgPrice", msgPrice);
+                    request.setAttribute("alist", animalsFacade.findAll());
+                    request.getRequestDispatcher("/Admin/food/addFood.jsp").forward(request, response);
+                }
+
+            } else {
                 msg = "Id already exists";
                 request.setAttribute("msg", msg);
-                request.setAttribute("animals", animalsFacade.findAll());
+                request.setAttribute("alist", animalsFacade.findAll());
                 request.getRequestDispatcher("/Admin/food/addFood.jsp").forward(request, response);
             }
 

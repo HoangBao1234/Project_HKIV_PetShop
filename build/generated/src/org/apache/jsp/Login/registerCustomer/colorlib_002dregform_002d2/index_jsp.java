@@ -123,7 +123,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</h2>\r\n");
       out.write("                        <form action=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Customers/Store\" method=\"post\">\r\n");
+      out.write("/Customers/Store\" method=\"post\" name=\"form\">\r\n");
       out.write("                            <div class=\"input-group\">\r\n");
       out.write("                                <input class=\"input--style-3\" type=\"text\" id=\"exampleFirstName\" name=\"regis_name\" placeholder=\"");
       if (_jspx_meth_fmt_message_1(_jspx_page_context))
@@ -142,10 +142,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"col-2\">\r\n");
       out.write("                                    <div class=\"input-group\">\r\n");
       out.write("                                        <div class=\"rs-select2 js-select-simple select--no-search\">\r\n");
-      out.write("                                            <input class=\"input--style-3\" type=\"text\" id=\"exampleLastName\" name=\"regis_phone\" placeholder=\"");
+      out.write("                                            <input class=\"input--style-3\" ng-model=\"phone\" pattern=\"/((09|03|07|08|05)+([0-9]{8})\\b)/g\" type=\"text\" id=\"exampleLastName\" name=\"regis_phone\" placeholder=\"");
       if (_jspx_meth_fmt_message_3(_jspx_page_context))
         return;
       out.write("\">\r\n");
+      out.write("                                            <span ng-show=\"form.phone.$valid\">Ok</span>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");

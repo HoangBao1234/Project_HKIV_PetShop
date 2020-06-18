@@ -234,15 +234,19 @@
                                     <li></li>
                                     <li>
                                         <div class="quantity buttons_added" style="margin-top:30px; margin-bottom: 20px;">
-                                            <form>
-                                                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+                                            <form action="${context}/Order/Store" method="Get">
+                                                <input type="text" name="PId" value="${pet.PId}" style="display: none"/>
+                                                <input type="button" value="-" class="minus" >
+                                                <input type="number" step="1" min="1" max="" name="quantityPet" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+                                                <input type="button" value="+" class="plus">
+                                                <br/>
+                                                <br/>
+                                                <button style="border: none; background-color: #00bd56;
+                                                        border-radius: 5px; padding: 5px  15px; color: whitesmoke" type="submit">Add to Cart
+                                                </button>
                                             </form>
                                         </div>
                                     </li>
-                                    <li style="margin-top: 15px; margin-bottom: 15px"><a href="${context}/Order/Store?PId=${pet.PId}">
-                                            <button style="border: none; background-color: #00bd56;
-                                                    border-radius: 5px; padding: 5px  15px; color: whitesmoke">Add to Cart</button>
-                                        </a></li>
                                 </ul>
                             </div>
                         </div>

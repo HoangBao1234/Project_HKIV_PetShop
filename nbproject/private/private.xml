@@ -28,11 +28,12 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Pets/compare.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Pets/detail.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Cart/printBill.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Pets/showByBreed.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Customer/Pets/index.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/food/addFood.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/accessories/addAccessories.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/food/updateFood.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/accessoriesController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/petController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/foodController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -402,7 +402,8 @@
                                         Price
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="text">
+                                        <input id="price" min="0" max="50000000" name="price" placeholder="Price" class="form-control input-md" required="" type="text">
+                                        <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msgPrice}</h6>
                                     </div>
                                 </div>
 

@@ -230,7 +230,7 @@
                 <div class="card-header bg-dark text-light">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     Shopping cart
-                    <a href="${context}" class="btn btn-outline-info btn-sm pull-right">Continiu shopping</a>
+                    <a href="${context}" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="card-body">
@@ -251,7 +251,7 @@
                                     </div>
                                     <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
                                         <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                                            <h6><strong>${i.productPrice} <span class="text-muted">x</span></strong></h6>
+                                            <h6><strong>${i.productPrice}$ <span class="text-muted">x</span></strong></h6>
                                         </div>
                                         <div class="col-4 col-sm-4 col-md-4">
                                             <div class="quantity">

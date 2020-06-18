@@ -4,6 +4,8 @@
     Author     : DUY
 --%>
 
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.Date"%>
 <%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -172,7 +174,7 @@
     <body onload="window.print();">
         <div id="page" class="page">
             <div class="header">
-                <div class="logo"><img src="../../ImageItems/abs.jpg"/></div>
+                <span class="flaticon-pawprint-1 mr-2"></span>
                 <div class="company" style="color: #0000FF;">Shop Pet</div>
             </div>
             <br/>
@@ -185,33 +187,39 @@
             <br/>
             <table class="TableData">
                 <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Date</th>
-                    <th>Unit price</th>
-                    <th>Amount</th>
-                    <th>Total</th>
-                    
-                </tr>
-                
+                    <tr>
+                        <th>Product</th>
+                        <th>Unit price</th>
+                        <th>Amount</th>
+                    </tr>
+
                 </thead>
                 <tbody>
-                   
-                <c:forEach var="i" items="${item}">
+
+                    <c:forEach var="i" items="${order.odersDetailsCollection}">
+                        <tr>
+                            <td>${i.getProductName()}</td>
+                            <td>${i.getProductPrice()} $</td>
+                            <td>${i.getQuantity()}</td>
+                        </tr>
+                    </c:forEach>
                     <tr>
-                        <td>${i.getProductName()}</td>
-                        <td>${i.getProductPrice()}</td>
-                        <td>${i.getQuantity()}</td>
+                        <td colspan="2">Date: ${order.oderDate}</td>
+                        <td><b>Total: ${order.total} $</b></td>
                     </tr>
-                </c:forEach>
-                
                 </tbody>
 
             </table>
-            <div class="footer-left"> TP Hồ Chí Minh, ngày 14 tháng 6 năm 2020<br/>
+            <%
+                Calendar cal = Calendar.getInstance();
+                int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+                int monthOfYear = cal.get(Calendar.MONTH);
+                int year = cal.get(Calendar.YEAR);
+            %>
+            <div class="footer-left"> TP Hồ Chí Minh, ngày <%=dayOfMonth%> tháng <%=monthOfYear%> năm <%=year%><br/>
                 Khách hàng </div>
-            <div class="footer-right"> TP Hồ Chí Minh, ngày 14 tháng 6 năm 2020<br/>
-                Nhân viên <br/>Duy<br/>Đỗ Khánh Duy</div>
+            <div class="footer-right">  TP Hồ Chí Minh, ngày <%=dayOfMonth%> tháng <%=monthOfYear%> năm <%=year%><br/>
+                Nhân viên 
 
         </div>
     </body>

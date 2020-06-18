@@ -135,6 +135,7 @@ public class accessoriesController extends HttpServlet {
         try {
             String id = request.getParameter("accessoreis_id");
             String msg = null;
+            String msgPrice = null;
             if (accessoriesFacade.find(id) == null) {
                 String name = request.getParameter("accessoreis_name");
                 int price = Integer.parseInt(request.getParameter("price"));
@@ -145,12 +146,22 @@ public class accessoriesController extends HttpServlet {
                 int cEId = Integer.parseInt(request.getParameter("category"));
                 Animals animals = animalsFacade.find(cFId);
                 CateES cateEs = cateESFacade.find(cEId);
-                Accessories accessories = new Accessories(id, name, price, description, fileName, animals, cateEs);
-                accessoriesFacade.create(accessories);
-                String savePath = getFullPath(request, response) + File.separator + fileName;
-                saveToFolder(savePath);
-                response.sendRedirect("List");
-            }else {
+
+                if (price > 0 && price < 1000000) {
+                    Accessories accessories = new Accessories(id, name, price, description, fileName, animals, cateEs);
+                    accessoriesFacade.create(accessories);
+                    String savePath = getFullPath(request, response) + File.separator + fileName;
+                    saveToFolder(savePath);
+                    response.sendRedirect("List");
+                } else {
+                    msgPrice = "Price must be between 0 - 100000000";
+                    request.setAttribute("msgPrice", msgPrice);
+                    request.setAttribute("animals", animalsFacade.findAll());
+                    request.setAttribute("category", cateESFacade.findAll());
+                    request.getRequestDispatcher("/Admin/accessories/addAccessories.jsp").forward(request, response);
+                }
+
+            } else {
                 msg = "Id already exists";
                 request.setAttribute("msg", msg);
                 request.setAttribute("animals", animalsFacade.findAll());

@@ -337,7 +337,6 @@
                                     <div class="col-sm-4">
                                         <input id="accessoreis_id" name="accessoreis_id" placeholder="ID" class="form-control input-md" required="" type="text">
                                         <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msg}</h6>
-
                                     </div>
                                 </div>
 
@@ -357,6 +356,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="text">
+                                        <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msgPrice}</h6>
                                     </div>
                                 </div>
 
