@@ -26,7 +26,7 @@
         <!-- Custom styles for this template-->
         <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
 
-
+        
 
     </head>
 
@@ -331,7 +331,7 @@
                     <div>
                         <center>
                             <h1>Add Pet</h1>
-                            <form class="form-horizontal" action="${context}/Pet/Store" method="post" enctype="multipart/form-data">
+                            <form class="form-horizontal" action="${context}/Pet/Store" method="post" id="form1" runat="server" enctype="multipart/form-data">
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
@@ -412,7 +412,8 @@
                                         Image
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
-                                        <input id="image" name="image" placeholder="Image" required="" type="file">
+                                        <p><img id="image_upload_preview" width="100" height="100" src="http://placehold.it/100x100" alt="your image" /></p>
+                                        <input id="inputFile" name="image" placeholder="Image" required="" type="file">
                                     </div>
                                 </div>
 
@@ -484,5 +485,22 @@
         <!-- Page level custom scripts -->
         <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
         <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#image_upload_preview').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#inputFile").change(function() {
+                readURL(this);
+            });
+        </script>
     </body>
 </html>

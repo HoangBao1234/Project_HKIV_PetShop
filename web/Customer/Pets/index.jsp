@@ -193,7 +193,7 @@
                         <div style="border: 0 solid #ccc; padding: 15px; font-family: cursive">
                             <h4><fmt:message key="product.textfied.productlist"/></h4>
                             <form action="${context}/PetProduct/Search" method="post" id="myForm">
-                                <input style="padding: 2px 5px; border-radius: 5px; border:3px;" id="myInput" name="txtName" type="text" placeholder="<fmt:message key="product.textfied.search"/>">
+                                <input style="padding: 2px 5px; border-radius: 5px; border:3px;" onkeyup="testSub()" id="myInput" name="txtName" type="text" placeholder="<fmt:message key="product.textfied.search"/>">
                                 <button type="submit" style="border: none; background-color: #FAFAFA"><i class="fas fa-search" aria-hidden="true"></i></button>
                             </form>
                             <hr/>
@@ -316,10 +316,10 @@
         <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
         <!-- JS t?o nút b?m di chuy?n trang end -->
         <script type="text/javascript">
-                                $('#myForm').bind('keyup', function() {
-                                    $('#form').submit();
-                                });
 
+                        function testSub(){
+                            document.getElementById("myForm").submit();
+                        }
 
                                 $(function() {
                                     var pageSize = 9; // Hi?n th? 6 s?n ph?m trên 1 trang
@@ -333,8 +333,8 @@
                                     showPage(1);
                                     ///** C?n truy?n giá tr? vào ?ây **///
                                     var totalRows = 10; // T?ng s? s?n ph?m hi?n th?
-                                    var btnPage = Math.ceil(${list.size()} / pageSize); // S? nút b?m hi?n th? di chuy?n trang
-                                    var iTotalPages = Math.ceil(totalRows / pageSize);
+                                    var btnPage = 3; // S? nút b?m hi?n th? di chuy?n trang
+                                    var iTotalPages = Math.ceil(${list.size()} / pageSize);
 
                                     var obj = $('#pagination').twbsPagination({
                                         totalPages: iTotalPages,
