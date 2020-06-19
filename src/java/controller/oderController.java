@@ -5,6 +5,7 @@
  */
 package controller;
 
+import entity.Orders;
 import entity.OrdersFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -44,7 +45,9 @@ public class oderController extends HttpServlet {
                 case "/List":
                     getListView(request, response);
                     break;
-
+                case "/Detail":
+                    getDetailView(request, response);
+                    break;
                 default:
                     getViewError(request, response);
                     break;
@@ -63,7 +66,13 @@ public class oderController extends HttpServlet {
 
     private void getDetailView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            request.getRequestDispatcher("/Admin/order/detail.jsp").forward(request, response);
+            if(request.getParameter("id") != null || !request.getParameter("id").trim().isEmpty()){
+                int id = Integer.parseInt(request.getParameter("id"));
+                Orders orders = ordersFacade.find(id);
+                request.setAttribute("orders", orders);
+                request.getRequestDispatcher("/Admin/order/detail.jsp").forward(request, response);
+            }
+            
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }

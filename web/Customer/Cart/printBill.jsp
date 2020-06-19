@@ -217,7 +217,9 @@
                 int year = cal.get(Calendar.YEAR);
             %>
             <div class="footer-left"> TP Hồ Chí Minh, ngày <%=dayOfMonth%> tháng <%=monthOfYear%> năm <%=year%><br/>
-                Khách hàng </div>
+                <p>Khách hàng</p> 
+                <p>${order.mId.name}</p>
+            </div>
             <div class="footer-right">  TP Hồ Chí Minh, ngày <%=dayOfMonth%> tháng <%=monthOfYear%> năm <%=year%><br/>
                 Nhân viên 
 

@@ -362,8 +362,9 @@
                                             <td>${i.total}</td>
                                             <td>${i.status}</td>
                                             <td>
-                                                <a href="${context}/Pet/Delete?id=${i.oderId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
-                                                <a href="${context}/Pet/Edit?id=${i.oderId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                                <a href="${context}/Oder/Delete?id=${i.oderId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Oder/Edit?id=${i.oderId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/Oder/Detail?id=${i.oderId}">Detail</a>
                                             </td>
                                         </tr>
                                     </c:forEach>
