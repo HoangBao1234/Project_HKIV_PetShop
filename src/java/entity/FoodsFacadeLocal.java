@@ -37,4 +37,6 @@ public interface FoodsFacadeLocal {
     List<Foods> searchByPrice(int from, int to);
     
     List<Foods> searchByMaxPrice(int max);
+    
+    List<Foods> selectLimit(int a);
 }

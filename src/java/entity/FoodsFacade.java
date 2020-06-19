@@ -62,5 +62,12 @@ public class FoodsFacade extends AbstractFacade<Foods> implements FoodsFacadeLoc
         q.setParameter("max", max);
         return q.getResultList();
     }
+
+    @Override
+    public List<Foods> selectLimit(int a) {
+        String query = "SELECT f FROM Foods f";
+        Query q = em.createQuery(query).setMaxResults(a);
+        return q.getResultList();
+    }
     
 }

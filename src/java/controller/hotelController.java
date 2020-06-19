@@ -87,7 +87,7 @@ public class hotelController extends HttpServlet {
             String status = request.getParameter("status");
             String mId = request.getParameter("MId");
             Members member = membersFacade.find(mId);
-            Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, status, member);
+            Pethotel hotel = new Pethotel();
             pethotelFacade.create(hotel);
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
@@ -115,7 +115,7 @@ public class hotelController extends HttpServlet {
             String status = request.getParameter("status");
             String mId = request.getParameter("MId");
             Members member = membersFacade.find(mId);
-            Pethotel hotel = new Pethotel(mId, namePet, dateStart, dateEnd, price, status, member);
+            Pethotel hotel = new Pethotel();
             pethotelFacade.edit(hotel);
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);

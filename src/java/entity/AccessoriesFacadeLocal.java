@@ -38,4 +38,6 @@ public interface AccessoriesFacadeLocal {
     List<Accessories> searchByPrice(int from, int to);
 
     List<Accessories> searchByMaxPrice(int max);
+    
+    List<Accessories> selectLimit(int a);
 }

@@ -70,6 +70,13 @@ public class AccessoriesFacade extends AbstractFacade<Accessories> implements Ac
         q.setParameter("max", max);
         return q.getResultList();
     }
+
+    @Override
+    public List<Accessories> selectLimit(int a) {
+        String query = "SELECT a FROM Accessories a";
+        Query q = em.createQuery(query).setMaxResults(a);
+        return q.getResultList();
+    }
     
     
 }

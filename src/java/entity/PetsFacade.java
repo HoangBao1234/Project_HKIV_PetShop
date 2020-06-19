@@ -78,4 +78,13 @@ public class PetsFacade extends AbstractFacade<Pets> implements PetsFacadeLocal 
         q.setParameter("max", max);
         return q.getResultList();
     }
+
+    @Override
+    public List<Pets> selectLimit(int a) {
+        String query = "SELECT p FROM Pets p";
+        Query q = em.createQuery(query).setMaxResults(a);
+        return q.getResultList();
+    }
+    
+    
 }
