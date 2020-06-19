@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3">
         <file>
+            <url>src/java/entity/OrdersFacade.java</url>
+            <bookmark id="3">
+                <name/>
+                <line>34</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
             <url>src/java/entity/AccessoriesFacade.java</url>
             <bookmark id="1">
                 <name/>
@@ -17,19 +25,18 @@
                 <key/>
             </bookmark>
         </file>
-        <file>
-            <url>src/java/entity/OrdersFacade.java</url>
-            <bookmark id="3">
-                <name/>
-                <line>34</line>
-                <key/>
-            </bookmark>
-        </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/Login/registerCustomer/colorlib-regform-2/index.jsp</file>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/setup/glassfish-resources.xml</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Customer/petHotel/colorlib-regform-3/printBill.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Pethotel.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/order/orderList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/hotelController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Customer/Cart/printBill.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/OdersDetails.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Orders.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/oderController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/order/detail.jsp</file>
         </group>
     </open-files>
 </project-private>
