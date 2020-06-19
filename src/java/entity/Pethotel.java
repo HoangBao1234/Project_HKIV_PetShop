@@ -71,6 +71,15 @@ public class Pethotel implements Serializable {
         this.mId = mId;
     }
 
+    public Pethotel(String namePet, String dateStart, String dateEnd, Integer price, String status, Members mId) {
+        this.namePet = namePet;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.price = price;
+        this.status = status;
+        this.mId = mId;
+    }
+
     public String getStatus() {
         return status;
     }

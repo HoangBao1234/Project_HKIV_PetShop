@@ -43,4 +43,6 @@ public interface PetsFacadeLocal {
     List<Pets> searchByMaxPrice(int max);
     
     List<Pets> selectLimit(int a);
+    
+    List<Pets> selectAcc();
 }

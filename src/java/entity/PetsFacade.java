@@ -85,6 +85,13 @@ public class PetsFacade extends AbstractFacade<Pets> implements PetsFacadeLocal 
         Query q = em.createQuery(query).setMaxResults(a);
         return q.getResultList();
     }
+
+    @Override
+    public List<Pets> selectAcc() {
+        String query = "SELECT p FROM Pets p ORDER BY p.price DESC";
+        Query q = em.createQuery(query).setMaxResults(5);
+        return q.getResultList();
+    }
     
     
 }

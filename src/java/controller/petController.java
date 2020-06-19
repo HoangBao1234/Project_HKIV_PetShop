@@ -78,6 +78,9 @@ public class petController extends HttpServlet {
                 case "/Edit":
                     getViewEdit(request, response);
                     break;
+                case "/PrintReport":
+                    PrintReport(request, response);
+                    break;
                 case "/Update":
                     update(request, response);
                     break;
@@ -285,6 +288,11 @@ public class petController extends HttpServlet {
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
+    }
+
+    private void PrintReport(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("list", petsFacade.selectAcc());
+        request.getRequestDispatcher("/Admin/report/Pet/topPet.jsp").forward(request, response);
     }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

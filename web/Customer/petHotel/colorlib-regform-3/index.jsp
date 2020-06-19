@@ -152,20 +152,13 @@
                 <div class="card-heading"></div>
                 <div class="card-body">
                     <h2 class="title">Pet Hotel</h2>
-                    <form method="POST">
+                    <form action="${context}/Hotel/Store" method="POST">
                         <div class="input-group">
                             <input class="input--style-3" type="text" placeholder="Name Pet" name="name">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-3 js-datepicker" type="text" placeholder="Date Start" name="dateStart">
+                            <input class="input--style-3 js-datepicker" type="text" placeholder="Received Date" name="dateEnd">
                             <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3 js-datepicker" type="text" placeholder="Date End" name="dateEnd">
-                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Price" name="price">
                         </div>
                         <div class="input-group">
                             <input class="input--style-3" type="text" placeholder="Status" name="status">

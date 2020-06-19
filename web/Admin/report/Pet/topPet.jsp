@@ -4,15 +4,18 @@
     Author     : DUY
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Report Pet</title>
         <link rel="shortcut icon" href=http://www.freshdesignweb.com/wp-content/themes/fv24/images/icon.ico />
-        <link rel="stylesheet" type="text/css" href="styles.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="demo.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="${context}/Admin/report/Pet/styles.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="${context}/Admin/report/Pet/demo.css" media="all" />
         <style>
             h2{
                 text-indent: 30px;
@@ -42,57 +45,18 @@
                 <!-- start header here-->
                 <header>
                     <div id="fdw-pricing-table">
-                        <div class="plan plan1">
-                            <div class="header"><img src="../Hình-ảnh-cún-con-dễ-thương-cute-làm-hình-nền-đẹp-1.jpg" width="110" height="100"/></div>
-                            <div class="price">$59</div>  
-                            <div class="monthly">Bảo</div>  
-                            <ul>
-                                <li><b>Loại</b> Dog</li>
+                        <c:forEach var="i" items="${list}">
+                            <div class="plan plan1">
+                                <div class="header"><img src="${context}/ImageItems/${i.image}" width="110" height="100"/></div>
+                                <div class="price">${i.price}</div>  
+                                <div class="monthly">${i.PName}</div>  
+                                <ul>
+                                    <li><b>Loại</b> ${i.CPId.name}</li>
 
-                            </ul>
-                            <a class="signup" href="http://www.freshdesignweb.com">Add Cart</a>         
-                        </div>
-                        <div class="plan plan2 popular-plan">
-                            <div class="header"><img src="../Hình-ảnh-cún-con-dễ-thương-cute-làm-hình-nền-đẹp-1.jpg" width="110" height="100"/></div>
-                            <div class="price">$29</div>
-                            <div class="monthly">Nhân gà</div>  
-                            <ul>
-                                <li><b>Loại</b>Gà</li>
-
-                            </ul>
-                            <a class="signup" href="http://www.freshdesignweb.com">Add Cart</a>            
-                        </div>
-                        <div class="plan plan3">
-                            <div class="header"><img src="../Hình-ảnh-cún-con-dễ-thương-cute-làm-hình-nền-đẹp-1.jpg" width="110" height="100"/></div>
-                            <div class="price">$29</div>
-                            <div class="monthly">Bảo</div>  
-                            <ul>
-                                <li><b>Loại</b> Dog</li>
-
-                            </ul>
-                            <a class="signup" href="http://www.freshdesignweb.com">Add Cart</a>        
-                        </div>
-                        <div class="plan plan2 popular-plan">
-                            <div class="header"><img src="../Hình-ảnh-cún-con-dễ-thương-cute-làm-hình-nền-đẹp-1.jpg" width="110" height="100"/></div>
-                            <div class="price">$9</div>
-                            <div class="monthly">Bảo</div>  
-                            <ul>
-                                <li><b>Loại</b> Dog</li>
-
-                            </ul>
-                            <a class="signup" href="http://www.freshdesignweb.com">Add Cart</a>       
-                        </div> 	
-                        <div class="plan plan5">
-                            <div class="header"><img src="../Hình-ảnh-cún-con-dễ-thương-cute-làm-hình-nền-đẹp-1.jpg" width="110" height="100"/></div>
-                            <div class="price">$9</div>
-                            <div class="monthly">Bảo</div>  
-                            <ul>
-                                <li><b>Loại</b> Dog</li>
-
-                            </ul>
-                            <a class="signup" href="http://www.freshdesignweb.com">Add Cart</a>
-                        </div> 	
-
+                                </ul>
+                                <a class="signup" href="http://www.freshdesignweb.com">Add Cart</a>         
+                            </div>
+                        </c:forEach>
                     </div>
                 </header><!-- end header -->
 

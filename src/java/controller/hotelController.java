@@ -11,12 +11,19 @@ import entity.Pethotel;
 import entity.PethotelFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -41,7 +48,7 @@ public class hotelController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
@@ -57,14 +64,30 @@ public class hotelController extends HttpServlet {
                 case "/Edit":
                     getEditView(request, response);
                     break;
+                case "/Store":
+                    insert(request, response);
+                    break;
                 case "/Update":
                     update(request, response);
                     break;
+                case "/PrintBill":
+                    printBill(request, response);
+                    break;
                 default:
-                    getViewError(request, response);
+                    out.print("Sai ùi");
                     break;
             }
 
+        }
+    }
+
+    private void printBill(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("hotel") != null) {
+            Pethotel hotel = (Pethotel) session.getAttribute("hotel");
+            request.setAttribute("hotel", hotel);
+            PrintWriter out = response.getWriter();
+            request.getRequestDispatcher("/Customer/petHotel/colorlib-regform-3/printBill.jsp").forward(request, response);
         }
     }
 
@@ -77,21 +100,38 @@ public class hotelController extends HttpServlet {
         request.getRequestDispatcher("/Admin/hotel/hotelList.jsp").forward(request, response);
     }
 
-    private void insert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            String id = request.getParameter("id");
-            String namePet = request.getParameter("namePet");
-            String dateStart = request.getParameter("dateStart");
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
+        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
+
+        if (session.getAttribute("username") != null) {
+            String namePet = request.getParameter("name");
             String dateEnd = request.getParameter("dateEnd");
-            int price = Integer.parseInt(request.getParameter("price"));
             String status = request.getParameter("status");
-            String mId = request.getParameter("MId");
-            Members member = membersFacade.find(mId);
-            Pethotel hotel = new Pethotel();
+
+            Date date = new Date(System.currentTimeMillis());
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String hihi = dateFormat.format(date);
+
+            Members member = (Members) session.getAttribute("username");
+            Pethotel hotel = new Pethotel(namePet, hihi, dateEnd, null, status, member);
+
+            Date d = dateFormat.parse(dateEnd);
+            long day = (d.getTime() - date.getTime()) / (24 * 3600 * 1000);
+            if (day > 0 && day < 3) {
+                hotel.setPrice(50);
+            } else if (day > 0 && day < 5) {
+                hotel.setPrice(80);
+            } else if (day > 0 && day > 10) {
+                hotel.setPrice(100);
+            }
             pethotelFacade.create(hotel);
-        } catch (Exception e) {
-            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+            session.setAttribute("hotel", hotel);
+            response.sendRedirect("PrintBill");
+        } else {
+            request.getRequestDispatcher("/Login/loginCustomer/Login_v11/index.jsp").forward(request, response);
         }
+
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -150,7 +190,11 @@ public class hotelController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(hotelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -164,7 +208,11 @@ public class hotelController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(hotelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
