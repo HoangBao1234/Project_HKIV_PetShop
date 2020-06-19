@@ -10,6 +10,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -38,10 +40,9 @@ public class Pethotel implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 10)
-    @Column(name = "PHId", nullable = false, length = 10)
-    private String pHId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PHId", nullable = false)
+    private Integer pHId;
     @Size(max = 50)
     @Column(name = "namePet", length = 50)
     private String namePet;
@@ -60,7 +61,7 @@ public class Pethotel implements Serializable {
     public Pethotel() {
     }
 
-    public Pethotel(String pHId, String namePet, String dateStart, String dateEnd, Integer price, String status, Members mId) {
+    public Pethotel(Integer pHId, String namePet, String dateStart, String dateEnd, Integer price, String status, Members mId) {
         this.pHId = pHId;
         this.namePet = namePet;
         this.dateStart = dateStart;
@@ -89,15 +90,15 @@ public class Pethotel implements Serializable {
     }
 
     
-    public Pethotel(String pHId) {
+    public Pethotel(Integer pHId) {
         this.pHId = pHId;
     }
 
-    public String getPHId() {
+    public Integer getPHId() {
         return pHId;
     }
 
-    public void setPHId(String pHId) {
+    public void setPHId(Integer pHId) {
         this.pHId = pHId;
     }
 

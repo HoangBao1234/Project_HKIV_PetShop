@@ -382,10 +382,12 @@ public class orderController extends HttpServlet {
 
             orders.setmId((Members) session.getAttribute("username"));
             orders.setShipAddress(address);
+            
             Date date = new Date(System.currentTimeMillis());
             DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             String hihi = dateFormat.format(date);
             orders.setOderDate(hihi);
+            
             orders.setPaymentBy(payment);
             orders.setTransport(transport);
             if (transport.equals("Fast")) {
