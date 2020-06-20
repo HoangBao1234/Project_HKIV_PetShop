@@ -52,6 +52,12 @@ public class Feedbacks implements Serializable {
         this.content = content;
     }
 
+    public Feedbacks(Integer fBId, String content, Members mId) {
+        this.fBId = fBId;
+        this.content = content;
+        this.mId = mId;
+    }
+
     public Feedbacks(String content, Members mId) {
         this.content = content;
         this.mId = mId;

@@ -92,6 +92,7 @@
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                     <li><a href="${context}/Member/ListProfile?id=${username.getMId()}"> <fmt:message key="home.textfied.profile"/></a></li>
+                                     <li><a href="${context}/cusfeedback/List?id=${username.getMId()}"> Feedbacks</a></li>
                                     <li><a href="${context}/Customers/Logout?logout=ok"> <fmt:message key="home.textfied.logout"/></a></li>
                                 </ul>
                             </li>

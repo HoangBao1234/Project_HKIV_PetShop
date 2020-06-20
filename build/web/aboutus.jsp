@@ -166,23 +166,8 @@
         </div>
             
     </div>
-        <h1>My First Google Map</h1>
+ 
 
-<div id="googleMap" style="width:100%;height:400px;"></div>
-
-<script>
-function myMap() {
-var mapProp= {
-  center:new google.maps.LatLng(51.508742,-0.120850),
-  zoom:5p;
-};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5AmezZ2ReRoypvpYKsPQ8612AojH8h24&callback=myMap"></script>
-
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.535611105015!2d106.67292031462247!3d10.770228392325723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752edf949244a9%3A0xcc76335a7312de7b!2zNDIgVHLhuqduIE1pbmggUXV54buBbiwgUGjGsOG7nW5nIDExLCBRdeG6rW4gMTAsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1591859038893!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
   
     <footer class="footer">

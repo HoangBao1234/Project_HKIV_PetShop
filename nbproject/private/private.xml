@@ -28,51 +28,13 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/admin/adminList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/breed/updateBreed.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/member/updateMem.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/order/orderList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/member/register.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/blank.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/tables.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/cards.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/feedback/fbList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/cate/addCate.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/cate/cateList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/index.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/cate/updateCate.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/breed/addBreed.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/admin/updateAdmin.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/breed/breedList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/food/detail.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/accessories/updateAccessories.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/utilities-other.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/accessories/addAccessories.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/pet/updatePet.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/index.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/animals/updateAnimals.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/animals/animalsList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/report/Food/topFood.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/food/foodList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/hotel/updateHotel.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/pet/addPet.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/animals/addAnimals.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/member/memberList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/accessories/accessoriesList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/order/detail.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/accessories/detail.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/food/addFood.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/report/Pet/topPet.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/buttons.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/utilities-color.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/charts.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/pet/detail.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/pet/petList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/hotel/hotelList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/utilities-border.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/gulpfile.js</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/utilities-animation.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/food/updateFood.jsp</file>
+            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/src/java/controller/hotelController.java</file>
+            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/src/java/cusController/cusPetController.java</file>
+            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/Customer/petHotel/colorlib-regform-3/printBill.jsp</file>
+            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/src/java/cusController/cusFeedbackController.java</file>
+            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/Customer/Feedback/index.jsp</file>
+            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/Customer/petHotel/colorlib-regform-3/index.jsp</file>
+            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/src/java/entity/Feedbacks.java</file>
         </group>
     </open-files>
 </project-private>
