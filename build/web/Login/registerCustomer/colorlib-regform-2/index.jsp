@@ -154,7 +154,7 @@
                         event.preventDefault();
                         return false;
                     }
-                    alert("All valid => Submit now!");
+                   
                     return true;
                 }
 

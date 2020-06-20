@@ -144,7 +144,7 @@ public class cusController extends HttpServlet {
             if (mail.equals(member.getMail())) {
                 check = true;
                 request.setAttribute("msg", "Mail already exists");
-                request.getRequestDispatcher("/Login/register.jsp").forward(request, response);
+                request.getRequestDispatcher("/Login/registerCustomer/colorlib-regform-2/index.jsp").forward(request, response);
             }
         }
         if (check == false) {
