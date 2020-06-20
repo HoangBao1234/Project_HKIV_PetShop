@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>PetShop</title>
+        <title>Pet Cart</title>
           <fmt:setBundle basename="app"/>
          <c:import url="setLocale.jsp"/>
         <meta charset="utf-8">

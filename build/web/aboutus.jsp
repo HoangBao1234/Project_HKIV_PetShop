@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Abouts</title>
         <fmt:setBundle basename="app"/>
          <c:import url="setLocale.jsp"/>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">

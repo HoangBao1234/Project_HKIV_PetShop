@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Report Pet</title>
+        <title>Report Food</title>
         <link rel="shortcut icon" href=http://www.freshdesignweb.com/wp-content/themes/fv24/images/icon.ico />
         <link rel="stylesheet" type="text/css" href="styles.css" media="all" />
         <link rel="stylesheet" type="text/css" href="demo.css" media="all" />
