@@ -45,12 +45,12 @@
                     <div class="card-heading"></div>
                     <div class="card-body" ng-app="myApp" ng-controller="myCtrl">
                         <h2 class="title"><fmt:message key="login.form.titleRe"/></h2>
-                        <form action="${context}/Customers/Store" method="post" name="myForm" action="" ng-submit="checkOnSubmit($event)">
+                        <form action="${context}/Customers/Store" method="post" name="myForm" ng-submit="checkOnSubmit($event)">
                             <div class="input-group" >
                                 <input class="input--style-3" type="text" id="exampleFirstName" name="regis_name" placeholder="<fmt:message key="login.textfield.name"/>" ng-required="true"
                                        ng-model="username" ng-minlength= "5" ng-maxlength= "20">
                                 <br/>
-                                <span ng-show="myForm.regis_name.$invalid" class="error-msg">
+                                <span ng-show="myForm.regis_name.$invalid && myForm.regis_name.$dirty" class="error-msg">
                                     Name must be(5-20)!
                                 </span>
                                 <br/>
@@ -62,7 +62,7 @@
                                         <input class="input--style-3" type="password" id="exampleInputPassword" name="regis_pass" placeholder="<fmt:message key="login.textfield.password"/>" ng-model="password"
                                                ng-minlength= "5" ng-maxlength= "10" ng-required="true">
                                         <br/>
-                                        <span ng-show="myForm.regis_pass.$invalid" class="error-msg">
+                                        <span ng-show="myForm.regis_pass.$invalid && myForm.regis_pass.$dirty " class="error-msg">
                                             Password must be(5-10)!
                                         </span>
                                         <br/>
@@ -74,7 +74,7 @@
                                             <input class="input--style-3" type="text" id="mobile" name="regis_phone" placeholder="<fmt:message key="login.textfield.phone"/>" ng-required="true"
                                                    ng-model="phone" ng-pattern="/^[0-9]{10,12}$/">
                                             <br/>
-                                            <span ng-show="myForm.regis_phone.$invalid" class="error-msg">
+                                            <span ng-show="myForm.regis_phone.$invalid && myForm.regis_phone.$dirty" class="error-msg">
                                                 Phone Must be(10 to 12) Number!
                                             </span>
                                             <br/>
@@ -86,7 +86,7 @@
                                 <div class="rs-select2 js-select-simple select--no-search">
                                     <input class="input--style-3" type="email" ng-model="txtMail" id="exampleInputEmail" name="regis_mail" placeholder="<fmt:message key="login.textfield.mail"/>" ng-required="true">
                                     <br/>
-                                    <span ng-show="myForm.regis_mail.$invalid" class="error-msg">
+                                    <span  ng-show="myForm.regis_mail.$invalid && myForm.regis_mail.$dirty" class="error-msg">
                                         mail must be (name@gmail.com)!
                                     </span>
                                     <br/>
@@ -95,7 +95,7 @@
                             <div class="row row-space">
                                 <div class="col-2">
                                     <div class="input-group">
-                                        <input class="input--style-3" type="text" id="exampleRepeatPassword" name="regis_address" placeholder="<fmt:message key="login.textfield.address"/>" >
+                                        <input class="input--style-3" type="text" id="exampleRepeatPassword" name="regis_address" placeholder="<fmt:message key="login.textfield.address"/>" ng-required="true">
                                     </div>
                                 </div>
                             </div>
@@ -161,25 +161,7 @@
             });
             
         </script>
-        <script type="text/javascript">
-$(document).ready(function() {
-    $('body').on('click','.checkmobile', function() {
-    var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
-    var mobile = $('#mobile').val();
-    if(mobile !==''){
-        if (vnf_regex.test(mobile) == false) 
-        {
-            alert('Số điện thoại của bạn không đúng định dạng!');
-        }else{
-            alert('Số điện thoại của bạn hợp lệ!');
-        }
-    }else{
-        alert('Bạn chưa điền số điện thoại!');
-    }
-    });
-});
-</script>
-
+       
         <!-- Jquery JS-->
         <script src="${context}/Login/registerCustomer/colorlib-regform-2/vendor/jquery/jquery.min.js"></script>
         <!-- Vendor JS-->
