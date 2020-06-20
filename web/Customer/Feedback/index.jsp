@@ -71,20 +71,20 @@
     <body>
         <div class="contact-form">
             <h1>Contact Us</h1>
-            <form action="${context}/cusfeedback/store" method="post">
+            <form action="${context}/Cusfeedback/Store" method="post">
             <div class="txtb">
                 <label>Full Name :</label>
-                <input type="text" name="username" value="${list.name}">
+                <input type="text" name="username" value="${sessionScope.username.name}">
             </div>
 
             <div class="txtb">
                 <label>Email :</label>
-                <input type="email" name="email" value="${list.mail}">
+                <input type="email" name="email" value="${sessionScope.username.mail}">
             </div>
 
             <div class="txtb">
                 <label>Phone Number :</label>
-                <input type="text" name="phone" value="${list.phone}" >
+                <input type="text" name="phone" value="${sessionScope.username.phone}" >
             </div>
 
             <div class="txtb">

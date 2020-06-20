@@ -92,7 +92,7 @@
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                     <li><a href="${context}/Member/ListProfile?id=${username.getMId()}"> <fmt:message key="home.textfied.profile"/></a></li>
-                                     <li><a href="${context}/cusfeedback/List?id=${username.getMId()}"> Feedbacks</a></li>
+                                     <li><a href="${context}/Cusfeedback/Feedback"> Feedbacks</a></li>
                                     <li><a href="${context}/Customers/Logout?logout=ok"> <fmt:message key="home.textfied.logout"/></a></li>
                                 </ul>
                             </li>
@@ -116,7 +116,7 @@
             </div>
         </nav>
         <!-- END nav -->
-        <div class="hero-wrap js-fullheight" style="background-image: url('petsitting/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="hero-wrap js-fullheight" style="background-image: url('${context}/petsitting/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
@@ -266,7 +266,7 @@
 
 
 
-        <section class="ftco-section testimony-section" style="background-image: url('petsitting/images/bg_2.jpg');">
+        <section class="ftco-section testimony-section" style="background-image: url('${context}/petsitting/images/bg_2.jpg');">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row justify-content-center pb-5 mb-3">
@@ -283,7 +283,7 @@
                                     <div class="text">
                                         <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-img" style="background-image: url(petsitting/images/person_1.jpg)"></div>
+                                            <div class="user-img" style="background-image: url(${context}/petsitting/images/person_1.jpg)"></div>
                                             <div class="pl-3">
                                                 <p class="name">Roger Scott</p>
                                                 <span class="position">Marketing Manager</span>
@@ -298,7 +298,7 @@
                                     <div class="text">
                                         <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-img" style="background-image: url(petsitting/images/person_2.jpg)"></div>
+                                            <div class="user-img" style="background-image: url(${context}/petsitting/images/person_2.jpg)"></div>
                                             <div class="pl-3">
                                                 <p class="name">Roger Scott</p>
                                                 <span class="position">Marketing Manager</span>
@@ -313,7 +313,7 @@
                                     <div class="text">
                                         <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-img" style="background-image: url(petsitting/images/person_3.jpg)"></div>
+                                            <div class="user-img" style="background-image: url(${context}/petsitting/images/person_3.jpg)"></div>
                                             <div class="pl-3">
                                                 <p class="name">Roger Scott</p>
                                                 <span class="position">Marketing Manager</span>
@@ -328,7 +328,7 @@
                                     <div class="text">
                                         <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-img" style="background-image: url(petsitting/images/person_1.jpg)"></div>
+                                            <div class="user-img" style="background-image: url(${context}/petsitting/images/person_1.jpg)"></div>
                                             <div class="pl-3">
                                                 <p class="name">Roger Scott</p>
                                                 <span class="position">Marketing Manager</span>
@@ -343,7 +343,7 @@
                                     <div class="text">
                                         <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-img" style="background-image: url(petsitting/images/person_2.jpg)"></div>
+                                            <div class="user-img" style="background-image: url(${context}/petsitting/images/person_2.jpg)"></div>
                                             <div class="pl-3">
                                                 <p class="name">Roger Scott</p>
                                                 <span class="position">Marketing Manager</span>
@@ -368,7 +368,7 @@
                 <div class="row">
                     <div class="col-md-4 ftco-animate">
                         <div class="block-7">
-                            <div class="img" style="background-image: url(petsitting/images/pricing-1.jpg);"></div>
+                            <div class="img" style="background-image: url(${context}/petsitting/images/pricing-1.jpg);"></div>
                             <div class="text-center p-4">
                                 <span class="excerpt d-block">Personal</span>
                                 <span class="price"><sup>$</sup> <span class="number">49</span> <sub>/mos</sub></span>
@@ -386,7 +386,7 @@
                     </div>
                     <div class="col-md-4 ftco-animate">
                         <div class="block-7">
-                            <div class="img" style="background-image: url(petsitting/images/pricing-2.jpg);"></div>
+                            <div class="img" style="background-image: url(${context}/petsitting/images/pricing-2.jpg);"></div>
                             <div class="text-center p-4">
                                 <span class="excerpt d-block">Business</span>
                                 <span class="price"><sup>$</sup> <span class="number">79</span> <sub>/mos</sub></span>
@@ -404,7 +404,7 @@
                     </div>
                     <div class="col-md-4 ftco-animate">
                         <div class="block-7">
-                            <div class="img" style="background-image: url(petsitting/images/pricing-3.jpg);"></div>
+                            <div class="img" style="background-image: url(${context}/petsitting/images/pricing-3.jpg);"></div>
                             <div class="text-center p-4">
                                 <span class="excerpt d-block">Ultimate</span>
                                 <span class="price"><sup>$</sup> <span class="number">109</span> <sub>/mos</sub></span>
@@ -433,8 +433,8 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 ftco-animate">
-                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(petsitting/images/gallery-1.jpg);">
-                            <a href="petsitting/images/gallery-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(${context}/petsitting/images/gallery-1.jpg);">
+                            <a href="${context}/petsitting/images/gallery-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                 <span class="fa fa-expand"></span>
                             </a>
                             <div class="desc w-100 px-4">
@@ -446,8 +446,8 @@
                         </div>
                     </div>
                     <div class="col-md-4 ftco-animate">
-                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(petsitting/images/gallery-2.jpg);">
-                            <a href="petsitting/images/gallery-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(${context}/petsitting/images/gallery-2.jpg);">
+                            <a href="${context}/petsitting/images/gallery-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                 <span class="fa fa-expand"></span>
                             </a>
                             <div class="desc w-100 px-4">
@@ -459,8 +459,8 @@
                         </div>
                     </div>
                     <div class="col-md-4 ftco-animate">
-                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(petsitting/images/gallery-3.jpg);">
-                            <a href="petsitting/images/gallery-3.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(${context}/petsitting/images/gallery-3.jpg);">
+                            <a href="${context}/petsitting/images/gallery-3.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                 <span class="fa fa-expand"></span>
                             </a>
                             <div class="desc w-100 px-4">
@@ -473,8 +473,8 @@
                     </div>
 
                     <div class="col-md-4 ftco-animate">
-                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(petsitting/images/gallery-4.jpg);">
-                            <a href="petsitting/images/gallery-4.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(${context}/petsitting/images/gallery-4.jpg);">
+                            <a href="${context}/petsitting/images/gallery-4.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                 <span class="fa fa-expand"></span>
                             </a>
                             <div class="desc w-100 px-4">
@@ -486,8 +486,8 @@
                         </div>
                     </div>
                     <div class="col-md-4 ftco-animate">
-                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(petsitting/images/gallery-5.jpg);">
-                            <a href="petsitting/images/gallery-5.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(${context}/petsitting/images/gallery-5.jpg);">
+                            <a href="${context}/petsitting/images/gallery-5.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                 <span class="fa fa-expand"></span>
                             </a>
                             <div class="desc w-100 px-4">
@@ -499,8 +499,8 @@
                         </div>
                     </div>
                     <div class="col-md-4 ftco-animate">
-                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(petsitting/images/gallery-6.jpg);">
-                            <a href="petsitting/images/gallery-6.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(${context}/petsitting/images/gallery-6.jpg);">
+                            <a href="${context}/petsitting/images/gallery-6.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                 <span class="fa fa-expand"></span>
                             </a>
                             <div class="desc w-100 px-4">
@@ -546,7 +546,9 @@
                     </c:if>
                 </div>
                 <div style="position: absolute;right: 13%;">
-                    <button style="padding: 4px 10px; border: dashed; border-radius: 5px; background-color: green; color: white">View More</button>
+                    <button style="padding: 4px 10px; border: dashed; border-radius: 5px; background-color: green; color: white">
+                        <a href="${context}/PetProduct/All" style="color: white">View More</a>
+                    </button>
                 </div>
             </div>
         </section>
@@ -582,7 +584,9 @@
                     </c:if>
                 </div>
                 <div style="position: absolute;right: 13%;">
-                    <button style="padding: 4px 10px; border: dashed; border-radius: 5px; background-color: green; color: white">View More</button>
+                    <button style="padding: 4px 10px; border: dashed; border-radius: 5px; background-color: green; color: white">
+                        <a href="${context}/FoodProduct/All" style="color: white">View More</a>
+                    </button>
                 </div>
             </div>
         </section>
@@ -618,7 +622,9 @@
                     </c:if>
                 </div>
                 <div style="position: absolute;right: 13%;">
-                    <button style="padding: 4px 10px; border: dashed; border-radius: 5px; background-color: green; color: white">View More</button>
+                    <button style="padding: 4px 10px; border: dashed; border-radius: 5px; background-color: green; color: white">
+                        <a href="${context}/AccessoriesProduct/All" style="color: white">View More</a>
+                    </button>
                 </div>
             </div>
         </section>
@@ -628,7 +634,7 @@
                 <h2><fmt:message key="home.textfied.ourstore"/></h2>
             </div>
         </div>
-        <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img" style="background-image: url(petsitting/images/bg_3.jpg);">
+        <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img" style="background-image: url(${context}/petsitting/images/bg_3.jpg);">
             <div class="overlay"></div>
             <div class="container" >
                 <div class="row d-md-flex justify-content-end">
@@ -666,7 +672,7 @@
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                         <h2 class="footer-heading"><fmt:message key="home.footer.LatestNews"/></h2>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="img mr-4 rounded" style="background-image: url(petsitting/images/image_1.jpg);"></a>
+                            <a class="img mr-4 rounded" style="background-image: url(${context}/petsitting/images/image_1.jpg);"></a>
                             <div class="text">
                                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                                 <div class="meta">
@@ -677,7 +683,7 @@
                             </div>
                         </div>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="img mr-4 rounded" style="background-image: url(petsitting/images/image_2.jpg);"></a>
+                            <a class="img mr-4 rounded" style="background-image: url(${context}/petsitting/images/image_2.jpg);"></a>
                             <div class="text">
                                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                                 <div class="meta">

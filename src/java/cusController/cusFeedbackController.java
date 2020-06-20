@@ -23,8 +23,9 @@ import javax.servlet.http.HttpSession;
  *
  * @author Nhan
  */
-@WebServlet(name = "cusFeedbackController", urlPatterns = {"/cusfeedback/*"})
+@WebServlet(name = "cusFeedbackController", urlPatterns = {"/Cusfeedback/*"})
 public class cusFeedbackController extends HttpServlet {
+
     @EJB
     private FeedbacksFacadeLocal feedbacksFacade;
 
@@ -47,10 +48,10 @@ public class cusFeedbackController extends HttpServlet {
             String path = request.getPathInfo();
 
             switch (path) {
-                case ("/List"):
+                case ("/Feedback"):
                     getListview(request, response);
                     break;
-                case ("/store"):
+                case ("/Store"):
                     insert(request, response);
                     break;
             }
@@ -97,18 +98,16 @@ public class cusFeedbackController extends HttpServlet {
     }// </editor-fold>
 
     private void getListview(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        request.setAttribute("list", membersFacade.find(id));
         request.getRequestDispatcher("/Customer/Feedback/index.jsp").forward(request, response);
     }
 
     private void insert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-         HttpSession session = request.getSession();
-        String content=request.getParameter("mess");
-        Members members= (Members) session.getAttribute("username");
-        Feedbacks feedback= new Feedbacks(null, content, members);
+        HttpSession session = request.getSession();
+        String content = request.getParameter("mess");
+        Members members = (Members) session.getAttribute("username");
+        Feedbacks feedback = new Feedbacks(content, members);
         feedbacksFacade.create(feedback);
-        request.getRequestDispatcher("../../index.jsp").forward(request, response);
+        request.getRequestDispatcher("/Home/").forward(request, response);
     }
 
 }

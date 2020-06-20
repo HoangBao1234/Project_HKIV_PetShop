@@ -60,14 +60,14 @@ public class loginGoogle extends HttpServlet {
                     if (members.getMail().equals(mail)) {
                         check = true;
                         session.setAttribute("username", members);
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        request.getRequestDispatcher("/Home/").forward(request, response);
                     }
                 }
                 if (check == false) {
                     Members member = new Members(name, mail, null, null, null);
                     membersFacade.create(member);
                     session.setAttribute("username", member);
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    request.getRequestDispatcher("/Home/").forward(request, response);
                 }
             }
         }

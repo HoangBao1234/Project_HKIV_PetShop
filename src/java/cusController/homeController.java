@@ -6,15 +6,11 @@
 
 package cusController;
 
-import entity.Accessories;
 import entity.AccessoriesFacadeLocal;
-import entity.Foods;
 import entity.FoodsFacadeLocal;
-import entity.Pets;
 import entity.PetsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -5,15 +5,12 @@
  */
 package cusController;
 
-import Common.GooglePojo;
-import Common.GoogleUtils;
 import entity.Members;
 import entity.MembersFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
 import javax.ejb.EJB;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -64,6 +61,9 @@ public class cusController extends HttpServlet {
                 case "/Success":
                     success(request, response);
                     break;
+                case "/Feedback":
+                    getFeedbackView(request, response);
+                    break;
                 case "/Register":
                     getRegisterView(request, response);
                     break;
@@ -81,6 +81,10 @@ public class cusController extends HttpServlet {
         }
     }
 
+    private void getFeedbackView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("/Customer/Feedback/index.jsp").forward(request, response);
+    }
+    
     private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -113,7 +117,7 @@ public class cusController extends HttpServlet {
                 }
                 response.addCookie(user);
                 response.addCookie(pass);
-                response.sendRedirect(request.getContextPath());
+                request.getRequestDispatcher("/Home/").forward(request, response);
                 check = true;
             }
         }
@@ -124,7 +128,7 @@ public class cusController extends HttpServlet {
     }
 
     private void success(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/Project_HKIV_PetShop/index.jsp").forward(request, response);
+        response.sendRedirect("/Home/");
 
     }
 

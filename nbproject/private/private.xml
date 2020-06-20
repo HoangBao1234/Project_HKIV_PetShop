@@ -28,13 +28,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/src/java/controller/hotelController.java</file>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/src/java/cusController/cusPetController.java</file>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/Customer/petHotel/colorlib-regform-3/printBill.jsp</file>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/src/java/cusController/cusFeedbackController.java</file>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/Customer/Feedback/index.jsp</file>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/Customer/petHotel/colorlib-regform-3/index.jsp</file>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/src/java/entity/Feedbacks.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/cusController/cusFeedbackController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/cusController/cusAccController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Customer/Feedback/index.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>
