@@ -237,13 +237,12 @@
                             <div class="row">
                                 <div class="col-50">
                                     <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                                    <input type="text" id="fname" name="name" value="${sessionScope.username.name}" placeholder="Your name ">
+                                    <input type="text" id="fname" name="name" value="${sessionScope.username.name}" placeholder="Your name " readonly="true">
                                     <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                                    <input type="text" id="email" name="email" value="${sessionScope.username.mail}" placeholder="john@example.com">
+                                    <input type="text" id="email" name="email" value="${sessionScope.username.mail}" placeholder="john@example.com" readonly="true">
                                     <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-                                    <input type="text" id="adr" name="address" value="${sessionScope.username.address}" placeholder="Your Address">   
-                                    <label for="adr"><i class="fa fa-phone"></i> Phone</label>
-                                    <input type="text" id="adr" name="phone" value="${sessionScope.username.phone}" placeholder="Your Phone">   
+                                    <input type="text" id="adr" name="address" value="${sessionScope.username.address}" placeholder="Your Address"> 
+                                    <span>${msg}</span>
                                 </div>
                                 <div class="col-50">
                                     <label for="fname">Accepted Cards</label>

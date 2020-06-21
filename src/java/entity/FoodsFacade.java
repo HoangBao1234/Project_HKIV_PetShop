@@ -69,5 +69,13 @@ public class FoodsFacade extends AbstractFacade<Foods> implements FoodsFacadeLoc
         Query q = em.createQuery(query).setMaxResults(a);
         return q.getResultList();
     }
+
+    @Override
+    public void deleteByAnimals(Animals animals) {
+        String query = "DELETE FROM Foods f WHERE f.cFId = :cFId";
+        Query q = em.createQuery(query);
+        q.setParameter("cFId", animals);
+        q.executeUpdate();
+    }
     
 }

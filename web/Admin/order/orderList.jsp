@@ -34,6 +34,12 @@
 
 
 
+        <script>
+            function submit(){
+                document.getElementById("myForm").submit();
+            }
+        </script>
+        
     </head>
 
     <body id="page-top">
@@ -360,11 +366,25 @@
                                             <td>${i.transport}</td>
                                             <td>${i.mId.name}</td>
                                             <td>${i.total}</td>
-                                            <td>${i.status}</td>
+                                            <td>
+                                                <form action="${context}/Oder/ChangeStatus" method="post" id="myForm">
+                                                    <input type="text" value="${i.oderId}" name="id" style="display: none"/>
+                                                    <c:if test="${i.status == 'running...'}">
+                                                        <select onchange="submit()" name="status">
+                                                            <option>${i.status}</option>
+                                                            <option>Complete</option>
+                                                        </select>
+                                                    </c:if>
+                                                    <c:if test="${i.status != 'running...'}">
+                                                        <select name="status" disabled>
+                                                            <option>${i.status}</option>
+                                                        </select>
+                                                    </c:if>
+                                                </form>
+                                            </td>
                                             <td>
                                                 <a href="${context}/Oder/Delete?id=${i.oderId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
-                                                <a href="${context}/Oder/Edit?id=${i.oderId}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
-                                                <a href="${context}/Oder/Detail?id=${i.oderId}">Detail</a>
+                                                <a href="${context}/Oder/Detail?id=${i.oderId}"><i class="fas fa-bars" title="Detail"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach>

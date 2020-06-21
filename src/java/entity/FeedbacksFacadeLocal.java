@@ -30,4 +30,5 @@ public interface FeedbacksFacadeLocal {
 
     int count();
     
+    void deleteByUser(Members members);
 }

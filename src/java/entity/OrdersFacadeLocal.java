@@ -31,4 +31,6 @@ public interface OrdersFacadeLocal {
     int count();
     
     Orders getOrderByUser(Members mId);
+    
+    void deleteByUser(Members mId);
 }

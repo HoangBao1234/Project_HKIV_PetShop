@@ -77,6 +77,14 @@ public class AccessoriesFacade extends AbstractFacade<Accessories> implements Ac
         Query q = em.createQuery(query).setMaxResults(a);
         return q.getResultList();
     }
+
+    @Override
+    public void deleteByAnimals(Animals animals) {
+        String query = "DELETE FROM Accessories a WHERE a.cFId = :cFId";
+        Query q = em.createQuery(query);
+        q.setParameter("cFId", animals);
+        q.executeUpdate();
+    }
     
     
 }

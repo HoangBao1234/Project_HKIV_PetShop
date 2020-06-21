@@ -36,5 +36,13 @@ public class OrdersFacade extends AbstractFacade<Orders> implements OrdersFacade
         q.setParameter("mId", mId);
         return (Orders)q.getSingleResult();
     }
+
+    @Override
+    public void deleteByUser(Members mId) {
+        String query = "DELETE FROM Orders o WHERE o.mId = :mId";
+        Query q = em.createQuery(query);
+        q.setParameter("mId", mId);
+        q.executeUpdate();
+    }
     
 }

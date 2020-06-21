@@ -9,6 +9,7 @@ package entity;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -26,6 +27,14 @@ public class OdersDetailsFacade extends AbstractFacade<OdersDetails> implements 
 
     public OdersDetailsFacade() {
         super(OdersDetails.class);
+    }
+
+    @Override
+    public void deleteByOrder(Orders order) {
+        String query = "DELETE FROM OdersDetails o WHERE o.oderId = :oId";
+        Query q = em.createQuery(query);
+        q.setParameter("oId", order);
+        q.executeUpdate();
     }
     
 }

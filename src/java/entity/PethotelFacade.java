@@ -9,6 +9,7 @@ package entity;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -26,6 +27,14 @@ public class PethotelFacade extends AbstractFacade<Pethotel> implements Pethotel
 
     public PethotelFacade() {
         super(Pethotel.class);
+    }
+
+    @Override
+    public void deleteByUser(Members members) {
+        String query = "DELETE FROM Pethotel p WHERE p.mId = :mId";
+        Query q = em.createQuery(query);
+        q.setParameter("mId", members);
+        q.executeUpdate();
     }
     
 }

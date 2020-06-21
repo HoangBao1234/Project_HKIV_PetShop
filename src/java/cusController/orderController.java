@@ -130,7 +130,7 @@ public class orderController extends HttpServlet {
             int quan = 1;
             if (request.getParameter("quantityPet") == null || request.getParameter("quantityPet").trim().isEmpty()) {
                 quan = 1;
-            }else{
+            } else {
                 quan = Integer.parseInt(request.getParameter("quantityPet"));
             }
             Pets pet = petsFacade.find(id);
@@ -176,17 +176,17 @@ public class orderController extends HttpServlet {
                 session.setAttribute("order", oders);
                 request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
             }
-        }else{
+        } else {
             out.print("Null Pet");
         }
 
-    //food
+        //food
         if (request.getParameter("FId") != null && !request.getParameter("FId").trim().isEmpty()) {
             String id = request.getParameter("FId");
             int quan = 1;
             if (request.getParameter("quantityFood") == null || request.getParameter("quantityFood").trim().isEmpty()) {
                 quan = 1;
-            }else{
+            } else {
                 quan = Integer.parseInt(request.getParameter("quantityFood"));
             }
             Foods food = foodsFacade.find(id);
@@ -233,9 +233,9 @@ public class orderController extends HttpServlet {
                 session.setAttribute("order", oders);
                 request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
             }
-        }else{
+        } else {
             out.print("Null Food");
-        } 
+        }
 
 //accessory
         if (request.getParameter("ESId") != null && !request.getParameter("ESId").trim().isEmpty()) {
@@ -243,10 +243,10 @@ public class orderController extends HttpServlet {
             int quan = 1;
             if (request.getParameter("quantityAcc") == null || request.getParameter("quantityAcc").trim().isEmpty()) {
                 quan = 1;
-            }else{
+            } else {
                 quan = Integer.parseInt(request.getParameter("quantityAcc"));
             }
-            out.print(id+" Quantity: "+quan);
+            out.print(id + " Quantity: " + quan);
             Accessories access = accessoriesFacade.find(id);
             String status = "running...";
             //neu chua co gio hang
@@ -290,9 +290,9 @@ public class orderController extends HttpServlet {
                 session.setAttribute("order", oders);
                 request.getRequestDispatcher("/Customer/Cart/cart.jsp").forward(request, response);
             }
-        }else{
+        } else {
             out.print("Null ACc");
-        } 
+        }
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -371,31 +371,34 @@ public class orderController extends HttpServlet {
         HttpSession session = request.getSession();
         PrintWriter out = response.getWriter();
         if (session.getAttribute("username") != null) {
-            String name = request.getParameter("firstname");
-            String mail = request.getParameter("email");
             String address = request.getParameter("address");
-            String phone = request.getParameter("phone");
             String payment = request.getParameter("payment");
             String transport = request.getParameter("transport");
+            String msg = null;
+            if (address.length() <= 3) {
+                msg = "Address more than 3 characters";
+                request.setAttribute("msg", msg);
+                request.getRequestDispatcher("/Customer/Cart/checkout.jsp").forward(request, response);
+            } else {
+                Orders orders = (Orders) session.getAttribute("order");
 
-            Orders orders = (Orders) session.getAttribute("order");
+                orders.setmId((Members) session.getAttribute("username"));
+                orders.setShipAddress(address);
 
-            orders.setmId((Members) session.getAttribute("username"));
-            orders.setShipAddress(address);
-            
-            Date date = new Date(System.currentTimeMillis());
-            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-            String hihi = dateFormat.format(date);
-            orders.setOderDate(hihi);
-            
-            orders.setPaymentBy(payment);
-            orders.setTransport(transport);
-            if (transport.equals("Fast")) {
-                orders.setTotal(orders.getTotal() + 10);
+                Date date = new Date(System.currentTimeMillis());
+                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                String hihi = dateFormat.format(date);
+                orders.setOderDate(hihi);
+
+                orders.setPaymentBy(payment);
+                orders.setTransport(transport);
+                if (transport.equals("Fast")) {
+                    orders.setTotal(orders.getTotal() + 10);
+                }
+                session.setAttribute("order", orders);
+                ordersFacade.create(orders);
+                response.sendRedirect(request.getContextPath() + "/Order/PrintOrder");
             }
-            session.setAttribute("order", orders);
-            ordersFacade.create(orders);
-            response.sendRedirect(request.getContextPath() + "/Order/PrintOrder");
 
         } else {
             request.getRequestDispatcher("/Login/loginCustomer/Login_v11/index.jsp").forward(request, response);

@@ -5,8 +5,10 @@
  */
 package controller;
 
+import entity.AccessoriesFacadeLocal;
 import entity.Animals;
 import entity.AnimalsFacadeLocal;
+import entity.FoodsFacadeLocal;
 import entity.PetsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,6 +25,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "animalsController", urlPatterns = {"/Animals/*"})
 public class animalsController extends HttpServlet {
+    @EJB
+    private AccessoriesFacadeLocal accessoriesFacade;
+    @EJB
+    private FoodsFacadeLocal foodsFacade;
 
     @EJB
     private PetsFacadeLocal petsFacade;
@@ -97,6 +103,8 @@ public class animalsController extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             Animals an = animalsFacade.find(id);
             petsFacade.deleteByAnimals(an);
+            foodsFacade.deleteByAnimals(an);
+            accessoriesFacade.deleteByAnimals(an);
             animalsFacade.remove(an);
             response.sendRedirect("List");
         } catch (Exception e) {

@@ -5,8 +5,14 @@
  */
 package controller;
 
+import entity.Feedbacks;
+import entity.FeedbacksFacadeLocal;
 import entity.Members;
 import entity.MembersFacadeLocal;
+import entity.OdersDetailsFacadeLocal;
+import entity.Orders;
+import entity.OrdersFacadeLocal;
+import entity.PethotelFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -22,6 +28,14 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "memberController", urlPatterns = {"/Member/*"})
 public class memberController extends HttpServlet {
+    @EJB
+    private FeedbacksFacadeLocal feedbacksFacade;
+    @EJB
+    private PethotelFacadeLocal pethotelFacade;
+    @EJB
+    private OdersDetailsFacadeLocal odersDetailsFacade;
+    @EJB
+    private OrdersFacadeLocal ordersFacade;
 
     @EJB
     private MembersFacadeLocal membersFacade;
@@ -91,6 +105,12 @@ public class memberController extends HttpServlet {
         try {
             int id = Integer.parseInt(request.getParameter("id"));
             Members members = membersFacade.find(id);
+            for(Orders o : members.getOrdersCollection()){
+                odersDetailsFacade.deleteByOrder(o);
+            }
+            feedbacksFacade.deleteByUser(members);
+            ordersFacade.deleteByUser(members);
+            pethotelFacade.deleteByUser(members);
             membersFacade.remove(members);
             request.setAttribute("list", membersFacade.findAll());
             request.getRequestDispatcher("/Admin/member/memberList.jsp").forward(request, response);

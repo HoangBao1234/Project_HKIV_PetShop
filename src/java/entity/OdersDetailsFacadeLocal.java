@@ -30,4 +30,5 @@ public interface OdersDetailsFacadeLocal {
 
     int count();
     
+    void deleteByOrder(Orders order);
 }

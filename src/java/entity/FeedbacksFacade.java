@@ -9,6 +9,7 @@ package entity;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -26,6 +27,14 @@ public class FeedbacksFacade extends AbstractFacade<Feedbacks> implements Feedba
 
     public FeedbacksFacade() {
         super(Feedbacks.class);
+    }
+
+    @Override
+    public void deleteByUser(Members members) {
+        String query = "DELETE FROM Feedbacks f WHERE f.mId = :mId";
+        Query q = em.createQuery(query);
+        q.setParameter("mId", members);
+        q.executeUpdate();
     }
     
 }

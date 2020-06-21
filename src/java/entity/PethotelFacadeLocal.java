@@ -30,4 +30,5 @@ public interface PethotelFacadeLocal {
 
     int count();
     
+    void deleteByUser(Members members);
 }

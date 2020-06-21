@@ -5,10 +5,12 @@
  */
 package controller;
 
+import entity.OdersDetailsFacadeLocal;
 import entity.Orders;
 import entity.OrdersFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +24,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "oderController", urlPatterns = {"/Oder/*"})
 public class oderController extends HttpServlet {
+
+    @EJB
+    private OdersDetailsFacadeLocal odersDetailsFacade;
 
     @EJB
     private OrdersFacadeLocal ordersFacade;
@@ -48,11 +53,35 @@ public class oderController extends HttpServlet {
                 case "/Detail":
                     getDetailView(request, response);
                     break;
+                case "/Delete":
+                    delete(request, response);
+                    break;
+                case "/ChangeStatus":
+                    change(request, response);
+                    break;
                 default:
                     getViewError(request, response);
                     break;
             }
         }
+    }
+
+    private void change(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String status = request.getParameter("status");
+        Orders orders = ordersFacade.find(id);
+        orders.setStatus(status);
+        ordersFacade.edit(orders);
+        response.sendRedirect("List");
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Orders o = ordersFacade.find(id);
+        odersDetailsFacade.deleteByOrder(o);
+        ordersFacade.remove(o);
+        request.setAttribute("list", ordersFacade.findAll());
+        request.getRequestDispatcher("/Admin/order/orderList.jsp").forward(request, response);
     }
 
     private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -66,13 +95,13 @@ public class oderController extends HttpServlet {
 
     private void getDetailView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if(request.getParameter("id") != null || !request.getParameter("id").trim().isEmpty()){
+            if (request.getParameter("id") != null || !request.getParameter("id").trim().isEmpty()) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Orders orders = ordersFacade.find(id);
                 request.setAttribute("orders", orders);
                 request.getRequestDispatcher("/Admin/order/detail.jsp").forward(request, response);
             }
-            
+
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }

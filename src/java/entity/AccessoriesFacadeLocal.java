@@ -40,4 +40,6 @@ public interface AccessoriesFacadeLocal {
     List<Accessories> searchByMaxPrice(int max);
     
     List<Accessories> selectLimit(int a);
+    
+    void deleteByAnimals(Animals animals);
 }
