@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "animalsController", urlPatterns = {"/Animals/*"})
 public class animalsController extends HttpServlet {
+
     @EJB
     private AccessoriesFacadeLocal accessoriesFacade;
     @EJB
@@ -114,13 +115,13 @@ public class animalsController extends HttpServlet {
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
-            int id = Integer.parseInt("id");
-            String name = request.getParameter("name");
+            int id = Integer.parseInt(request.getParameter("animals_Id"));
+            String name = request.getParameter("animals_name");
             Animals an = new Animals(id, name);
-
             animalsFacade.edit(an);
             response.sendRedirect("List");
         } catch (Exception e) {
+            
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
     }
@@ -130,24 +131,37 @@ public class animalsController extends HttpServlet {
     }
 
     private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try{
-        request.getRequestDispatcher("/Admin/animals/updateAnimals.jsp").forward(request, response);
-        } catch (Exception e) {
-            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
-        }
-    }
+        try {
+            if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+                request.getRequestDispatcher("/Admin/animals/animalsList.jsp").forward(request, response);
+            } else {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Animals am = animalsFacade.find(id);
+                request.setAttribute("am", am);
+                request.getRequestDispatcher("/Admin/animals/updateAnimals.jsp").forward(request, response);
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            }
+
+    }
+    catch (Exception e
+
+    
+        ) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+    }
+}
+
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+/**
+ * Handles the HTTP <code>GET</code> method.
+ *
+ * @param request servlet request
+ * @param response servlet response
+ * @throws ServletException if a servlet-specific error occurs
+ * @throws IOException if an I/O error occurs
+ */
+@Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -161,7 +175,7 @@ public class animalsController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -172,7 +186,7 @@ public class animalsController extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+        public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

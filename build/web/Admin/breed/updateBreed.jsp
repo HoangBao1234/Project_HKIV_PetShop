@@ -335,13 +335,13 @@
                     <div>
                         <center>
                             <h1>Update Breeds</h1>
-                            <form class="form-horizontal" action="${context}/Breed/Update" method="post">
+                            <form class="form-horizontal" action="${context}/Breeds/Update" method="post">
                                 <div class="form-group row">
                                     <div class="col-sm-4">
                                         Breeds Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input name="breeds_id" placeholder="Breeds Id" class="form-control input-md" required="" type="text">
+                                        <input name="breeds_id" value="${bd.CPId}" placeholder="Breeds Id" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -349,7 +349,7 @@
                                         Breeds Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="breeds_name" name="breeds_name" placeholder="Breeds Name" class="form-control input-md" required="" type="text">
+                                        <input id="breeds_name" name="breeds_name" value="${bd.name}" placeholder="Breeds Name" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 

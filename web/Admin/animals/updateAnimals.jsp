@@ -343,7 +343,7 @@
                                         Animals Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input name="animals_Id" placeholder="Animals Id" class="form-control input-md" required="" type="text">
+                                        <input name="animals_Id" value="${am.CFId}" readonly="true" placeholder="Animals Id" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
                                 <!-- Text input-->
@@ -352,7 +352,7 @@
                                         Animals Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="animals_name" name="animals_name" placeholder="Animals Name" class="form-control input-md" required="" type="text">
+                                        <input id="animals_name" name="animals_name" value="${am.name}" placeholder="Animals Name" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 

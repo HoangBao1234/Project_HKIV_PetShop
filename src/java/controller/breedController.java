@@ -105,8 +105,8 @@ public class breedController extends HttpServlet {
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
-            int id = Integer.parseInt(request.getParameter("id"));
-            String name = request.getParameter("name");
+            int id = Integer.parseInt(request.getParameter("breeds_id"));
+            String name = request.getParameter("breeds_name");
             Breeds br = new Breeds(id, name);
             breedsFacade.edit(br);
             response.sendRedirect("List");
@@ -121,13 +121,20 @@ public class breedController extends HttpServlet {
 
     private void getEditView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            request.getRequestDispatcher("/Admin/breed/updateBreed.jsp").forward(request, response);
+            if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+                request.getRequestDispatcher("/Admin/breed/breedList.jsp").forward(request, response);
+            } else {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Breeds bd = breedsFacade.find(id);
+                request.setAttribute("bd", bd);
+                request.getRequestDispatcher("/Admin/breed/updateBreed.jsp").forward(request, response);
+            }
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
