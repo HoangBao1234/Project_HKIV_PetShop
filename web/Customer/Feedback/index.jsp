@@ -198,6 +198,129 @@
                 <input class="btn" type="submit" value="Sent"/>
             </form>
         </div>
-                
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                        <h2 class="footer-heading"><fmt:message key="home.footer.Petsitting"/></h2>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        <ul class="ftco-footer-social p-0">
+                            <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                        <h2 class="footer-heading"><fmt:message key="home.footer.LatestNews"/></h2>
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="img mr-4 rounded" style="background-image: url(petsitting/images/image_1.jpg);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                                <div class="meta">
+                                    <div><a href="#"><span class="icon-calendar"></span> April 7, 2020</a></div>
+                                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="img mr-4 rounded" style="background-image: url(petsitting/images/image_2.jpg);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                                <div class="meta">
+                                    <div><a href="#"><span class="icon-calendar"></span> April 7, 2020</a></div>
+                                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
+                        <h2 class="footer-heading"><fmt:message key="home.footer.QuickLinks"/></h2>
+                        <ul class="list-unstyled">
+                            <li><a href="index.jsp" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied1"/></a></li>
+                            <li><a href="aboutus.jsp" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied2"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied3"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied4"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied5"/></a></li>
+                            <li><a href="#" class="py-2 d-block"><fmt:message key="home.footer.QuickLinks.textfied6"/></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                        <h2 class="footer-heading"><fmt:message key="home.footer.HaveaQuestions"/></h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon fa fa-map"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>s
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-12 text-center">
+
+                        <p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+
+        <!-- loader -->
+        <script src="${context}/petsitting/js/jquery.min.js"></script>
+        <script src="${context}/petsitting/js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="${context}/petsitting/js/popper.min.js"></script>
+        <script src="${context}/petsitting/js/bootstrap.min.js"></script>
+        <script src="${context}/petsitting/js/jquery.easing.1.3.js"></script>
+        <script src="${context}/petsitting/js/jquery.waypoints.min.js"></script>
+        <script src="${context}/petsitting/js/jquery.stellar.min.js"></script>
+        <script src="${context}/petsitting/js/jquery.animateNumber.min.js"></script>
+        <script src="${context}/petsitting/js/bootstrap-datepicker.js"></script>
+        <script src="${context}/petsitting/js/jquery.timepicker.min.js"></script>
+        <script src="${context}/petsitting/js/owl.carousel.min.js"></script>
+        <script src="${context}/petsitting/js/jquery.magnific-popup.min.js"></script>
+        <script src="${context}/petsitting/js/scrollax.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+        <script src="${context}/petsitting/js/google-map.js"></script>
+        <script src="${context}/petsitting/js/main.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.js" ></script>
+        <!-- JS t?o nút b?m di chuy?n trang start -->
+        <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
+        <!-- JS t?o nút b?m di chuy?n trang end -->
+        <script type="text/javascript">
+                            $(function() {
+                                var pageSize = 9; // Hi?n th? 6 s?n ph?m trên 1 trang
+                                showPage = function(page) {
+                                    $(".contentPage").hide();
+                                        $(".contentPage").each(function(n) {
+                                if (n >= pageSize * (page - 1) && n < pageSize * page)
+                            $(this).show();
+                            });
+                                    };
+                            showPage(1);
+                            ///** C?n truy?n giá tr? vào ?ây **///
+                                    var totalRows = 10; // T?ng s? s?n ph?m hi?n th?
+                                    var btnPage = Math.ceil(${list.size()} / pageSize); // S? nút b?m hi?n th? di chuy?n trang
+                                        var iTotalPages = Math.ceil(totalRows / pageSize);
+
+                                        var obj = $('#pagination').twbsPagination({
+                                        totalPages: iTotalPages,
+                                            visiblePages: btnPage,
+                                            onPageClick: function(event, page) {
+                                        /* console.info(page); */
+                                    showPage(page);
+                                        }
+                                });
+                            /*console.info(obj.data());*/
+                                });
+        </script>
+
+
     </body>
 </html>
