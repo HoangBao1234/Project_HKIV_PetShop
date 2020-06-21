@@ -92,7 +92,7 @@
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                     <li><a href="${context}/Member/ListProfile?id=${username.getMId()}"> <fmt:message key="home.textfied.profile"/></a></li>
-                                     <li><a href="${context}/Cusfeedback/Feedback"> Feedbacks</a></li>
+                                     <li><a href="${context}/Cusfeedback/Feedback">  <fmt:message key="home.textfied.feedbacks"/></a></li>
                                     <li><a href="${context}/Customers/Logout?logout=ok"> <fmt:message key="home.textfied.logout"/></a></li>
                                 </ul>
                             </li>
@@ -106,8 +106,8 @@
                         </c:if>
                         <li class="nav-item dropdown" ><a href="about.html" class="nav-link  dropdown-toggle" data-toggle="dropdown"><fmt:message key="home.textfied.language"/></a>
                             <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
-                                <li><a href="?locale=en">English</a></li>
-                                <li><a href="?locale=vi">Vietnamese</a></li>
+                                <li><a href="${context}?locale=en">English</a></li>
+                                <li><a href="${context}?locale=vi">Vietnamese</a></li>
 
                             </ul>
                         </li>

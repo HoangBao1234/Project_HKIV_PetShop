@@ -63,6 +63,8 @@
                 justify-content: center;
                 -webkit-justify-content: center;
             }
+             .ftco-navbar-light .navbar-nav > .nav-item > .nav-link{
+                font-size: 13px !important;
         </style>
     </head>
     <body>
@@ -119,7 +121,7 @@
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                     <li><a href="${context}/Member/ListProfile?id=${username.getMId()}"> <fmt:message key="home.textfied.profile"/></a></li>
-                                     <li><a href="${context}/Cusfeedback/Feedback"> Feedbacks</a></li>
+                                     <li><a href="${context}/Cusfeedback/Feedback"> <fmt:message key="home.textfied.feedbacks"/></a></li>
                                     <li><a href="${context}/Customers/Logout?logout=ok"> <fmt:message key="home.textfied.logout"/></a></li>
                                 </ul>
                             </li>
@@ -152,20 +154,20 @@
             <div class="card card-3">
                 <div class="card-heading"></div>
                 <div class="card-body">
-                    <h2 class="title">Pet Hotel</h2>
+                    <h2 class="title"><fmt:message key="pethotel.textfied.pethotel"/></h2>
                     <form action="${context}/Hotel/Store" method="POST">
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Name Pet" name="name">
+                            <input class="input--style-3" type="text" placeholder="<fmt:message key="pethotel.textfied.name"/>" name="name">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-3 js-datepicker" type="text" placeholder="Received Date" name="dateEnd">
+                            <input class="input--style-3 js-datepicker" type="text" placeholder="<fmt:message key="pethotel.textfied.receivedDate"/>" name="dateEnd">
                             <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Status" name="status">
+                            <input class="input--style-3" type="text" placeholder="<fmt:message key="pethotel.textfied.status"/>" name="status">
                         </div>
                         <div class="p-t-10">
-                            <button class="btn btn--pill btn--green" type="submit" name="action">Submit</button>
+                            <button class="btn btn--pill btn--green" type="submit" name="action"><fmt:message key="pethotel.textfied.submit"/></button>
                         </div>
                     </form>
                 </div>

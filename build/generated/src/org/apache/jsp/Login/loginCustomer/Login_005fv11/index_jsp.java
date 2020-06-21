@@ -134,14 +134,17 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
                         Cookie[] listCookie = request.getCookies();
                         String user = "";
                         String pass = "";
+                        boolean checked = false;
                         int co = 0;
                         if (listCookie != null) {
                             while (co < listCookie.length) {
                                 if (listCookie[co].getName().equals("user")) {
                                     user = listCookie[co].getValue();
+                                    checked = true;
                                 }
                                 if (listCookie[co].getName().equals("pass")) {
                                     pass = listCookie[co].getValue();
+                                    checked = true;
                                 }
                                 co++;
                             }
@@ -189,7 +192,7 @@ out.print(pass);
       out.write("                        </div>\r\n");
       out.write("\r\n");
       out.write("                        <div class=\"contact100-form-checkbox m-l-4\">\r\n");
-      out.write("                            <input class=\"input-checkbox100\" id=\"ckb1\" type=\"checkbox\" id=\"customCheck\" name=\"chkRemember\">\r\n");
+      out.write("                            <input class=\"input-checkbox100\" value=\"ON\" type=\"checkbox\" id=\"customCheck\" name=\"chkRemember\">\r\n");
       out.write("                            <label class=\"label-checkbox100\" for=\"customCheck\">");
       if (_jspx_meth_fmt_message_3(_jspx_page_context))
         return;
@@ -236,9 +239,9 @@ out.print(pass);
       if (_jspx_meth_fmt_message_7(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("                            \r\n");
+      out.write("\r\n");
       out.write("                        </a>\r\n");
-      out.write("                            <div class=\"text-center w-full p-t-42 p-b-22\">\r\n");
+      out.write("                        <div class=\"text-center w-full p-t-42 p-b-22\">\r\n");
       out.write("                            <a class=\"small\" href=\"?locale=en\">\r\n");
       out.write("                                English |\r\n");
       out.write("                            </a>\r\n");

@@ -49,14 +49,17 @@
                         Cookie[] listCookie = request.getCookies();
                         String user = "";
                         String pass = "";
+                        boolean checked = false;
                         int co = 0;
                         if (listCookie != null) {
                             while (co < listCookie.length) {
                                 if (listCookie[co].getName().equals("user")) {
                                     user = listCookie[co].getValue();
+                                    checked = true;
                                 }
                                 if (listCookie[co].getName().equals("pass")) {
                                     pass = listCookie[co].getValue();
+                                    checked = true;
                                 }
                                 co++;
                             }
@@ -86,9 +89,19 @@
                         </div>
 
                         <div class="contact100-form-checkbox m-l-4">
-                            <input class="input-checkbox100" id="ckb1" type="checkbox" id="customCheck" name="chkRemember">
+                            <% 
+                            if (checked== true){                                                        
+                            %>
+                            <input class="input-checkbox100" value="ON" checked="true" type="checkbox" id="customCheck" name="chkRemember">
                             <label class="label-checkbox100" for="customCheck"><fmt:message key="login.textfield.checkbox"/>
-
+                                <%
+                            }else{
+                                %>
+                                 <input class="input-checkbox100" value="ON" type="checkbox" id="customCheck" name="chkRemember">
+                            <label class="label-checkbox100" for="customCheck"><fmt:message key="login.textfield.checkbox"/>
+                                <%
+                            }
+                            %>
                             </label>
                         </div>
 
@@ -114,9 +127,9 @@
                         <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project_HKIV_PetShop/loginGoogle&response_type=code
                            &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force" class="btn-google m-b-10">
                             <img src="${context}/Login/loginCustomer/Login_v11/images/icons/icon-google.png" alt="GOOGLE"><fmt:message key="login.button.submitGoogle"/>
-                            
+
                         </a>
-                            <div class="text-center w-full p-t-42 p-b-22">
+                        <div class="text-center w-full p-t-42 p-b-22">
                             <a class="small" href="?locale=en">
                                 English |
                             </a>
