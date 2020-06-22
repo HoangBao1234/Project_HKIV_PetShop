@@ -217,55 +217,122 @@
             </div>
         </section>
 
-        <section class="ftco-counter" id="section-counter">
+       
+
+<section class="ftco-section bg-light">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <strong class="number" data-number="50">0</strong>
-                            </div>
-                            <div class="text">
-                                <span><fmt:message key="home.textfied.Customer"/></span>
-                            </div>
-                        </div>
+                <div class="row justify-content-center pb-5 mb-3">
+                    <div class="col-md-7 heading-section text-center ftco-animate">
+                        <h2><fmt:message key="home.textfied.news"/></h2>
                     </div>
-                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <strong class="number" data-number="8500">0</strong>
+                </div>
+                <div class="row d-flex">
+                    <c:if test="${petList == null}">
+                        Nguyen Hoang Bao
+                    </c:if>
+                    <c:if test="${petList != null}">
+                        <c:forEach var="i" items="${petList}">
+                            <div class="col-md-3 d-flex ftco-animate">
+                                <div class="blog-entry align-self-stretch">
+                                    <a href="${context}/PetProduct/Detail?id=${i.PId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
+                                    </a>
+                                    <div class="text p-4">
+                                        <div class="meta mb-2">
+                                            <div><a href="#">April 07, 2020</a></div>
+                                            <div><a href="#">${i.PName}</a></div>
+                                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                                        </div>
+                                        <h3 class="heading"><a href="#">${i.description}</a></h3>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="text">
-                                <span><fmt:message key="home.textfied.Professionals"/></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <strong class="number" data-number="20">0</strong>
-                            </div>
-                            <div class="text">
-                                <span><fmt:message key="home.textfied.Products"/></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <strong class="number" data-number="50">0</strong>
-                            </div>
-                            <div class="text">
-                                <span><fmt:message key="home.textfied.PetsHosted"/></span>
-                            </div>
-                        </div>
-                    </div>
+                        </c:forEach>
+                    </c:if>
+                </div>
+                <div style="position: absolute;right: 13%;">
+                    <button style="padding: 4px 10px; border: dashed; border-radius: 5px; background-color: green; color: white">
+                        <a href="${context}/PetProduct/All" style="color: white">View More</a>
+                    </button>
                 </div>
             </div>
         </section>
 
+        <section class="ftco-section bg-light">
+            <div class="container">
+                <div class="row justify-content-center pb-5 mb-3">
+                    <div class="col-md-7 heading-section text-center ftco-animate">
+                        <h2><fmt:message key="home.textfied.news"/></h2>
+                    </div>
+                </div>
+                <div class="row d-flex">
+                    <c:if test="${foodList == null}">
+                        Nguyen Hoang Bao
+                    </c:if>
+                    <c:if test="${foodList != null}">
+                        <c:forEach var="i" items="${foodList}">
+                            <div class="col-md-3 d-flex ftco-animate">
+                                <div class="blog-entry align-self-stretch">
+                                    <a href="${context}/FoodProduct/Detail?id=${i.FId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
+                                    </a>
+                                    <div class="text p-4">
+                                        <div class="meta mb-2">
+                                            <div><a href="#">April 07, 2020</a></div>
+                                            <div><a href="#">${i.name}</a></div>
+                                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                                        </div>
+                                        <h3 class="heading"><a href="#">${i.description}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </c:if>
+                </div>
+                <div style="position: absolute;right: 13%;">
+                    <button style="padding: 4px 10px; border: dashed; border-radius: 5px; background-color: green; color: white">
+                        <a href="${context}/FoodProduct/All" style="color: white">View More</a>
+                    </button>
+                </div>
+            </div>
+        </section>
 
-
+        <section class="ftco-section bg-light">
+            <div class="container">
+                <div class="row justify-content-center pb-5 mb-3">
+                    <div class="col-md-7 heading-section text-center ftco-animate">
+                        <h2><fmt:message key="home.textfied.news"/></h2>
+                    </div>
+                </div>
+                <div class="row d-flex">
+                    <c:if test="${accList == null}">
+                        Nguyen Hoang Bao
+                    </c:if>
+                    <c:if test="${accList != null}">
+                        <c:forEach var="i" items="${accList}">
+                            <div class="col-md-3 d-flex ftco-animate">
+                                <div class="blog-entry align-self-stretch">
+                                    <a href="${context}/AccessoriesProduct/Detail?id=${i.ESId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
+                                    </a>
+                                    <div class="text p-4">
+                                        <div class="meta mb-2">
+                                            <div><a href="#">April 07, 2020</a></div>
+                                            <div><a href="#">${i.name}</a></div>
+                                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                                        </div>
+                                        <h3 class="heading"><a href="#">${i.description}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </c:if>
+                </div>
+                <div style="position: absolute;right: 13%;">
+                    <button style="padding: 4px 10px; border: dashed; border-radius: 5px; background-color: green; color: white">
+                        <a href="${context}/AccessoriesProduct/All" style="color: white">View More</a>
+                    </button>
+                </div>
+            </div>
+        </section>
+<!---->
         <section class="ftco-section testimony-section" style="background-image: url('${context}/petsitting/images/bg_2.jpg');">
             <div class="overlay"></div>
             <div class="container">
@@ -515,119 +582,7 @@
             </div>
         </section>
 
-        <section class="ftco-section bg-light">
-            <div class="container">
-                <div class="row justify-content-center pb-5 mb-3">
-                    <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2><fmt:message key="home.textfied.news"/></h2>
-                    </div>
-                </div>
-                <div class="row d-flex">
-                    <c:if test="${petList == null}">
-                        Nguyen Hoang Bao
-                    </c:if>
-                    <c:if test="${petList != null}">
-                        <c:forEach var="i" items="${petList}">
-                            <div class="col-md-3 d-flex ftco-animate">
-                                <div class="blog-entry align-self-stretch">
-                                    <a href="${context}/PetProduct/Detail?id=${i.PId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
-                                    </a>
-                                    <div class="text p-4">
-                                        <div class="meta mb-2">
-                                            <div><a href="#">April 07, 2020</a></div>
-                                            <div><a href="#">${i.PName}</a></div>
-                                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                                        </div>
-                                        <h3 class="heading"><a href="#">${i.description}</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>
-                    </c:if>
-                </div>
-                <div style="position: absolute;right: 13%;">
-                    <button style="padding: 4px 10px; border: dashed; border-radius: 5px; background-color: green; color: white">
-                        <a href="${context}/PetProduct/All" style="color: white">View More</a>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section bg-light">
-            <div class="container">
-                <div class="row justify-content-center pb-5 mb-3">
-                    <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2><fmt:message key="home.textfied.news"/></h2>
-                    </div>
-                </div>
-                <div class="row d-flex">
-                    <c:if test="${foodList == null}">
-                        Nguyen Hoang Bao
-                    </c:if>
-                    <c:if test="${foodList != null}">
-                        <c:forEach var="i" items="${foodList}">
-                            <div class="col-md-3 d-flex ftco-animate">
-                                <div class="blog-entry align-self-stretch">
-                                    <a href="${context}/FoodProduct/Detail?id=${i.FId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
-                                    </a>
-                                    <div class="text p-4">
-                                        <div class="meta mb-2">
-                                            <div><a href="#">April 07, 2020</a></div>
-                                            <div><a href="#">${i.name}</a></div>
-                                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                                        </div>
-                                        <h3 class="heading"><a href="#">${i.description}</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>
-                    </c:if>
-                </div>
-                <div style="position: absolute;right: 13%;">
-                    <button style="padding: 4px 10px; border: dashed; border-radius: 5px; background-color: green; color: white">
-                        <a href="${context}/FoodProduct/All" style="color: white">View More</a>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section bg-light">
-            <div class="container">
-                <div class="row justify-content-center pb-5 mb-3">
-                    <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2><fmt:message key="home.textfied.news"/></h2>
-                    </div>
-                </div>
-                <div class="row d-flex">
-                    <c:if test="${accList == null}">
-                        Nguyen Hoang Bao
-                    </c:if>
-                    <c:if test="${accList != null}">
-                        <c:forEach var="i" items="${accList}">
-                            <div class="col-md-3 d-flex ftco-animate">
-                                <div class="blog-entry align-self-stretch">
-                                    <a href="${context}/AccessoriesProduct/Detail?id=${i.ESId}" class="block-20 rounded" style="background-image: url('${context}/ImageItems/${i.image}');">
-                                    </a>
-                                    <div class="text p-4">
-                                        <div class="meta mb-2">
-                                            <div><a href="#">April 07, 2020</a></div>
-                                            <div><a href="#">${i.name}</a></div>
-                                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                                        </div>
-                                        <h3 class="heading"><a href="#">${i.description}</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>
-                    </c:if>
-                </div>
-                <div style="position: absolute;right: 13%;">
-                    <button style="padding: 4px 10px; border: dashed; border-radius: 5px; background-color: green; color: white">
-                        <a href="${context}/AccessoriesProduct/All" style="color: white">View More</a>
-                    </button>
-                </div>
-            </div>
-        </section>
+        
 
         <div class="row justify-content-center pb-5 mb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">

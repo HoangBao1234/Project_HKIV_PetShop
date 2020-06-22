@@ -366,7 +366,7 @@
                                 </tbody>
                             </table>
                         </center>
-                        <button><a href="${context}/Foods/PrintReport" style="text-decoration: none">Print Report</a></button>
+                        <button><a href="${context}/Foods/PrintReport" style="text-decoration: none">Top 5 most expensive Foods</a></button>
                     </div>
                 </div>
                 <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>

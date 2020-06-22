@@ -16,6 +16,7 @@
         <meta name="author" content="">
 
         <title>Add Pet</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
@@ -26,7 +27,7 @@
         <!-- Custom styles for this template-->
         <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
 
-        
+
 
     </head>
 
@@ -331,146 +332,193 @@
                     <div>
                         <center>
                             <h1>Add Pet</h1>
-                            <form class="form-horizontal" action="${context}/Pet/Store" method="post" id="form1" runat="server" enctype="multipart/form-data">
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Pet Id
+                            <div class="card-body" ng-app="myApp" ng-controller="myCtrl">
+                                <form class="form-horizontal" action="${context}/Pet/Store" name="myForm" ng-submit="checkOnSubmit($event)" method="post" id="form1" runat="server" enctype="multipart/form-data">
+                                    <!-- Text input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Pet Id
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="pet_id" name="pet_id" placeholder="Pet ID" class="form-control input-md" required="" type="text">
+                                            <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msg}</h6>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <input id="pet_id" name="pet_id" placeholder="Pet ID" class="form-control input-md" required="" type="text">
-                                        <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msg}</h6>
-                                    </div>
-                                </div>
 
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Pet Name
+                                    <!-- Text input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Pet Name
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="pet_name" name="pet_name" ng-model="pet_name" ng-minlength= "3" ng-maxlength= "20"  placeholder="Pet Name" class="form-control input-md" required="" type="text">
+                                            <span ng-show="myForm.pet_name.$invalid && myForm.pet_name.$dirty" class="error-msg" style="color: red">
+                                                Name must be(3-20)!
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <input id="pet_name" name="pet_name" placeholder="Pet Name" class="form-control input-md" required="" type="text">
+                                    <!-- Text input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Color
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="color" name="color" ng-model="color" ng-minlength= "3" ng-maxlength= "20" placeholder="Color" class="form-control input-md" required="" type="text">
+                                            <span ng-show="myForm.color.$invalid && myForm.color.$dirty" class="error-msg" style="color: red">
+                                                Color must be(3-20)!
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Color
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input id="color" name="color" placeholder="Color" class="form-control input-md" required="" type="text">
-                                    </div>
-                                </div>
 
-                                <!-- Select Basic -->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Age
+                                    <!-- Select Basic -->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Age
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <%
+                                                Date date = new Date(System.currentTimeMillis());
+                                            %>
+                                            <input id="age" name="age" placeholder="Age" value="<%=date%>" class="form-control input-md" required="" type="date">
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <%
-                                            Date date = new Date(System.currentTimeMillis());
-                                        %>
-                                        <input id="age" name="age" placeholder="Age" value="<%=date%>" class="form-control input-md" required="" type="date">
-                                    </div>
-                                </div>
 
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Gender
+                                    <!-- Text input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Gender
+                                        </div>
+                                        <div class="col-sm-4" style="text-align: left">
+                                            <input type="radio" name="gender" value="true" checked="checked"/> Male &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="gender" value="false"/> Female
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4" style="text-align: left">
-                                        <input type="radio" name="gender" value="true" checked="checked"/> Male &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="gender" value="false"/> Female
-                                    </div>
-                                </div>
 
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Origin
+                                    <!-- Text input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Origin
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="origin" name="origin" ng-model="origin" ng-minlength= "3" ng-maxlength= "20" placeholder="Origin" class="form-control input-md" required="" type="text">
+                                            <span ng-show="myForm.origin.$invalid && myForm.origin.$dirty" class="error-msg" style="color: red">
+                                                Orgin must be(3-20)!
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <input id="origin" name="origin" placeholder="Origin" class="form-control input-md" required="" type="text">
-                                    </div>
-                                </div>
 
-                                <!-- Textarea -->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Price
+                                    <!-- Textarea -->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Price
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="price" min="0" max="50000000" name="price" placeholder="Price" class="form-control input-md" required="" type="text">
+                                            <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msgPrice}</h6>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <input id="price" min="0" max="50000000" name="price" placeholder="Price" class="form-control input-md" required="" type="text">
-                                        <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msgPrice}</h6>
-                                    </div>
-                                </div>
 
-                                <!-- Textarea -->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Image
+                                    <!-- Textarea -->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Image
+                                        </div>
+                                        <div class="col-sm-4" style="text-align: left">
+                                            <p><img id="image_upload_preview" width="100" height="100" src="http://placehold.it/100x100" alt="your image" /></p>
+                                            <input id="inputFile" name="image" placeholder="Image" required="" type="file">
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4" style="text-align: left">
-                                        <p><img id="image_upload_preview" width="100" height="100" src="http://placehold.it/100x100" alt="your image" /></p>
-                                        <input id="inputFile" name="image" placeholder="Image" required="" type="file">
-                                    </div>
-                                </div>
 
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Description
+                                    <!-- Text input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Description
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <textarea class="form-control" ng-model="description" ng-minlength= "3" ng-maxlength= "20" rows="5" id="comment" name="description"></textarea>
+                                            <span ng-show="myForm.description.$invalid && myForm.description.$dirty" class="error-msg" style="color: red">
+                                                description must be(3-20)!
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
-                                    </div>
-                                </div>
 
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Animals
+                                    <!-- Text input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Animals
+                                        </div>
+                                        <div class="col-sm-4" style="text-align: left">
+                                            <select style="width: 150px" name="animals">
+                                                <c:forEach var="aList" items="${animals}">
+                                                    <option value="${aList.CFId}">${aList.name}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px" name="animals">
-                                            <c:forEach var="aList" items="${animals}">
-                                                <option value="${aList.CFId}">${aList.name}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <!-- Search input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Breeds
+                                    <!-- Search input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Breeds
+                                        </div>
+                                        <div class="col-sm-4" style="text-align: left">
+                                            <select style="width: 150px" name="breeds">
+                                                <c:forEach var="bList" items="${breeds}">
+                                                    <option value="${bList.CPId}">${bList.name}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px" name="breeds">
-                                            <c:forEach var="bList" items="${breeds}">
-                                                <option value="${bList.CPId}">${bList.name}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <!-- Search input-->
+                                    <!-- Search input-->
 
 
-                                <!-- Button -->
-                                <div class="form-group">
-                                    <div class="col-md-4" style="text-align: left">
-                                        <input type="submit" value="Insert" name="action" class="btn btn-primary"/>
-                                    </div>
-                                </div> 
-                            </form>          
+                                    <!-- Button -->
+                                    <div class="form-group">
+                                        <div class="col-md-4" style="text-align: left">
+                                            <input type="submit" value="Insert" name="action" class="btn btn-primary"/>
+                                        </div>
+                                    </div> 
+                                </form>    
+                            </div>
                     </div>
                 </div>
                 </center>
             </div>
         </div>
+        <script>
+            var app = angular.module("myApp", []);
+
+            app.controller("myCtrl", function($scope) {
+
+                $scope.username = "";
+                function printErrorInfo() {
+                    console.log($scope.myForm.$error);
+                    if ($scope.myForm.$error.minlength) {
+                        console.log('$error.minlength? ' + $scope.myForm.$error.minlength[0].$invalid);
+                    }
+                    if ($scope.myForm.$error.maxlength) {
+                        console.log('$error.maxlength? ' + $scope.myForm.$error.maxlength[0].$invalid);
+                    }
+
+                }
+
+                $scope.checkOnSubmit = function(event) {
+                    if ($scope.myForm.$invalid) {
+                        alert("Something invalid!");
+
+                        printErrorInfo();
+
+                        event.preventDefault();
+                        return false;
+                    }
+
+                    return true;
+                }
+
+            });
+
+        </script>
         <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
         <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

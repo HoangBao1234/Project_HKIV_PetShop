@@ -354,11 +354,12 @@
                                         </div>
                                         <div class="col-sm-4">
                                             <input id="animals_name" name="animals_name" placeholder="Animals Name" class="form-control input-md" ng-required="true"
-                                                   ng-model="username" ng-minlength= "5" ng-maxlength= "20" type="text">
+                                                   ng-model="username" ng-minlength= "3" ng-maxlength= "20" type="text">
                                         </div>
                                         <span ng-show="myForm.animals_name.$invalid && myForm.animals_name.$dirty" class="error-msg">
-                                            Name must be(5-20)!
+                                            Name must be(3-20)!
                                         </span>
+                                        <span style="color: red">${msg}</span>
                                     </div>
 
 
