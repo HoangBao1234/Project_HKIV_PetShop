@@ -35,7 +35,7 @@
         <title>JSP Page</title>
         <fmt:setBundle basename="app"/>
         <c:import url="setLocale.jsp"/>
-        
+             <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>   
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -180,30 +180,21 @@
                                             <input type="text" value="${list.MId}" name="id"/>
                                         </div>
                                         <div class="col-sm-5 col-xs-6 tital " >Member Name:</div><div class="col-sm-7 col-xs-6 ">
-                                            <input type="text" value="${list.name}" name="name" ng-required="true"
-                                                   ng-model="username" ng-minlength= "5" ng-maxlength= "20"/>
-                                            <br/>
-                                            <span ng-show="myForm.name.$invalid && myForm.name.$dirty" class="error-msg">
-                                                Name must be(5-20)!
-                                            </span>
-                                            <br/>
+                                            <input type="text" value="${list.name}" name="name" required=""  maxlength="20" minlength="5" />
+                                            
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="bot-border"></div>
 
                                         <div class="col-sm-5 col-xs-6 tital " >Member Email:</div><div class="col-sm-7">
                                             <input type="email" value="${list.mail}" ng-model="txtMail" name="mail" required=""/>
-                                             <br/>
-                                    <span  ng-show="myForm.mail.$invalid && myForm.mail.$dirty" class="error-msg">
-                                        mail must be (name@gmail.com)!
-                                    </span>
-                                    <br/>
+                                         
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="bot-border"></div>
 
                                         <div class="col-sm-5 col-xs-6 tital " >Member Phone:</div><div class="col-sm-7">
-                                            <input type="text" value="${list.phone}" name="phone" required=""/>
+                                            <input type="text" value="${list.phone}" name="phone" required="" maxlength="12" minlength="10" />
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="bot-border"></div>
@@ -216,7 +207,7 @@
                                         <div class="bot-border"></div>
 
                                         <div class="col-sm-5 col-xs-6 tital " >Password:</div><div class="col-sm-7">
-                                            <input type="password" value="${list.password}" name="password" required=""/>
+                                            <input type="password" value="${list.password}" name="password" required="" maxlength="10" minlength="5"  />
                                         </div>   
                                         <!-- /.box-body -->
                                         <div class="clearfix"></div>
@@ -316,44 +307,7 @@
             </div>
         </footer>
 
-                        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-     <script>
-            var app = angular.module("myApp", []);
-
-            app.controller("myCtrl", function($scope) {
-
-                $scope.password = "";
-                $scope.username = "";
-                $scope.phone = "";
-                // Show more error infos.
-                function printErrorInfo() {
-                    console.log($scope.myForm.$error);
-                    if ($scope.myForm.$error.minlength) {
-                        console.log('$error.minlength? ' + $scope.myForm.$error.minlength[0].$invalid);
-                    }
-                    if ($scope.myForm.$error.maxlength) {
-                        console.log('$error.maxlength? ' + $scope.myForm.$error.maxlength[0].$invalid);
-                    }
-                    
-                }
-
-                $scope.checkOnSubmit = function(event) {
-                    if ($scope.myForm.$invalid) {
-                        alert("Something invalid!");
-
-                        printErrorInfo();
-
-                        // Cancel submit
-                        event.preventDefault();
-                        return false;
-                    }
-                   
-                    return true;
-                }
-
-            });
-            
-        </script>
+     
 
 
 

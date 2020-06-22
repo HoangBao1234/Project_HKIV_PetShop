@@ -28,12 +28,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/cusController/cusFeedbackController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Customer/Pets/detail.jsp</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Customer/Pets/compare.jsp</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Customer/Pets/index.jsp</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/cusController/cusPetController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/cusController/cusFoodController.java</file>
+            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/Login/registerCustomer/colorlib-regform-2/index.jsp</file>
+            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/web/Profile/profile.jsp</file>
+            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/src/java/controller/memberController.java</file>
+            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/src/java/app_en.properties</file>
         </group>
     </open-files>
 </project-private>

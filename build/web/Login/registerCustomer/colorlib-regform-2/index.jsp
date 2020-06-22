@@ -61,23 +61,19 @@
                                     <div class="input-group">
                                         <input class="input--style-3" type="password" id="exampleInputPassword" name="regis_pass" placeholder="<fmt:message key="login.textfield.password"/>" ng-model="password"
                                                ng-minlength= "5" ng-maxlength= "10" ng-required="true">
-                                        <br/>
-                                        <span ng-show="myForm.regis_pass.$invalid && myForm.regis_pass.$dirty " class="error-msg">
+                                        
+                                        <span ng-show="myForm.regis_pass.$invalid && myForm.regis_pass.$dirty" class="error-msg">
                                             Password must be(5-10)!
                                         </span>
-                                        <br/>
+                                        
                                     </div>
                                 </div>
+                                               
                                 <div class="col-2">
                                     <div class="input-group">
                                         <div class="rs-select2 js-select-simple select--no-search">
-                                            <input class="input--style-3" type="text" id="mobile" name="regis_phone" placeholder="<fmt:message key="login.textfield.phone"/>" ng-required="true"
-                                                   ng-model="phone" ng-pattern="/^[0-9]{10,12}$/">
-                                            <br/>
-                                            <span ng-show="myForm.regis_phone.$invalid && myForm.regis_phone.$dirty" class="error-msg">
-                                                Phone Must be(10 to 12) Number!
-                                            </span>
-                                            <br/>
+                                              <input class="input--style-3" type="password" id="exampleRepeatPassword" name="regis_pass" placeholder="<fmt:message key="login.textfield.rePassword"/>" ng-required="true">
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -95,12 +91,28 @@
                             <div class="row row-space">
                                 <div class="col-2">
                                     <div class="input-group">
-                                        <input class="input--style-3" type="text" id="exampleRepeatPassword" name="regis_address" placeholder="<fmt:message key="login.textfield.address"/>" ng-required="true">
+                                        <input class="input--style-3" type="text" id="address" name="regis_address" placeholder="<fmt:message key="login.textfield.address"/>" ng-required="true">
                                     </div>
                                 </div>
                             </div>
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                       <input class="input--style-3" type="text" id="mobile" name="regis_phone" placeholder="<fmt:message key="login.textfield.phone"/>" ng-required="true"
+                                                   ng-model="phone" ng-pattern="/((09|03|07|08|05|06|04|02|01)+([0-9]{8,10})\b)/g">
+                                            <br/>
+                                            <span ng-show="myForm.regis_phone.$invalid && myForm.regis_phone.$dirty" class="error-msg">
+                                                must be in correct format and (10 to 12) Number!
+
+                                            </span>
+                                            <br/>
+                                    </div>
+                                </div>
+                            </div>
+                                    
+                                    
                             <div class="p-t-30">
-                                <button class="btn btn--radius btn--green checkmobile"  type="submit">Register</button>
+                                <button class="btn btn--radius btn--green checkmobile"  type="submit" onclick="return Validate()"><fmt:message key="login.textfield.Register"/></button>
                             </div>
                             <div class="p-t-30">
                                 <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project_HKIV_PetShop/loginGoogle&response_type=code
@@ -109,7 +121,7 @@
                                 </a>
                             </div>
                             <div class="p-t-30">
-                                <a class="small" href="${context}/Login/loginCustomer/Login_v11"> <fmt:message key="login.button.alhaveaccount"/> </a>
+                                <a class="small" href="${context}/Login/loginCustomer/Login_v11/index.jsp"> <fmt:message key="login.button.alhaveaccount"/> </a>
                             </div>
                             <div class="p-t-30">
                                 <a class="small" href="?locale=en">
@@ -124,6 +136,17 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            function Validate() {
+                var password = document.getElementById("exampleInputPassword").value;
+                var confirmPassword = document.getElementById("exampleRepeatPassword").value;
+                if (password != confirmPassword) {
+                    alert("Passwords do not match.");
+                    return false;
+                }
+                return true;
+            }
+        </script>
         <script>
             var app = angular.module("myApp", []);
 
@@ -141,7 +164,7 @@
                     if ($scope.myForm.$error.maxlength) {
                         console.log('$error.maxlength? ' + $scope.myForm.$error.maxlength[0].$invalid);
                     }
-                    
+
                 }
 
                 $scope.checkOnSubmit = function(event) {
@@ -154,14 +177,14 @@
                         event.preventDefault();
                         return false;
                     }
-                   
+
                     return true;
                 }
 
             });
-            
+
         </script>
-       
+
         <!-- Jquery JS-->
         <script src="${context}/Login/registerCustomer/colorlib-regform-2/vendor/jquery/jquery.min.js"></script>
         <!-- Vendor JS-->

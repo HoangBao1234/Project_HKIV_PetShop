@@ -5,6 +5,7 @@
  */
 package controller;
 
+import com.sun.xml.ws.transport.tcp.io.OutputWriter;
 import entity.Feedbacks;
 import entity.FeedbacksFacadeLocal;
 import entity.Members;
@@ -224,6 +225,7 @@ public class memberController extends HttpServlet {
         session.setAttribute("username", members);
         request.setAttribute("list", membersFacade.find(id));
         request.getRequestDispatcher("/Profile/profile.jsp").forward(request, response);
+        
     }
 
 }
