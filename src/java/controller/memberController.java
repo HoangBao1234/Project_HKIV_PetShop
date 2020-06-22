@@ -206,6 +206,7 @@ public class memberController extends HttpServlet {
 
     private void getListProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
+        
         request.setAttribute("list", membersFacade.find(id));
         request.getRequestDispatcher("/Profile/profile.jsp").forward(request, response);
     }

@@ -5,7 +5,7 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="entity.Members"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="context" value="${pageContext.request.contextPath}" />
@@ -16,7 +16,11 @@
             position: absolute;
             left: -9999px;
         }
-
+        .error-msg {
+            font-size: 90%;
+            font-style: italic;
+            color: red;
+        }
         #profile-image1 {
             cursor: pointer;
 
@@ -30,7 +34,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <fmt:setBundle basename="app"/>
-         <c:import url="setLocale.jsp"/>
+        <c:import url="setLocale.jsp"/>
+        
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -54,6 +59,7 @@
 
         <link rel="stylesheet" href="${context}/petsitting/css/flaticon.css">
         <link rel="stylesheet" href="${context}/petsitting/css/style.css">
+        
     </head>
 
     <body>
@@ -110,7 +116,7 @@
                                 </a>
                                 <ul class="dropdown-menu" style="font-size: 14px; width: 200px">
                                     <li><a href="${context}/Member/ListProfile?id=${username.getMId()}"> <fmt:message key="home.textfied.profile"/></a></li>
-                                     <li><a href="${context}/Cusfeedback/Feedback"> <fmt:message key="home.textfied.feedbacks"/></a></li>
+                                    <li><a href="${context}/Cusfeedback/Feedback"> <fmt:message key="home.textfied.feedbacks"/></a></li>
                                     <li><a href="${context}/Customers/Logout?logout=ok"> <fmt:message key="home.textfied.logout"/></a></li>
                                 </ul>
                             </li>
@@ -118,7 +124,7 @@
                         <c:if test="${sessionScope.username == null}">
                             <li class="nav-item" >
                                 <a href="${context}/Customers/Login" class="nav-link">
-                                  <fmt:message key="home.textfied.login"/>  
+                                    <fmt:message key="home.textfied.login"/>  
                                 </a>
                             </li>
                         </c:if>
@@ -144,24 +150,16 @@
                     <div class="panel panel-default">
 
                         <div class="panel-heading">  <h4 >User Profile</h4></div>
-                        <div class="panel-body">
+                        <div class="panel-body" >
 
                             <div class="box box-info">
 
-                                <div class="box-body">
+                                <div class="box-body" ng-app="myApp" ng-controller="myCtrl">
                                     <div class="col-sm-6">
                                         <div  align="center"> 
 
                                             <input id="profile-image-upload" class="hidden" type="file">
-
                                             <!--Upload Image Js And Css-->
-
-
-
-
-
-
-
                                         </div>
 
                                         <br>
@@ -176,19 +174,30 @@
                                     <div class="clearfix"></div>
                                     <hr style="margin:5px 0 5px 0;">
 
-                                    <form action="${context}/Member/updateProfile" method="post">
+                                    <form action="${context}/Member/updateProfile" method="post" name="myForm" ng-submit="checkOnSubmit($event)">
                                         <div style="display: none" class="col-sm-5 col-xs-6 tital">Member ID</div>
                                         <div style="display: none" class="col-sm-7 col-xs-6 ">
                                             <input type="text" value="${list.MId}" name="id"/>
                                         </div>
                                         <div class="col-sm-5 col-xs-6 tital " >Member Name:</div><div class="col-sm-7 col-xs-6 ">
-                                            <input type="text" value="${list.name}" name="name" required=""/>
+                                            <input type="text" value="${list.name}" name="name" ng-required="true"
+                                                   ng-model="username" ng-minlength= "5" ng-maxlength= "20"/>
+                                            <br/>
+                                            <span ng-show="myForm.name.$invalid && myForm.name.$dirty" class="error-msg">
+                                                Name must be(5-20)!
+                                            </span>
+                                            <br/>
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="bot-border"></div>
 
                                         <div class="col-sm-5 col-xs-6 tital " >Member Email:</div><div class="col-sm-7">
-                                            <input type="text" value="${list.mail}" name="mail" required=""/>
+                                            <input type="email" value="${list.mail}" ng-model="txtMail" name="mail" required=""/>
+                                             <br/>
+                                    <span  ng-show="myForm.mail.$invalid && myForm.mail.$dirty" class="error-msg">
+                                        mail must be (name@gmail.com)!
+                                    </span>
+                                    <br/>
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="bot-border"></div>
@@ -213,7 +222,7 @@
                                         <div class="clearfix"></div>
                                         <div class="bot-border"></div>
                                         <div class="col-sm-7">
-                                              <input name="action" value="Update" type="submit"/>
+                                            <input name="action" value="Update" type="submit"/>
                                         </div>
                                     </form>
                                 </div>
@@ -307,7 +316,44 @@
             </div>
         </footer>
 
+                        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+     <script>
+            var app = angular.module("myApp", []);
 
+            app.controller("myCtrl", function($scope) {
+
+                $scope.password = "";
+                $scope.username = "";
+                $scope.phone = "";
+                // Show more error infos.
+                function printErrorInfo() {
+                    console.log($scope.myForm.$error);
+                    if ($scope.myForm.$error.minlength) {
+                        console.log('$error.minlength? ' + $scope.myForm.$error.minlength[0].$invalid);
+                    }
+                    if ($scope.myForm.$error.maxlength) {
+                        console.log('$error.maxlength? ' + $scope.myForm.$error.maxlength[0].$invalid);
+                    }
+                    
+                }
+
+                $scope.checkOnSubmit = function(event) {
+                    if ($scope.myForm.$invalid) {
+                        alert("Something invalid!");
+
+                        printErrorInfo();
+
+                        // Cancel submit
+                        event.preventDefault();
+                        return false;
+                    }
+                   
+                    return true;
+                }
+
+            });
+            
+        </script>
 
 
 
@@ -331,7 +377,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
         <script src="${context}/petsitting/js/google-map.js"></script>
         <script src="${context}/petsitting/js/main.js"></script>
-
+       
 
     </body>
 </html>
