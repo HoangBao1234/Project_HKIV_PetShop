@@ -21,6 +21,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -217,7 +218,9 @@ public class memberController extends HttpServlet {
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         Members members = new Members(id, name, mail, password, phone, address);
+        HttpSession session = request.getSession();
         membersFacade.edit(members);
+        session.setAttribute("username", members);
         request.setAttribute("list", membersFacade.find(id));
         request.getRequestDispatcher("/Profile/profile.jsp").forward(request, response);
     }

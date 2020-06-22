@@ -161,7 +161,7 @@
                         </div>
                         <div class="input-group">
                             <input class="input--style-3 js-datepicker" type="text" placeholder="<fmt:message key="pethotel.textfied.receivedDate"/>" name="dateEnd">
-                            <span>${msg}</span>
+                            <span style="color: white">${msg}</span>
                             <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                         </div>
                         <div class="input-group">

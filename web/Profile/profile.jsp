@@ -150,7 +150,7 @@
 
                                 <div class="box-body">
                                     <div class="col-sm-6">
-                                        <div  align="center"> <img alt="User Pic" src="../ImageItems/103306787_2685307088420205_2140847627820034488_o.jpg" id="profile-image1" class="img-circle img-responsive"> 
+                                        <div  align="center"> 
 
                                             <input id="profile-image-upload" class="hidden" type="file">
 
@@ -182,32 +182,32 @@
                                             <input type="text" value="${list.MId}" name="id"/>
                                         </div>
                                         <div class="col-sm-5 col-xs-6 tital " >Member Name:</div><div class="col-sm-7 col-xs-6 ">
-                                            <input type="text" value="${list.name}" name="name"/>
+                                            <input type="text" value="${list.name}" name="name" required=""/>
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="bot-border"></div>
 
                                         <div class="col-sm-5 col-xs-6 tital " >Member Email:</div><div class="col-sm-7">
-                                            <input type="text" value="${list.mail}" name="mail"/>
+                                            <input type="text" value="${list.mail}" name="mail" required=""/>
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="bot-border"></div>
 
                                         <div class="col-sm-5 col-xs-6 tital " >Member Phone:</div><div class="col-sm-7">
-                                            <input type="text" value="${list.phone}" name="phone"/>
+                                            <input type="text" value="${list.phone}" name="phone" required=""/>
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="bot-border"></div>
 
                                         <div class="col-sm-5 col-xs-6 tital " >Address:</div><div class="col-sm-7">
-                                            <input type="text" value="${list.address}" name="address"/>
+                                            <input type="text" value="${list.address}" name="address" required=""/>
                                         </div>         
 
                                         <div class="clearfix"></div>
                                         <div class="bot-border"></div>
 
                                         <div class="col-sm-5 col-xs-6 tital " >Password:</div><div class="col-sm-7">
-                                            <input type="password" value="${list.password}" name="password"/>
+                                            <input type="password" value="${list.password}" name="password" required=""/>
                                         </div>   
                                         <!-- /.box-body -->
                                         <div class="clearfix"></div>
