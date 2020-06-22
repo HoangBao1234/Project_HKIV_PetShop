@@ -25,21 +25,23 @@
                 text-indent: 30px;
                 font-weight: bold;
             }
+            
         </style>
     </head>
     <body>
         <div class="container">
-
-            <header>
-                <h1><span>Report</span>Top 5 most expensive pets</h1>
-
-            </header>  
-            <hr>
-            <h2>S2 Pet Admin</h2>
+            
             <h3>590 Cách Mạng tháng Tám.</h3>
             <h3>Quận 3, TP Hồ Chí Minh.</h3>
             <h3>Phone: 0387278015.
-                <h3>Email:dokhanhduy123abc@gmail.com</h3>
+            <h3>Email:dokhanhduy123abc@gmail.com</h3>
+            
+            <hr>
+                <header>
+                    <h1><span>Report</span>Top 5 most expensive pets</h1>
+
+                </header>  
+
 
 
                 <!-- start header here-->

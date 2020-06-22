@@ -1,4 +1,4 @@
-package org.apache.jsp.Login.registerCustomer.colorlib_002dregform_002d2;
+package org.apache.jsp.Login.loginCustomer.Login_005fv11;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -62,22 +62,18 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       if (_jspx_meth_c_set_0(_jspx_page_context))
         return;
       out.write("\r\n");
       out.write("\r\n");
-      out.write("<html lang=\"en\">\r\n");
-      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
       out.write("    <head>\r\n");
-      out.write("        <!-- Required meta tags-->\r\n");
-      out.write("        <meta charset=\"UTF-8\">\r\n");
-      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n");
-      out.write("        <meta name=\"description\" content=\"Colorlib Templates\">\r\n");
-      out.write("        <meta name=\"author\" content=\"Colorlib\">\r\n");
-      out.write("        <meta name=\"keywords\" content=\"Colorlib Templates\">\r\n");
-      out.write("\r\n");
-      out.write("        <!-- Title Page-->\r\n");
-      out.write("        <title>Register</title>\r\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
+      out.write("        <title>Login</title>\r\n");
       out.write("        ");
       if (_jspx_meth_c_import_0(_jspx_page_context))
         return;
@@ -86,243 +82,224 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_fmt_setBundle_0(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js\"></script> \r\n");
-      out.write("        <!-- Icons font CSS-->\r\n");
-      out.write("        <link href=\"");
+      out.write("        <!--===============================================================================================-->\t\r\n");
+      out.write("        <link rel=\"icon\" type=\"image/png\" href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Login/registerCustomer/colorlib-regform-2/vendor/mdi-font/css/material-design-iconic-font.min.css\" rel=\"stylesheet\" media=\"all\">\r\n");
-      out.write("        <link href=\"");
+      out.write("/Login/loginCustomer/Login_v11/images/icons/favicon.ico\"/>\r\n");
+      out.write("        <!--===============================================================================================-->\r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Login/registerCustomer/colorlib-regform-2/vendor/font-awesome-4.7/css/font-awesome.min.css\" rel=\"stylesheet\" media=\"all\">\r\n");
-      out.write("        <!-- Font special for pages-->\r\n");
-      out.write("        <link href=\"https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i\" rel=\"stylesheet\">\r\n");
-      out.write("\r\n");
-      out.write("        <!-- Vendor CSS-->\r\n");
-      out.write("        <link href=\"");
+      out.write("/Login/loginCustomer/Login_v11/vendor/bootstrap/css/bootstrap.min.css\">\r\n");
+      out.write("        <!--===============================================================================================-->\r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Login/registerCustomer/colorlib-regform-2/vendor/select2/select2.min.css\" rel=\"stylesheet\" media=\"all\">\r\n");
-      out.write("        <link href=\"");
+      out.write("/Login/loginCustomer/Login_v11/fonts/font-awesome-4.7.0/css/font-awesome.min.css\">\r\n");
+      out.write("        <!--===============================================================================================-->\r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Login/registerCustomer/colorlib-regform-2/vendor/datepicker/daterangepicker.css\" rel=\"stylesheet\" media=\"all\">\r\n");
-      out.write("\r\n");
-      out.write("        <!-- Main CSS-->\r\n");
-      out.write("        <link href=\"");
+      out.write("/Login/loginCustomer/Login_v11/fonts/Linearicons-Free-v1.0.0/icon-font.min.css\">\r\n");
+      out.write("        <!--===============================================================================================-->\r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Login/registerCustomer/colorlib-regform-2/css/main.css\" rel=\"stylesheet\" media=\"all\">\r\n");
+      out.write("/Login/loginCustomer/Login_v11/vendor/animate/animate.css\">\r\n");
+      out.write("        <!--===============================================================================================-->\t\r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Login/loginCustomer/Login_v11/vendor/css-hamburgers/hamburgers.min.css\">\r\n");
+      out.write("        <!--===============================================================================================-->\r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Login/loginCustomer/Login_v11/vendor/select2/select2.min.css\">\r\n");
+      out.write("        <!--===============================================================================================-->\r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Login/loginCustomer/Login_v11/css/util.css\">\r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Login/loginCustomer/Login_v11/css/main.css\">\r\n");
       out.write("        <style>\r\n");
-      out.write("            .error-msg {\r\n");
-      out.write("                font-size: 90%;\r\n");
-      out.write("                font-style: italic;\r\n");
-      out.write("                color: red;\r\n");
+      out.write("            *{\r\n");
+      out.write("                font-family: cursive;\r\n");
       out.write("            }\r\n");
       out.write("        </style>\r\n");
+      out.write("        <!--===============================================================================================-->\r\n");
       out.write("    </head>\r\n");
-      out.write("\r\n");
       out.write("    <body>\r\n");
-      out.write("        <div class=\"page-wrapper bg-red p-t-180 p-b-100 font-robo\">\r\n");
-      out.write("            <div class=\"wrapper wrapper--w960\">\r\n");
-      out.write("                <div class=\"card card-2\">\r\n");
-      out.write("                    <div class=\"card-heading\"></div>\r\n");
-      out.write("                    <div class=\"card-body\" ng-app=\"myApp\" ng-controller=\"myCtrl\">\r\n");
-      out.write("                        <h2 class=\"title\">");
+      out.write("\r\n");
+      out.write("        <div class=\"limiter\">\r\n");
+      out.write("            <div class=\"container-login100\">\r\n");
+      out.write("                <div class=\"wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30\">\r\n");
+      out.write("                    ");
+
+                        Cookie[] listCookie = request.getCookies();
+                        String user = "";
+                        String pass = "";
+                        boolean checked = false;
+                        int co = 0;
+                        if (listCookie != null) {
+                            while (co < listCookie.length) {
+                                if (listCookie[co].getName().equals("user")) {
+                                    user = listCookie[co].getValue();
+                                    checked = true;
+                                }
+                                if (listCookie[co].getName().equals("pass")) {
+                                    pass = listCookie[co].getValue();
+                                    checked = true;
+                                }
+                                co++;
+                            }
+
+                        }
+                    
+      out.write("\r\n");
+      out.write("                    ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${error}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\r\n");
+      out.write("                    <form class=\"login100-form validate-form\" action=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Customers/Check\" method=\"post\">\r\n");
+      out.write("                        <span class=\"login100-form-title p-b-55\">\r\n");
+      out.write("                            ");
       if (_jspx_meth_fmt_message_0(_jspx_page_context))
         return;
-      out.write("</h2>\r\n");
-      out.write("                        <form action=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Customers/Store\" method=\"post\" name=\"myForm\" ng-submit=\"checkOnSubmit($event)\">\r\n");
-      out.write("                            <div class=\"input-group\" >\r\n");
-      out.write("                                <input class=\"input--style-3\" type=\"text\" id=\"exampleFirstName\" name=\"regis_name\" placeholder=\"");
+      out.write("\r\n");
+      out.write("                        </span>\r\n");
+      out.write("\r\n");
+      out.write("                        <div class=\"wrap-input100 validate-input m-b-16\" data-validate = \"Valid email is required: ex@abc.xyz\" >\r\n");
+      out.write("                            <input class=\"input100\" type=\"text\" name=\"txtMail\" value=\"");
+out.print(user);
+      out.write("\" placeholder=\"");
       if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
-      out.write("\" ng-required=\"true\"\r\n");
-      out.write("                                       ng-model=\"username\" ng-minlength= \"5\" ng-maxlength= \"20\">\r\n");
-      out.write("                                <br/>\r\n");
-      out.write("                                <span ng-show=\"myForm.regis_name.$invalid && myForm.regis_name.$dirty\" class=\"error-msg\">\r\n");
-      out.write("                                    Name must be(5-20)!\r\n");
-      out.write("                                </span>\r\n");
-      out.write("                                <br/>\r\n");
+      out.write("\">\r\n");
+      out.write("                            <span class=\"focus-input100\"></span>\r\n");
+      out.write("                            <span class=\"symbol-input100\">\r\n");
+      out.write("                                <span class=\"lnr lnr-envelope\"></span>\r\n");
+      out.write("                            </span>\r\n");
+      out.write("                        </div>\r\n");
       out.write("\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"row row-space\">\r\n");
-      out.write("                                <div class=\"col-2\">\r\n");
-      out.write("                                    <div class=\"input-group\">\r\n");
-      out.write("                                        <input class=\"input--style-3\" type=\"password\" id=\"exampleInputPassword\" name=\"regis_pass\" placeholder=\"");
+      out.write("                        <div class=\"wrap-input100 validate-input m-b-16\" data-validate = \"Password is required\">\r\n");
+      out.write("                            <input class=\"input100\" type=\"password\" name=\"txtPassword\" value=\"");
+out.print(pass);
+      out.write("\"  placeholder=\"");
       if (_jspx_meth_fmt_message_2(_jspx_page_context))
         return;
-      out.write("\" ng-model=\"password\"\r\n");
-      out.write("                                               ng-minlength= \"5\" ng-maxlength= \"10\" ng-required=\"true\">\r\n");
-      out.write("                                        \r\n");
-      out.write("                                        <span ng-show=\"myForm.regis_pass.$invalid && myForm.regis_pass.$dirty\" class=\"error-msg\">\r\n");
-      out.write("                                            Password must be(5-10)!\r\n");
-      out.write("                                        </span>\r\n");
-      out.write("                                        \r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                               \r\n");
-      out.write("                                <div class=\"col-2\">\r\n");
-      out.write("                                    <div class=\"input-group\">\r\n");
-      out.write("                                        <div class=\"rs-select2 js-select-simple select--no-search\">\r\n");
-      out.write("                                              <input class=\"input--style-3\" type=\"password\" id=\"exampleRepeatPassword\" name=\"regis_pass\" placeholder=\"");
+      out.write("\">\r\n");
+      out.write("                            <span class=\"focus-input100\"></span>\r\n");
+      out.write("                            <span class=\"symbol-input100\">\r\n");
+      out.write("                                <span class=\"lnr lnr-lock\"></span>\r\n");
+      out.write("                            </span>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("\r\n");
+      out.write("                        <div class=\"contact100-form-checkbox m-l-4\">\r\n");
+      out.write("                            ");
+ 
+                            if (checked== true){                                                        
+                            
+      out.write("\r\n");
+      out.write("                            <input class=\"input-checkbox100\" value=\"ON\" checked=\"true\" type=\"checkbox\" id=\"customCheck\" name=\"chkRemember\">\r\n");
+      out.write("                            <label class=\"label-checkbox100\" for=\"customCheck\">");
       if (_jspx_meth_fmt_message_3(_jspx_page_context))
         return;
-      out.write("\" ng-required=\"true\">\r\n");
-      out.write("                                           \r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"input-group\">\r\n");
-      out.write("                                <div class=\"rs-select2 js-select-simple select--no-search\">\r\n");
-      out.write("                                    <input class=\"input--style-3\" type=\"email\" ng-model=\"txtMail\" id=\"exampleInputEmail\" name=\"regis_mail\" placeholder=\"");
+      out.write("\r\n");
+      out.write("                                ");
+
+                            }else{
+                                
+      out.write("\r\n");
+      out.write("                                 <input class=\"input-checkbox100\" value=\"ON\" type=\"checkbox\" id=\"customCheck\" name=\"chkRemember\">\r\n");
+      out.write("                            <label class=\"label-checkbox100\" for=\"customCheck\">");
       if (_jspx_meth_fmt_message_4(_jspx_page_context))
         return;
-      out.write("\" ng-required=\"true\">\r\n");
-      out.write("                                    <br/>\r\n");
-      out.write("                                    <span  ng-show=\"myForm.regis_mail.$invalid && myForm.regis_mail.$dirty\" class=\"error-msg\">\r\n");
-      out.write("                                        mail must be (name@gmail.com)!\r\n");
-      out.write("                                    </span>\r\n");
-      out.write("                                    <br/>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"row row-space\">\r\n");
-      out.write("                                <div class=\"col-2\">\r\n");
-      out.write("                                    <div class=\"input-group\">\r\n");
-      out.write("                                        <input class=\"input--style-3\" type=\"text\" id=\"address\" name=\"regis_address\" placeholder=\"");
+      out.write("\r\n");
+      out.write("                                ");
+
+                            }
+                            
+      out.write("\r\n");
+      out.write("                            </label>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("\r\n");
+      out.write("                        <div class=\"container-login100-form-btn p-t-25\">\r\n");
+      out.write("                            <button class=\"login100-form-btn\" type=\"submit\" value=\"\">\r\n");
+      out.write("                                ");
       if (_jspx_meth_fmt_message_5(_jspx_page_context))
         return;
-      out.write("\" ng-required=\"true\">\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"row row-space\">\r\n");
-      out.write("                                <div class=\"col-2\">\r\n");
-      out.write("                                    <div class=\"input-group\">\r\n");
-      out.write("                                       <input class=\"input--style-3\" type=\"text\" id=\"mobile\" name=\"regis_phone\" placeholder=\"");
+      out.write("\r\n");
+      out.write("                            </button>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"text-center w-full p-t-42 p-b-22\">\r\n");
+      out.write("                            <span class=\"txt1\">\r\n");
+      out.write("                                <a class=\"small\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Login/registerCustomer/colorlib-regform-2/index.jsp\">");
       if (_jspx_meth_fmt_message_6(_jspx_page_context))
         return;
-      out.write("\" ng-required=\"true\"\r\n");
-      out.write("                                                   ng-model=\"phone\" ng-pattern=\"/((09|03|07|08|05|06|04|02|01)+([0-9]{8,10})\\b)/g\">\r\n");
-      out.write("                                            <br/>\r\n");
-      out.write("                                            <span ng-show=\"myForm.regis_phone.$invalid && myForm.regis_phone.$dirty\" class=\"error-msg\">\r\n");
-      out.write("                                                must be in correct format and (10 to 12) Number!\r\n");
-      out.write("\r\n");
-      out.write("                                            </span>\r\n");
-      out.write("                                            <br/>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                                    \r\n");
-      out.write("                                    \r\n");
-      out.write("                            <div class=\"p-t-30\">\r\n");
-      out.write("                                <button class=\"btn btn--radius btn--green checkmobile\"  type=\"submit\" onclick=\"return Validate()\">");
+      out.write("</a>\r\n");
+      out.write("                            </span><br/>\r\n");
+      out.write("                            <span class=\"txt1\">\r\n");
+      out.write("                                <a class=\"small\" href=\"forgot-password.jsp\">");
       if (_jspx_meth_fmt_message_7(_jspx_page_context))
         return;
-      out.write("</button>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"p-t-30\">\r\n");
-      out.write("                                <a href=\"https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project_HKIV_PetShop/loginGoogle&response_type=code\r\n");
-      out.write("                                   &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force\" style=\"color: #007bff;\">\r\n");
-      out.write("                                    ");
+      out.write("</a>\r\n");
+      out.write("                            </span>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("\r\n");
+      out.write("                        <a href=\"../Admin/index.html\" class=\"btn-face m-b-10\">\r\n");
+      out.write("                            <i class=\"fa fa-facebook-official\"></i>\r\n");
+      out.write("                            Facebook\r\n");
+      out.write("                        </a>\r\n");
+      out.write("\r\n");
+      out.write("                        <a href=\"https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project_HKIV_PetShop/loginGoogle&response_type=code\r\n");
+      out.write("                           &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force\" class=\"btn-google m-b-10\">\r\n");
+      out.write("                            <img src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Login/loginCustomer/Login_v11/images/icons/icon-google.png\" alt=\"GOOGLE\">");
       if (_jspx_meth_fmt_message_8(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"p-t-30\">\r\n");
-      out.write("                                <a class=\"small\" href=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Login/loginCustomer/Login_v11/index.jsp\"> ");
-      if (_jspx_meth_fmt_message_9(_jspx_page_context))
-        return;
-      out.write(" </a>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"p-t-30\">\r\n");
-      out.write("                                <a class=\"small\" href=\"?locale=en\">\r\n");
-      out.write("                                    English |\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                                <a class=\"small\" href=\"?locale=vi\">\r\n");
-      out.write("                                    Vietnamese\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </form>\r\n");
-      out.write("                    </div>\r\n");
+      out.write("\r\n");
+      out.write("                        </a>\r\n");
+      out.write("                        <div class=\"text-center w-full p-t-42 p-b-22\">\r\n");
+      out.write("                            <a class=\"small\" href=\"?locale=en\">\r\n");
+      out.write("                                English |\r\n");
+      out.write("                            </a>\r\n");
+      out.write("                            <a class=\"small\" href=\"?locale=vi\">\r\n");
+      out.write("                                Vietnamese\r\n");
+      out.write("                            </a>\r\n");
+      out.write("\r\n");
+      out.write("                        </div>\r\n");
+      out.write("\r\n");
+      out.write("                    </form>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
-      out.write("        <script type=\"text/javascript\">\r\n");
-      out.write("            function Validate() {\r\n");
-      out.write("                var password = document.getElementById(\"exampleInputPassword\").value;\r\n");
-      out.write("                var confirmPassword = document.getElementById(\"exampleRepeatPassword\").value;\r\n");
-      out.write("                if (password != confirmPassword) {\r\n");
-      out.write("                    alert(\"Passwords do not match.\");\r\n");
-      out.write("                    return false;\r\n");
-      out.write("                }\r\n");
-      out.write("                return true;\r\n");
-      out.write("            }\r\n");
-      out.write("        </script>\r\n");
-      out.write("        <script>\r\n");
-      out.write("            var app = angular.module(\"myApp\", []);\r\n");
       out.write("\r\n");
-      out.write("            app.controller(\"myCtrl\", function($scope) {\r\n");
       out.write("\r\n");
-      out.write("                $scope.password = \"\";\r\n");
-      out.write("                $scope.username = \"\";\r\n");
-      out.write("                $scope.phone = \"\";\r\n");
-      out.write("                // Show more error infos.\r\n");
-      out.write("                function printErrorInfo() {\r\n");
-      out.write("                    console.log($scope.myForm.$error);\r\n");
-      out.write("                    if ($scope.myForm.$error.minlength) {\r\n");
-      out.write("                        console.log('$error.minlength? ' + $scope.myForm.$error.minlength[0].$invalid);\r\n");
-      out.write("                    }\r\n");
-      out.write("                    if ($scope.myForm.$error.maxlength) {\r\n");
-      out.write("                        console.log('$error.maxlength? ' + $scope.myForm.$error.maxlength[0].$invalid);\r\n");
-      out.write("                    }\r\n");
       out.write("\r\n");
-      out.write("                }\r\n");
       out.write("\r\n");
-      out.write("                $scope.checkOnSubmit = function(event) {\r\n");
-      out.write("                    if ($scope.myForm.$invalid) {\r\n");
-      out.write("                        alert(\"Something invalid!\");\r\n");
-      out.write("\r\n");
-      out.write("                        printErrorInfo();\r\n");
-      out.write("\r\n");
-      out.write("                        // Cancel submit\r\n");
-      out.write("                        event.preventDefault();\r\n");
-      out.write("                        return false;\r\n");
-      out.write("                    }\r\n");
-      out.write("\r\n");
-      out.write("                    return true;\r\n");
-      out.write("                }\r\n");
-      out.write("\r\n");
-      out.write("            });\r\n");
-      out.write("\r\n");
-      out.write("        </script>\r\n");
-      out.write("\r\n");
-      out.write("        <!-- Jquery JS-->\r\n");
+      out.write("        <!--===============================================================================================-->\t\r\n");
       out.write("        <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Login/registerCustomer/colorlib-regform-2/vendor/jquery/jquery.min.js\"></script>\r\n");
-      out.write("        <!-- Vendor JS-->\r\n");
+      out.write("/Login/loginCustomer/Login_v11/vendor/jquery/jquery-3.2.1.min.js\"></script>\r\n");
+      out.write("        <!--===============================================================================================-->\r\n");
       out.write("        <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Login/registerCustomer/colorlib-regform-2/vendor/select2/select2.min.js\"></script>\r\n");
+      out.write("/Login/loginCustomer/Login_v11/vendor/bootstrap/js/popper.js\"></script>\r\n");
       out.write("        <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Login/registerCustomer/colorlib-regform-2/vendor/datepicker/moment.min.js\"></script>\r\n");
+      out.write("/Login/loginCustomer/Login_v11/vendor/bootstrap/js/bootstrap.min.js\"></script>\r\n");
+      out.write("        <!--===============================================================================================-->\r\n");
       out.write("        <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Login/registerCustomer/colorlib-regform-2/vendor/datepicker/daterangepicker.js\"></script>\r\n");
+      out.write("/Login/loginCustomer/Login_v11/vendor/select2/select2.min.js\"></script>\r\n");
+      out.write("        <!--===============================================================================================-->\r\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Login/loginCustomer/Login_v11/js/main.js\"></script>\r\n");
       out.write("\r\n");
-      out.write("        <!-- Main JS-->\r\n");
-      out.write("        <script src=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Login/registerCustomer/colorlib-regform-2/js/global.js\"></script>\r\n");
-      out.write("\r\n");
-      out.write("    </body><!-- This templates was made by Colorlib (https://colorlib.com) -->\r\n");
-      out.write("\r\n");
+      out.write("    </body>\r\n");
       out.write("</html>\r\n");
-      out.write("<!-- end document-->");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -407,7 +384,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_0 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_0.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_0.setParent(null);
-    _jspx_th_fmt_message_0.setKey("login.form.titleRe");
+    _jspx_th_fmt_message_0.setKey("login.form.title");
     int _jspx_eval_fmt_message_0 = _jspx_th_fmt_message_0.doStartTag();
     if (_jspx_th_fmt_message_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
@@ -425,7 +402,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_1 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_1.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_1.setParent(null);
-    _jspx_th_fmt_message_1.setKey("login.textfield.name");
+    _jspx_th_fmt_message_1.setKey("login.textfield.mail");
     int _jspx_eval_fmt_message_1 = _jspx_th_fmt_message_1.doStartTag();
     if (_jspx_th_fmt_message_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
@@ -461,7 +438,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_3 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_3.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_3.setParent(null);
-    _jspx_th_fmt_message_3.setKey("login.textfield.rePassword");
+    _jspx_th_fmt_message_3.setKey("login.textfield.checkbox");
     int _jspx_eval_fmt_message_3 = _jspx_th_fmt_message_3.doStartTag();
     if (_jspx_th_fmt_message_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
@@ -479,7 +456,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_4 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_4.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_4.setParent(null);
-    _jspx_th_fmt_message_4.setKey("login.textfield.mail");
+    _jspx_th_fmt_message_4.setKey("login.textfield.checkbox");
     int _jspx_eval_fmt_message_4 = _jspx_th_fmt_message_4.doStartTag();
     if (_jspx_th_fmt_message_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
@@ -497,7 +474,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_5 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_5.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_5.setParent(null);
-    _jspx_th_fmt_message_5.setKey("login.textfield.address");
+    _jspx_th_fmt_message_5.setKey("login.button.submit");
     int _jspx_eval_fmt_message_5 = _jspx_th_fmt_message_5.doStartTag();
     if (_jspx_th_fmt_message_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
@@ -515,7 +492,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_6 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_6.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_6.setParent(null);
-    _jspx_th_fmt_message_6.setKey("login.textfield.phone");
+    _jspx_th_fmt_message_6.setKey("login.textfield.Register");
     int _jspx_eval_fmt_message_6 = _jspx_th_fmt_message_6.doStartTag();
     if (_jspx_th_fmt_message_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
@@ -533,7 +510,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_7 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_7.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_7.setParent(null);
-    _jspx_th_fmt_message_7.setKey("login.textfield.Register");
+    _jspx_th_fmt_message_7.setKey("login.button.fogot");
     int _jspx_eval_fmt_message_7 = _jspx_th_fmt_message_7.doStartTag();
     if (_jspx_th_fmt_message_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
@@ -558,24 +535,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_8);
-    return false;
-  }
-
-  private boolean _jspx_meth_fmt_message_9(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  fmt:message
-    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_9 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
-    _jspx_th_fmt_message_9.setPageContext(_jspx_page_context);
-    _jspx_th_fmt_message_9.setParent(null);
-    _jspx_th_fmt_message_9.setKey("login.button.alhaveaccount");
-    int _jspx_eval_fmt_message_9 = _jspx_th_fmt_message_9.doStartTag();
-    if (_jspx_th_fmt_message_9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_9);
-      return true;
-    }
-    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_9);
     return false;
   }
 }

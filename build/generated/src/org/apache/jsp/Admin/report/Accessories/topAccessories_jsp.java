@@ -1,10 +1,10 @@
-package org.apache.jsp.Admin.report.Pet;
+package org.apache.jsp.Admin.report.Accessories;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class topPet_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class topAccessories_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -83,50 +83,50 @@ public final class topPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                text-indent: 30px;\r\n");
       out.write("                font-weight: bold;\r\n");
       out.write("            }\r\n");
-      out.write("            color{\r\n");
-      out.write("                background-color: #2e59d9;\r\n");
-      out.write("            }\r\n");
       out.write("        </style>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
       out.write("        <div class=\"container\">\r\n");
-      out.write("            <div class=\"color\">\r\n");
+      out.write("            <h2>S2 Pet Admin</h2>\r\n");
       out.write("            <h3>590 Cách Mạng tháng Tám.</h3>\r\n");
       out.write("            <h3>Quận 3, TP Hồ Chí Minh.</h3>\r\n");
       out.write("            <h3>Phone: 0387278015.\r\n");
-      out.write("            <h3>Email:dokhanhduy123abc@gmail.com</h3>\r\n");
-      out.write("            </div>\r\n");
-      out.write("            <hr>\r\n");
+      out.write("                <h3>Email:dokhanhduy123abc@gmail.com</h3>\r\n");
       out.write("                <header>\r\n");
-      out.write("                    <h1><span>Report</span>Top 5 most expensive pets</h1>\r\n");
+      out.write("                    <h1><span>Report</span>Top 5 most expensive foods</h1>\r\n");
       out.write("\r\n");
       out.write("                </header>  \r\n");
+      out.write("                <hr>\r\n");
+      out.write("                <h2>S2 Pet Admin</h2>\r\n");
+      out.write("                <h3>590 Cách Mạng tháng Tám.</h3>\r\n");
+      out.write("                <h3>Quận 3, TP Hồ Chí Minh.</h3>\r\n");
+      out.write("                <h3>Phone: 0387278015.\r\n");
+      out.write("                    <h3>Email:dokhanhduy123abc@gmail.com</h3>\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("                    <!-- start header here-->\r\n");
+      out.write("                    <header>\r\n");
+      out.write("                        <div id=\"fdw-pricing-table\">\r\n");
       out.write("\r\n");
-      out.write("                <!-- start header here-->\r\n");
-      out.write("                <header>\r\n");
-      out.write("                    <div id=\"fdw-pricing-table\">\r\n");
-      out.write("\r\n");
-      out.write("                        <table border=\"1\" width=\"80%\">\r\n");
-      out.write("                            <tr style=\"text-align: center\">\r\n");
-      out.write("                                <th>Pet Id</th>\r\n");
-      out.write("                                <th>Name</th>\r\n");
-      out.write("                                <th>Breed</th>\r\n");
-      out.write("                                <th>Price</th>\r\n");
-      out.write("                            </tr>\r\n");
-      out.write("                            ");
+      out.write("                            <table border=\"1\" width=\"80%\">\r\n");
+      out.write("                                <tr style=\"text-align: center\">\r\n");
+      out.write("                                    <th>Id</th>\r\n");
+      out.write("                                    <th>Name</th>\r\n");
+      out.write("                                    <th>Animals</th>\r\n");
+      out.write("                                    <th>Price</th>\r\n");
+      out.write("                                </tr>\r\n");
+      out.write("                                ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("                        </table>\r\n");
+      out.write("                            </table>\r\n");
+      out.write("\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                    </header><!-- end header -->\r\n");
       out.write("\r\n");
       out.write("                    </div>\r\n");
-      out.write("                </header><!-- end header -->\r\n");
-      out.write("\r\n");
-      out.write("        </div>\r\n");
-      out.write("    </body>\r\n");
-      out.write("</html>\r\n");
+      out.write("                    </body>\r\n");
+      out.write("                    </html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -175,21 +175,21 @@ public final class topPet_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("                                <tr>\r\n");
-          out.write("                                    <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.PId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("                                    <tr>\r\n");
+          out.write("                                        <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.ESId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                    <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.PName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("                                        <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                    <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.CPId.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("                                        <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.CFId.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                    <td>");
+          out.write("                                        <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${i.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                </tr>\r\n");
-          out.write("                            ");
+          out.write("                                    </tr>\r\n");
+          out.write("                                ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;

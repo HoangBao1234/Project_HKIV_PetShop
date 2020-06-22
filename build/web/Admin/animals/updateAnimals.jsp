@@ -370,6 +370,8 @@
                 </center>
             </div>
         </div>
+                                    
+                                    
         <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
         <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
