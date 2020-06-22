@@ -254,15 +254,15 @@
                                     </h6>
                                     <c:forEach var="i" items="${list}">
                                         <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                                            <div class="status-indicator bg-success"></div>
-                                        </div>
-                                        <div class="font-weight-bold">
-                                            <div class="text-truncate">${i.MId.name}</div>
-                                            <div class="small text-gray-500">${i.content}</div>
-                                        </div>
-                                    </a>
+                                            <div class="dropdown-list-image mr-3">
+                                                <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                                                <div class="status-indicator bg-success"></div>
+                                            </div>
+                                            <div class="font-weight-bold">
+                                                <div class="text-truncate">${i.MId.name}</div>
+                                                <div class="small text-gray-500">${i.content}</div>
+                                            </div>
+                                        </a>
                                     </c:forEach>
                                     <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                                 </div>
@@ -316,6 +316,7 @@
                                         <th scope="col" style="color: #006dcc">Id</th>
                                         <th scope="col" style="color: #006dcc">Content</th>
                                         <th scope="col" style="color: #006dcc">Feedbacker</th>
+                                        <th scope="col" style="color: #006dcc">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -324,6 +325,10 @@
                                             <td>${i.FBId}</td>
                                             <td>${i.content}</td>
                                             <td>${i.MId.name}</td>
+                                            <td>
+                                                <a href="${context}/FeedBack/Delete?id=${i.FBId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <a href="${context}/FeedBack/Detail?id=${i.FBId}"><i class="fas fa-bars" title="Detail"></i></a>
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

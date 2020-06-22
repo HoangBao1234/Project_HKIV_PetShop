@@ -13,6 +13,7 @@
         <meta name="author" content="">
 
         <title>Add Accesssories</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
@@ -23,7 +24,13 @@
         <!-- Custom styles for this template-->
         <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
 
-
+        <style>
+            .error-msg {
+                font-size: 90%;
+                font-style: italic;
+                color: red;
+            }
+        </style>
 
     </head>
 
@@ -327,133 +334,175 @@
                     </nav>
                     <div>
                         <center>
-                            <h1>Add Accessories</h1>
-                            <form class="form-horizontal" action="${context}/Accessories/Store" method="post" id="form1" runat="server" enctype="multipart/form-data">
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Accessories Id
+                            <div class="card-body" ng-app="myApp" ng-controller="myCtrl">
+                                <h1>Add Accessories</h1>
+                                <form class="form-horizontal" action="${context}/Accessories/Store" method="post" id="form1" runat="server" enctype="multipart/form-data" name="myForm" ng-submit="checkOnSubmit($event)">
+                                    <!-- Text input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Accessories Id
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="accessoreis_id" name="accessoreis_id" placeholder="ID" class="form-control input-md" required="" type="text">
+                                            <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msg}</h6>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <input id="accessoreis_id" name="accessoreis_id" placeholder="ID" class="form-control input-md" required="" type="text">
-                                        <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msg}</h6>
-                                    </div>
-                                </div>
 
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Accessoreis Name
+                                    <!-- Text input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Accessoreis Name
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="accessoreis_name" name="accessoreis_name" placeholder="Name" class="form-control input-md" ng-required="true"
+                                                   ng-model="username" ng-minlength= "3" ng-maxlength= "20" type="text">
+                                        </div>
+                                        <span ng-show="myForm.accessoreis_name.$invalid && myForm.accessoreis_name.$dirty" class="error-msg">
+                                            Name must be(3-20)!
+                                        </span>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <input id="accessoreis_name" name="accessoreis_name" placeholder="Name" class="form-control input-md" required="" type="text">
+                                    <!-- Text input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Price
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="text">
+                                            <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msgPrice}</h6>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Price
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="text">
-                                        <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msgPrice}</h6>
-                                    </div>
-                                </div>
 
-                                <!-- Select Basic -->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Desciption
+                                    <!-- Select Basic -->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Desciption
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <textarea class="form-control" rows="5" id="comment" name="description" ng-required="true"
+                                                   ng-model="description" ng-minlength= "3" ng-maxlength= "100"></textarea>
+                                        </div>
+                                        <span ng-show="myForm.description.$invalid && myForm.description.$dirty" class="error-msg">
+                                            Name must be(3-100)!
+                                        </span>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
+                                    <!-- Textarea -->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Image
+                                        </div>
+                                        <div class="col-sm-4" style="text-align: left">
+                                            <p><img id="image_upload_preview" width="100" height="100" src="http://placehold.it/100x100" alt="your image" /></p>
+                                            <input id="inputFile" name="image" placeholder="Image" required="" type="file">
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Textarea -->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Image
+                                    <!-- Text input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Animals
+                                        </div>
+                                        <div class="col-sm-4" style="text-align: left">
+                                            <select style="width: 150px" name="animals">
+                                                <c:forEach var="aList" items="${animals}">
+                                                    <option value="${aList.CFId}">${aList.name}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4" style="text-align: left">
-                                        <p><img id="image_upload_preview" width="100" height="100" src="http://placehold.it/100x100" alt="your image" /></p>
-                                        <input id="inputFile" name="image" placeholder="Image" required="" type="file">
+                                    <!-- Search input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Category
+                                        </div>
+                                        <div class="col-sm-4" style="text-align: left">
+                                            <select style="width: 150px" name="category">
+                                                <c:forEach var="cList" items="${category}">
+                                                    <option value="${cList.CEId}">${cList.name}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Animals
-                                    </div>
-                                    <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px" name="animals">
-                                            <c:forEach var="aList" items="${animals}">
-                                                <option value="${aList.CFId}">${aList.name}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Search input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Category
-                                    </div>
-                                    <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px" name="category">
-                                            <c:forEach var="cList" items="${category}">
-                                                <option value="${cList.CEId}">${cList.name}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <!-- Search input-->
-
-
-                                <!-- Button -->
-                                <div class="form-group">
-                                    <div class="col-md-4" style="text-align: left">
-                                        <input type="submit" value="Insert" name="action" class="btn btn-primary"/>
-                                    </div>
-                                </div>
+                                    <!-- Search input-->
 
 
-                            </form>
+                                    <!-- Button -->
+                                    <div class="form-group">
+                                        <div class="col-md-4" style="text-align: left">
+                                            <input type="submit" value="Insert" name="action" class="btn btn-primary"/>
+                                        </div>
+                                    </div>
+
+
+                                </form>
+                            </div>
+                        </center>
                     </div>
                 </div>
-                </center>
             </div>
-        </div>
-        <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
-        <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
+            <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
+            <!-- Page level plugins -->
+            <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
-        <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
-        <script>
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
+            <!-- Page level custom scripts -->
+            <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
+            <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
+            <script>
+                                function readURL(input) {
+                                    if (input.files && input.files[0]) {
+                                        var reader = new FileReader();
 
-                    reader.onload = function(e) {
-                        $('#image_upload_preview').attr('src', e.target.result);
+                                        reader.onload = function(e) {
+                                            $('#image_upload_preview').attr('src', e.target.result);
+                                        }
+
+                                        reader.readAsDataURL(input.files[0]);
+                                    }
+                                }
+
+                                $("#inputFile").change(function() {
+                                    readURL(this);
+                                });
+            </script>
+            <script>
+                var app = angular.module("myApp", []);
+
+                app.controller("myCtrl", function($scope) {
+
+                    $scope.username = "";
+                    function printErrorInfo() {
+                        console.log($scope.myForm.$error);
+                        if ($scope.myForm.$error.minlength) {
+                            console.log('$error.minlength? ' + $scope.myForm.$error.minlength[0].$invalid);
+                        }
+                        if ($scope.myForm.$error.maxlength) {
+                            console.log('$error.maxlength? ' + $scope.myForm.$error.maxlength[0].$invalid);
+                        }
+
                     }
 
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
+                    $scope.checkOnSubmit = function(event) {
+                        if ($scope.myForm.$invalid) {
+                            alert("Something invalid!");
 
-            $("#inputFile").change(function() {
-                readURL(this);
-            });
-        </script>
+                            printErrorInfo();
+
+                            event.preventDefault();
+                            return false;
+                        }
+
+                        return true;
+                    }
+
+                });
+
+            </script>
     </body>
 </html>

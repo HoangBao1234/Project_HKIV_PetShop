@@ -84,9 +84,22 @@ public class cateController extends HttpServlet {
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
             String name = request.getParameter("category_name");
-            CateES cate = new CateES(name);
-            cateESFacade.create(cate);
-            response.sendRedirect("List");
+            String msg = null;
+            boolean check = false;
+            for (CateES cate : cateESFacade.findAll()) {
+                if (cate.getName().equals(name)) {
+                    msg = name + " already in database";
+                    check = true;
+                    request.setAttribute("msg", msg);
+                    request.getRequestDispatcher("/Admin/cate/addCate.jsp").forward(request, response);
+                }
+            }
+            if (check == false) {
+                CateES cate = new CateES(name);
+                cateESFacade.create(cate);
+                response.sendRedirect("List");
+            }
+
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }

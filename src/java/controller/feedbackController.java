@@ -48,6 +48,9 @@ public class feedbackController extends HttpServlet {
                 case "/Delete":
                     delete(request, response);
                     break;
+                    case "/Detail":
+                    getViewDetail(request, response);
+                    break;
                 default:
                     getViewError(request, response);
                     break;
@@ -78,9 +81,11 @@ public class feedbackController extends HttpServlet {
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            int id = Integer.parseInt("id");
+            int id = Integer.parseInt(request.getParameter("id"));
             Feedbacks fb = feedbacksFacade.find(id);
             feedbacksFacade.remove(fb);
+            response.sendRedirect("List");
+
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }
@@ -99,6 +104,20 @@ public class feedbackController extends HttpServlet {
 
     private void getCreteView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/Admin/feedback/fbList.jsp").forward(request, response);
+    }
+
+    private void getViewDetail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
+                response.sendRedirect("List");
+            } else {
+                int id = Integer.parseInt(request.getParameter("id"));
+                request.setAttribute("fb", feedbacksFacade.find(id));
+                request.getRequestDispatcher("/Admin/feedback/detail.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
