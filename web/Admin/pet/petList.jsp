@@ -366,6 +366,7 @@
                                 </tbody>
                             </table>
                         </center>
+                        <button><a href="${context}/Pet/PrintReport" style="text-decoration: none">Print Report</a></button>
                     </div>
                 </div>
                 <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>

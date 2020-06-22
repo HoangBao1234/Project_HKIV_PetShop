@@ -107,7 +107,7 @@ public class hotelController extends HttpServlet {
             String namePet = request.getParameter("name");
             String dateEnd = request.getParameter("dateEnd");
             String status = request.getParameter("status");
-
+            String msg = null;
             Date date = new Date(System.currentTimeMillis());
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             String hihi = dateFormat.format(date);
@@ -117,16 +117,16 @@ public class hotelController extends HttpServlet {
 
             Date d = dateFormat.parse(dateEnd);
             long day = (d.getTime() - date.getTime()) / (24 * 3600 * 1000);
-            if (day > 0 && day < 3) {
-                hotel.setPrice(50);
-            } else if (day > 0 && day < 5) {
-                hotel.setPrice(80);
-            } else if (day > 0 && day > 10) {
-                hotel.setPrice(100);
+            if (day < 0) {
+                msg = "Invalid Date";
+                request.setAttribute("msg", msg);
+                request.getRequestDispatcher("/Customer/petHotel/colorlib-regform-3/index.jsp").forward(request, response);
+            } else {
+                pethotelFacade.create(hotel);
+                session.setAttribute("hotel", hotel);
+                response.sendRedirect("PrintBill");
             }
-            pethotelFacade.create(hotel);
-            session.setAttribute("hotel", hotel);
-            response.sendRedirect("PrintBill");
+
         } else {
             request.getRequestDispatcher("/Login/loginCustomer/Login_v11/index.jsp").forward(request, response);
         }

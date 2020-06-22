@@ -41,4 +41,6 @@ public interface FoodsFacadeLocal {
     List<Foods> selectLimit(int a);
     
     void deleteByAnimals(Animals animals);
+    
+    List<Foods> selectAcc();
 }

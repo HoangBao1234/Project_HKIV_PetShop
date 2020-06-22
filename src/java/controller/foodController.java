@@ -83,7 +83,7 @@ public class foodController extends HttpServlet {
                     getViewDetail(request, response);
                     break;
                 case "/PrintReport":
-                    getViewDetail(request, response);
+                    printReport(request, response);
                     break;
                 default:
                     getViewError(request, response);
@@ -92,8 +92,9 @@ public class foodController extends HttpServlet {
         }
     }
 
-    private void printReport(HttpServletRequest request, HttpServletResponse response){
-        
+    private void printReport(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.setAttribute("list", foodsFacade.selectAcc());
+        request.getRequestDispatcher("/Admin/report/Food/topFood.jsp").forward(request, response);
     }
     
     private void getViewError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

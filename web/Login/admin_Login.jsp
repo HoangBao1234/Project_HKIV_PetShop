@@ -77,14 +77,6 @@
                                                 </div>
                                             </div>
                                             <input type="submit" class="btn btn-primary btn-user btn-block" value="<fmt:message key="login.button.submit"/>"/>
-
-                                            <hr>
-                                            <a href="../Admin/index.html" class="btn btn-google btn-user btn-block">
-                                                <i class="fab fa-google fa-fw"></i>  <fmt:message key="login.button.submitGoogle"/>
-                                            </a>
-                                            <a href="../Admin/index.html" class="btn btn-facebook btn-user btn-block">
-                                                <i class="fab fa-facebook-f fa-fw"></i>  <fmt:message key="login.button.submitFacebook"/>
-                                            </a>
                                         </form>
                                         <hr>
                                         <div class="text-center">

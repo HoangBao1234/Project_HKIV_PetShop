@@ -42,4 +42,6 @@ public interface AccessoriesFacadeLocal {
     List<Accessories> selectLimit(int a);
     
     void deleteByAnimals(Animals animals);
+    
+    List<Accessories> selectAcc();
 }

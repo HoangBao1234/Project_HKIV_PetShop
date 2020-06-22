@@ -85,6 +85,13 @@ public class AccessoriesFacade extends AbstractFacade<Accessories> implements Ac
         q.setParameter("cFId", animals);
         q.executeUpdate();
     }
+
+    @Override
+    public List<Accessories> selectAcc() {
+        String query = "SELECT f FROM Accessories f ORDER BY f.price DESC";
+        Query q = em.createQuery(query).setMaxResults(5);
+        return q.getResultList();
+    }
     
     
 }

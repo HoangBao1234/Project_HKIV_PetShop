@@ -81,6 +81,9 @@ public class accessoriesController extends HttpServlet {
                 case "/Detail":
                     getViewDetail(request, response);
                     break;
+                case "/PrintReport":
+                    printReport(request, response);
+                    break;
                 default:
                     getViewError(request, response);
                     break;
@@ -131,6 +134,11 @@ public class accessoriesController extends HttpServlet {
         return fullPath;
     }
 
+    private void printReport(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.setAttribute("list", accessoriesFacade.selectAcc());
+        request.getRequestDispatcher("/Admin/report/Accessories/topAccessories.jsp").forward(request, response);
+    }
+    
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
             String id = request.getParameter("accessoreis_id");

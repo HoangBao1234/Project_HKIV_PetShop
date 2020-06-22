@@ -77,5 +77,14 @@ public class FoodsFacade extends AbstractFacade<Foods> implements FoodsFacadeLoc
         q.setParameter("cFId", animals);
         q.executeUpdate();
     }
+
+    @Override
+    public List<Foods> selectAcc() {
+        String query = "SELECT f FROM Foods f ORDER BY f.price DESC";
+        Query q = em.createQuery(query).setMaxResults(5);
+        return q.getResultList();
+    }
+    
+    
     
 }

@@ -4,15 +4,18 @@
     Author     : DUY
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Report Food</title>
+        <title>Report Pet</title>
         <link rel="shortcut icon" href=http://www.freshdesignweb.com/wp-content/themes/fv24/images/icon.ico />
-        <link rel="stylesheet" type="text/css" href="styles.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="demo.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="${context}/Admin/report/Pet/styles.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="${context}/Admin/report/Pet/demo.css" media="all" />
         <style>
             h2{
                 text-indent: 30px;
@@ -28,11 +31,11 @@
         <div class="container">
 
             <header>
-                <h1><span>Report</span>Top 5 bestselling Food</h1>
+                <h1><span>Report</span>Top 5 most expensive foods</h1>
 
             </header>  
             <hr>
-            <h2>S2 Food Admin</h2>
+            <h2>S2 Pet Admin</h2>
             <h3>590 Cách Mạng tháng Tám.</h3>
             <h3>Quận 3, TP Hồ Chí Minh.</h3>
             <h3>Phone: 0387278015.
@@ -45,16 +48,16 @@
 
                         <table border="1" width="80%">
                             <tr style="text-align: center">
-                                <th>Pet Id</th>
+                                <th>Id</th>
                                 <th>Name</th>
-                                <th>Breed</th>
+                                <th>Animals</th>
                                 <th>Price</th>
                             </tr>
                             <c:forEach var="i" items="${list}">
                                 <tr>
-                                    <td>${i.PId}</td>
-                                    <td>${i.PName}</td>
-                                    <td>${i.CPId.name}</td>
+                                    <td>${i.FId}</td>
+                                    <td>${i.name}</td>
+                                    <td>${i.CFId.name}</td>
                                     <td>${i.price}</td>
                                 </tr>
                             </c:forEach>
