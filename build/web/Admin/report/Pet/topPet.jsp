@@ -31,7 +31,7 @@
         <div class="container">
 
             <header>
-                <h1><span>Report</span>Top 5 bestselling Pet</h1>
+                <h1><span>Report</span>Top 5 most expensive pets</h1>
 
             </header>  
             <hr>
@@ -45,18 +45,24 @@
                 <!-- start header here-->
                 <header>
                     <div id="fdw-pricing-table">
-                        <c:forEach var="i" items="${list}">
-                            <div class="plan plan1">
-                                <div class="header"><img src="${context}/ImageItems/${i.image}" width="110" height="100"/></div>
-                                <div class="price">${i.price}</div>  
-                                <div class="monthly">${i.PName}</div>  
-                                <ul>
-                                    <li><b>Loại</b> ${i.CPId.name}</li>
 
-                                </ul>
-                                <a class="signup" href="http://www.freshdesignweb.com">Add Cart</a>         
-                            </div>
-                        </c:forEach>
+                        <table border="1" width="80%">
+                            <tr style="text-align: center">
+                                <th>Pet Id</th>
+                                <th>Name</th>
+                                <th>Breed</th>
+                                <th>Price</th>
+                            </tr>
+                            <c:forEach var="i" items="${list}">
+                                <tr>
+                                    <td>${i.PId}</td>
+                                    <td>${i.PName}</td>
+                                    <td>${i.CPId.name}</td>
+                                    <td>${i.price}</td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+
                     </div>
                 </header><!-- end header -->
 
