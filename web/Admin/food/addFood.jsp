@@ -21,6 +21,7 @@
         <meta name="author" content="">
 
         <title>Add Food</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>   
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
@@ -30,7 +31,13 @@
         <!-- Custom styles for this template-->
         <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
 
-
+        <style>
+            .error-msg {
+                font-size: 90%;
+                font-style: italic;
+                color: red;
+            }
+        </style>
 
     </head>
 
@@ -332,17 +339,17 @@
                         </ul>
 
                     </nav>
-                    <div>
+                    <div ng-app="myApp" ng-controller="myCtrl">
                         <center>
                             <h1>Add Food</h1>
-                            <form class="form-horizontal" action="${context}/Foods/Store" id="form1" runat="server" enctype="multipart/form-data" method="post">
+                            <form class="form-horizontal" action="${context}/Foods/Store" id="form1" runat="server" enctype="multipart/form-data" method="post"  name="myForm" ng-submit="checkOnSubmit($event)">
                                 <!-- Text input-->
                                 <div class="form-group row">
                                     <div class="col-sm-4">
                                         Food Id
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="food_id" name="food_id" placeholder="Food Id" class="form-control input-md" required="" type="text">
+                                        <input id="food_id" name="food_id" placeholder="Food Id" class="form-control input-md" ng-required="true"  type="text">
                                         <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msg}</h6>
                                     </div>
                                 </div>
@@ -353,7 +360,13 @@
                                         Food Name
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="food_name" name="food_name" placeholder="Food Name" class="form-control input-md" required="" type="text">
+                                        <input id="food_name" name="food_name" placeholder="Food Name" class="form-control input-md" type="text"
+                                               ng-model="username" ng-minlength= "3" ng-maxlength= "20" ng-required="true">
+                                        <br/>
+                                        <span ng-show="myForm.food_name.$invalid && myForm.food_name.$dirty" class="error-msg">
+                                            Name must be(3-20)!
+                                        </span>
+                                        <br/>
                                     </div>
                                 </div>
                                 <!-- Text input-->
@@ -362,8 +375,9 @@
                                         Price
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="number">
+                                        <input id="price" name="price" placeholder="Price" class="form-control input-md" type="number"  ng-model="price" ng-required="true" min="0" max="50000000">
                                         <h6 style="color: red; text-align: left; margin-left: 10px; margin-top: 10px">${msgPrice}</h6>
+                                        
                                     </div>
                                 </div>
 
@@ -374,7 +388,7 @@
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
                                         <p><img id="image_upload_preview" width="100" height="100" src="http://placehold.it/100x100" alt="your image" /></p>
-                                        <input id="inputFile" name="image" placeholder="Image" required="" type="file">
+                                        <input id="inputFile" name="image" placeholder="Image" ng-required="true" type="file">
                                     </div>
                                 </div>
 
@@ -433,21 +447,58 @@
         <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
 
         <script>
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
+                                            function readURL(input) {
+                                                if (input.files && input.files[0]) {
+                                                    var reader = new FileReader();
 
-                    reader.onload = function(e) {
-                        $('#image_upload_preview').attr('src', e.target.result);
+                                                    reader.onload = function(e) {
+                                                        $('#image_upload_preview').attr('src', e.target.result);
+                                                    }
+
+                                                    reader.readAsDataURL(input.files[0]);
+                                                }
+                                            }
+
+                                            $("#inputFile").change(function() {
+                                                readURL(this);
+                                            });
+        </script>
+         <script>
+            var app = angular.module("myApp", []);
+
+            app.controller("myCtrl", function($scope) {
+
+                $scope.password = "";
+                $scope.username = "";
+                $scope.price = "";
+                // Show more error infos.
+                function printErrorInfo() {
+                    console.log($scope.myForm.$error);
+                    if ($scope.myForm.$error.minlength) {
+                        console.log('$error.minlength? ' + $scope.myForm.$error.minlength[0].$invalid);
+                    }
+                    if ($scope.myForm.$error.maxlength) {
+                        console.log('$error.maxlength? ' + $scope.myForm.$error.maxlength[0].$invalid);
                     }
 
-                    reader.readAsDataURL(input.files[0]);
                 }
-            }
 
-            $("#inputFile").change(function() {
-                readURL(this);
+                $scope.checkOnSubmit = function(event) {
+                    if ($scope.myForm.$invalid) {
+                        alert("Something invalid!");
+
+                        printErrorInfo();
+
+                        // Cancel submit
+                        event.preventDefault();
+                        return false;
+                    }
+
+                    return true;
+                }
+
             });
+
         </script>
     </body>
 </html>

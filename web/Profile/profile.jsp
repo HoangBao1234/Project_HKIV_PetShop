@@ -29,6 +29,7 @@
             border:2px solid #03b1ce ;}
         .tital{ font-size:16px; font-weight:500;}
         .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}	
+        
     </style>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -207,13 +208,16 @@
                                         <div class="bot-border"></div>
 
                                         <div class="col-sm-5 col-xs-6 tital " >Password:</div><div class="col-sm-7">
-                                            <input type="password" value="${list.password}" name="password" required="" maxlength="10" minlength="5"  />
+                                            <input type="password" id="exampleInputPassword" value="${list.password}" name="password" required="" maxlength="10" minlength="5"  />
+                                        </div>   
+                                        <div class="col-sm-5 col-xs-6 tital " >Re-Password:</div><div class="col-sm-7">
+                                            <input type="password" id="exampleRepeatPassword"name="repassword" required="" maxlength="10" minlength="5"  />
                                         </div>   
                                         <!-- /.box-body -->
                                         <div class="clearfix"></div>
                                         <div class="bot-border"></div>
                                         <div class="col-sm-7">
-                                            <input name="action" value="Update" type="submit"/>
+                                            <input name="action" value="Update" type="submit" onclick="return Validate()"/>
                                         </div>
                                     </form>
                                 </div>
@@ -226,7 +230,17 @@
 
                     </div>
                 </div>
-
+  <script type="text/javascript">
+            function Validate() {
+                var password = document.getElementById("exampleInputPassword").value;
+                var confirmPassword = document.getElementById("exampleRepeatPassword").value;
+                if (password != confirmPassword) {
+                    alert("Passwords do not match.");
+                    return false;
+                }
+                return true;
+            }
+        </script>
                 <script>
                     $(function() {
                         $('#profile-image1').on('click', function() {

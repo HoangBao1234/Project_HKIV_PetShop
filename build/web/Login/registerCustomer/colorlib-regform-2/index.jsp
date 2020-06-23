@@ -99,7 +99,7 @@
                                 <div class="col-2">
                                     <div class="input-group">
                                        <input class="input--style-3" type="text" id="mobile" name="regis_phone" placeholder="<fmt:message key="login.textfield.phone"/>" ng-required="true"
-                                                   ng-model="phone" ng-pattern="/((09|03|07|08|05|06|04|02|01)+([0-9]{8,10})\b)/g">
+                                                   ng-model="phone" ng-pattern="/((09|03|07|08|05|06|04|02|01\00)+([0-9]{8,10})\b)/g">
                                             <br/>
                                             <span ng-show="myForm.regis_phone.$invalid && myForm.regis_phone.$dirty" class="error-msg">
                                                 must be in correct format and (10 to 12) Number!
