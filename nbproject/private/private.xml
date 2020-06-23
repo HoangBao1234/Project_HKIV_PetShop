@@ -28,19 +28,8 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/feedback/detail.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/pet/addPet.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/animals/addAnimals.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/accessories/accessoriesList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/feedback/fbList.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/food/addFood.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/food/detail.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/controller/feedbackController.java</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/index.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/entity/Pets.java</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/controller/animalsController.java</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/controller/petController.java</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/setup/glassfish-resources.xml</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/order/orderList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/oderController.java</file>
         </group>
     </open-files>
 </project-private>
