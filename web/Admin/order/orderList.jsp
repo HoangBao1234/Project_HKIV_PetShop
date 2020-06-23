@@ -35,11 +35,11 @@
 
 
         <script>
-            function submit(){
+            function submit() {
                 document.getElementById("myForm").submit();
             }
         </script>
-        
+
     </head>
 
     <body id="page-top">
@@ -383,7 +383,16 @@
                                                 </form>
                                             </td>
                                             <td>
-                                                <a href="${context}/Oder/Delete?id=${i.oderId}"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                <c:if test="${i.status == 'Complete'}">
+                                                    <a href="${context}/Oder/Delete?id=${i.oderId}">
+                                                        <button disabled="true" class="btn btn-primary">Cancel</button>
+                                                    </a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                </c:if>
+                                                <c:if test="${i.status != 'Complete'}">
+                                                    <a href="${context}/Oder/Delete?id=${i.oderId}">
+                                                        <button class="btn btn-primary">Cancel</button>
+                                                    </a>&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
+                                                </c:if>
                                                 <a href="${context}/Oder/Detail?id=${i.oderId}"><i class="fas fa-bars" title="Detail"></i></a>
                                             </td>
                                         </tr>
@@ -414,9 +423,9 @@
 
 
                 <script>
-                    $(document).ready(function() {
-                        $('#example').DataTable();
-                    });
+                                                            $(document).ready(function() {
+                                                                $('#example').DataTable();
+                                                            });
                 </script>
                 </body>
                 </html>
