@@ -144,45 +144,58 @@ public class petController extends HttpServlet {
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         try {
+            String name = request.getParameter("pet_name");
             String id = request.getParameter("pet_id");
+            String msgName = null;
+            boolean check = false;
             String msg = null;
             String msgPrice = null;
-            if (petsFacade.find(id) == null) {
-                String name = request.getParameter("pet_name");
-                String color = request.getParameter("color");
-                String age = request.getParameter("age");
-                boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
-                String origin = request.getParameter("origin");
-                int price = Integer.parseInt(request.getParameter("price"));
-                String description = request.getParameter("description");
-                int AId = Integer.parseInt(request.getParameter("animals"));
-                int BId = Integer.parseInt(request.getParameter("breeds"));
-                part = request.getPart("image");
-                String filename = extracFile(part);
-                String savePath = getFullPath(request) + File.separator + filename;
+            for (Pets pet : petsFacade.findAll()) {
+                if (pet.getPName().equals(name)) {
+                    msgName = name + " already in database";
+                    request.setAttribute("msgName", msgName);
+                    request.getRequestDispatcher("/Admin/pet/addPet.jsp").forward(request, response);
+                }
+            }
+            if (check == false) {
+                if (petsFacade.find(id) == null) {
 
-                if (price > 0 && price <= 100000000) {
-                    saveToFolder(savePath);
-                    Animals animals = animalsFacade.find(AId);
-                    Breeds breeds = breedsFacade.find(BId);
-                    Pets pet = new Pets(id, name, color, age, gender, origin, price, filename, description, animals, breeds);
-                    petsFacade.create(pet);
-                    response.sendRedirect("List");
+                    String color = request.getParameter("color");
+                    String age = request.getParameter("age");
+                    boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
+                    String origin = request.getParameter("origin");
+                    int price = Integer.parseInt(request.getParameter("price"));
+                    String description = request.getParameter("description");
+                    int AId = Integer.parseInt(request.getParameter("animals"));
+                    int BId = Integer.parseInt(request.getParameter("breeds"));
+                    part = request.getPart("image");
+                    String filename = extracFile(part);
+                    String savePath = getFullPath(request) + File.separator + filename;
+
+                    if (price > 0 && price <= 100000000) {
+                        saveToFolder(savePath);
+                        Animals animals = animalsFacade.find(AId);
+                        Breeds breeds = breedsFacade.find(BId);
+                        Pets pet = new Pets(id, name, color, age, gender, origin, price, filename, description, animals, breeds);
+                        petsFacade.create(pet);
+                        response.sendRedirect("List");
+                    } else {
+                        msgPrice = "Price must be between 0 - 100000000";
+                        request.setAttribute("msgPrice", msgPrice);
+                        request.setAttribute("animals", animalsFacade.findAll());
+                        request.setAttribute("breeds", breedsFacade.findAll());
+                        request.getRequestDispatcher("/Admin/pet/addPet.jsp").forward(request, response);
+                    }
+
                 } else {
-                    msgPrice = "Price must be between 0 - 100000000";
-                    request.setAttribute("msgPrice", msgPrice);
+                    msg = "Id already exists";
+                    request.setAttribute("msg", msg);
                     request.setAttribute("animals", animalsFacade.findAll());
                     request.setAttribute("breeds", breedsFacade.findAll());
                     request.getRequestDispatcher("/Admin/pet/addPet.jsp").forward(request, response);
                 }
-
-            } else {
-                msg = "Id already exists";
-                request.setAttribute("msg", msg);
-                request.setAttribute("animals", animalsFacade.findAll());
-                request.setAttribute("breeds", breedsFacade.findAll());
-                request.getRequestDispatcher("/Admin/pet/addPet.jsp").forward(request, response);
             }
+
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }

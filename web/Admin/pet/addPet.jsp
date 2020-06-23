@@ -355,6 +355,7 @@
                                             <span ng-show="myForm.pet_name.$invalid && myForm.pet_name.$dirty" class="error-msg" style="color: red">
                                                 Name must be(3-20)!
                                             </span>
+                                            <span style="color: red">${msgName}</span>
                                         </div>
                                     </div>
                                     <!-- Text input-->
