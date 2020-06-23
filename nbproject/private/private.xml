@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3">
         <file>
-            <url>src/java/entity/OrdersFacade.java</url>
-            <bookmark id="3">
-                <name/>
-                <line>34</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
             <url>src/java/entity/AccessoriesFacade.java</url>
             <bookmark id="1">
                 <name/>
@@ -25,17 +17,38 @@
                 <key/>
             </bookmark>
         </file>
+        <file>
+            <url>src/java/entity/OrdersFacade.java</url>
+            <bookmark id="3">
+                <name/>
+                <line>34</line>
+                <key/>
+            </bookmark>
+        </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/breed/addBreed.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/controller/cateController.java</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/pet/addPet.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/accessories/addAccessories.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/animals/addAnimals.jsp</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/controller/animalsController.java</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/src/java/controller/breedController.java</file>
-            <file>file:/D:/Project_4/Project_HKIV_PetShop/web/Admin/cate/addCate.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/accessories/accessoriesList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/accessories/addAccessories.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/breed/addBreed.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/report/Pet/topPet.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Feedbacks.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/setup/glassfish-resources.xml</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/app_vi.properties</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/accessoriesController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/report/Food/topFood.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/pet/petList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/feedbackController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/feedback/fbList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/animals/addAnimals.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/report/Accessories/topAccessories.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/pet/addPet.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Customer/Cart/printBill.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/index.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/food/foodList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/animalsController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/app_en.properties</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/breedController.java</file>
         </group>
     </open-files>
 </project-private>

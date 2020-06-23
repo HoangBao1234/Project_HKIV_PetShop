@@ -34,7 +34,7 @@
             <h3>590 Cách Mạng tháng Tám.</h3>
             <h3>Quận 3, TP Hồ Chí Minh.</h3>
             <h3>Phone: 0387278015.
-            <h3>Email:dokhanhduy123abc@gmail.com</h3>
+            <h3>Email:PetShop@gmail.com</h3>
             
             <hr>
                 <header>
