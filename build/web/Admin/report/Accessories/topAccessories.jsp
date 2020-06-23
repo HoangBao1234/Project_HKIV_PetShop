@@ -29,43 +29,39 @@
     </head>
     <body>
         <div class="container">
-
-            <header>
-                <h1><span>Report</span>Top 5 most expensive foods</h1>
-
-            </header>  
-            <hr>
-            <h2>S2 Pet Admin</h2>
             <h3>590 Cách Mạng tháng Tám.</h3>
             <h3>Quận 3, TP Hồ Chí Minh.</h3>
             <h3>Phone: 0387278015.
-                <h3>Email:dokhanhduy123abc@gmail.com</h3>
-
-
-                <!-- start header here-->
+            <h3>Email:dokhanhduy123abc@gmail.com</h3>
+            <hr>
                 <header>
-                    <div id="fdw-pricing-table">
+                    <h1><span>Report</span>Top 5 most expensive Accessories</h1>
 
-                        <table border="1" width="80%">
-                            <tr style="text-align: center">
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Animals</th>
-                                <th>Price</th>
-                            </tr>
-                            <c:forEach var="i" items="${list}">
-                                <tr>
-                                    <td>${i.ESId}</td>
-                                    <td>${i.name}</td>
-                                    <td>${i.CFId.name}</td>
-                                    <td>${i.price}</td>
+                </header>  
+                
+                    <header>
+                        <div id="fdw-pricing-table">
+
+                            <table border="1" width="80%">
+                                <tr style="text-align: center">
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Animals</th>
+                                    <th>Price</th>
                                 </tr>
-                            </c:forEach>
-                        </table>
+                                <c:forEach var="i" items="${list}">
+                                    <tr>
+                                        <td>${i.ESId}</td>
+                                        <td>${i.name}</td>
+                                        <td>${i.CFId.name}</td>
+                                        <td>${i.price}</td>
+                                    </tr>
+                                </c:forEach>
+                            </table>
+
+                        </div>
+                    </header><!-- end header -->
 
                     </div>
-                </header><!-- end header -->
-
-        </div>
-    </body>
-</html>
+                    </body>
+                    </html>

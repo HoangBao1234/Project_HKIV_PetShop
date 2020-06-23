@@ -21,6 +21,8 @@
         <meta name="author" content="">
 
         <title>Add Animals</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script> 
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Custom fonts for this template-->
@@ -29,6 +31,13 @@
 
         <!-- Custom styles for this template-->
         <link href="${context}/Admin/css/sb-admin-2.min.css" rel="stylesheet">
+        <style>
+            .error-msg {
+                font-size: 90%;
+                font-style: italic;
+                color: red;
+            }
+        </style>
 
 
 
@@ -334,48 +343,89 @@
                     </nav>
                     <div>
                         <center>
-                            <h1>Add Animals</h1>
-                            <form class="form-horizontal" action="${context}/Animals/Store" method="post">
+                            <div class="card-body" ng-app="myApp" ng-controller="myCtrl">
+                                <h1>Add Animals</h1>
+                                <form class="form-horizontal" action="${context}/Animals/Store" name="myForm" ng-submit="checkOnSubmit($event)" method="post">
 
-                                <!-- Text input-->
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        Animals Name
+                                    <!-- Text input-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            Animals Name
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="animals_name" name="animals_name" placeholder="Animals Name" class="form-control input-md" ng-required="true"
+                                                   ng-model="username" ng-minlength= "3" ng-maxlength= "20" type="text">
+                                        </div>
+                                        <span ng-show="myForm.animals_name.$invalid && myForm.animals_name.$dirty" class="error-msg">
+                                            Name must be(3-20)!
+                                        </span>
+                                        <span style="color: red">${msg}</span>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <input id="animals_name" name="animals_name" placeholder="Animals Name" class="form-control input-md" required="" type="text">
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-4" style="text-align: left">
+                                            <input name="action" value="Insert" type="submit" class="btn btn-primary"/>
+                                        </div>
                                     </div>
-                                </div>
 
 
-                                <div class="form-group">
-                                    <div class="col-md-4" style="text-align: left">
-                                        <input name="action" value="Insert" type="submit" class="btn btn-primary"/>
-                                    </div>
-                                </div>
-
-
-                            </form>
+                                </form>
+                            </div>
+                        </center>
                     </div>
                 </div>
-                </center>
             </div>
-        </div>
-        <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
-        <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+            <script>
+                var app = angular.module("myApp", []);
 
-        <!-- Custom scripts for all pages-->
-        <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
+                app.controller("myCtrl", function($scope) {
 
-        <!-- Page level plugins -->
-        <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
+                    $scope.username = "";
+                    function printErrorInfo() {
+                        console.log($scope.myForm.$error);
+                        if ($scope.myForm.$error.minlength) {
+                            console.log('$error.minlength? ' + $scope.myForm.$error.minlength[0].$invalid);
+                        }
+                        if ($scope.myForm.$error.maxlength) {
+                            console.log('$error.maxlength? ' + $scope.myForm.$error.maxlength[0].$invalid);
+                        }
 
-        <!-- Page level custom scripts -->
-        <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
-        <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
+                    }
+
+                    $scope.checkOnSubmit = function(event) {
+                        if ($scope.myForm.$invalid) {
+                            alert("Something invalid!");
+
+                            printErrorInfo();
+
+                            event.preventDefault();
+                            return false;
+                        }
+
+                        return true;
+                    }
+
+                });
+
+            </script>
+
+            <script src="${context}/Admin/vendor/jquery/jquery.min.js"></script>
+            <script src="${context}/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+            <!-- Core plugin JavaScript-->
+            <script src="${context}/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+            <!-- Custom scripts for all pages-->
+            <script src="${context}/Admin/js/sb-admin-2.min.js"></script>
+
+            <!-- Page level plugins -->
+            <script src="${context}/Admin/vendor/chart.js/Chart.min.js"></script>
+
+            <!-- Page level custom scripts -->
+            <script src="${context}/Admin/js/demo/chart-area-demo.js"></script>
+            <script src="${context}/Admin/js/demo/chart-pie-demo.js"></script>
 
     </body>
 </html>

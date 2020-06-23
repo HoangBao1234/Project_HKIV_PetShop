@@ -83,9 +83,22 @@ public class breedController extends HttpServlet {
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
             String name = request.getParameter("breeds_name");
-            Breeds br = new Breeds(name);
-            breedsFacade.create(br);
-            response.sendRedirect("List");
+            String msg = null;
+            boolean check = false;
+            for (Breeds breeds : breedsFacade.findAll()) {
+                if (breeds.getName().equals(name)) {
+                    msg = name + " already in database";
+                    check = true;
+                    request.setAttribute("msg", msg);
+                    request.getRequestDispatcher("/Admin/breed/addBreed.jsp").forward(request, response);
+                }
+            }
+            if (check == false) {
+                Breeds br = new Breeds(name);
+                breedsFacade.create(br);
+                response.sendRedirect("List");
+            }
+
         } catch (Exception e) {
             request.getRequestDispatcher("/Admin/404.jsp").forward(request, response);
         }

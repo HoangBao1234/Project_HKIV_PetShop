@@ -152,27 +152,22 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write("\" ng-model=\"password\"\r\n");
       out.write("                                               ng-minlength= \"5\" ng-maxlength= \"10\" ng-required=\"true\">\r\n");
-      out.write("                                        <br/>\r\n");
-      out.write("                                        <span ng-show=\"myForm.regis_pass.$invalid && myForm.regis_pass.$dirty \" class=\"error-msg\">\r\n");
+      out.write("                                        \r\n");
+      out.write("                                        <span ng-show=\"myForm.regis_pass.$invalid && myForm.regis_pass.$dirty\" class=\"error-msg\">\r\n");
       out.write("                                            Password must be(5-10)!\r\n");
       out.write("                                        </span>\r\n");
-      out.write("                                        <br/>\r\n");
+      out.write("                                        \r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
+      out.write("                                               \r\n");
       out.write("                                <div class=\"col-2\">\r\n");
       out.write("                                    <div class=\"input-group\">\r\n");
       out.write("                                        <div class=\"rs-select2 js-select-simple select--no-search\">\r\n");
-      out.write("                                            <input class=\"input--style-3\" type=\"text\" id=\"mobile\" name=\"regis_phone\" placeholder=\"");
+      out.write("                                              <input class=\"input--style-3\" type=\"password\" id=\"exampleRepeatPassword\" name=\"regis_pass\" placeholder=\"");
       if (_jspx_meth_fmt_message_3(_jspx_page_context))
         return;
-      out.write("\" ng-required=\"true\"\r\n");
-      out.write("                                                   ng-model=\"phone\" ng-pattern=\"/((09|03|07|08|05|06|04|02|01)+([0-9]{8,10})\\b)/g\">\r\n");
-      out.write("                                            <br/>\r\n");
-      out.write("                                            <span ng-show=\"myForm.regis_phone.$invalid && myForm.regis_phone.$dirty\" class=\"error-msg\">\r\n");
-      out.write("                                                must be in correct format and (10 to 12) Number!\r\n");
-      out.write("                                                \r\n");
-      out.write("                                            </span>\r\n");
-      out.write("                                            <br/>\r\n");
+      out.write("\" ng-required=\"true\">\r\n");
+      out.write("                                           \r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
@@ -193,31 +188,43 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <div class=\"row row-space\">\r\n");
       out.write("                                <div class=\"col-2\">\r\n");
       out.write("                                    <div class=\"input-group\">\r\n");
-      out.write("                                        <input class=\"input--style-3\" type=\"text\" id=\"exampleRepeatPassword\" name=\"regis_address\" placeholder=\"");
+      out.write("                                        <input class=\"input--style-3\" type=\"text\" id=\"address\" name=\"regis_address\" placeholder=\"");
       if (_jspx_meth_fmt_message_5(_jspx_page_context))
         return;
       out.write("\" ng-required=\"true\">\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
-      out.write("                                    <div class=\"row row-space\">\r\n");
+      out.write("                            <div class=\"row row-space\">\r\n");
       out.write("                                <div class=\"col-2\">\r\n");
       out.write("                                    <div class=\"input-group\">\r\n");
-      out.write("                                        <input class=\"input--style-3\" type=\"text\" id=\"exampleRepeatPassword\" name=\"regis_address\" placeholder=\"");
+      out.write("                                       <input class=\"input--style-3\" type=\"text\" id=\"mobile\" name=\"regis_phone\" placeholder=\"");
       if (_jspx_meth_fmt_message_6(_jspx_page_context))
         return;
-      out.write("\" ng-required=\"true\">\r\n");
+      out.write("\" ng-required=\"true\"\r\n");
+      out.write("                                                   ng-model=\"phone\" ng-pattern=\"/((09|03|07|08|05|06|04|02|01)+([0-9]{8,10})\\b)/g\">\r\n");
+      out.write("                                            <br/>\r\n");
+      out.write("                                            <span ng-show=\"myForm.regis_phone.$invalid && myForm.regis_phone.$dirty\" class=\"error-msg\">\r\n");
+      out.write("                                                must be in correct format and (10 to 12) Number!\r\n");
+      out.write("\r\n");
+      out.write("                                            </span>\r\n");
+      out.write("                                            <br/>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
       out.write("                            <div class=\"p-t-30\">\r\n");
-      out.write("                                <button class=\"btn btn--radius btn--green checkmobile\"  type=\"submit\" onclick=\"return Validate()\">Register</button>\r\n");
+      out.write("                                <button class=\"btn btn--radius btn--green checkmobile\"  type=\"submit\" onclick=\"return Validate()\">");
+      if (_jspx_meth_fmt_message_7(_jspx_page_context))
+        return;
+      out.write("</button>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"p-t-30\">\r\n");
       out.write("                                <a href=\"https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project_HKIV_PetShop/loginGoogle&response_type=code\r\n");
       out.write("                                   &client_id=520939530095-juad1qmkst71lhl963fqck8mibnocbhu.apps.googleusercontent.com&approval_prompt=force\" style=\"color: #007bff;\">\r\n");
       out.write("                                    ");
-      if (_jspx_meth_fmt_message_7(_jspx_page_context))
+      if (_jspx_meth_fmt_message_8(_jspx_page_context))
         return;
       out.write("\r\n");
       out.write("                                </a>\r\n");
@@ -225,8 +232,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <div class=\"p-t-30\">\r\n");
       out.write("                                <a class=\"small\" href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Login/loginCustomer/Login_v11\"> ");
-      if (_jspx_meth_fmt_message_8(_jspx_page_context))
+      out.write("/Login/loginCustomer/Login_v11/index.jsp\"> ");
+      if (_jspx_meth_fmt_message_9(_jspx_page_context))
         return;
       out.write(" </a>\r\n");
       out.write("                            </div>\r\n");
@@ -243,17 +250,17 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
-      out.write("         <script type=\"text/javascript\">\r\n");
-      out.write("    function Validate() {\r\n");
-      out.write("        var password = document.getElementById(\"exampleInputPassword\").value;\r\n");
-      out.write("        var confirmPassword = document.getElementById(\"exampleRepeatPassword\").value;\r\n");
-      out.write("        if (password != confirmPassword) {\r\n");
-      out.write("            alert(\"Passwords do not match.\");\r\n");
-      out.write("            return false;\r\n");
-      out.write("        }\r\n");
-      out.write("        return true;\r\n");
-      out.write("    }\r\n");
-      out.write("</script>\r\n");
+      out.write("        <script type=\"text/javascript\">\r\n");
+      out.write("            function Validate() {\r\n");
+      out.write("                var password = document.getElementById(\"exampleInputPassword\").value;\r\n");
+      out.write("                var confirmPassword = document.getElementById(\"exampleRepeatPassword\").value;\r\n");
+      out.write("                if (password != confirmPassword) {\r\n");
+      out.write("                    alert(\"Passwords do not match.\");\r\n");
+      out.write("                    return false;\r\n");
+      out.write("                }\r\n");
+      out.write("                return true;\r\n");
+      out.write("            }\r\n");
+      out.write("        </script>\r\n");
       out.write("        <script>\r\n");
       out.write("            var app = angular.module(\"myApp\", []);\r\n");
       out.write("\r\n");
@@ -271,7 +278,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    if ($scope.myForm.$error.maxlength) {\r\n");
       out.write("                        console.log('$error.maxlength? ' + $scope.myForm.$error.maxlength[0].$invalid);\r\n");
       out.write("                    }\r\n");
-      out.write("                    \r\n");
+      out.write("\r\n");
       out.write("                }\r\n");
       out.write("\r\n");
       out.write("                $scope.checkOnSubmit = function(event) {\r\n");
@@ -284,14 +291,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        event.preventDefault();\r\n");
       out.write("                        return false;\r\n");
       out.write("                    }\r\n");
-      out.write("                   \r\n");
+      out.write("\r\n");
       out.write("                    return true;\r\n");
       out.write("                }\r\n");
       out.write("\r\n");
       out.write("            });\r\n");
-      out.write("            \r\n");
+      out.write("\r\n");
       out.write("        </script>\r\n");
-      out.write("       \r\n");
+      out.write("\r\n");
       out.write("        <!-- Jquery JS-->\r\n");
       out.write("        <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${context}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -454,7 +461,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_3 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_3.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_3.setParent(null);
-    _jspx_th_fmt_message_3.setKey("login.textfield.phone");
+    _jspx_th_fmt_message_3.setKey("login.textfield.rePassword");
     int _jspx_eval_fmt_message_3 = _jspx_th_fmt_message_3.doStartTag();
     if (_jspx_th_fmt_message_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
@@ -508,7 +515,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_6 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_6.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_6.setParent(null);
-    _jspx_th_fmt_message_6.setKey("login.textfield.address");
+    _jspx_th_fmt_message_6.setKey("login.textfield.phone");
     int _jspx_eval_fmt_message_6 = _jspx_th_fmt_message_6.doStartTag();
     if (_jspx_th_fmt_message_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
@@ -526,7 +533,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_7 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_7.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_7.setParent(null);
-    _jspx_th_fmt_message_7.setKey("login.button.submitGoogle");
+    _jspx_th_fmt_message_7.setKey("login.textfield.Register");
     int _jspx_eval_fmt_message_7 = _jspx_th_fmt_message_7.doStartTag();
     if (_jspx_th_fmt_message_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
@@ -544,13 +551,31 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_8 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_8.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_8.setParent(null);
-    _jspx_th_fmt_message_8.setKey("login.button.alhaveaccount");
+    _jspx_th_fmt_message_8.setKey("login.button.submitGoogle");
     int _jspx_eval_fmt_message_8 = _jspx_th_fmt_message_8.doStartTag();
     if (_jspx_th_fmt_message_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_8);
       return true;
     }
     _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_8);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_9(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_9 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_9.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_9.setParent(null);
+    _jspx_th_fmt_message_9.setKey("login.button.alhaveaccount");
+    int _jspx_eval_fmt_message_9 = _jspx_th_fmt_message_9.doStartTag();
+    if (_jspx_th_fmt_message_9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_9);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_9);
     return false;
   }
 }
