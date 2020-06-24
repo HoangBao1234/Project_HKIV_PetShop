@@ -28,7 +28,14 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/hoc%20tap%20IT/sem4/project_sem4/Project_HKIV_PetShop/setup/glassfish-resources.xml</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/order/orderList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Pethotel.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Pets.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/setup/glassfish-resources.xml</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Orders.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Accessories.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/oderController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/conf/persistence.xml</file>
         </group>
     </open-files>
 </project-private>
