@@ -89,9 +89,7 @@
                                             </a>
                                         </form>
                                         <hr>
-                                        <div class="text-center">
-                                            <a class="small" href="forgot-password.jsp"><fmt:message key="login.button.fogot"/></a>
-                                        </div>
+                                        
                                         <div class="text-center">
                                             <a class="small" href="${context}/Customers/Register"><fmt:message key="login.textfield.Register"/></a>
                                         </div>
