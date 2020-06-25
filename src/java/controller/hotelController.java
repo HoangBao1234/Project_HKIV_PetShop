@@ -122,6 +122,13 @@ public class hotelController extends HttpServlet {
                 request.setAttribute("msg", msg);
                 request.getRequestDispatcher("/Customer/petHotel/colorlib-regform-3/index.jsp").forward(request, response);
             } else {
+                if(day <=3){
+                    hotel.setPrice(50);
+                }else if(day <= 5){
+                    hotel.setPrice(70);
+                }else if(day > 5){
+                    hotel.setPrice(100);
+                }
                 pethotelFacade.create(hotel);
                 session.setAttribute("hotel", hotel);
                 response.sendRedirect("PrintBill");
