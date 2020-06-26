@@ -28,16 +28,15 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/order/orderList.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/cusController/loginGoogle.java</file>
             <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Pethotel.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Pets.java</file>
             <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/setup/glassfish-resources.xml</file>
             <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/hotelController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/cusController/orderController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/cusController/cusHotelController.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Orders.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Accessories.java</file>
-            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/oderController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/pet/detail.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/hotel/updateHotel.jsp</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/entity/Members.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/src/java/controller/petController.java</file>
+            <file>file:/D:/Sem4/Project/Project_HKIV_PetShop/web/Admin/hotel/hotelList.jsp</file>
         </group>
     </open-files>
 </project-private>

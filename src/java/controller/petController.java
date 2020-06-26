@@ -152,6 +152,7 @@ public class petController extends HttpServlet {
             String msgPrice = null;
             for (Pets pet : petsFacade.findAll()) {
                 if (pet.getPName().equals(name)) {
+                    check = true;
                     msgName = name + " already in database";
                     request.setAttribute("msgName", msgName);
                     request.getRequestDispatcher("/Admin/pet/addPet.jsp").forward(request, response);

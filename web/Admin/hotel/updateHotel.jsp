@@ -347,7 +347,7 @@
                                         Hotel Pet Id:
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="id" name="id" value="${hotel.PHId}" placeholder="Hotel Pet Id" class="form-control input-md" required="" type="text">
+                                        <input id="id" name="id" value="${hotel.PHId}" placeholder="Hotel Pet Id" class="form-control input-md" required="" type="text" readonly="true">
                                     </div>
                                 </div>
 
@@ -365,7 +365,7 @@
                                         Date Start:
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="dateStart" name="dateStart" value="${hotel.dateStart}" placeholder="Date Start" class="form-control input-md" required="" type="text">
+                                        <input id="dateStart" name="dateStart" value="${hotel.dateStart}" placeholder="Date Start" class="form-control input-md" required="" type="datetime">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -373,7 +373,7 @@
                                         Date End
                                     </div>
                                     <div class="col-sm-4">
-                                        <input id="dateEnd" name="dateEnd" value="${hotel.dateEnd}" placeholder="Price" class="form-control input-md" required="" type="text">
+                                        <input id="dateEnd" name="dateEnd" value="${hotel.dateEnd}" placeholder="Price" class="form-control input-md" required="" type="datetime">
                                     </div>
                                 </div>
                                 <!-- Text input-->
@@ -399,16 +399,7 @@
                                         Members
                                     </div>
                                     <div class="col-sm-4" style="text-align: left">
-                                        <select style="width: 150px" name="members">
-                                            <c:forEach var="aList" items="${members}">
-                                                <c:if test="${hotel.MId.MId == aList.MId}">
-                                                    <option value="${aList.MId}" selected="selected">${aList.name}</option>
-                                                </c:if>
-                                                <c:if test="${hotel.MId.MId != aList.MId}">
-                                                    <option value="${aList.MId}">${aList.name}</option>
-                                                </c:if>
-                                            </c:forEach>
-                                        </select>
+                                        <input id="status" name="status" value="${hotel.mId.name}" readonly="true" placeholder="Status" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
 

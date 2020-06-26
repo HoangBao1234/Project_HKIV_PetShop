@@ -142,7 +142,7 @@ public class hotelController extends HttpServlet {
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
-            String id = request.getParameter("id");
+            int id = Integer.parseInt(request.getParameter("id"));
             Pethotel hoPethotel = pethotelFacade.find(id);
             pethotelFacade.remove(hoPethotel);
             response.sendRedirect("List");
@@ -153,7 +153,7 @@ public class hotelController extends HttpServlet {
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String id = request.getParameter("id");
+            int id = Integer.parseInt(request.getParameter("id"));
             String namePet = request.getParameter("namePet");
             String dateStart = request.getParameter("dateStart");
             String dateEnd = request.getParameter("dateEnd");
@@ -173,7 +173,7 @@ public class hotelController extends HttpServlet {
             if (request.getParameter("id") == null || request.getParameter("id").trim().isEmpty()) {
                 response.sendRedirect("List");
             } else {
-                String id = request.getParameter("id");
+                int id = Integer.parseInt(request.getParameter("id"));
                 request.setAttribute("members", membersFacade.findAll());
                 request.setAttribute("hotel", pethotelFacade.find(id));
 

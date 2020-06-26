@@ -355,7 +355,7 @@
                                 </tr>
                                 <tr>
                                     <td>Gender: </td>
-                                    <td>${pet.gender}</td>
+                                    <td>${pet.gender == true ? "Male" : "Female"}</td>
                                 </tr>
                                 <tr>
                                     <td>Breed: </td>
@@ -371,7 +371,10 @@
                                 </tr>
                             </table>
                                 <button style="padding: 5px 15px 5px 15px; border: none; background-color: #0069d9;
-                                        border-radius: 10px; color: #cccccc">Edit</button>
+                                        border-radius: 5px; color: #cccccc">
+                                    <a href="${context}/Pet/Edit?id=${pet.PId}" style="color: white">
+                                            Edit
+                                    </a></button>
                         </div>
                     </div>
                 </div>
