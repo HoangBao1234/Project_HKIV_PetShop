@@ -54,7 +54,7 @@ public class loginGoogle extends HttpServlet {
                 String id = googlePojo.getId();
                 String mail = googlePojo.getEmail();
                 
-                String name = mail.substring(0, mail.indexOf("@"));
+                String name = mail.substring(0, 9);
                 boolean check = false;
                 for (Members members : membersFacade.findAll()) {
                     if (members.getMail().equals(mail)) {
